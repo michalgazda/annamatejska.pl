@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe</title>
+<meta name="description" content="Naturalna fotografia rodzinna, kobiece, ciążowe i wizerunkowa w Krakowie. Bez pozowania, z czułością. Umów sesję u fotografa Anny Matejskiej-Gazdy.">
+<meta property="og:title" content="Anna Matejska-Gazda — Fotograf Kraków">
+<meta property="og:description" content="Sesje rodzinne, dziecięce, kobiece, ciążowe, romantyczne i wizerunkowe. Naturalnie, z czułością.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAF7F2; --paper:#FFFFFF; --ink:#2B2926; --ink-soft:#5C5650;
+  --terra:#B0784F; --terra-dark:#96613C; --sand:#EDE6DC;
+  --serif:'Cormorant Garamond',serif; --sans:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--ivory);line-height:1.7;font-size:16px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+.kicker{display:block;font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem;font-weight:400}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(43,41,38,.08)}
+.nav{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--serif);font-size:1.25rem;letter-spacing:.06em}
+.brand span{color:var(--terra)}
+.nav-links{display:flex;gap:32px;align-items:center;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400}
+.nav-links a:hover{color:var(--terra)}
+.btn{display:inline-block;background:var(--terra);color:#fff;padding:12px 30px;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;border-radius:2px;transition:.25s;font-weight:400;border:none;cursor:pointer}
+.btn:hover{background:var(--terra-dark)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--ink)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.hero-inner{position:relative;z-index:2;color:#fff;padding:0 24px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:.04em;margin-bottom:1rem}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);letter-spacing:.14em;text-transform:uppercase;margin-bottom:36px;font-weight:300}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.about-grid img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.about h2{font-size:2.4rem;margin-bottom:1.2rem}
+.about p{margin-bottom:1rem;color:var(--ink-soft)}
+.sig{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--ink)}
+
+/* SERVICES */
+.services{background:var(--paper)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.svc{position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.svc:hover img{transform:scale(1.05)}
+.svc .overlay{position:relative;z-index:2;width:100%;padding:28px 24px 22px;color:#fff;background:linear-gradient(to top,rgba(20,17,15,.92) 20%,rgba(20,17,15,.45) 60%,rgba(20,17,15,0))}
+.svc h3{font-size:1.55rem;letter-spacing:.05em}
+.svc p{font-size:.85rem;opacity:.85}
+.svc small{display:block;margin-top:6px;letter-spacing:.2em;text-transform:uppercase;font-size:.68rem;opacity:.75}
+.center{text-align:center;margin-top:44px}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:52px}
+.step{text-align:center;padding:0 8px}
+.step-num{font-family:var(--serif);font-size:3rem;color:var(--terra);line-height:1}
+.step h3{font-size:1.25rem;margin:14px 0 8px}
+.step p{font-size:.92rem;color:var(--ink-soft)}
+
+/* SEASONS */
+.seasons{background:linear-gradient(180deg,var(--sand),var(--ivory))}
+.season-list{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:48px}
+.season{background:var(--paper);padding:26px 18px;text-align:center;border-radius:3px;box-shadow:0 2px 14px rgba(43,41,38,.06)}
+.season .mo{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra)}
+.season h3{font-size:1.3rem;margin-top:10px}
+
+/* QUOTE */
+.quote{background:var(--ink);color:var(--ivory);text-align:center}
+.quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);max-width:800px;margin:0 auto}
+.quote cite{display:block;margin-top:20px;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:var(--terra);font-weight:400}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.testi{background:var(--paper);padding:34px 30px;border-radius:3px;box-shadow:0 2px 16px rgba(43,41,38,.05)}
+.testi p{font-size:.95rem;color:var(--ink-soft);margin-bottom:20px}
+.testi footer{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);font-weight:400}
+.stars{color:var(--terra);letter-spacing:3px;margin-bottom:14px}
+
+/* GALLERY */
+.gallery{background:var(--paper)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.gal-grid a{overflow:hidden;aspect-ratio:1;display:block}
+.gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-grid a:hover img{transform:scale(1.06)}
+.gal-grid a:nth-child(1),.gal-grid a:nth-child(8){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:40px}
+.contact-info div{margin-bottom:22px;font-size:1.05rem}
+.contact-info strong{display:block;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra);margin-bottom:4px;font-weight:400}
+form input,form textarea{width:100%;padding:14px 16px;margin-bottom:16px;border:1px solid #D8D0C5;background:var(--paper);font-family:var(--sans);font-size:.95rem;border-radius:2px}
+form input:focus,form textarea:focus{outline:2px solid var(--terra);border-color:transparent}
+
+footer.site{background:var(--ink);color:#A9A29A;padding:36px 0;font-size:.82rem}
+footer.site .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer.site a:hover{color:#fff}
+
+@media(max-width:900px){
+  section{padding:60px 0}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid #e5ddd2}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .season-list{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#">Anna Matejska<span>-Gazda</span></a>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="#o-mnie">O mnie</a>
+      <a href="#sesje">Sesje</a>
+      <a href="#jak-to-dziala">Jak to działa</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#kontakt" class="btn">Umów sesję</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" style="padding:0">
+  <img class="bg" src="images/hero.jpg" alt="Sesja plenerowa w złotej godzinie — Anna Matejska-Gazda fotografia">
+  <div class="hero-inner">
+    <p>Fotografia · Kraków i okolice</p>
+    <h1>Zatrzymuję chwile,<br>które zostają na zawsze</h1>
+    <a href="#kontakt" class="btn">Umów sesję</a>
+  </div>
+</section>
+
+<section class="about" id="o-mnie">
+  <div class="container about-grid">
+    <img src="images/about.jpg" alt="Anna Matejska-Gazda — fotograf z Krakowa">
+    <div>
+      <span class="kicker">O mnie</span>
+      <h2>Cześć! Mam na imię Anna.</h2>
+      <p>Jestem historykiem sztuki i pedagogiem — dzięki temu dbam o estetykę każdego kadru, a podczas sesji rodzinnych wiem, jak sprawić, by dla dzieci była to zabawa, nie przymus.</p>
+      <p>Prywatnie jestem szczęśliwą żoną i mamą dwóch córeczek, których pojawienie się sprawiło, że po 10 latach fotografii krajobrazowej zakochałam się w fotografii portretowej.</p>
+      <p>Dla mnie najważniejsza jest <strong>czułość</strong> — uchwycam Wasze emocje i to, co w Was wyjątkowe. Każdą sesję zaczynam od kawy i rozmowy, żeby poznać Wasze oczekiwania.</p>
+      <p class="sig">— Anna</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="sesje">
+  <div class="container">
+    <span class="kicker">Oferta</span>
+    <h2 style="font-size:2.4rem">Wybierz swoją sesję</h2>
+    <div class="svc-grid">
+      <a class="svc" href="#"><img src="images/svc-rodzinne.jpg" alt="Sesja rodzinna"><div class="overlay"><h3>Rodzinne</h3><p>Nie muszą być idealne. Wystarczy, że będą Wasze.</p><small>ok. 1,5 h</small></div></a>
+      <a class="svc" href="#"><img src="images/svc-dzieciece.jpg" alt="Sesja dziecięca"><div class="overlay"><h3>Dziecięce</h3><p>Głównie się bawimy — najlepsze kadry wychodzą same.</p><small>1–1,5 h</small></div></a>
+      <a class="svc" href="#"><img src="images/svc-kobiece.jpg" alt="Sesja kobieca"><div class="overlay"><h3>Kobiece</h3><p>Lekkie kadry w plenerze lub nastrojowe w studio.</p><small>1,5–2 h</small></div></a>
+      <a class="svc" href="#"><img src="images/svc-ciazowe.jpg" alt="Sesja ciążowa"><div class="overlay"><h3>Ciążowe</h3><p>Najlepiej między 28. a 34. tygodniem — ale kiedy chcesz.</p><small>1–1,5 h</small></div></a>
+      <a class="svc" href="#"><img src="images/svc-romantyczne.jpg" alt="Sesja romantyczna"><div class="overlay"><h3>Romantyczne</h3><p>Sesja jak randka — spacer, rozmowy, przytulanie.</p><small>ok. 1 h</small></div></a>
+      <a class="svc" href="#"><img src="images/svc-wizerunkowe.jpg" alt="Sesja wizerunkowa"><div class="overlay"><h3>Wizerunkowe</h3><p>Marka osobista i biznes — spójne z Tobą kadry.</p><small>1–2 h</small></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="jak-to-dziala">
+  <div class="container">
+    <span class="kicker">Proces</span>
+    <h2 style="font-size:2.4rem">Jak to działa?</h2>
+    <div class="process-grid">
+      <div class="step"><div class="step-num">01</div><h3>Kawa i rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Przygotowanie</h3><p>Pomogę w doborze strojów, miejsca i pory dnia — idealnej na Wasze zdjęcia.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Sesja</h3><p>Bez presji pozowania. Spacer, zabawa, swoboda — ja łapię momenty pomiędzy.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Zdjęcia</h3><p>Starannie wyselekcjonowana i obrobiona galeria — zwykle w ciągu kilku dni.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="seasons">
+  <div class="container">
+    <span class="kicker">Kalendarz pór roku</span>
+    <h2 style="font-size:2.4rem">Sezonowe plenery</h2>
+    <p style="margin-top:14px;color:var(--ink-soft)">Przyroda jako najlepsze tło — każda pora roku ma swój magiczny moment.</p>
+    <div class="season-list">
+      <div class="season"><span class="mo">Mar–Kwi</span><h3>Kwitnący sad</h3></div>
+      <div class="season"><span class="mo">Maj</span><h3>Pole maków</h3></div>
+      <div class="season"><span class="mo">Lip</span><h3>Lawenda</h3></div>
+      <div class="season"><span class="mo">Sie</span><h3>Farma kwiatowa</h3></div>
+      <div class="season"><span class="mo">Wrz–Paź</span><h3>Farma dyniowa</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="container">
+    <blockquote>„W doskonałej fotografii chodzi o głębię uczucia, nie o głębię ostrości."</blockquote>
+    <cite>Peter Adams</cite>
+  </div>
+</section>
+
+<section id="opinie">
+  <div class="container">
+    <span class="kicker">Opinie</span>
+    <h2 style="font-size:2.4rem">Co mówią moi klienci</h2>
+    <div class="testi-grid">
+      <article class="testi"><div class="stars">★★★★★</div><p>„Ania będzie wielokrotnie Was ustawiać, zwróci uwagę na każdy odstający kosmyk włosów, żeby było perfekt. Zrobi sto przysiadów i będzie biegać dookoła Was, aby wyszło jak najlepsze ujęcie. Ania zarazi Was uśmiechem!"</p><footer>Weronika Pachowicz</footer></article>
+      <article class="testi"><div class="stars">★★★★★</div><p>„Wszystko przebiegało swobodnie, bez presji „pozowania", były zabawy i wygłupy z córeczkami, a Ania uchwyciła to wszystko w piękne kadry!"</p><footer>Paulina Noszczyk</footer></article>
+      <article class="testi"><div class="stars">★★★★★</div><p>„Efekty sesji przerosły moje oczekiwania — różnorodne stylizacje, ciekawe kadry, niepowtarzalny klimat. Znajomi podkreślali, że Ani udało się uchwycić MNIE — dokładnie taką, jaka jestem."</p><footer>Agnieszka Krawczyk</footer></article>
+      <article class="testi"><div class="stars">★★★★★</div><p>„Nie czułam się skrępowana ani przez chwilę. Ania potrafiła delikatnie naprowadzić na dobre miejsce, pozę, gest — miło, nienachalnie. Zdjęcia otrzymałyśmy za kilka dni."</p><footer>Małgorzata Pyka</footer></article>
+      <article class="testi"><div class="stars">★★★★★</div><p>„Korzystaliśmy z jej usług przy okazji wizerunkowej sesji biznesowej i jesteśmy zadowoleni w 100%. Nie lubię pozować, a u Ani czułem luz i swobodę."</p><footer>Piotr Idęć</footer></article>
+      <article class="testi"><div class="stars">★★★★★</div><p>„Zdjęcia wywołane na ładnym matowym papierze ślicznie prezentują się na naszej ścianie zdjęć. Warto uchwycać takie momenty. I warto to robić z Anią ❤️"</p><footer>Aneta Hoły</footer></article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="portfolio">
+  <div class="container">
+    <span class="kicker">Portfolio</span>
+    <h2 style="font-size:2.4rem">Wybrane kadry</h2>
+    <div class="gal-grid">
+      <a href="images/g1.jpg"><img src="images/g1.jpg" alt="Portfolio — sesja rodzinna"></a>
+      <a href="images/g2.jpg"><img src="images/g2.jpg" alt="Portfolio — sesja kobieca"></a>
+      <a href="images/g3.jpg"><img src="images/g3.jpg" alt="Portfolio — sesja dziecięca"></a>
+      <a href="images/g4.jpg"><img src="images/g4.jpg" alt="Portfolio — sesja ciążowa"></a>
+      <a href="images/g5.jpg"><img src="images/g5.jpg" alt="Portfolio — sesja romantyczna"></a>
+      <a href="images/g6.jpg"><img src="images/g6.jpg" alt="Portfolio — sesja wizerunkowa"></a>
+      <a href="images/g7.jpg"><img src="images/g7.jpg" alt="Portfolio — sesja w plenerze"></a>
+      <a href="images/g8.jpg"><img src="images/g8.jpg" alt="Portfolio — sesja studyjna"></a>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="background:var(--sand)">
+  <div class="container">
+    <span class="kicker">Kontakt</span>
+    <h2 style="font-size:2.4rem">Masz pytania? Napisz!</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div><strong>Telefon</strong><a href="tel:+48602782474">+48 602 782 474</a></div>
+        <div><strong>E-mail</strong><a href="mailto:annamatejskagazda@gmail.com">annamatejskagazda@gmail.com</a></div>
+        <div><strong>Obszar</strong>Kraków i okolice</div>
+        <div><strong>Studio</strong>Kraków – Czyżyny (domowe studio)</div>
+        <div><strong>Instagram</strong><a href="https://www.instagram.com/annamatejska.fotografia/" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
+        <div><strong>Facebook</strong><a href="https://www.facebook.com/annamatejska.fotografia" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
+      </div>
+      <form action="mailto:annamatejskagazda@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="imie" placeholder="Imię" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="temat" placeholder="Rodzaj sesji (np. rodzinna)">
+        <textarea name="wiadomosc" rows="5" placeholder="Twoja wiadomość…" required></textarea>
+        <button class="btn" type="submit">Wyślij wiadomość</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
+    <span><a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a> · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
