@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Anna Matejska-Gazda Fotograf Kraków</title>
+<meta name="description" content="Umów sesję fotograficzną w Krakowie — tel. 602 782 474, annamatejskagazda@gmail.com. Sesje rodzinne, kobiece, ciążowe, wizerunkowe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="index.html">Anna Matejska<em>-Gazda</em></a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html#o-mnie">O mnie</a>
+      <a href="index.html#sesje">Sesje</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="index.html#opinie">Opinie</a>
+      <a href="kontakt.html" class="btn">Umów sesję</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero" style="padding-bottom:20px">
+  <div class="container">
+    <span class="kicker">Kontakt</span>
+    <h1>Masz pytania? Napisz!</h1>
+    <p>Odpowiadam na wszystkie wiadomości — zwykle tego samego dnia.</p>
+  </div>
+</section>
+
+<section style="padding-top:40px;background:var(--white)">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div><strong>Telefon</strong><a href="tel:+48602782474">+48 602 782 474</a></div>
+      <div><strong>E-mail</strong><a href="mailto:annamatejskagazda@gmail.com">annamatejskagazda@gmail.com</a></div>
+      <div><strong>Obszar działania</strong>Kraków i okolice</div>
+      <div><strong>Studio</strong>Kraków – Czyżyny (domowe studio)</div>
+      <div><strong>Instagram</strong><a href="https://www.instagram.com/annamatejska.fotografia/" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
+      <div><strong>Facebook</strong><a href="https://www.facebook.com/annamatejska.fotografia" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
+    </div>
+    <!-- Form action set at deploy (Netlify Forms / Formspree / own endpoint). mailto fallback below -->
+    <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="kontakt">
+      <p style="display:none"><label>Bot field: <input name="bot-field"></label></p>
+      <input type="text" name="imie" placeholder="Imię *" required>
+      <input type="email" name="email" placeholder="E-mail *" required>
+      <input type="tel" name="telefon" placeholder="Telefon">
+      <select name="rodzaj-sesji" required>
+        <option value="" disabled selected>Rodzaj sesji *</option>
+        <option>Rodzinna</option>
+        <option>Dziecięca</option>
+        <option>Kobiece</option>
+        <option>Ciążowa</option>
+        <option>Romantyczna</option>
+        <option>Wizerunkowa / biznesowa</option>
+        <option>Inne / nie wiem jeszcze</option>
+      </select>
+      <textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *"></textarea>
+      <button class="btn btn-taupe" type="submit">Wyślij zapytanie</button>
+      <p class="form-note">Twoje dane wykorzystam wyłącznie do odpowiedzi na zapytanie.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
+    <span><a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a> · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a></span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

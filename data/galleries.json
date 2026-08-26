@@ -1,0 +1,13 @@
+{
+  "galleries": [
+    {
+      "slug": "sesja-rodzinna-kopiec-kraka",
+      "title": "Rodzinna na Kopcu Kraka",
+      "category": "Sesje rodzinne",
+      "date": "2025-10-15",
+      "cover": "images/galleries/sesja-rodzinna-kopiec-kraka/01.jpg",
+      "excerpt": "Jesienne spacery, wygłupy i czułość — sesja w jednym z najładniejszych miejsc Krakowa.",
+      "page": "galerie/sesja-rodzinna-kopiec-kraka.html"
+    }
+  ]
+}
