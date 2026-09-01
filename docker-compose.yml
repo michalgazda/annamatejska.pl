@@ -4,6 +4,6 @@ services:
     container_name: annamatejska-web
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "8890:80"
     volumes:
       - .:/usr/share/nginx/html:ro
