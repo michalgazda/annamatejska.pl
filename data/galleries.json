@@ -1,6 +1,15 @@
 {
   "galleries": [
     {
+      "slug": "sesja-wizerunkowa-biznes-portret",
+      "title": "Wizerunkowa — portret biznesowy",
+      "category": "Sesje wizerunkowe",
+      "date": "2025-11-18",
+      "cover": "images/galleries/sesja-wizerunkowa-biznes-portret/01.jpg",
+      "excerpt": "Spójne kadry do marki osobistej — naturalne, ale profesjonalne.",
+      "page": "galerie/sesja-wizerunkowa-biznes-portret.html"
+    },
+    {
       "slug": "sesja-rodzinna-kopiec-kraka",
       "title": "Rodzinna na Kopcu Kraka",
       "category": "Sesje rodzinne",
@@ -8,6 +17,51 @@
       "cover": "images/galleries/sesja-rodzinna-kopiec-kraka/01.jpg",
       "excerpt": "Jesienne spacery, wygłupy i czułość — sesja w jednym z najładniejszych miejsc Krakowa.",
       "page": "galerie/sesja-rodzinna-kopiec-kraka.html"
+    },
+    {
+      "slug": "sesja-romantyczna-wisl-zmierzch",
+      "title": "Romantyczna nad Wisłą — zmierzch",
+      "category": "Sesje romantyczne",
+      "date": "2025-10-03",
+      "cover": "images/galleries/sesja-romantyczna-wisl-zmierzch/01.jpg",
+      "excerpt": "Spacer brzegiem Wisły, splecione dłonie i ostatnie światło dnia.",
+      "page": "galerie/sesja-romantyczna-wisl-zmierzch.html"
+    },
+    {
+      "slug": "sesja-kobieca-studio-czyzyny",
+      "title": "Kobieca w studio — Czyżyny",
+      "category": "Sesje kobiece",
+      "date": "2025-09-05",
+      "cover": "images/galleries/sesja-kobieca-studio-czyzyny/01.jpg",
+      "excerpt": "Nastrojowy portret w studio. Ciepłe światło i jeden bohater — Ty.",
+      "page": "galerie/sesja-kobieca-studio-czyzyny.html"
+    },
+    {
+      "slug": "sesja-ciazowa-wawel",
+      "title": "Ciążowa pod Wawelem",
+      "category": "Sesje ciążowe",
+      "date": "2025-08-12",
+      "cover": "images/galleries/sesja-ciazowa-wawel/01.jpg",
+      "excerpt": "Brzuszek w tle krakowskich dachów — delikatnie, z czułością, w złotej godzinie.",
+      "page": "galerie/sesja-ciazowa-wawel.html"
+    },
+    {
+      "slug": "sesja-rodzinna-ogrod-botaniczny",
+      "title": "Rodzinna w Ogródzie Botanicznym",
+      "category": "Sesje rodzinne",
+      "date": "2025-06-20",
+      "cover": "images/galleries/sesja-rodzinna-ogrod-botaniczny/01.jpg",
+      "excerpt": "Wiosenne światło, kwitnące alejki i spacer, który zamienił się w zabawę.",
+      "page": "galerie/sesja-rodzinna-ogrod-botaniczny.html"
+    },
+    {
+      "slug": "sesja-dzieciece-pole-makow",
+      "title": "Dziecięce na polu maków",
+      "category": "Sesje dziecięce",
+      "date": "2025-05-24",
+      "cover": "images/galleries/sesja-dzieciece-pole-makow/01.jpg",
+      "excerpt": "Bieganie, skakanie i śmiech na różowym morzu maków — bez ani jednej komendy.",
+      "page": "galerie/sesja-dzieciece-pole-makow.html"
     }
   ]
 }

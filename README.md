@@ -62,13 +62,22 @@ annamatejska.pl/
 │   └── sesja-rodzinna-kopiec-kraka.html
 ├── images/                 # Zdjęcia demonstracyjne i zasoby graficzne
 ├── tools/                  # Proste skrypty CLI dla Anny
-│   ├── new-gallery.py
-│   ├── build-home-galleries.py
-│   └── gen-session-pages.py
+│   ├── new-gallery.py          # Tworzy stronę galerii + wpis w galleries.json
+│   ├── build-home-galleries.py # Odtwarza karty „Najnowsze galerie” (index + galerie.html)
+│   ├── gen-session-pages.py    # Regeneruje 6 podstron ofertowych sesje/*.html
+│   ├── make-placeholder.py     # (DEV) generuje placeholderowe zdjęcia w paletce strony
+│   └── qa-check.py             # (DEV) automatyczny test rendera (Playwright, headless)
 └── docs/
     ├── design-ux-pl/       # Dokumentacja UX i wizja produktu po polsku
     └── tech-en/            # Specyfikacja techniczna po angielsku
 ```
+
+> **Placeholderowe galerie:** repozytorium zawiera przykładowe galerie
+> (`sesja-*-...`) z wygenerowanymi zdjęciami w paletce taupe/kość słoniowa —
+> żeby strona była kompletna do pokazania. Przed produkcją Anna podmienia
+> cały folder `images/galleries/<nazwa-sesji>/` na prawdziwe zdjęcia i ponownie
+> uruchamia `python3 tools/new-gallery.py --slug <nazwa-sesji> ...` (z tymi samymi
+> parametrami), a następnie `python3 tools/build-home-galleries.py`.
 
 ---
 
@@ -83,8 +92,18 @@ python3 -m http.server 8088
 ---
 
 ## ✅ Weryfikacja jakościowa (Automated QA)
-- Wszystkie 10 podstron przetestowane silnikiem headless Chromium (Playwright).
+
+Automatyczny test rendera (wymaga Playwright):
+
+```bash
+docker compose up -d --build                 # serwer na http://127.0.0.1:8890
+python3 tools/qa-check.py                    # 12 stron, headless Chromium
+```
+
 - **Status HTTP 200** na wszystkich stronach.
 - **Zero błędów konsoli JavaScript**.
-- **Zero uszkodzonych lub brakujących obrazów**.
-- Pełna responsywność (Desktop 1440px / Mobile 390px).
+- **Zero uszkodzonych lub brakujących obrazów** (łącznie z lazy-loading).
+- **Menu mobilne:** otwiera się po kliknięciu, zamyka po wyborze linku.
+- **Lightbox:** otwiera się po kliknięciu klatki, nawiguje ←/→, zamyka na Esc.
+- Pełna responsywność (Desktop 1280px / Mobile 390px).
+

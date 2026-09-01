@@ -156,5 +156,7 @@ footer.site a:hover{color:#fff}
 @media(max-width:560px){
   .svc-grid,.gal-list,.season-list,.process-grid{grid-template-columns:1fr}
   .photo-grid{grid-template-columns:1fr}
-  .photo-grid figure.wide{grid-column:span 1;aspect-ratio:1}
+  /* collapse the mosaic to a plain single column on phones */
+  .photo-grid figure.wide{grid-column:span 1;aspect-ratio:4/3}
+  .photo-grid figure.tall{grid-row:span 1;aspect-ratio:4/5}
 }

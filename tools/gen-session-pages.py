@@ -109,7 +109,7 @@ def main():
     sdir = ROOT / "sesje"; sdir.mkdir(exist_ok=True)
     for slug, (cat, title_tag, meta, paras, dur, testi) in SESSIONS.items():
         heading = cat.capitalize()
-        lede = paras[0] if False else meta  # first sentence as hero lede
+        lede = meta  # the tagline doubles as the hero subtitle
         body = "\n".join(
             f'    <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>' for p in paras)
         page = TPL.format(title_tag=title_tag, meta=meta, cat=cat, heading=heading,
