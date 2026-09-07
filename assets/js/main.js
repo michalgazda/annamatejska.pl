@@ -98,7 +98,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = form.querySelector('.form-status');
-      var btn = form.querySelector('.btn');
+      var btn = form.querySelector('[type="submit"]');
       status.textContent = '';
       status.className = 'form-status';
       btn.disabled = true;
