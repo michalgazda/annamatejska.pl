@@ -609,21 +609,7 @@ a:hover {
   font-weight: 500;
 }
 
-/* ---------- Contact CTA ---------- */
-.contact__cta {
-  align-self: center;
-}
-
-.contact__cta p {
-  color: var(--ink-soft);
-  max-width: 30rem;
-}
-
-.contact__cta .btn {
-  margin-top: var(--space-2);
-}
-
-/* ---------- Contact form (hidden until Web3Forms key is set) ---------- */
+/* ---------- Contact form ---------- */
 .contact__form {
   align-self: center;
 }
