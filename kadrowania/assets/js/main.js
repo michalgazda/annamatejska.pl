@@ -115,6 +115,42 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
+  /* ---------- Contact form (Web3Forms) ---------- */
+  function initForm() {
+    var form = document.getElementById("contact-form");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var status = form.querySelector(".form__status");
+      var btn = form.querySelector(".form__submit");
+      status.textContent = "";
+      status.className = "form__status";
+      btn.disabled = true;
+      btn.textContent = "Wysyłanie…";
+      var data = new FormData(form);
+      fetch(form.action, { method: "POST", body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.success) {
+            status.textContent = "Dziękuję! Wiadomość wysłana — odpowiem w ciągu 48 godzin.";
+            status.className = "form__status is-success";
+            form.reset();
+          } else {
+            status.textContent = "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na maila.";
+            status.className = "form__status is-error";
+          }
+        })
+        .catch(function () {
+          status.textContent = "Błąd połączenia. Spróbuj ponownie lub napisz na maila.";
+          status.className = "form__status is-error";
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = "Wyślij wiadomość";
+        });
+    });
+  }
+
   function init() {
     initReveals();
     initHeroParallax();
@@ -123,6 +159,7 @@
     initFilter();
     initTileImageLoad();
     initYear();
+    initForm();
   }
 
   if (document.readyState === "loading") {

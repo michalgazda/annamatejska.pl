@@ -609,17 +609,71 @@ a:hover {
   font-weight: 500;
 }
 
-.contact__cta {
+/* ---------- Contact form ---------- */
+.contact__form {
   align-self: center;
 }
 
-.contact__cta p {
+.contact__form p {
   color: var(--ink-soft);
   max-width: 30rem;
 }
 
-.contact__cta .btn {
+.form__group {
+  margin-bottom: var(--space-3);
+}
+
+.form__label {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.4em;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.75em 1em;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--taupe);
+  box-shadow: 0 0 0 3px rgba(175, 144, 107, 0.18);
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form__submit {
+  margin-top: var(--space-1);
+}
+
+.form__status {
   margin-top: var(--space-2);
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+.form__status.is-error {
+  color: #a33a2e;
+}
+
+.form__status.is-success {
+  color: #3a7a44;
 }
 
 /* ---------- Footer ---------- */

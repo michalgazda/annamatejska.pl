@@ -43,25 +43,29 @@
       <div><strong>Instagram</strong><a href="https://www.instagram.com/annamatejska.fotografia/" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
       <div><strong>Facebook</strong><a href="https://www.facebook.com/annamatejska.fotografia" target="_blank" rel="noopener">@annamatejska.fotografia</a></div>
     </div>
-    <!-- Form action set at deploy (Netlify Forms / Formspree / own endpoint). mailto fallback below -->
-    <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="kontakt">
-      <p style="display:none"><label>Bot field: <input name="bot-field"></label></p>
-      <input type="text" name="imie" placeholder="Imię *" required>
-      <input type="email" name="email" placeholder="E-mail *" required>
-      <input type="tel" name="telefon" placeholder="Telefon">
-      <select name="rodzaj-sesji" required>
-        <option value="" disabled selected>Rodzaj sesji *</option>
-        <option>Rodzinna</option>
-        <option>Dziecięca</option>
-        <option>Kobiece</option>
-        <option>Ciążowa</option>
-        <option>Romantyczna</option>
-        <option>Wizerunkowa / biznesowa</option>
-        <option>Inne / nie wiem jeszcze</option>
-      </select>
-      <textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *" required></textarea>
+    <!-- Web3Forms — działa na GitHub Pages bez backendu -->
+    <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="TWÓJ_KLUCZ_WEB3FORMS">
+      <input type="hidden" name="subject" value="Nowe zapytanie z annamatejska.pl">
+      <input type="hidden" name="from_name" value="Formularz annamatejska.pl">
+      <div class="form-field"><input type="text" name="imie" placeholder="Imię *" required></div>
+      <div class="form-field"><input type="email" name="email" placeholder="E-mail *" required></div>
+      <div class="form-field"><input type="tel" name="telefon" placeholder="Telefon"></div>
+      <div class="form-field">
+        <select name="rodzaj-sesji" required>
+          <option value="" disabled selected>Rodzaj sesji *</option>
+          <option>Rodzinna</option>
+          <option>Dziecięca</option>
+          <option>Kobiece</option>
+          <option>Ciążowa</option>
+          <option>Romantyczna</option>
+          <option>Wizerunkowa / biznesowa</option>
+          <option>Inne / nie wiem jeszcze</option>
+        </select>
+      </div>
+      <div class="form-field"><textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *" required></textarea></div>
       <button class="btn btn-taupe" type="submit">Wyślij zapytanie</button>
+      <p class="form-status" aria-live="polite"></p>
       <p class="form-note">Twoje dane wykorzystam wyłącznie do odpowiedzi na zapytanie. Wysyłając formularz, akceptujesz <a href="polityka-prywatnosci.html">politykę prywatności</a>.</p>
     </form>
   </div>

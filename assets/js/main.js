@@ -91,4 +91,39 @@
       else if (e.key === 'ArrowRight') show(cur + 1);
     }
   });
+
+  // ---------- contact form (Web3Forms) ----------
+  var form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = form.querySelector('.form-status');
+      var btn = form.querySelector('.btn');
+      status.textContent = '';
+      status.className = 'form-status';
+      btn.disabled = true;
+      btn.textContent = 'Wysyłanie…';
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.success) {
+            status.textContent = 'Dziękuję! Wiadomość wysłana — odpowiem w ciągu 48 godzin.';
+            status.className = 'form-status is-success';
+            form.reset();
+          } else {
+            status.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na maila.';
+            status.className = 'form-status is-error';
+          }
+        })
+        .catch(function () {
+          status.textContent = 'Błąd połączenia. Spróbuj ponownie lub napisz na maila.';
+          status.className = 'form-status is-error';
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Wyślij zapytanie';
+        });
+    });
+  }
 })();

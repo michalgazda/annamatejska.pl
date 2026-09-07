@@ -295,9 +295,26 @@
             </li>
           </ul>
         </div>
-        <div class="contact__cta" data-reveal>
-          <p>Napisz kilka słów o&nbsp;tym, co&nbsp;robisz i&nbsp;czego potrzebujesz — odpowiem z&nbsp;propozycją współpracy i&nbsp;wyceną. Możesz też po&nbsp;prostu zadzwonić.</p>
-          <a class="btn btn--solid" href="mailto:annamatejskagazda@gmail.com">Napisz e-mail</a>
+        <div class="contact__form" data-reveal>
+          <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="TWÓJ_KLUCZ_WEB3FORMS">
+            <input type="hidden" name="subject" value="Nowa wiadomość z kadrowania">
+            <input type="hidden" name="from_name" value="Formularz kadrowania">
+            <div class="form__group">
+              <label for="form-name" class="form__label">Imię i nazwisko</label>
+              <input type="text" id="form-name" name="name" class="form__input" required placeholder="Jak masz na imię?">
+            </div>
+            <div class="form__group">
+              <label for="form-email" class="form__label">E-mail</label>
+              <input type="email" id="form-email" name="email" class="form__input" required placeholder="Twój adres e-mail">
+            </div>
+            <div class="form__group">
+              <label for="form-message" class="form__label">Wiadomość</label>
+              <textarea id="form-message" name="message" class="form__textarea" required rows="4" placeholder="Opisz krótko czego potrzebujesz — termin, lokalizacja, pomysł…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--solid form__submit">Wyślij wiadomość</button>
+            <p class="form__status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
