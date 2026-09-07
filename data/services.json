@@ -1,0 +1,122 @@
+{
+  "services": [
+    {
+      "slug": "rodzinne",
+      "category": "Sesje rodzinne",
+      "title": "Sesje rodzinne",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Rodzinne zdjęcia nie muszą być idealne. Wystarczy, że będą Wasze.",
+      "description": [
+        "Tu nie chodzi o równe uśmiechy i patrzenie prosto w obiektyw. Chodzi bardziej o opadający kosmyk włosów i spojrzenie pełne czułości. O małe paluszki trzymające się dłoni rodzica. O ten śmiech, kiedy ktoś kogoś łaskocze.",
+        "Podczas sesji daję Wam przestrzeń na bycie razem. Możecie spacerować, bawić się, wygłupiać. Ja obserwuję i łapię momenty, które dzieją się pomiędzy."
+      ],
+      "duration": "ok. 1,5 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Robimy sesję rodzinną u Ani już kolejny raz. Ania elastycznie podeszła do terminu, wybrała idealne miejsce, pomogła w doborze strojów dla całej naszej rodziny. Sama sesja przebiegła w bardzo przyjaznej atmosferze, a efekt przeszedł nasze oczekiwania!” — Aneta Hoły",
+      "card_title": "Rodzinne",
+      "card_short": "Nie muszą być idealne. Wystarczy, że będą Wasze.",
+      "card_time": "ok. 1,5 h",
+      "card_image": "images/svc-rodzinne.jpg",
+      "enabled": true
+    },
+    {
+      "slug": "dzieciece",
+      "category": "Sesje dziecięce",
+      "title": "Sesje dziecięce",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Obawiasz się, że Twoje dziecko nie będzie chciało współpracować? Spokojnie — podczas sesji przede wszystkim… się bawimy!",
+      "description": [
+        "Jestem mamą dwójki małych dzieci i wiem z doświadczenia, kiedy wychodzą najlepsze i najbardziej prawdziwe kadry — te, do których wraca się latami ze wzruszeniem.",
+        "Najczęściej umawiamy się w plenerze: jest przestrzeń do biegania, skakania i dziecięcych zabaw. Sesje tematyczne (roczkowe, świąteczne, Dzień Babci…) wykonuję też w moim domowym studiu (Kraków–Czyżyny) lub w Waszym domu.",
+        "Sezonowe plenery: kwitnący sad (marzec–kwiecień), pole maków (maj), lawenda (lipiec), farma kwiatowa (sierpień), farma dyniowa (wrzesień–październik)."
+      ],
+      "duration": "1–1,5 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Wszystko przebiegało swobodnie, bez presji pozowania, były zabawy i wygłupy z córeczkami, a Ania uchwyciła to wszystko w piękne kadry!” — Paulina Noszczyk",
+      "card_title": "Dziecięce",
+      "card_short": "Głównie się bawimy — najlepsze kadry wychodzą same.",
+      "card_time": "1–1,5 h",
+      "card_image": "images/svc-dzieciece.jpg",
+      "enabled": true
+    },
+    {
+      "slug": "kobiece",
+      "category": "Sesje kobiece",
+      "title": "Sesje kobiece",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Jaka sesja fotograficzna Ci się marzy? Najważniejsze — żebyś Ty czuła się dobrze.",
+      "description": [
+        "Lekkie i delikatne kobiece kadry w plenerze? Bardziej nastrojowe w studio? A może całkiem formalne, biznesowe portrety?",
+        "Jeśli nigdy wcześniej nie uczestniczyłaś w takiej sesji — pokieruję Cię, zaproponuję pozy albo będziemy wspólnie eksperymentować z kadrami, żeby podkreślić to, co w Tobie piękne i wyjątkowe.",
+        "Najważniejsze — żebyś Ty czuła się dobrze."
+      ],
+      "duration": "1,5–2 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Efekty sesji przerosły moje oczekiwania — różnorodne stylizacje, ciekawe kadry, niepowtarzalny klimat… Znajomi podkreślali, że Ani udało się uchwycić MNIE — dokładnie taką, jaka jestem.” — Agnieszka Krawczyk",
+      "card_title": "Kobiece",
+      "card_short": "Lekkie kadry w plenerze lub nastrojowe w studio.",
+      "card_time": "1,5–2 h",
+      "card_image": "images/svc-kobiece.jpg",
+      "enabled": true
+    },
+    {
+      "slug": "ciazowe",
+      "category": "Sesje ciążowe",
+      "title": "Sesje ciążowe",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Zachować ten wyjątkowy czas na zdjęciach i pokazywać później swoim dzieciom — bezcenne.",
+      "description": [
+        "Gładka cera, gęste włosy, brzuszek z bijącym w środku serduszkiem i ta niepowtarzalna radość w oczach.",
+        "Sesję najlepiej wykonać między 28. a 34. tygodniem ciąży — dolegliwości pierwszego trymestru zwykle już minęły, brzuch jest pięknie widoczny, a Ty nie jesteś jeszcze zmęczona. Inne terminy oczywiście też są możliwe.",
+        "Możesz przyjść sama, z mężem/partnerem lub z dziećmi. Sesję wykonuję w plenerze, w moim studio lub u Ciebie w domu."
+      ],
+      "duration": "1–1,5 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Mamy piękną pamiątkę sesji ciążowej, dziś pozdrawiamy już we trójkę!” — Natalia Zaklikiewicz",
+      "card_title": "Ciążowe",
+      "card_short": "Najlepiej między 28. a 34. tygodniem — ale kiedy chcesz.",
+      "card_time": "1–1,5 h",
+      "card_image": "images/svc-ciazowe.jpg",
+      "enabled": true
+    },
+    {
+      "slug": "romantyczne",
+      "category": "Sesje romantyczne",
+      "title": "Sesje romantyczne",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Czy sesja zdjęciowa może być randką? Moim zdaniem tak.",
+      "description": [
+        "Jeśli chcecie mieć piękne kadry, ale nie lubicie pozować — ta sesja jest zdecydowanie dla Was.",
+        "Umawiamy się w plenerze, w wybranym wspólnie miejscu. Jest czas na spacer, rozmowy czy przytulanie. Ja jestem obok z aparatem — łapię Wasze uśmiechy, spojrzenia, splecione dłonie.",
+        "Autorka projektu społecznego „Małżeństwo w kadrze” (2023)."
+      ],
+      "duration": "ok. 1 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Po sesji dostaliśmy do wyboru wiele ciekawych zdjęć. Gorąco polecamy Anię za profesjonalizm oraz ciepłe usposobienie, które sprawia, że sesje są naturalne i pełne unikalnego uroku.” — Anna i Paweł Basisty",
+      "card_title": "Romantyczne",
+      "card_short": "Sesja jak randka — spacer, rozmowy, przytulanie.",
+      "card_time": "ok. 1 h",
+      "card_image": "images/svc-romantyczne.jpg",
+      "enabled": true
+    },
+    {
+      "slug": "wizerunkowe",
+      "category": "Sesje wizerunkowe",
+      "title": "Sesje wizerunkowe",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Twój wizerunek to coś więcej niż zdjęcie — to opowieść o tym, kim jesteś.",
+      "description": [
+        "Tworzysz markę osobistą, prowadzisz małą firmę, potrzebujesz profesjonalnych portretów do mediów społecznościowych? Zadbam o to, by kadry były kreatywne i spójne z Tobą.",
+        "Przed spotkaniem rozmawiamy o tym, czym się zajmujesz i jak chcesz być odbierana. Wspólnie wybieramy miejsce, styl i detale. Podczas sesji prowadzę Cię tak, żebyś czuła się naturalnie i swobodnie."
+      ],
+      "duration": "1–2 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Anna ma bardzo profesjonalne, a zarazem delikatne podejście do klientów. Słucha i obserwuje, by wyczuć potrzeby i styl. Serdecznie polecam, dobry czas i świetne zdjęcia!” — Maria Arkuszewska",
+      "card_title": "Wizerunkowe",
+      "card_short": "Marka osobista i biznes — spójne z Tobą kadry.",
+      "card_time": "1–2 h",
+      "card_image": "images/svc-wizerunkowe.jpg",
+      "enabled": true
+    }
+  ]
+}

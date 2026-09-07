@@ -1,0 +1,132 @@
+backend:
+  name: github
+  repo: michalgazda/annamatejska.pl
+  branch: main
+  # Auth via GitHub OAuth (Netlify Identity or external oauth provider).
+  # See docs/tech-en/cms-setup.md for the full setup walkthrough.
+
+site_url: https://annamatejska.pl
+display_url: https://annamatejska.pl
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "galleries"
+    label: "Galerie"
+    label_singular: "Galeria"
+    # The CMS edits ONLY the JSON registry; pages in galerie/ are regenerated
+    # by tools/build-gallery-pages.py (run by the deploy hook after merge).
+    files:
+      - name: "galleries-registry"
+        label: "Wszystkie galerie"
+        file: "data/galleries.json"
+        fields:
+          - label: "Galerie"
+            name: "galleries"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
+            add_to_top: true
+            fields:
+              - label: "Slug (adres URL, np. sesja-rodzinna-wawel)"
+                name: "slug"
+                widget: "string"
+                pattern: ["^[a-z0-9-]+$", "małe litery, cyfry i myślniki"]
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - label: "Kategoria"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Sesje rodzinne"
+                  - "Sesje dziecięce"
+                  - "Sesje kobiece"
+                  - "Sesje ciążowe"
+                  - "Sesje romantyczne"
+                  - "Sesje wizerunkowe"
+              - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - label: "Okładka (zdjęcie przeglądu)"
+                name: "cover"
+                widget: "image"
+                required: false
+              - { label: "Krótki opis", name: "excerpt", widget: "text" }
+              - label: "Zdjęcia w galerii"
+                name: "photos"
+                widget: "list"
+                required: false
+                field: { label: "Zdjęcie", name: "image", widget: "image" }
+              - label: "Szersze kafelki (numery zdjęć, np. 1, 4)"
+                name: "wide"
+                widget: "list"
+                required: false
+                field: { label: "Numer", name: "n", widget: "number" }
+              - { label: "Strona galerii (auto)", name: "page", widget: "hidden", default: "" }
+
+  - name: "testimonials"
+    label: "Opinie"
+    label_singular: "Opinia"
+    files:
+      - name: "testimonials-list"
+        label: "Opinie klientek i klientów"
+        file: "data/testimonials.json"
+        fields:
+          - label: "Opinie"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.author}}"
+            add_to_top: true
+            fields:
+              - label: "Treść opinii"
+                name: "quote"
+                widget: "text"
+              - label: "Autor"
+                name: "author"
+                widget: "string"
+              - label: "Liczba gwiazdek"
+                name: "stars"
+                widget: "number"
+                default: 5
+                required: false
+
+  - name: "services"
+    label: "Oferta (sesje)"
+    label_singular: "Sesja"
+    editor:
+      preview: false
+    files:
+      - name: "services-list"
+        label: "Oferta — rodzaje sesji"
+        file: "data/services.json"
+        fields:
+          - label: "Sesje"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.duration}})"
+            fields:
+              - { label: "Slug (adres, np. rodzinne)", name: "slug", widget: "string",
+                  pattern: ["^[a-z0-9-]+$", "małe litery, cyfry i myślniki"] }
+              - { label: "Nazwa kategorii", name: "category", widget: "string", required: false }
+              - { label: "Tytuł (nagłówek strony)", name: "title", widget: "string" }
+              - { label: "Dopisek (np. Kraków i okolice)", name: "tagline", widget: "string", default: "Kraków i okolice", required: false }
+              - label: "Podtytuł (lead na górze strony)"
+                name: "subtitle"
+                widget: "text"
+              - label: "Opis (akapity)"
+                name: "description"
+                widget: "list"
+                field: { label: "Akapit", name: "paragraph", widget: "text" }
+              - { label: "Czas trwania", name: "duration", widget: "string" }
+              - label: "Zawsze w cenie (punkty rozdzielone •)"
+                name: "included"
+                widget: "text"
+              - label: "Opinia klienta (cytat + autor)"
+                name: "quote"
+                widget: "text"
+                required: false
+              - { label: "Tytuł kafelka na stronie głównej", name: "card_title", widget: "string" }
+              - { label: "Krótki tekst kafelka", name: "card_short", widget: "text" }
+              - { label: "Czas na kafelku", name: "card_time", widget: "string" }
+              - { label: "Zdjęcie kafelka", name: "card_image", widget: "image", default: "images/uploads/svc-default.jpg" }
+              - { label: "Widoczna w ofercie", name: "enabled", widget: "boolean", default: true }
+
