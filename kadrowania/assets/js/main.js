@@ -33,30 +33,10 @@
     });
   }
 
-  /* ---------- Hero: slow, gentle parallax on the background photo ---------- */
+  /* ---------- Hero: (layout is now a side-by-side grid; parallax disabled
+   * to keep the image clean. Left as a no-op hook for future use.) ---------- */
   function initHeroParallax() {
-    if (prefersReduced) return;
-    var hero = document.querySelector(".hero");
-    var img = document.querySelector(".hero__img");
-    if (!hero || !img) return;
-    var ticking = false;
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(function () {
-          var y = window.scrollY;
-          if (y < window.innerHeight * 1.2) {
-            // Translate at a fraction of scroll speed + subtle fade.
-            img.style.transform = "translateY(" + y * 0.22 + "px) scale(1.06)";
-            hero.style.setProperty("--hero-fade", String(Math.max(0, 1 - y / (window.innerHeight * 0.75))));
-          }
-          ticking = false;
-        });
-      },
-      { passive: true }
-    );
+    return;
   }
 
   /* ---------- Header: solid background once scrolled ---------- */
