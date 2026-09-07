@@ -129,19 +129,21 @@
       btn.textContent = "Wysyłanie…";
       var data = new FormData(form);
       fetch(form.action, { method: "POST", body: data })
-        .then(function (r) { return r.json(); })
-        .then(function (res) {
+        .then(function (r) { return r.text(); })
+        .then(function (text) {
+          console.log("Web3Forms response:", text);
+          try { var res = JSON.parse(text); } catch(e) { res = { success: false, message: text }; }
           if (res.success) {
             status.textContent = "Dziękuję! Wiadomość wysłana — odpowiem w ciągu 48 godzin.";
             status.className = "form__status is-success";
             form.reset();
           } else {
-            status.textContent = "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na maila.";
+            status.textContent = "Błąd: " + (res.message || "nieznany");
             status.className = "form__status is-error";
           }
         })
-        .catch(function () {
-          status.textContent = "Błąd połączenia. Spróbuj ponownie lub napisz na maila.";
+        .catch(function (err) {
+          status.textContent = "Błąd połączenia: " + err.message;
           status.className = "form__status is-error";
         })
         .finally(function () {
