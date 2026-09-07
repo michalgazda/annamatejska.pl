@@ -296,7 +296,7 @@
           </ul>
         </div>
         <div class="contact__form" data-reveal>
-          <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
+          <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST" data-recaptcha-compat="false">
             <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a">
             <input type="hidden" name="subject" value="Nowa wiadomość z kadrowania">
             <input type="hidden" name="from_name" value="Formularz kadrowania">
@@ -313,6 +313,7 @@
               <textarea id="form-message" name="message" class="form__textarea" required rows="4" placeholder="Opisz krótko czego potrzebujesz — termin, lokalizacja, pomysł…"></textarea>
             </div>
             <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" style="margin-bottom:var(--space-2)"></div>
             <button type="submit" class="btn btn--solid form__submit">Wyślij wiadomość</button>
             <p class="form__status" aria-live="polite"></p>
           </form>
@@ -331,5 +332,6 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
+<script src="https://js.hcaptcha.com/1/api.js" defer></script>
 </body>
 </html>
