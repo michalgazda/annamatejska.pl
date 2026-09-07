@@ -12,7 +12,11 @@ Steps it does for you:
   2. Creates galerie/<slug>.html — gallery page with responsive grid + lightbox
   3. Registers the gallery in data/galleries.json (shown on the homepage)
 """
-import argparse, json, re, sys
+import argparse
+import html as html_mod
+import json
+import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -24,9 +28,8 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} — Galeria | Anna Matejska-Gazda Fotograf Kraków</title>
 <meta name="description" content="{excerpt}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://annamatejska.pl/galerie/{slug}.html">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -63,7 +66,7 @@ TEMPLATE = """<!DOCTYPE html>
 
 <footer class="site">
   <div class="container">
-    <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
+    <span>© {year} Anna Matejska-Gazda Fotografia · Kraków</span>
     <span><a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a> · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a></span>
   </div>
 </footer>
@@ -72,8 +75,9 @@ TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-MONTHS = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca",
-          "sierpnia","września","października","listopada","grudnia"]
+MONTHS = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca",
+          "sierpnia", "września", "października", "listopada", "grudnia"]
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -88,7 +92,7 @@ def main():
 
     slug = args.slug.strip().lower().replace(" ", "-")
     y, m, d = (int(x) for x in args.date.split("-"))
-    date_pl = f"{d} {MONTHS[m-1]} {y}"
+    date_pl = f"{d} {MONTHS[m - 1]} {y}"
 
     # 1. image folder
     img_dir = ROOT / "images/galleries" / slug
@@ -98,8 +102,7 @@ def main():
     if not photos:
         print(f"⚠ Folder {img_dir.relative_to(ROOT)} is empty.")
         print("  Put photos there now named 01.jpg, 02.jpg, … then re-run this command to build the page.")
-        n = 6
-        names = [f"{i+1:02d}.jpg" for i in range(n)]
+        names = [f"{i + 1:02d}.jpg" for i in range(6)]
     else:
         names = [p.name for p in sorted(photos)]
 
@@ -110,16 +113,23 @@ def main():
     for name in names:
         num = name.split(".")[0].lstrip("0") or "0"
         cls = " wide" if num in wide else (" tall" if num in tall else "")
-        alt = f"{args.title} — fot. Anna Matejska-Gazda"
-        figs.append(f'      <figure class="{cls.strip()}"><img src="../images/galleries/{slug}/{name}" loading="lazy" alt="{alt}"></figure>')
+        alt = html_mod.escape(f"{args.title} — fot. Anna Matejska-Gazda")
+        figs.append(f'      <figure class="{cls.strip()}"><img src="../images/galleries/{slug}/{html_mod.escape(name)}" loading="lazy" alt="{alt}"></figure>')
 
     # 2. page
     gal_dir = ROOT / "galerie"
     gal_dir.mkdir(exist_ok=True)
     page = gal_dir / f"{slug}.html"
+    year = y
     page.write_text(TEMPLATE.format(
-        title=args.title, excerpt=args.excerpt or "Galeria autorska — Anna Matejska-Gazda Fotografia.",
-        category=args.category, date_pl=date_pl, figures="\n".join(figs)), encoding="utf-8")
+        title=html_mod.escape(args.title),
+        excerpt=html_mod.escape(args.excerpt or "Galeria autorska — Anna Matejska-Gazda Fotografia.", quote=False),
+        category=html_mod.escape(args.category),
+        date_pl=date_pl,
+        figures="\n".join(figs),
+        slug=slug,
+        year=year,
+    ), encoding="utf-8")
 
     # 3. register in data/galleries.json
     data_file = ROOT / "data/galleries.json"
@@ -140,6 +150,7 @@ def main():
     print(f"✓ Photos folder: images/galleries/{slug}/  ({len(names)} photo(s) found)")
     print(f"✓ Registered on the homepage ({len(data['galleries'])} galleries total).")
     print("→ Rebuild homepage cards:  python3 tools/build-home-galleries.py")
+
 
 if __name__ == "__main__":
     main()

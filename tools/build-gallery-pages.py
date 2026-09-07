@@ -20,13 +20,14 @@ MONTHS_PL = ["", "stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca",
              "lipca", "sierpnia", "września", "października", "listopada",
              "grudnia"]
 
-TEMPLATE = """<!DOCTYPE html>
+PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} — Galeria | Anna Matejska-Gazda Fotograf Kraków</title>
 <meta name="description" content="{excerpt}">
+<link rel="canonical" href="https://annamatejska.pl/galerie/{page_slug}.html">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -93,6 +94,12 @@ def figures_for(entry: dict) -> str:
             photos = sorted(
                 f"images/galleries/{entry['slug']}/{p.name}"
                 for p in folder.glob("*.jpg"))
+    # Compute year from the gallery date to avoid date.today() drift
+    gallery_year = date.today().year
+    try:
+        gallery_year = int(entry.get("date", "")[:4])
+    except (ValueError, IndexError):
+        pass
     lines = []
     for i, src in enumerate(photos, start=1):
         alt = html_mod.escape(f"{entry['title']} — zdjęcie {i}")
@@ -107,13 +114,19 @@ def main() -> None:
     data = json.loads(DATA.read_text())
     for entry in data["galleries"]:
         out = ROOT / "galerie" / f"{entry['slug']}.html"
-        out.write_text(TEMPLATE.format(
+        # Use gallery date year instead of date.today() for idempotent builds
+        try:
+            yr = int(entry.get("date", "")[:4])
+        except (ValueError, IndexError):
+            yr = date.today().year
+        out.write_text(PAGE_TEMPLATE.format(
             title=html_mod.escape(entry["title"]),
             excerpt=html_mod.escape(entry.get("excerpt", ""), quote=False),
             category=html_mod.escape(entry.get("category", "")),
             date_pl=date_pl(entry.get("date", "")),
             figures=figures_for(entry),
-            year=date.today().year,
+            year=yr,
+            page_slug=entry["slug"],
         ))
         print(f"wrote {out.relative_to(ROOT)}")
     print(f"done: {len(data['galleries'])} gallery pages")

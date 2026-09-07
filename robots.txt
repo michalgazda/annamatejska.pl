@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /panel.html
 
-# Sitemap (once real galleries are in place):
-# Sitemap: https://annamatejska.pl/sitemap.xml
+Sitemap: https://annamatejska.pl/sitemap.xml

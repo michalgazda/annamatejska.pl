@@ -61,7 +61,7 @@ collections:
                 widget: "list"
                 required: false
                 field: { label: "Numer", name: "n", widget: "number" }
-              - { label: "Strona galerii (auto)", name: "page", widget: "hidden", default: "" }
+              - { label: "Strona galerii (auto)", name: "page", widget: "hidden" }
 
   - name: "testimonials"
     label: "Opinie"

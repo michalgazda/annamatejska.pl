@@ -138,6 +138,16 @@ footer.site{background:var(--ink);color:#A9A29A;padding:40px 0;font-size:.82rem}
 footer.site .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 footer.site a:hover{color:#fff}
 
+/* about grid */
+.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:center}
+@media(max-width:960px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+/* keyboard focus */
+:focus-visible{outline:2px solid var(--taupe);outline-offset:2px}
+
+/* error page */
+.error-404{text-align:center;padding:120px 0}
+
 
 
 @media(max-width:960px){

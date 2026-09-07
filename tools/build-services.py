@@ -9,6 +9,7 @@ Usage: python3 tools/build-services.py
 """
 import html as html_mod
 import json
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,6 +26,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{meta_title}</title>
 <meta name="description" content="{meta_desc}">
+<link rel="canonical" href="https://annamatejska.pl/sesje/{slug}.html">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -65,8 +67,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 <footer class="site">
   <div class="container">
-    <span>&copy; 2026 Anna Matejska-Gazda Fotografia &middot; Kraków</span>
-    <span><a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a> &middot; <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a></span>
+    <span>© {year} Anna Matejska-Gazda Fotografia · Kraków</span>
+    <span><a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a> · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a></span>
   </div>
 </footer>
 <script src="../assets/js/main.js"></script>
@@ -84,6 +86,7 @@ def included_html(s: dict) -> str:
 def build_page(s: dict) -> str:
     paras = "\n".join(
         PARA.format(html_mod.escape(p, quote=False)) for p in s.get("description", []))
+    year = date.today().year
     return PAGE_TEMPLATE.format(
         meta_title=html_mod.escape(s["title"]) + " Kraków – naturalne zdjęcia | Anna Matejska-Gazda",
         meta_desc=html_mod.escape(s.get("subtitle", ""), quote=False),
@@ -95,6 +98,8 @@ def build_page(s: dict) -> str:
         duration=html_mod.escape(s.get("duration", "")),
         included=included_html(s),
         quote=html_mod.escape(s.get("quote", ""), quote=False),
+        slug=html_mod.escape(s["slug"]),
+        year=year,
     )
 
 
