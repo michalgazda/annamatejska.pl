@@ -1,164 +1,157 @@
 ---
 import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
 const base = import.meta.env.BASE_URL;
-const ki = (p) => `${base}kadrowania/images/${p}`; // shortcut for kadrowania img
+const ki = (p) => `${base}kadrowania/images/${p}`;
+const pi = (cat, n) => `${base}kadrowania/images/portfolio/${cat}/${String(n).padStart(2,'0')}.jpg`;
+
+const categories = ['Wydarzenia', 'Architektura', 'Podróże'];
+const catSlug = (name) => name === 'Podróże' ? 'podroze' : name.toLowerCase();
+const portfolioItems = [
+  { cat: 'wydarzenia', title: 'Sąsiedzki festyn', wide: true },
+  { cat: 'architektura', title: 'Kamienice' },
+  { cat: 'podroze', title: 'Góry' },
+  { cat: 'wydarzenia', title: 'Wernisaż', wide: true },
+  { cat: 'architektura', title: 'Kapliczki' },
+  { cat: 'podroze', title: 'Nad morzem' },
+  { cat: 'wydarzenia', title: 'Warsztaty' },
+  { cat: 'architektura', title: 'Przestrzenie publiczne' },
+  { cat: 'podroze', title: 'W drodze', wide: true },
+  { cat: 'wydarzenia', title: 'Koncerty' },
+  { cat: 'architektura', title: 'Podwórka' },
+  { cat: 'podroze', title: 'Miasteczka' },
+];
+function imgNum(cat) {
+  // map each category to sequential images
+  const map = { wydarzenia: [1,2,3,4], architektura: [1,2,3,4], podroze: [1,2,3,4] };
+  const c = portfolioItems.filter(i => i.cat === cat);
+  const idx = c.findIndex(i => i.cat === cat && !i._used);
+  // distribute
+  return 0; // placeholder — we'll just cycle 1-4
+}
+// Simple: assign images 1-4 per category in order
+const catCounts = {};
+portfolioItems.forEach((item, idx) => {
+  if (!catCounts[item.cat]) catCounts[item.cat] = 0;
+  catCounts[item.cat]++;
+  item._img = catCounts[item.cat];
+});
 ---
 
-<KadrowaniaLayout title="kadrowania — Anna Matejska-Gazda | fotografia wydarzeń, architektury i podróży" description="Fotografia dla małych lokalnych marek, organizacji społecznych i placówek kultury. Wydarzenia, architektura, podróże. Kraków.">
+<KadrowaniaLayout title="kadrowania — Anna Matejska-Gazda | fotografia wydarzeń, architektury i podróży" description="Fotografia dla małych lokalnych marek, organizacji społecznych i placówek kultury.">
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="wrap hero__content">
-      <span class="eyebrow">Anna Matejska-Gazda &middot; Kraków</span>
-      <h1 class="hero__title">Kadrowania<span>fotografia dla ludzi i&nbsp;miejsc</span></h1>
-      <p class="hero__sub">Wydarzenia, architektura, podróże. Zdjęcia, które opowiadają o&nbsp;Twojej społeczności, Twojej okolicy i&nbsp;Twoich ludziach — bez&nbsp;sztywnej korporacyjnej formy.</p>
-      <a class="btn" href="#portfolio">Zobacz portfolio</a>
-    </div>
-    <div class="hero__imgwrap">
-      <img class="hero__img" src={ki('hero.jpg')} alt="Jasny, pogodny kadr — fotografia wydarzeń Anny Matejskiej-Gazdy" fetchpriority="high" />
+    <img class="hero__bg" src={ki('hero.jpg')} alt="Kadrowania - fotografia" fetchpriority="high" />
+    <div class="wrap hero__overlay">
+      <div class="eyebrow">Anna Matejska-Gazda · Kraków</div>
+      <h1>Kadrowania<span>fotografia dla ludzi i miejsc</span></h1>
     </div>
   </section>
 
-  <!-- Manifesto -->
-  <section class="manifesto" id="manifesto">
-    <div class="wrap manifesto__grid">
-      <div class="manifesto__text" data-reveal>
-        <span class="eyebrow">Manifest</span>
-        <blockquote>
-          „Najlepsze zdjęcia powstają tam, gdzie ludzie są&nbsp;sobą — na&nbsp;sąsiedzkim festynie, w&nbsp;małej pracowni, w&nbsp;drodze. Moim zadaniem jest po&nbsp;prostu tam być i&nbsp;dobrze patrzeć."
-        </blockquote>
-        <p class="manifesto__body">Nie pracuję dla wielkich korporacji. Pracuję z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy robią coś ważnego w&nbsp;swojej okolicy. Chcę, żeby Twoje zdjęcia były prawdziwe, ciepłe i&nbsp;bliskie, a&nbsp;nie wygładzone do&nbsp;perfekcji.</p>
-      </div>
-      <div class="manifesto__img" data-reveal>
-        <img src={ki('manifesto.jpg')} alt="Jasne, naturalne ujęcie — światło i przestrzeń" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="portfolio" id="portfolio">
+  <section class="section-label">
     <div class="wrap">
-      <div class="portfolio__head" data-reveal>
-        <div>
-          <span class="eyebrow">Portfolio</span>
-          <h2 class="section-title">Wybrane kadry</h2>
-        </div>
-        <div class="filter" role="group" aria-label="Filtr kategorii">
-          <button class="filter__btn is-active" data-filter="*" aria-pressed="true">Wszystko</button>
-          <button class="filter__btn" data-filter="wydarzenia" aria-pressed="false">Wydarzenia</button>
-          <button class="filter__btn" data-filter="architektura" aria-pressed="false">Architektura</button>
-          <button class="filter__btn" data-filter="podroze" aria-pressed="false">Podróże</button>
-        </div>
-      </div>
-
-      <div class="portfolio-grid">
-        {[
-          {cat:'wydarzenia', title:'Sąsiedzki festyn', wide:true},
-          {cat:'architektura', title:'Kamienice'},
-          {cat:'podroze', title:'Góry'},
-          {cat:'wydarzenia', title:'Wernisaż w&nbsp;galerii', wide:true},
-          {cat:'architektura', title:'Kapliczki i&nbsp;detale'},
-          {cat:'podroze', title:'Nad morzem'},
-          {cat:'wydarzenia', title:'Warsztaty'},
-          {cat:'architektura', title:'Przestrzenie publiczne'},
-          {cat:'podroze', title:'W&nbsp;drodze', wide:true},
-          {cat:'wydarzenia', title:'Koncerty'},
-          {cat:'architektura', title:'Podwórka i&nbsp;bramy'},
-          {cat:'podroze', title:'Miasteczka'},
-        ].map((item, idx) => {
-          const n = (idx % 4) + 1;
-          const wideClass = item.wide ? ' portfolio-grid__item--wide' : '';
-          return (
-            <figure class={`portfolio-grid__item${wideClass}`} data-cat={item.cat} data-reveal>
-              <a class="tile" href={`${ki(`portfolio/${item.cat}/${String(n).padStart(2,'0')}.jpg`)}`} aria-label={`Galeria: ${item.cat}`}>
-                <span class="tile__frame"><img src={`${ki(`portfolio/${item.cat}/${String(n).padStart(2,'0')}.jpg`)}`} alt={`${item.title}`} loading="lazy" /></span>
-                <span class="tile__caption"><span class="tile__cat">{item.cat === 'podroze' ? 'Podróże' : item.cat.charAt(0).toUpperCase() + item.cat.slice(1)}</span><h3 class="tile__title" set:html={item.title} /></span>
-              </a>
-            </figure>
-          );
-        })}
-      </div>
+      <h2>Wybrane kadry</h2>
+      <p>Wydarzenia · Architektura · Podróże</p>
+    </div>
+    <div class="filter" role="group" aria-label="Filtr">
+      <button class="filter__btn is-active" data-filter="*" aria-pressed="true">Wszystko</button>
+      <button class="filter__btn" data-filter="wydarzenia" aria-pressed="false">Wydarzenia</button>
+      <button class="filter__btn" data-filter="architektura" aria-pressed="false">Architektura</button>
+      <button class="filter__btn" data-filter="podroze" aria-pressed="false">Podróże</button>
     </div>
   </section>
 
-  <!-- About -->
+  <div class="portfolio-grid">
+    {portfolioItems.map((item) => {
+      const wideClass = item.wide ? ' portfolio-grid__item--wide' : '';
+      const c = item.cat;
+      const n = item._img > 4 ? 4 : item._img;
+      return (
+        <figure class={`portfolio-grid__item${wideClass}`} data-cat={c}>
+          <a class="tile" href={pi(c, n)} aria-label={item.title}>
+            <img src={pi(c, n)} alt={item.title} loading="lazy" />
+            <span class="tile__caption">
+              <span class="tile__cat">{c.charAt(0).toUpperCase() + c.slice(1)}</span>
+              <span class="tile__title">{item.title}</span>
+            </span>
+          </a>
+        </figure>
+      );
+    })}
+  </div>
+
   <section class="about" id="o-mnie">
     <div class="wrap about__grid">
-      <div class="about__img" data-reveal>
-        <img src={ki('manifesto.jpg')} alt="Anna Matejska-Gazda — fotografka" loading="lazy" />
+      <div class="about__img">
+        <img src={ki('manifesto.jpg')} alt="Anna Matejska-Gazda" loading="lazy" />
       </div>
-      <div class="about__body" data-reveal>
-        <span class="eyebrow">O mnie</span>
-        <h2 class="section-title">Fotografka z&nbsp;Krakowa</h2>
-        <p>Jestem fotografką z&nbsp;Krakowa. Najbardziej lubię pracować z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy mają coś do&nbsp;opowiedzenia o&nbsp;swojej okolicy.</p>
-        <p>Fotografuję wydarzenia, architekturę i&nbsp;podróże. Zależy mi&nbsp;na&nbsp;naturalnym świetle, prawdziwych momentach i&nbsp;ludziach, którzy nie&nbsp;pozują na&nbsp;siłę. Pierwszą stroną mojej działalności jest fotografia rodzinna — bo&nbsp;dobre kadry zaczynają się od&nbsp;ludzi, niezależnie od&nbsp;tego, czy stoją przed&nbsp;obiektywem, czy&nbsp;za&nbsp;marką.</p>
-        <p class="about__signature">Anna Matejska-Gazda</p>
+      <div class="about__body">
+        <div class="eyebrow">O mnie</div>
+        <h2>Fotografka z Krakowa</h2>
+        <p>Jestem fotografką z Krakowa. Najbardziej lubię pracować z lokalnymi markami, organizacjami społecznymi i placówkami kultury — z ludźmi, którzy robią coś ważnego w swojej okolicy.</p>
+        <p>Fotografuję wydarzenia, architekturę i podróże. Zależy mi na naturalnym świetle, prawdziwych momentach i ludziach, którzy nie pozują na siłę.</p>
+        <p style="font-family:var(--serif);color:var(--taupe);font-size:0.95rem;margin-top:1.5rem">Anna Matejska-Gazda</p>
       </div>
     </div>
   </section>
 
-  <!-- Współpraca -->
-  <section class="process" id="wspolpraca">
+  <section class="process" id="wspolpraca" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4rem 0">
     <div class="wrap">
-      <div data-reveal>
-        <span class="eyebrow">Współpraca</span>
-        <h2 class="section-title">Jak to&nbsp;wygląda</h2>
-        <p class="lede">Prosto i&nbsp;bez&nbsp;biurokracji — od&nbsp;pierwszej rozmowy po&nbsp;gotowe zdjęcia.</p>
+      <div class="section-label" style="padding-top:0">
+        <h2>Jak to wygląda</h2>
+        <p>Prosto i bez biurokracji</p>
       </div>
       <div class="process__grid">
-        <div class="process__step" data-reveal>
-          <span class="process__num" aria-hidden="true">01</span>
+        <div class="process__step">
+          <span class="process__num">01</span>
           <h3>Rozmowa &amp; wycena</h3>
-          <p>Bezpłatna rozmowa o&nbsp;tym, co&nbsp;chcesz pokazać. Na&nbsp;tej podstawie przygotowuję prostą wycenę — bez&nbsp;ukrytych kosztów, zwykle w&nbsp;ciągu 48 godzin.</p>
+          <p>Bezpłatna rozmowa o tym, co chcesz pokazać. Wycena w 48h — bez ukrytych kosztów.</p>
         </div>
-        <div class="process__step" data-reveal>
-          <span class="process__num" aria-hidden="true">02</span>
+        <div class="process__step">
+          <span class="process__num">02</span>
           <h3>Zdjęcia &amp; prawa</h3>
-          <p>Przekazuję zdjęcia z&nbsp;jasno opisaną licencją — na&nbsp;stronę, social media, plakaty czy&nbsp;katalogi. Wszystko na&nbsp;piśmie, dopasowane do&nbsp;Twoich potrzeb.</p>
+          <p>Przekazuję pliki z jasną licencją — na stronę, social media, katalogi. Wszystko na piśmie.</p>
         </div>
-        <div class="process__step" data-reveal>
-          <span class="process__num" aria-hidden="true">03</span>
+        <div class="process__step">
+          <span class="process__num">03</span>
           <h3>Termin &amp; realizacja</h3>
-          <p>Sesja zwykle w&nbsp;ciągu 2–3 tygodni od&nbsp;akceptacji wyceny; wybrane i&nbsp;poprawione pliki w&nbsp;7–14 dni. Pilne zlecenia — do&nbsp;uzgodnienia.</p>
+          <p>Sesja w 2–3 tygodnie od akceptacji; wybrane pliki w 7–14 dni. Pilne — do uzgodnienia.</p>
         </div>
       </div>
-      <p class="process__note" data-reveal>Pracuję w&nbsp;Krakowie i&nbsp;całej Polsce — w&nbsp;plenerze, w&nbsp;biurze, w&nbsp;sali i&nbsp;w&nbsp;drodze. Chętnie doradzę przy&nbsp;formacie — od&nbsp;pojedynczego kadru po&nbsp;pełną relację z&nbsp;wydarzenia.</p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact" id="kontakt">
+  <section class="contact" id="kontakt" style="padding:4rem 0 2rem">
     <div class="wrap contact__inner">
-      <div data-reveal>
-        <span class="eyebrow">Kontakt</span>
-        <h2 class="section-title">Porozmawiajmy<br>o&nbsp;Twoim projekcie</h2>
+      <div>
+        <div class="eyebrow">Kontakt</div>
+        <h2 style="font-weight:300;font-size:clamp(1.3rem,2.5vw,1.8rem);margin-bottom:2rem">Porozmawiajmy<br>o Twoim projekcie</h2>
         <ul class="contact__list">
           <li><span class="contact__label">Telefon</span><a href="tel:+486002478474">602 782 474</a></li>
           <li><span class="contact__label">E-mail</span><a href="mailto:annamatejskagazda@gmail.com">annamatejskagazda@gmail.com</a></li>
           <li><span class="contact__label">Instagram</span><a href="https://www.instagram.com/annamatejska.fotografia/" target="_blank" rel="noopener">@annamatejska.fotografia</a></li>
         </ul>
       </div>
-      <div class="contact__form" data-reveal>
+      <div>
         <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
           <input type="hidden" name="subject" value="Nowa wiadomość z kadrowania" />
           <input type="hidden" name="from_name" value="Formularz kadrowania" />
           <div class="form__group">
-            <label for="form-name" class="form__label">Imię i nazwisko</label>
-            <input type="text" id="form-name" name="name" class="form__input" required placeholder="Jak masz na imię?" />
+            <label class="form__label" for="fn">Imię i nazwisko</label>
+            <input type="text" id="fn" name="name" class="form__input" required placeholder="Jak masz na imię?" />
           </div>
           <div class="form__group">
-            <label for="form-email" class="form__label">E-mail</label>
-            <input type="email" id="form-email" name="email" class="form__input" required placeholder="Twój adres e-mail" />
+            <label class="form__label" for="fe">E-mail</label>
+            <input type="email" id="fe" name="email" class="form__input" required placeholder="Twój adres e-mail" />
           </div>
           <div class="form__group">
-            <label for="form-message" class="form__label">Wiadomość</label>
-            <textarea id="form-message" name="message" class="form__textarea" required rows="4" placeholder="Opisz krótko czego potrzebujesz — termin, lokalizacja, pomysł…"></textarea>
+            <label class="form__label" for="fm">Wiadomość</label>
+            <textarea id="fm" name="message" class="form__textarea" required rows="3" placeholder="Opisz krótko czego potrzebujesz"></textarea>
           </div>
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-          <div class="h-captcha" data-captcha="true" style="margin-bottom:var(--space-2)"></div>
-          <button type="submit" class="btn btn--solid form__submit">Wyślij wiadomość</button>
-          <p class="form__status" aria-live="polite"></p>
+          <div class="h-captcha" data-captcha="true" style="margin-bottom:1rem"></div>
+          <button type="submit" class="btn form__submit">Wyślij wiadomość</button>
+          <p class="form__status" aria-live="polite" style="margin-top:0.5rem;font-size:0.85rem"></p>
         </form>
       </div>
     </div>

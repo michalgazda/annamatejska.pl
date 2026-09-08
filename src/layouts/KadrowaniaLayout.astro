@@ -1,5 +1,5 @@
 ---
-// Kadrowania Layout
+// Kadrowania Layout — minimalist shell
 const base = import.meta.env.BASE_URL;
 
 export interface Props {
@@ -21,7 +21,6 @@ const fullSite = 'https://michalgazda.github.io';
   <link rel="canonical" href={`${fullSite}${base}kadrowania/`} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
   <meta property="og:url" content={`${fullSite}${base}kadrowania/`} />
   <meta property="og:image" content={`${fullSite}${base}kadrowania/images/hero.jpg`} />
   <meta property="og:locale" content="pl_PL" />
@@ -35,8 +34,8 @@ const fullSite = 'https://michalgazda.github.io';
         Anna Matejska-Gazda
         <small>kadrowania</small>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">&#9776;</button>
-      <nav class="site-nav" id="site-nav" aria-label="Nawigacja główna">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+      <nav class="site-nav" id="site-nav" aria-label="Nawigacja">
         <ul>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#o-mnie">O mnie</a></li>
@@ -53,8 +52,7 @@ const fullSite = 'https://michalgazda.github.io';
 
   <footer class="site-footer">
     <div class="wrap">
-      <p class="footer-note">&copy; 2026 Anna Matejska-Gazda &middot; kadrowania &middot; Kraków</p>
-      <p class="footer-family"><a href={base}>Sesje rodzinne &rarr; annamatejska.pl</a></p>
+      <p>&copy; 2026 Anna Matejska-Gazda &middot; kadrowania &middot; Kraków &middot; <a href={base}>annamatejska.pl</a></p>
     </div>
   </footer>
 
