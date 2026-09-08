@@ -8,6 +8,13 @@
       var open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open);
     });
+    // Close menu on link click
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   // Reveal on scroll
