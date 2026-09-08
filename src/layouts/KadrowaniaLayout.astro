@@ -1,0 +1,61 @@
+---
+// Kadrowania Layout — shared shell for the kadrowania sub-site
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={'https://annamatejska.pl/kadrowania/'} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://annamatejska.pl/kadrowania/" />
+  <meta property="og:image" content="https://annamatejska.pl/kadrowania/images/hero.jpg" />
+  <meta property="og:locale" content="pl_PL" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Crect x='7' y='7' width='18' height='18' fill='none' stroke='%231a1a1a' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles/kadrowania.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/kadrowania/">
+        Anna Matejska-Gazda
+        <small>kadrowania</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">&#9776;</button>
+      <nav class="site-nav" id="site-nav" aria-label="Nawigacja główna">
+        <ul>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#o-mnie">O mnie</a></li>
+          <li><a href="#wspolpraca">Współpraca</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-note">&copy; 2026 Anna Matejska-Gazda &middot; kadrowania &middot; Kraków</p>
+      <p class="footer-family"><a href="/">Sesje rodzinne &rarr; annamatejska.pl</a></p>
+    </div>
+  </footer>
+
+  <script is:inline src="/scripts/kadrowania.js" defer></script>
+  <script is:inline src="https://web3forms.com/client/script.js" async defer></script>
+</body>
+</html>

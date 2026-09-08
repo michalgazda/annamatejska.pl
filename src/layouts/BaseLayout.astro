@@ -1,0 +1,69 @@
+---
+// Base Layout — shared shell for all main-site pages: head, nav, footer
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, image, noindex } = Astro.props;
+const ogImage = image || '/images/hero.jpg';
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical || 'https://annamatejska.pl/' + Astro.url.pathname} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical || 'https://annamatejska.pl/' + Astro.url.pathname} />
+  <meta property="og:image" content={'https://annamatejska.pl' + ogImage} />
+  <meta property="og:locale" content="pl_PL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={'https://annamatejska.pl' + ogImage} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fafaf8'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%230d0d0d' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="/">Anna Matejska<em>-Gazda</em></a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <div class="nav-links">
+        <a href="/#o-mnie">O mnie</a>
+        <a href="/#sesje">Sesje</a>
+        <a href="/galerie">Galerie</a>
+        <a href="/#opinie">Opinie</a>
+        <a href="/kontakt" class="btn">Umów sesję</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site">
+    <div class="container">
+      <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
+      <span>
+        <a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a>
+        · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a>
+        · <a href="/kadrowania/">kadrowania</a>
+      </span>
+    </div>
+  </footer>
+
+  <script is:inline src="/scripts/main.js"></script>
+</body>
+</html>

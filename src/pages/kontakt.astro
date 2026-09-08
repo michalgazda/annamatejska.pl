@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactInfo = {
+  phone: '+48 602 782 474',
+  email: 'annamatejskagazda@gmail.com',
+  area: 'Kraków i okolice',
+  studio: 'Kraków – Czyżyny (domowe studio)',
+  instagram: 'annamatejska.fotografia',
+  facebook: 'annamatejska.fotografia',
+};
+---
+
+<BaseLayout title="Kontakt — Anna Matejska-Gazda Fotograf Kraków" description="Umów sesję fotograficzną w Krakowie — tel. 602 782 474, annamatejskagazda@gmail.com. Sesje rodzinne, kobiece, ciążowe, wizerunkowe." canonical="https://annamatejska.pl/kontakt">
+  <section class="page-hero" style="padding-bottom:20px">
+    <div class="container">
+      <span class="kicker">Kontakt</span>
+      <h1>Masz pytania? Napisz!</h1>
+      <p>Odpowiadam na wszystkie wiadomości — zwykle tego samego dnia.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:40px;background:var(--white)">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <div><strong>Telefon</strong><a href="tel:+486002478474">+48 {contactInfo.phone}</a></div>
+        <div><strong>E-mail</strong><a href="mailto:{contactInfo.email}">{contactInfo.email}</a></div>
+        <div><strong>Obszar działania</strong>{contactInfo.area}</div>
+        <div><strong>Studio</strong>{contactInfo.studio}</div>
+        <div><strong>Instagram</strong><a href="https://www.instagram.com/{contactInfo.instagram}/" target="_blank" rel="noopener">@{contactInfo.instagram}</a></div>
+        <div><strong>Facebook</strong><a href="https://www.facebook.com/{contactInfo.facebook}" target="_blank" rel="noopener">@{contactInfo.facebook}</a></div>
+      </div>
+
+      <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
+        <input type="hidden" name="subject" value="Nowe zapytanie z annamatejska.pl" />
+        <input type="hidden" name="from_name" value="Formularz annamatejska.pl" />
+        <div class="form-field"><input type="text" name="imie" placeholder="Imię *" required /></div>
+        <div class="form-field"><input type="email" name="email" placeholder="E-mail *" required /></div>
+        <div class="form-field"><input type="tel" name="telefon" placeholder="Telefon" /></div>
+        <div class="form-field">
+          <select name="rodzaj-sesji" required>
+            <option value="" disabled selected>Rodzaj sesji *</option>
+            <option>Rodzinna</option>
+            <option>Dziecięca</option>
+            <option>Kobiece</option>
+            <option>Ciążowa</option>
+            <option>Romantyczna</option>
+            <option>Wizerunkowa / biznesowa</option>
+            <option>Inne / nie wiem jeszcze</option>
+          </select>
+        </div>
+        <div class="form-field"><textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *" required></textarea></div>
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+        <div class="h-captcha" data-captcha="true" style="margin-bottom:16px"></div>
+        <button class="btn btn-taupe" type="submit">Wyślij zapytanie</button>
+        <p class="form-status" aria-live="polite"></p>
+        <p class="form-note">Twoje dane wykorzystam wyłącznie do odpowiedzi na zapytanie. Wysyłając formularz, akceptujesz <a href="/polityka-prywatnosci">politykę prywatności</a>.</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline src="https://js.hcaptcha.com/1/api.js" defer></script>

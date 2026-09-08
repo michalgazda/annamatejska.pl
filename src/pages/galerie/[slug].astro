@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { galleries } from '../../data/queries';
+
+const months = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
+function formatDate(d) { const p = d.split('-'); return `${parseInt(p[2])} ${months[parseInt(p[1])-1]} ${p[0]}`; }
+
+export async function getStaticPaths() {
+  const all = galleries();
+  return all.map(g => ({
+    params: { slug: g.slug },
+    props: { gallery: g },
+  }));
+}
+
+const { gallery } = Astro.props;
+const photoCount = 4;
+const photos = Array.from({ length: photoCount }, (_, i) => `/images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
+---
+
+<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} canonical={`https://annamatejska.pl/galerie/${gallery.slug}`} image={`/images/galleries/${gallery.slug}/01.jpg`}>
+  <section class="page-hero" style="padding-bottom:0">
+    <div class="container gal-meta">
+      <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>
+      <h1>{gallery.title}</h1>
+      <p>{gallery.excerpt}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="photo-grid">
+        {photos.map((src, i) => (
+          <figure><img src={src} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>
+        ))}
+      </div>
+      <p style="text-align:center;margin-top:56px"><a class="btn btn-line" href="/galerie">← Wszystkie galerie</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services, testimonials, galleries } from '../data/queries';
+
+const svcs = services();
+const testis = testimonials();
+const allGals = galleries();
+const latest = allGals.slice(0, 6);
+const seasonList = [
+  { period: 'Mar–Kwi', name: 'Kwitnący sad' },
+  { period: 'Maj', name: 'Pole maków' },
+  { period: 'Lip', name: 'Lawenda' },
+  { period: 'Sie', name: 'Farma kwiatowa' },
+  { period: 'Wrz–Paź', name: 'Farma dyniowa' },
+];
+---
+
+<BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobiece, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością." canonical="https://annamatejska.pl/">
+  <!-- Hero -->
+  <section class="hero">
+    <img class="bg" src="/images/hero.jpg" alt="Anna Matejska-Gazda — fotograf Kraków, sesja plenerowa w złotej godzinie" />
+    <div class="hero-inner">
+      <span class="kicker">Fotografia · Kraków i okolice</span>
+      <h1>Zatrzymuję chwile,<br>które zostają na zawsze</h1>
+      <p>Naturalnie · z czułością · bez pozowania</p>
+      <a href="/kontakt" class="btn btn-taupe">Umów sesję</a>
+    </div>
+    <span class="scroll-hint">przewiń ↓</span>
+  </section>
+
+  <!-- About -->
+  <section id="o-mnie">
+    <div class="container about-grid">
+      <img src="/images/about.jpg" alt="Anna Matejska-Gazda — fotografka z Krakowa" style="aspect-ratio:3/4;object-fit:cover;width:100%" />
+      <div>
+        <span class="kicker">O mnie</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:1.2rem">Cześć! Mam na imię Anna.</h2>
+        <p style="color:var(--ink-soft)">Jestem historykiem sztuki i pedagogiem — dzięki temu dbam o estetykę i kompozycję każdego kadru, a podczas sesji rodzinnych wiem, jak sprawić, by dla dzieci była to zabawa, nie przymus.</p>
+        <p style="color:var(--ink-soft)">Prywatnie jestem szczęśliwą żoną i mamą dwóch córeczek, których pojawienie się sprawiło, że po 10 latach fotografii krajobrazowej zakochałam się w fotografii portretowej.</p>
+        <p style="color:var(--ink-soft)">Dla mnie najważniejsza jest <strong>czułość</strong> — uchwycam Wasze emocje i to, co w Was wyjątkowe. Każdą sesję zaczynam od kawy i rozmowy, żeby poznać Wasze oczekiwania.</p>
+        <p style="font-family:var(--serif);font-style:italic;font-size:1.4rem;margin-top:1rem">— Anna</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="sesje" style="background:var(--white)">
+    <div class="container">
+      <div class="gal-head">
+        <div>
+          <span class="kicker">Oferta</span>
+          <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Wybierz swoją sesję</h2>
+        </div>
+        <a href="/kontakt" class="btn btn-line">Zapytaj o termin</a>
+      </div>
+      <div class="svc-grid">
+        {svcs.map(s => (
+          <a class="svc" href={`/sesje/${s.slug}`}>
+            <img src={s.card_image} alt={`Sesje ${s.card_title} Kraków`} />
+            <div class="overlay">
+              <h3>{s.card_title}</h3>
+              <p>{s.card_short}</p>
+              <small>{s.card_time}</small>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="jak-to-dziala">
+    <div class="container">
+      <span class="kicker">Proces</span>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Jak to działa?</h2>
+      <div class="process-grid">
+        <div class="step"><div class="step-num">01</div><h3>Kawa i rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Przygotowanie</h3><p>Pomogę w doborze strojów, miejsca i pory dnia — idealnej na Wasze zdjęcia.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Sesja</h3><p>Bez presji pozowania. Spacer, zabawa, swoboda — ja łapię momenty pomiędzy.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Zdjęcia</h3><p>Starannie wyselekcjonowana i obrobiona galeria — zwykle w ciągu kilku dni.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasons -->
+  <section class="seasons">
+    <div class="container">
+      <span class="kicker">Kalendarz pór roku</span>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Sezonowe plenery</h2>
+      <p style="margin-top:14px;color:var(--ink-soft)">Przyroda jako najlepsze tło — każda pora roku ma swój magiczny moment.</p>
+      <div class="season-list">
+        {seasonList.map(s => (
+          <div class="season"><span class="mo">{s.period}</span><h3>{s.name}</h3></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote">
+    <div class="container">
+      <blockquote>„W doskonałej fotografii chodzi o głębię uczucia,<br>nie o głębię ostrości."</blockquote>
+      <cite>Peter Adams</cite>
+    </div>
+  </section>
+
+  <!-- Galleries -->
+  <section id="najnowsze-galerie">
+    <div class="container">
+      <div class="gal-head">
+        <div>
+          <span class="kicker">Portfolio</span>
+          <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Najnowsze galerie</h2>
+        </div>
+        <a href="/galerie" class="btn btn-line">Wszystkie galerie →</a>
+      </div>
+      <div class="gal-list">
+        {latest.map(g => (
+          <a class="gal-card" href={`/galerie/${g.slug}`}>
+            <img src={g.cover} alt={g.title} loading="lazy" />
+            <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{g.date}</time></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="opinie" style="background:var(--white)">
+    <div class="container">
+      <span class="kicker">Opinie</span>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Co mówią moi klienci</h2>
+      <div class="testi-grid">
+        {testis.map(t => (
+          <article class="testi"><div class="stars">★★★★★</div><p>„{t.quote}"</p><footer>{t.author}</footer></article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

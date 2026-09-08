@@ -1,0 +1,213 @@
+---
+import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
+---
+
+<KadrowaniaLayout title="kadrowania — Anna Matejska-Gazda | fotografia wydarzeń, architektury i podróży" description="Fotografia dla małych lokalnych marek, organizacji społecznych i placówek kultury. Wydarzenia, architektura, podróże. Kraków.">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero__content">
+      <span class="eyebrow">Anna Matejska-Gazda &middot; Kraków</span>
+      <h1 class="hero__title">Kadrowania<span>fotografia dla ludzi i&nbsp;miejsc</span></h1>
+      <p class="hero__sub">Wydarzenia, architektura, podróże. Zdjęcia, które opowiadają o&nbsp;Twojej społeczności, Twojej okolicy i&nbsp;Twoich ludziach — bez&nbsp;sztywnej korporacyjnej formy.</p>
+      <a class="btn" href="#portfolio">Zobacz portfolio</a>
+    </div>
+    <div class="hero__imgwrap">
+      <img class="hero__img" src="/kadrowania/images/hero.jpg" alt="Jasny, pogodny kadr — fotografia wydarzeń Anny Matejskiej-Gazdy" fetchpriority="high" />
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="manifesto" id="manifesto">
+    <div class="wrap manifesto__grid">
+      <div class="manifesto__text" data-reveal>
+        <span class="eyebrow">Manifest</span>
+        <blockquote>
+          „Najlepsze zdjęcia powstają tam, gdzie ludzie są&nbsp;sobą — na&nbsp;sąsiedzkim festynie, w&nbsp;małej pracowni, w&nbsp;drodze. Moim zadaniem jest po&nbsp;prostu tam być i&nbsp;dobrze patrzeć."
+        </blockquote>
+        <p class="manifesto__body">Nie pracuję dla wielkich korporacji. Pracuję z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy robią coś ważnego w&nbsp;swojej okolicy. Chcę, żeby Twoje zdjęcia były prawdziwe, ciepłe i&nbsp;bliskie, a&nbsp;nie wygładzone do&nbsp;perfekcji.</p>
+      </div>
+      <div class="manifesto__img" data-reveal>
+        <img src="/kadrowania/images/manifesto.jpg" alt="Jasne, naturalne ujęcie — światło i przestrzeń" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="portfolio__head" data-reveal>
+        <div>
+          <span class="eyebrow">Portfolio</span>
+          <h2 class="section-title">Wybrane kadry</h2>
+        </div>
+        <div class="filter" role="group" aria-label="Filtr kategorii">
+          <button class="filter__btn is-active" data-filter="*" aria-pressed="true">Wszystko</button>
+          <button class="filter__btn" data-filter="wydarzenia" aria-pressed="false">Wydarzenia</button>
+          <button class="filter__btn" data-filter="architektura" aria-pressed="false">Architektura</button>
+          <button class="filter__btn" data-filter="podroze" aria-pressed="false">Podróże</button>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="wydarzenia" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/01.jpg" aria-label="Galeria: wydarzenie — sąsiedzki festyn">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/01.jpg" alt="Wydarzenie — sąsiedzki festyn w plenerze" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Sąsiedzki festyn</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/architektura/01.jpg" aria-label="Galeria: architektura — kamienica">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/01.jpg" alt="Architektura — kamienica w Krakowie" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Kamienice</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/podroze/01.jpg" aria-label="Galeria: podróże — górska wędrówka">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/01.jpg" alt="Podróże — górska wędrówka" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Góry</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="wydarzenia" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/02.jpg" aria-label="Galeria: wydarzenie — wernisaż w małej galerii">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/02.jpg" alt="Wydarzenie — wernisaż w małej galerii" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Wernisaż w&nbsp;galerii</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/architektura/02.jpg" aria-label="Galeria: architektura — drewniana kapliczka">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/02.jpg" alt="Architektura — drewniana kapliczka" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Kapliczki i&nbsp;detale</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/podroze/02.jpg" aria-label="Galeria: podróże — nadmorska miejscowość">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/02.jpg" alt="Podróże — nadmorska miejscowość" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Nad morzem</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="wydarzenia" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/03.jpg" aria-label="Galeria: wydarzenie — warsztaty w pracowni">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/03.jpg" alt="Wydarzenie — warsztaty w pracowni" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Warsztaty</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/architektura/03.jpg" aria-label="Galeria: architektura — nowoczesna biblioteka">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/03.jpg" alt="Architektura — nowoczesna biblioteka" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Przestrzenie publiczne</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="podroze" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/podroze/03.jpg" aria-label="Galeria: podróże — pociąg i dworzec">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/03.jpg" alt="Podróże — pociąg i dworzec" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">W&nbsp;drodze</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="wydarzenia" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/04.jpg" aria-label="Galeria: wydarzenie — koncert w klubie osiedlowym">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/04.jpg" alt="Wydarzenie — koncert w klubie osiedlowym" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Koncerty</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/architektura/04.jpg" aria-label="Galeria: architektura — podwórko">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/04.jpg" alt="Architektura — podwórko i bramy" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Podwórka i&nbsp;bramy</h3></span>
+          </a>
+        </figure>
+        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
+          <a class="tile" href="/kadrowania/images/portfolio/podroze/04.jpg" aria-label="Galeria: podróże — targ na prowincji">
+            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/04.jpg" alt="Podróże — targ na prowincji" loading="lazy" /></span>
+            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Miasteczka</h3></span>
+          </a>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="o-mnie">
+    <div class="wrap about__grid">
+      <div class="about__img" data-reveal>
+        <img src="/kadrowania/images/manifesto.jpg" alt="Anna Matejska-Gazda — fotografka" loading="lazy" />
+      </div>
+      <div class="about__body" data-reveal>
+        <span class="eyebrow">O mnie</span>
+        <h2 class="section-title">Fotografka z&nbsp;Krakowa</h2>
+        <p>Jestem fotografką z&nbsp;Krakowa. Najbardziej lubię pracować z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy mają coś do&nbsp;opowiedzenia o&nbsp;swojej okolicy.</p>
+        <p>Fotografuję wydarzenia, architekturę i&nbsp;podróże. Zależy mi&nbsp;na&nbsp;naturalnym świetle, prawdziwych momentach i&nbsp;ludziach, którzy nie&nbsp;pozują na&nbsp;siłę. Pierwszą stroną mojej działalności jest fotografia rodzinna — bo&nbsp;dobre kadry zaczynają się od&nbsp;ludzi, niezależnie od&nbsp;tego, czy stoją przed&nbsp;obiektywem, czy&nbsp;za&nbsp;marką.</p>
+        <p class="about__signature">Anna Matejska-Gazda</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Współpraca -->
+  <section class="process" id="wspolpraca">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="eyebrow">Współpraca</span>
+        <h2 class="section-title">Jak to&nbsp;wygląda</h2>
+        <p class="lede">Prosto i&nbsp;bez&nbsp;biurokracji — od&nbsp;pierwszej rozmowy po&nbsp;gotowe zdjęcia.</p>
+      </div>
+      <div class="process__grid">
+        <div class="process__step" data-reveal>
+          <span class="process__num" aria-hidden="true">01</span>
+          <h3>Rozmowa &amp; wycena</h3>
+          <p>Bezpłatna rozmowa o&nbsp;tym, co&nbsp;chcesz pokazać. Na&nbsp;tej podstawie przygotowuję prostą wycenę — bez&nbsp;ukrytych kosztów, zwykle w&nbsp;ciągu 48 godzin.</p>
+        </div>
+        <div class="process__step" data-reveal>
+          <span class="process__num" aria-hidden="true">02</span>
+          <h3>Zdjęcia &amp; prawa</h3>
+          <p>Przekazuję zdjęcia z&nbsp;jasno opisaną licencją — na&nbsp;stronę, social media, plakaty czy&nbsp;katalogi. Wszystko na&nbsp;piśmie, dopasowane do&nbsp;Twoich potrzeb.</p>
+        </div>
+        <div class="process__step" data-reveal>
+          <span class="process__num" aria-hidden="true">03</span>
+          <h3>Termin &amp; realizacja</h3>
+          <p>Sesja zwykle w&nbsp;ciągu 2–3 tygodni od&nbsp;akceptacji wyceny; wybrane i&nbsp;poprawione pliki w&nbsp;7–14 dni. Pilne zlecenia — do&nbsp;uzgodnienia.</p>
+        </div>
+      </div>
+      <p class="process__note" data-reveal>Pracuję w&nbsp;Krakowie i&nbsp;całej Polsce — w&nbsp;plenerze, w&nbsp;biurze, w&nbsp;sali i&nbsp;w&nbsp;drodze. Chętnie doradzę przy&nbsp;formacie — od&nbsp;pojedynczego kadru po&nbsp;pełną relację z&nbsp;wydarzenia.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="kontakt">
+    <div class="wrap contact__inner">
+      <div data-reveal>
+        <span class="eyebrow">Kontakt</span>
+        <h2 class="section-title">Porozmawiajmy<br>o&nbsp;Twoim projekcie</h2>
+        <ul class="contact__list">
+          <li><span class="contact__label">Telefon</span><a href="tel:+486002478474">602 782 474</a></li>
+          <li><span class="contact__label">E-mail</span><a href="mailto:annamatejskagazda@gmail.com">annamatejskagazda@gmail.com</a></li>
+          <li><span class="contact__label">Instagram</span><a href="https://www.instagram.com/annamatejska.fotografia/" target="_blank" rel="noopener">@annamatejska.fotografia</a></li>
+        </ul>
+      </div>
+      <div class="contact__form" data-reveal>
+        <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
+          <input type="hidden" name="subject" value="Nowa wiadomość z kadrowania" />
+          <input type="hidden" name="from_name" value="Formularz kadrowania" />
+          <div class="form__group">
+            <label for="form-name" class="form__label">Imię i nazwisko</label>
+            <input type="text" id="form-name" name="name" class="form__input" required placeholder="Jak masz na imię?" />
+          </div>
+          <div class="form__group">
+            <label for="form-email" class="form__label">E-mail</label>
+            <input type="email" id="form-email" name="email" class="form__input" required placeholder="Twój adres e-mail" />
+          </div>
+          <div class="form__group">
+            <label for="form-message" class="form__label">Wiadomość</label>
+            <textarea id="form-message" name="message" class="form__textarea" required rows="4" placeholder="Opisz krótko czego potrzebujesz — termin, lokalizacja, pomysł…"></textarea>
+          </div>
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+          <div class="h-captcha" data-captcha="true" style="margin-bottom:var(--space-2)"></div>
+          <button type="submit" class="btn btn--solid form__submit">Wyślij wiadomość</button>
+          <p class="form__status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</KadrowaniaLayout>
+
+<script is:inline src="https://js.hcaptcha.com/1/api.js" defer></script>

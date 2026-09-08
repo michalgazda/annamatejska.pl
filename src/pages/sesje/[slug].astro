@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { services } from '../../data/queries';
+
+export async function getStaticPaths() {
+  const allServices = services();
+  return allServices.map(s => ({
+    params: { slug: s.slug },
+    props: { service: s },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} canonical={`https://annamatejska.pl/sesje/${service.slug}`}>
+  <section class="page-hero">
+    <div class="container gal-meta">
+      <span class="kicker">{service.category} · {service.tagline}</span>
+      <h1>{service.title}</h1>
+      <p>{service.subtitle}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container" style="max-width:820px">
+      {service.description.map(p => <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>)}
+      <div style="display:flex;gap:40px;flex-wrap:wrap;margin-top:36px;padding:26px 32px;border:1px solid var(--line);border-radius:3px;background:var(--white)">
+        <div><span class="kicker" style="margin-bottom:.3rem">Czas trwania</span><strong style="font-family:var(--serif);font-size:1.5rem;font-weight:500">{service.duration}</strong></div>
+        <div style="flex:1;min-width:240px"><span class="kicker" style="margin-bottom:.3rem">Zawsze w cenie</span><span style="color:var(--ink-soft);font-size:.92rem">{service.included}</span></div>
+      </div>
+      <blockquote style="font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.6;color:var(--ink-soft);border-left:2px solid var(--taupe);padding-left:24px;margin:52px 0">{service.quote}</blockquote>
+      <p style="text-align:center;margin-top:44px"><a class="btn btn-taupe" href="/kontakt">Umów tę sesję</a></p>
+    </div>
+  </section>
+</BaseLayout>

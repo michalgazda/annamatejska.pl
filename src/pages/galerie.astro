@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { galleries } from '../data/queries';
+
+const allGalleries = galleries();
+const months = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
+function formatDate(d) { const p = d.split('-'); return `${parseInt(p[2])} ${months[parseInt(p[1])-1]} ${p[0]}`; }
+---
+
+<BaseLayout title="Galerie — Anna Matejska-Gazda Fotograf Kraków" description="Portfolio — galerie sesji rodzinnych, kobiecych, ciążowych i wizerunkowych. Anna Matejska-Gazda, fotograf Kraków." canonical="https://annamatejska.pl/galerie">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">Portfolio</span>
+      <h1>Galerie</h1>
+      <p>Wybrane sesje — każda inna historia. Kliknij, żeby zobaczyć całą galerię.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="container">
+      <div class="gal-list">
+        {allGalleries.map(g => (
+          <a class="gal-card" href={`/galerie/${g.slug}`}>
+            <img src={g.cover} alt={g.title} loading="lazy" />
+            <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
