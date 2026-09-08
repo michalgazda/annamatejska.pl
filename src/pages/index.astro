@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { services, testimonials, galleries } from '../data/queries';
 
+const base = import.meta.env.BASE_URL;
 const svcs = services();
 const testis = testimonials();
 const allGals = galleries();
@@ -15,15 +16,15 @@ const seasonList = [
 ];
 ---
 
-<BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobiece, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością." canonical="https://annamatejska.pl/">
+<BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobiece, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością." canonical="https://michalgazda.github.io/annamatejska.pl/">
   <!-- Hero -->
   <section class="hero">
-    <img class="bg" src="/images/hero.jpg" alt="Anna Matejska-Gazda — fotograf Kraków, sesja plenerowa w złotej godzinie" />
+    <img class="bg" src={`${base}images/hero.jpg`} alt="Anna Matejska-Gazda — fotograf Kraków, sesja plenerowa w złotej godzinie" />
     <div class="hero-inner">
       <span class="kicker">Fotografia · Kraków i okolice</span>
       <h1>Zatrzymuję chwile,<br>które zostają na zawsze</h1>
       <p>Naturalnie · z czułością · bez pozowania</p>
-      <a href="/kontakt" class="btn btn-taupe">Umów sesję</a>
+      <a href={`${base}kontakt`} class="btn btn-taupe">Umów sesję</a>
     </div>
     <span class="scroll-hint">przewiń ↓</span>
   </section>
@@ -31,7 +32,7 @@ const seasonList = [
   <!-- About -->
   <section id="o-mnie">
     <div class="container about-grid">
-      <img src="/images/about.jpg" alt="Anna Matejska-Gazda — fotografka z Krakowa" style="aspect-ratio:3/4;object-fit:cover;width:100%" />
+      <img src={`${base}images/about.jpg`} alt="Anna Matejska-Gazda — fotografka z Krakowa" style="aspect-ratio:3/4;object-fit:cover;width:100%" />
       <div>
         <span class="kicker">O mnie</span>
         <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:1.2rem">Cześć! Mam na imię Anna.</h2>
@@ -51,12 +52,12 @@ const seasonList = [
           <span class="kicker">Oferta</span>
           <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Wybierz swoją sesję</h2>
         </div>
-        <a href="/kontakt" class="btn btn-line">Zapytaj o termin</a>
+        <a href={`${base}kontakt`} class="btn btn-line">Zapytaj o termin</a>
       </div>
       <div class="svc-grid">
         {svcs.map(s => (
-          <a class="svc" href={`/sesje/${s.slug}`}>
-            <img src={s.card_image} alt={`Sesje ${s.card_title} Kraków`} />
+          <a class="svc" href={`${base}sesje/${s.slug}`}>
+            <img src={`${base}${s.card_image}`} alt={`Sesje ${s.card_title} Kraków`} />
             <div class="overlay">
               <h3>{s.card_title}</h3>
               <p>{s.card_short}</p>
@@ -112,12 +113,12 @@ const seasonList = [
           <span class="kicker">Portfolio</span>
           <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Najnowsze galerie</h2>
         </div>
-        <a href="/galerie" class="btn btn-line">Wszystkie galerie →</a>
+        <a href={`${base}galerie`} class="btn btn-line">Wszystkie galerie →</a>
       </div>
       <div class="gal-list">
         {latest.map(g => (
-          <a class="gal-card" href={`/galerie/${g.slug}`}>
-            <img src={g.cover} alt={g.title} loading="lazy" />
+          <a class="gal-card" href={`${base}galerie/${g.slug}`}>
+            <img src={`${base}${g.cover}`} alt={g.title} loading="lazy" />
             <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{g.date}</time></div>
           </a>
         ))}

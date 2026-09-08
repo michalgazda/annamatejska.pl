@@ -1,5 +1,7 @@
 ---
 import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
+const base = import.meta.env.BASE_URL;
+const ki = (p) => `${base}kadrowania/images/${p}`; // shortcut for kadrowania img
 ---
 
 <KadrowaniaLayout title="kadrowania — Anna Matejska-Gazda | fotografia wydarzeń, architektury i podróży" description="Fotografia dla małych lokalnych marek, organizacji społecznych i placówek kultury. Wydarzenia, architektura, podróże. Kraków.">
@@ -13,7 +15,7 @@ import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
       <a class="btn" href="#portfolio">Zobacz portfolio</a>
     </div>
     <div class="hero__imgwrap">
-      <img class="hero__img" src="/kadrowania/images/hero.jpg" alt="Jasny, pogodny kadr — fotografia wydarzeń Anny Matejskiej-Gazdy" fetchpriority="high" />
+      <img class="hero__img" src={ki('hero.jpg')} alt="Jasny, pogodny kadr — fotografia wydarzeń Anny Matejskiej-Gazdy" fetchpriority="high" />
     </div>
   </section>
 
@@ -28,7 +30,7 @@ import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
         <p class="manifesto__body">Nie pracuję dla wielkich korporacji. Pracuję z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy robią coś ważnego w&nbsp;swojej okolicy. Chcę, żeby Twoje zdjęcia były prawdziwe, ciepłe i&nbsp;bliskie, a&nbsp;nie wygładzone do&nbsp;perfekcji.</p>
       </div>
       <div class="manifesto__img" data-reveal>
-        <img src="/kadrowania/images/manifesto.jpg" alt="Jasne, naturalne ujęcie — światło i przestrzeń" loading="lazy" />
+        <img src={ki('manifesto.jpg')} alt="Jasne, naturalne ujęcie — światło i przestrzeń" loading="lazy" />
       </div>
     </div>
   </section>
@@ -50,78 +52,31 @@ import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
       </div>
 
       <div class="portfolio-grid">
-        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="wydarzenia" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/01.jpg" aria-label="Galeria: wydarzenie — sąsiedzki festyn">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/01.jpg" alt="Wydarzenie — sąsiedzki festyn w plenerze" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Sąsiedzki festyn</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/architektura/01.jpg" aria-label="Galeria: architektura — kamienica">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/01.jpg" alt="Architektura — kamienica w Krakowie" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Kamienice</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/podroze/01.jpg" aria-label="Galeria: podróże — górska wędrówka">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/01.jpg" alt="Podróże — górska wędrówka" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Góry</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="wydarzenia" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/02.jpg" aria-label="Galeria: wydarzenie — wernisaż w małej galerii">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/02.jpg" alt="Wydarzenie — wernisaż w małej galerii" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Wernisaż w&nbsp;galerii</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/architektura/02.jpg" aria-label="Galeria: architektura — drewniana kapliczka">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/02.jpg" alt="Architektura — drewniana kapliczka" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Kapliczki i&nbsp;detale</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/podroze/02.jpg" aria-label="Galeria: podróże — nadmorska miejscowość">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/02.jpg" alt="Podróże — nadmorska miejscowość" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Nad morzem</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="wydarzenia" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/03.jpg" aria-label="Galeria: wydarzenie — warsztaty w pracowni">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/03.jpg" alt="Wydarzenie — warsztaty w pracowni" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Warsztaty</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/architektura/03.jpg" aria-label="Galeria: architektura — nowoczesna biblioteka">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/03.jpg" alt="Architektura — nowoczesna biblioteka" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Przestrzenie publiczne</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item portfolio-grid__item--wide" data-cat="podroze" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/podroze/03.jpg" aria-label="Galeria: podróże — pociąg i dworzec">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/03.jpg" alt="Podróże — pociąg i dworzec" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">W&nbsp;drodze</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="wydarzenia" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/wydarzenia/04.jpg" aria-label="Galeria: wydarzenie — koncert w klubie osiedlowym">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/wydarzenia/04.jpg" alt="Wydarzenie — koncert w klubie osiedlowym" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Wydarzenia</span><h3 class="tile__title">Koncerty</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="architektura" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/architektura/04.jpg" aria-label="Galeria: architektura — podwórko">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/architektura/04.jpg" alt="Architektura — podwórko i bramy" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Architektura</span><h3 class="tile__title">Podwórka i&nbsp;bramy</h3></span>
-          </a>
-        </figure>
-        <figure class="portfolio-grid__item" data-cat="podroze" data-reveal>
-          <a class="tile" href="/kadrowania/images/portfolio/podroze/04.jpg" aria-label="Galeria: podróże — targ na prowincji">
-            <span class="tile__frame"><img src="/kadrowania/images/portfolio/podroze/04.jpg" alt="Podróże — targ na prowincji" loading="lazy" /></span>
-            <span class="tile__caption"><span class="tile__cat">Podróże</span><h3 class="tile__title">Miasteczka</h3></span>
-          </a>
-        </figure>
+        {[
+          {cat:'wydarzenia', title:'Sąsiedzki festyn', wide:true},
+          {cat:'architektura', title:'Kamienice'},
+          {cat:'podroze', title:'Góry'},
+          {cat:'wydarzenia', title:'Wernisaż w&nbsp;galerii', wide:true},
+          {cat:'architektura', title:'Kapliczki i&nbsp;detale'},
+          {cat:'podroze', title:'Nad morzem'},
+          {cat:'wydarzenia', title:'Warsztaty'},
+          {cat:'architektura', title:'Przestrzenie publiczne'},
+          {cat:'podroze', title:'W&nbsp;drodze', wide:true},
+          {cat:'wydarzenia', title:'Koncerty'},
+          {cat:'architektura', title:'Podwórka i&nbsp;bramy'},
+          {cat:'podroze', title:'Miasteczka'},
+        ].map((item, idx) => {
+          const n = (idx % 4) + 1;
+          const wideClass = item.wide ? ' portfolio-grid__item--wide' : '';
+          return (
+            <figure class={`portfolio-grid__item${wideClass}`} data-cat={item.cat} data-reveal>
+              <a class="tile" href={`${ki(`portfolio/${item.cat}/${String(n).padStart(2,'0')}.jpg`)}`} aria-label={`Galeria: ${item.cat}`}>
+                <span class="tile__frame"><img src={`${ki(`portfolio/${item.cat}/${String(n).padStart(2,'0')}.jpg`)}`} alt={`${item.title}`} loading="lazy" /></span>
+                <span class="tile__caption"><span class="tile__cat">{item.cat === 'podroze' ? 'Podróże' : item.cat.charAt(0).toUpperCase() + item.cat.slice(1)}</span><h3 class="tile__title" set:html={item.title} /></span>
+              </a>
+            </figure>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -130,7 +85,7 @@ import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
   <section class="about" id="o-mnie">
     <div class="wrap about__grid">
       <div class="about__img" data-reveal>
-        <img src="/kadrowania/images/manifesto.jpg" alt="Anna Matejska-Gazda — fotografka" loading="lazy" />
+        <img src={ki('manifesto.jpg')} alt="Anna Matejska-Gazda — fotografka" loading="lazy" />
       </div>
       <div class="about__body" data-reveal>
         <span class="eyebrow">O mnie</span>

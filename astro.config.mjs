@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://annamatejska.pl',
+  site: 'https://michalgazda.github.io',
+  base: '/annamatejska.pl/',
   output: 'static',
   outDir: './dist',
 });
