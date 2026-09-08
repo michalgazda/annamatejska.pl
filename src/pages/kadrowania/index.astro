@@ -79,7 +79,23 @@ portfolioItems.forEach((item, idx) => {
     })}
   </div>
 
-  <section class="about" id="o-mnie">
+  <!-- Manifest -->
+  <section class="manifesto" id="manifesto" style="padding:3rem 0;border-top:1px solid var(--line)">
+    <div class="wrap manifesto__grid">
+      <div class="manifesto__text">
+        <div class="eyebrow">Manifest</div>
+        <blockquote style="font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.7rem);font-style:italic;line-height:1.45;margin:0 0 1.5rem;text-wrap:balance">
+          „Najlepsze zdjęcia powstają tam, gdzie ludzie są&nbsp;sobą — na&nbsp;sąsiedzkim festynie, w&nbsp;małej pracowni, w&nbsp;drodze. Moim zadaniem jest po&nbsp;prostu tam być i&nbsp;dobrze patrzeć."
+        </blockquote>
+        <p style="color:var(--ink-soft);font-size:0.95rem">Nie pracuję dla wielkich korporacji. Pracuję z&nbsp;lokalnymi markami, organizacjami społecznymi i&nbsp;placówkami kultury — z&nbsp;ludźmi, którzy robią coś ważnego w&nbsp;swojej okolicy. Chcę, żeby Twoje zdjęcia były prawdziwe, ciepłe i&nbsp;bliskie, a&nbsp;nie wygładzone do&nbsp;perfekcji.</p>
+      </div>
+      <div class="about__img">
+        <img src={ki('manifesto.jpg')} alt="Jasne, naturalne ujęcie — światło i przestrzeń" loading="lazy" style="border-radius:4px" />
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="o-mnie" style="padding:3rem 0">
     <div class="wrap about__grid">
       <div class="about__img">
         <img src={ki('manifesto.jpg')} alt="Anna Matejska-Gazda" loading="lazy" />
@@ -88,7 +104,7 @@ portfolioItems.forEach((item, idx) => {
         <div class="eyebrow">O mnie</div>
         <h2>Fotografka z Krakowa</h2>
         <p>Jestem fotografką z Krakowa. Najbardziej lubię pracować z lokalnymi markami, organizacjami społecznymi i placówkami kultury — z ludźmi, którzy robią coś ważnego w swojej okolicy.</p>
-        <p>Fotografuję wydarzenia, architekturę i podróże. Zależy mi na naturalnym świetle, prawdziwych momentach i ludziach, którzy nie pozują na siłę.</p>
+        <p>Fotografuję wydarzenia, architekturę i podróże. Zależy mi na naturalnym świetle, prawdziwych momentach i ludziach, którzy nie pozują na siłę. Pierwszą stroną mojej działalności jest fotografia rodzinna — bo dobre kadry zaczynają się od ludzi, niezależnie od tego, czy stoją przed obiektywem, czy za marką.</p>
         <p style="font-family:var(--serif);color:var(--taupe);font-size:0.95rem;margin-top:1.5rem">Anna Matejska-Gazda</p>
       </div>
     </div>

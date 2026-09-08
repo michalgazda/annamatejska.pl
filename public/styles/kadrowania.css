@@ -221,6 +221,14 @@ section { padding: 2rem 0; }
 .about__body h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 300; }
 .about__body p { font-size: 0.95rem; color: var(--ink-soft); }
 
+/* Manifesto grid */
+.manifesto__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+}
+
 /* Process — 3 steps, simple */
 .process__grid {
   display: grid;
@@ -278,6 +286,7 @@ section { padding: 2rem 0; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-grid__item--wide { grid-column: span 2; }
   .about__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .manifesto__grid { grid-template-columns: 1fr; gap: 2rem; }
   .contact__inner { grid-template-columns: 1fr; gap: 2rem; }
   .process__grid { grid-template-columns: 1fr; }
   .site-nav ul {
