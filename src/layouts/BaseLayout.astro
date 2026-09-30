@@ -5,14 +5,15 @@ const base = import.meta.env.BASE_URL; // '/annamatejska.pl/' on GH Pages, '/' l
 export interface Props {
   title: string;
   description: string;
-  canonical?: string;
   image?: string;
   noindex?: boolean;
 }
 
-const { title, description, canonical, image, noindex } = Astro.props;
+const { title, description, image, noindex } = Astro.props;
 const ogImage = image || `${base}images/hero.jpg`;
 const fullSite = 'https://michalgazda.github.io';
+// Astro.url.pathname already includes the base prefix — never prepend it again
+const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
 ---
 
 <!DOCTYPE html>
@@ -22,11 +23,11 @@ const fullSite = 'https://michalgazda.github.io';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical || `${fullSite}${base}${Astro.url.pathname}`} />
+  <link rel="canonical" href={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonical || `${fullSite}${base}${Astro.url.pathname}`} />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:image" content={`${fullSite}${ogImage}`} />
   <meta property="og:locale" content="pl_PL" />
   <meta name="twitter:card" content="summary_large_image" />

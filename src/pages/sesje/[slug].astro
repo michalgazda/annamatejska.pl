@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 ---
 
-<BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} canonical={`https://michalgazda.github.io/annamatejska.pl/sesje/${service.slug}`}>
+<BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle}>
   <section class="page-hero">
     <div class="container gal-meta">
       <span class="kicker">{service.category} · {service.tagline}</span>

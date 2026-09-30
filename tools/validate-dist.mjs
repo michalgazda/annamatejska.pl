@@ -68,10 +68,11 @@ for (const page of pages) {
   const h1s = html.match(/<h1[\s>]/g) || [];
   if (h1s.length !== 1) fail(`${rel}: expected 1 <h1>, found ${h1s.length}`);
 
-  // canonical
+  // canonical (noindex pages are deliberately excluded from sitemap parity)
   const can = html.match(/<link rel="canonical" href="([^"]+)"/);
+  const isNoindex = /name="robots" content="noindex/.test(html);
   if (!can) fail(`${rel}: missing canonical`);
-  else canonicals.add(can[1]);
+  else if (!isNoindex) canonicals.add(can[1]);
 
   // no double base prefix
   if (html.includes('annamatejska.pl/annamatejska.pl')) fail(`${rel}: double base prefix`);
