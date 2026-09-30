@@ -2,3 +2,8 @@ node_modules/
 dist/
 .vscode/
 .astro/
+.env*
+*.log
+.DS_Store
+.npmrc
+.netrc

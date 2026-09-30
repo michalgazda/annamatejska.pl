@@ -29,6 +29,10 @@ jobs:
         run: npm ci
       - name: Build with Astro
         run: npm run build
+      - name: Validate dist output
+        run: npm run validate
+      - name: Dependency audit (non-blocking)
+        run: npm audit --omit=dev || true
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
