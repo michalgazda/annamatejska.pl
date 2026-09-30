@@ -19,7 +19,7 @@ const photoCount = 4;
 const photos = Array.from({ length: photoCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
 ---
 
-<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} canonical={`https://michalgazda.github.io/annamatejska.pl/galerie/${gallery.slug}`} image={`/images/galleries/${gallery.slug}/01.jpg`}>
+<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} canonical={`https://michalgazda.github.io/annamatejska.pl/galerie/${gallery.slug}`} image={`${base}images/galleries/${gallery.slug}/01.jpg`}>
   <section class="page-hero" style="padding-bottom:0">
     <div class="container gal-meta">
       <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>

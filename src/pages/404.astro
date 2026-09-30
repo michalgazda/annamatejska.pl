@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Nie znaleziono strony — Anna Matejska-Gazda Fotograf Kraków" description="Strona nie istnieje. Wróć na stronę główną, przejdź do galerii lub skontaktuj się ze mną." noindex={true}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">Błąd 404</span>
+      <h1>Nie znaleziono strony</h1>
+      <p>Ta strona nie istnieje albo została przeniesiona.</p>
+      <p style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-taupe" href={`${base}`}>Strona główna</a>
+        <a class="btn btn-line" href={`${base}galerie`}>Galerie</a>
+        <a class="btn btn-line" href={`${base}kontakt`}>Kontakt</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
