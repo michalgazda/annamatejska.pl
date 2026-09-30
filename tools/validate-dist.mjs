@@ -93,10 +93,11 @@ for (const page of pages) {
     if (r === false) fail(`${rel}: broken internal URL "${url}"`);
   }
 
-  // og:image resolves to a real dist file (strip base from pathname)
+  // og:image resolves to a real dist file (must carry the base prefix)
   const og = html.match(/<meta property="og:image" content="([^"]+)"/);
   if (og) {
     const u = new URL(og[1]);
+    if (!u.pathname.startsWith(BASE)) fail(`${rel}: og:image missing base prefix: ${og[1]}`);
     const relOg = stripBase(decodeURIComponent(u.pathname));
     const f = join(DIST, relOg);
     if (!existsSync(f)) fail(`${rel}: og:image 404s in dist: ${og[1]}`);
