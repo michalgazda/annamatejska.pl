@@ -31,9 +31,9 @@ const contactInfo = site();
         <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
         <input type="hidden" name="subject" value="Nowe zapytanie z annamatejska.pl" />
         <input type="hidden" name="from_name" value="Formularz annamatejska.pl" />
-        <div class="form-field"><input type="text" name="imie" placeholder="Imię *" required /></div>
-        <div class="form-field"><input type="email" name="email" placeholder="E-mail *" required /></div>
-        <div class="form-field"><input type="tel" name="telefon" placeholder="Telefon" /></div>
+        <div class="form-field"><input type="text" name="imie" placeholder="Imię *" required maxlength="120" /></div>
+        <div class="form-field"><input type="email" name="email" placeholder="E-mail *" required maxlength="200" /></div>
+        <div class="form-field"><input type="tel" name="telefon" placeholder="Telefon" maxlength="20" inputmode="tel" pattern="[0-9+ ()-]*" /></div>
         <div class="form-field">
           <select name="rodzaj-sesji" required>
             <option value="" disabled selected>Rodzaj sesji *</option>
@@ -46,7 +46,7 @@ const contactInfo = site();
             <option>Inne / nie wiem jeszcze</option>
           </select>
         </div>
-        <div class="form-field"><textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *" required></textarea></div>
+        <div class="form-field"><textarea name="wiadomosc" rows="5" placeholder="Opowiedz, jaka sesja Ci się marzy — miejsce, termin, pomysły… *" required maxlength="3000"></textarea></div>
         <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
         <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" style="margin-bottom:16px"></div>
         <button class="btn btn-taupe" type="submit">Wyślij zapytanie</button>

@@ -146,15 +146,15 @@ portfolioItems.forEach((item, idx) => {
           <input type="hidden" name="from_name" value="Formularz kadrowania" />
           <div class="form__group">
             <label class="form__label" for="fn">Imię i nazwisko</label>
-            <input type="text" id="fn" name="name" class="form__input" required placeholder="Jak masz na imię?" />
+            <input type="text" id="fn" name="name" class="form__input" required placeholder="Jak masz na imię?" maxlength="120" />
           </div>
           <div class="form__group">
             <label class="form__label" for="fe">E-mail</label>
-            <input type="email" id="fe" name="email" class="form__input" required placeholder="Twój adres e-mail" />
+            <input type="email" id="fe" name="email" class="form__input" required placeholder="Twój adres e-mail" maxlength="200" />
           </div>
           <div class="form__group">
             <label class="form__label" for="fm">Wiadomość</label>
-            <textarea id="fm" name="message" class="form__textarea" required rows="3" placeholder="Opisz krótko czego potrzebujesz"></textarea>
+            <textarea id="fm" name="message" class="form__textarea" required rows="3" placeholder="Opisz krótko czego potrzebujesz" maxlength="3000"></textarea>
           </div>
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
           <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" style="margin-bottom:1rem"></div>
