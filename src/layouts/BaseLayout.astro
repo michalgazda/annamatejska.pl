@@ -57,21 +57,23 @@ const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
   })} />
 </head>
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
   <header>
     <nav class="nav">
       <a class="brand" href={base}>Anna Matejska<em>-Gazda</em></a>
-      <button class="menu-toggle" aria-label="Menu">☰</button>
-      <div class="nav-links">
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <div class="nav-links" id="site-nav">
         <a href={`${base}#o-mnie`}>O mnie</a>
         <a href={`${base}#sesje`}>Sesje</a>
         <a href={`${base}galerie`}>Galerie</a>
+        <a href={`${base}kadrowania/`}>Kadrowania</a>
         <a href={`${base}#opinie`}>Opinie</a>
         <a href={`${base}kontakt`} class="btn">Umów sesję</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <slot />
   </main>
 

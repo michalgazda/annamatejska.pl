@@ -15,6 +15,14 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
+    // Close menu on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
   }
 
   // Reveal on scroll

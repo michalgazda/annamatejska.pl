@@ -133,7 +133,7 @@ const seasonList = [
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Co mówią moi klienci</h2>
       <div class="testi-grid">
         {testis.map(t => (
-          <article class="testi"><div class="stars">★★★★★</div><p>„{t.quote}"</p><footer>{t.author}</footer></article>
+          <article class="testi"><div class="stars" role="img" aria-label="Ocena 5 na 5">★★★★★</div><p>„{t.quote}"</p><footer>{t.author}</footer></article>
         ))}
       </div>
     </div>

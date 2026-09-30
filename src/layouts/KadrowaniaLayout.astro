@@ -51,6 +51,7 @@ const fullSite = 'https://michalgazda.github.io';
   })} />
 </head>
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href={`${base}kadrowania/`}>
@@ -64,12 +65,13 @@ const fullSite = 'https://michalgazda.github.io';
           <li><a href="#o-mnie">O mnie</a></li>
           <li><a href="#wspolpraca">Współpraca</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href={base}>annamatejska.pl — sesje rodzinne</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <slot />
   </main>
 

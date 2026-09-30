@@ -17,6 +17,7 @@ const allGalleries = galleries();
 
   <section style="padding-top:20px">
     <div class="container">
+      <h2 class="sr-only">Lista galerii</h2>
       <div class="gal-list">
         {allGalleries.map(g => (
           <a class="gal-card" href={`${base}galerie/${g.slug}`}>

@@ -54,20 +54,36 @@
       '<button class="lb-prev" aria-label="Poprzednie">‹</button>' +
       '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">' +
       '<button class="lb-next" aria-label="Następne">›</button>' +
-      '<div class="lb-count"></div>';
+      '<div class="lb-count" aria-live="polite"></div>';
     document.body.appendChild(lbEl);
     lbImg = lbEl.querySelector('img');
     countEl = lbEl.querySelector('.lb-count');
     imgs.forEach(function (im, i) {
-      im.parentElement.addEventListener('click', function () {
-        lastFocus = im.parentElement;
-        show(i);
+      var fig = im.parentElement;
+      fig.setAttribute('tabindex', '0');
+      fig.setAttribute('role', 'button');
+      fig.setAttribute('aria-label', 'Powiększ zdjęcie: ' + (im.alt || 'zdjęcie ' + (i + 1)));
+      function open() { lastFocus = fig; show(i); }
+      fig.addEventListener('click', open);
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
       });
     });
     lbEl.querySelector('.lb-close').addEventListener('click', closeLightbox);
     lbEl.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
     lbEl.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
     lbEl.addEventListener('click', function (e) { if (e.target === lbEl) closeLightbox(); });
+    // focus trap: cycle Tab within the dialog while open
+    lbEl.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var focusables = [lbEl.querySelector('.lb-close'), lbEl.querySelector('.lb-prev'), lbEl.querySelector('.lb-next')];
+      var idx = focusables.indexOf(document.activeElement);
+      if (e.shiftKey && (idx === 0 || idx === -1)) { e.preventDefault(); focusables[focusables.length - 1].focus(); }
+      else if (!e.shiftKey && idx === focusables.length - 1) { e.preventDefault(); focusables[0].focus(); }
+    });
+    // move focus into the dialog when it opens
+    var origShow = show;
+    show = function (i) { origShow(i); lbEl.querySelector('.lb-close').focus(); };
   }
 
   // Keyboard
