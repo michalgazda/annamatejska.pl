@@ -1,10 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { galleries } from '../../data/queries';
+import { galleries, formatDate } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
-const months = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
-function formatDate(d) { const p = d.split('-'); return `${parseInt(p[2])} ${months[parseInt(p[1])-1]} ${p[0]}`; }
 
 export async function getStaticPaths() {
   const all = galleries();
@@ -15,8 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { gallery } = Astro.props;
-const photoCount = 4;
-const photos = Array.from({ length: photoCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
+const photos = Array.from({ length: gallery.photos || 4 }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
 ---
 
 <BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={`${base}images/galleries/${gallery.slug}/01.jpg`}>

@@ -20,15 +20,7 @@ const portfolioItems = [
   { cat: 'architektura', title: 'Podwórka' },
   { cat: 'podroze', title: 'Miasteczka' },
 ];
-function imgNum(cat) {
-  // map each category to sequential images
-  const map = { wydarzenia: [1,2,3,4], architektura: [1,2,3,4], podroze: [1,2,3,4] };
-  const c = portfolioItems.filter(i => i.cat === cat);
-  const idx = c.findIndex(i => i.cat === cat && !i._used);
-  // distribute
-  return 0; // placeholder — we'll just cycle 1-4
-}
-// Simple: assign images 1-4 per category in order
+// Assign images 1-4 per category in order
 const catCounts = {};
 portfolioItems.forEach((item, idx) => {
   if (!catCounts[item.cat]) catCounts[item.cat] = 0;

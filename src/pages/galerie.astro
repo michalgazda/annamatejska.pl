@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { galleries } from '../data/queries';
+import { galleries, formatDate } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const allGalleries = galleries();
-const months = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
-function formatDate(d) { const p = d.split('-'); return `${parseInt(p[2])} ${months[parseInt(p[1])-1]} ${p[0]}`; }
 ---
 
 <BaseLayout title="Galerie — Anna Matejska-Gazda Fotograf Kraków" description="Portfolio — galerie sesji rodzinnych, kobiecych, ciążowych i wizerunkowych.">

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services, testimonials, galleries } from '../data/queries';
+import { services, testimonials, galleries, formatDate } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const svcs = services();
@@ -119,7 +119,7 @@ const seasonList = [
         {latest.map(g => (
           <a class="gal-card" href={`${base}galerie/${g.slug}`}>
             <img src={`${base}${g.cover}`} alt={g.title} loading="lazy" />
-            <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{g.date}</time></div>
+            <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time datetime={g.date}>{formatDate(g.date)}</time></div>
           </a>
         ))}
       </div>

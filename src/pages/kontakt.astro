@@ -1,16 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
-const contactInfo = {
-  phone: '602 782 474',
-  phoneHref: '+48602782474',
-  email: 'annamatejskagazda@gmail.com',
-  area: 'Kraków i okolice',
-  studio: 'Kraków – Czyżyny (domowe studio)',
-  instagram: 'annamatejska.fotografia',
-  facebook: 'annamatejska.fotografia',
-};
+const contactInfo = site();
 ---
 
 <BaseLayout title="Kontakt — Anna Matejska-Gazda Fotograf Kraków" description="Umów sesję fotograficzną w Krakowie — tel. 602 782 474, annamatejskagazda@gmail.com.">
@@ -25,12 +18,13 @@ const contactInfo = {
   <section style="padding-top:40px;background:var(--white)">
     <div class="container contact-grid">
       <div class="contact-info">
-        <div><strong>Telefon</strong><a href={`tel:${contactInfo.phoneHref}`}>+48 {contactInfo.phone}</a></div>
+        <div><strong>Telefon</strong><a href={contactInfo.phoneHref}>+48 {contactInfo.phoneDisplay}</a></div>
         <div><strong>E-mail</strong><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></div>
+
         <div><strong>Obszar działania</strong>{contactInfo.area}</div>
         <div><strong>Studio</strong>{contactInfo.studio}</div>
-        <div><strong>Instagram</strong><a href={`https://www.instagram.com/${contactInfo.instagram}/`} target="_blank" rel="noopener">@{contactInfo.instagram}</a></div>
-        <div><strong>Facebook</strong><a href={`https://www.facebook.com/${contactInfo.facebook}`} target="_blank" rel="noopener">@{contactInfo.facebook}</a></div>
+        <div><strong>Instagram</strong><a href={contactInfo.instagram.url} target="_blank" rel="noopener">@{contactInfo.instagram.handle}</a></div>
+        <div><strong>Facebook</strong><a href={contactInfo.facebook.url} target="_blank" rel="noopener">@{contactInfo.facebook.handle}</a></div>
       </div>
 
       <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
