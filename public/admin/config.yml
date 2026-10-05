@@ -113,6 +113,38 @@ collections:
               - { label: "Zdjęcie kafelka", name: "card_image", widget: "image", required: false }
               - { label: "Widoczna w ofercie", name: "enabled", widget: "boolean", default: true }
 
+  - name: "kadrowania"
+    label: "Kadrowania"
+    label_singular: "Kadr"
+    description: "Portfolio podstrony Kadrowania (fotografia wydarzeń, architektury i podróży). Zdjęcia wgraj przez bibliotekę „Media”."
+    editor:
+      preview: false
+    files:
+      - name: "kadrowania-portfolio"
+        label: "Portfolio — kadry"
+        file: "src/data/kadrowania.json"
+        fields:
+          - label: "Kategorie (kolejne = kolejność na stronie)"
+            name: "categories"
+            widget: "list"
+            field: { label: "Nazwa kategorii", name: "category", widget: "string" }
+          - label: "Kadry"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.cat}})"
+            fields:
+              - label: "Kategoria"
+                name: "cat"
+                widget: "select"
+                options: ["wydarzenia", "architektura", "podroze"]
+              - { label: "Podpis kadru", name: "title", widget: "string" }
+              - { label: "Szerszy kafelek", name: "wide", widget: "boolean", default: false, required: false }
+              - label: "Zdjęcie (wgrane przez Media)"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "Jeśli puste, strona użyje domyślnego zdjęcia z folderu kadrowania wg kolejności w kategorii."
+
   - name: "settings"
     label: "Ustawienia"
     editor:

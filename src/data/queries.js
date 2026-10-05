@@ -13,7 +13,11 @@ export function testimonials() {
 }
 
 export function galleries() {
-  return JSON.parse(readFileSync('src/data/galleries.json', 'utf-8')).galleries;
+  return JSON.parse(readFileSync('src/data/galleries.json', 'utf8')).galleries;
+}
+
+export function kadrowania() {
+  return JSON.parse(readFileSync('src/data/kadrowania.json', 'utf8'));
 }
 
 // Shared Polish long-date formatter (used by galerie listing + detail)

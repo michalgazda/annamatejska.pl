@@ -1,0 +1,60 @@
+{
+  "categories": [
+    "Wydarzenia",
+    "Architektura",
+    "Podróże"
+  ],
+  "items": [
+    {
+      "cat": "wydarzenia",
+      "title": "Sąsiedzki festyn",
+      "wide": true
+    },
+    {
+      "cat": "architektura",
+      "title": "Kamienice"
+    },
+    {
+      "cat": "podroze",
+      "title": "Góry"
+    },
+    {
+      "cat": "wydarzenia",
+      "title": "Wernisaż",
+      "wide": true
+    },
+    {
+      "cat": "architektura",
+      "title": "Kapliczki"
+    },
+    {
+      "cat": "podroze",
+      "title": "Nad morzem"
+    },
+    {
+      "cat": "wydarzenia",
+      "title": "Warsztaty"
+    },
+    {
+      "cat": "architektura",
+      "title": "Przestrzenie publiczne"
+    },
+    {
+      "cat": "podroze",
+      "title": "W drodze",
+      "wide": true
+    },
+    {
+      "cat": "wydarzenia",
+      "title": "Koncerty"
+    },
+    {
+      "cat": "architektura",
+      "title": "Podwórka"
+    },
+    {
+      "cat": "podroze",
+      "title": "Miasteczka"
+    }
+  ]
+}

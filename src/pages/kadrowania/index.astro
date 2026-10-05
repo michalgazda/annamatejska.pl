@@ -1,31 +1,24 @@
 ---
 import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
+import { kadrowania } from '../../data/queries';
 const base = import.meta.env.BASE_URL;
 const ki = (p) => `${base}kadrowania/images/${p}`;
 const pi = (cat, n) => `${base}kadrowania/images/portfolio/${cat}/${String(n).padStart(2,'0')}.jpg`;
 
-const categories = ['Wydarzenia', 'Architektura', 'Podróże'];
+const data = kadrowania();
+const categories = data.categories;
 const catSlug = (name) => name === 'Podróże' ? 'podroze' : name.toLowerCase();
-const portfolioItems = [
-  { cat: 'wydarzenia', title: 'Sąsiedzki festyn', wide: true },
-  { cat: 'architektura', title: 'Kamienice' },
-  { cat: 'podroze', title: 'Góry' },
-  { cat: 'wydarzenia', title: 'Wernisaż', wide: true },
-  { cat: 'architektura', title: 'Kapliczki' },
-  { cat: 'podroze', title: 'Nad morzem' },
-  { cat: 'wydarzenia', title: 'Warsztaty' },
-  { cat: 'architektura', title: 'Przestrzenie publiczne' },
-  { cat: 'podroze', title: 'W drodze', wide: true },
-  { cat: 'wydarzenia', title: 'Koncerty' },
-  { cat: 'architektura', title: 'Podwórka' },
-  { cat: 'podroze', title: 'Miasteczka' },
-];
-// Assign images 1-4 per category in order
+const portfolioItems = data.items;
+// Image resolution: explicit per-item path (panel upload) when present,
+// otherwise the folder convention — Nth item of a category → NN.jpg.
 const catCounts = {};
-portfolioItems.forEach((item, idx) => {
+portfolioItems.forEach((item) => {
   if (!catCounts[item.cat]) catCounts[item.cat] = 0;
   catCounts[item.cat]++;
   item._img = catCounts[item.cat];
+  item._src = item.image
+    ? `${base}${item.image.replace(/^\/+/, '')}`
+    : pi(item.cat, Math.min(item._img, 4));
 });
 ---
 
@@ -42,13 +35,13 @@ portfolioItems.forEach((item, idx) => {
   <section class="section-label" id="portfolio">
     <div class="wrap">
       <h2>Wybrane kadry</h2>
-      <p>Wydarzenia · Architektura · Podróże</p>
+      <p>{categories.join(' · ')}</p>
     </div>
     <div class="filter" role="group" aria-label="Filtr">
       <button class="filter__btn is-active" data-filter="*" aria-pressed="true">Wszystko</button>
-      <button class="filter__btn" data-filter="wydarzenia" aria-pressed="false">Wydarzenia</button>
-      <button class="filter__btn" data-filter="architektura" aria-pressed="false">Architektura</button>
-      <button class="filter__btn" data-filter="podroze" aria-pressed="false">Podróże</button>
+      {categories.map((cat) => (
+        <button class="filter__btn" data-filter={catSlug(cat)} aria-pressed="false">{cat}</button>
+      ))}
     </div>
   </section>
 
@@ -56,11 +49,10 @@ portfolioItems.forEach((item, idx) => {
     {portfolioItems.map((item) => {
       const wideClass = item.wide ? ' portfolio-grid__item--wide' : '';
       const c = item.cat;
-      const n = item._img > 4 ? 4 : item._img;
       return (
         <figure class={`portfolio-grid__item${wideClass}`} data-cat={c}>
-          <a class="tile" href={pi(c, n)} aria-label={item.title}>
-            <img src={pi(c, n)} alt={item.title} loading="lazy" />
+          <a class="tile" href={item._src} aria-label={item.title}>
+            <img src={item._src} alt={item.title} loading="lazy" />
             <span class="tile__caption">
               <span class="tile__cat">{c.charAt(0).toUpperCase() + c.slice(1)}</span>
               <span class="tile__title">{item.title}</span>
