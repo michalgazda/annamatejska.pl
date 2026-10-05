@@ -15,6 +15,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 84px; } /* fixed header covers anchored headings without this */
 body {
   margin: 0;
   background: var(--paper);
@@ -79,7 +80,7 @@ a:hover { color: var(--taupe); }
   font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--taupe);
+  color: #7d5f3d; /* #af906b fails WCAG AA on paper bg — darkened for 5.6:1 */
   margin-bottom: 0.5rem;
 }
 .hero h1 {
@@ -92,10 +93,11 @@ a:hover { color: var(--taupe); }
   display: block;
   font-size: 0.5em;
   font-weight: 400;
-  color: var(--taupe);
+  color: #7d5f3d; /* AA-compliant on paper bg */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-top: 0.5rem;
+  text-wrap: balance; /* prevents orphaned last word (MIEJSC) */
 }
 
 /* Section labels */
