@@ -1,0 +1,136 @@
+backend:
+  name: github
+  repo: michalgazda/annamatejska.pl
+  branch: main
+  # AUTH TODO (see docs/tech-en/cms-setup.md):
+  #   1. Create a GitHub OAuth App (Homepage: https://michalgazda.github.io/annamatejska.pl/,
+  #      Callback: <bridge-url>/callback) and set base_url below to the bridge.
+  #   2. Until then, local testing works with `npx decap-server` (proxy backend).
+
+site_url: https://michalgazda.github.io/annamatejska.pl/
+display_url: https://michalgazda.github.io/annamatejska.pl/
+
+# Files land in the repo under public/images/uploads; the value saved in JSON
+# stays relative ("images/uploads/x.jpg") so the Astro base prefix is added by
+# the templates — works on GH Pages and the Docker/nginx deploy unchanged.
+media_folder: "public/images/uploads"
+public_folder: "../../images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "galleries"
+    label: "Galerie"
+    label_singular: "Galeria"
+    description: "Sesje zdjęciowe pokazane w zakładce Galerie. Zdjęcia wgraj przez bibliotekę multimediów (przycisk „Media”)."
+    files:
+      - name: "galleries-registry"
+        label: "Wszystkie galerie"
+        file: "src/data/galleries.json"
+        fields:
+          - label: "Galerie"
+            name: "galleries"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
+            add_to_top: true
+            fields:
+              - label: "Slug (adres URL, np. sesja-rodzinna-wawel)"
+                name: "slug"
+                widget: "string"
+                pattern: ["^[a-z0-9-]+$", "małe litery, cyfry i myślniki"]
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - label: "Kategoria"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Sesje rodzinne"
+                  - "Sesje dziecięce"
+                  - "Sesje kobiece"
+                  - "Sesje ciążowe"
+                  - "Sesje romantyczne"
+                  - "Sesje wizerunkowe"
+              - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - label: "Okładka (zdjęcie na kafelek)"
+                name: "cover"
+                widget: "image"
+                required: false
+              - { label: "Krótki opis", name: "excerpt", widget: "text" }
+              - { label: "Liczba zdjęć w galerii", name: "photos", widget: "number", min: 1, max: 30, default: 6 }
+
+  - name: "testimonials"
+    label: "Opinie"
+    label_singular: "Opinia"
+    files:
+      - name: "testimonials-list"
+        label: "Opinie klientek i klientów"
+        file: "src/data/testimonials.json"
+        fields:
+          - label: "Opinie"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.author}}"
+            add_to_top: true
+            fields:
+              - { label: "Treść opinii", name: "quote", widget: "text" }
+              - { label: "Autor", name: "author", widget: "string" }
+
+  - name: "services"
+    label: "Oferta (sesje)"
+    label_singular: "Sesja"
+    editor:
+      preview: false
+    files:
+      - name: "services-list"
+        label: "Oferta — rodzaje sesji"
+        file: "src/data/services.json"
+        fields:
+          - label: "Sesje"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.duration}})"
+            fields:
+              - { label: "Slug (adres, np. rodzinne)", name: "slug", widget: "string",
+                  pattern: ["^[a-z0-9-]+$", "małe litery, cyfry i myślniki"] }
+              - { label: "Nazwa kategorii", name: "category", widget: "string", required: false }
+              - { label: "Tytuł (nagłówek strony)", name: "title", widget: "string" }
+              - { label: "Dopisek (np. Kraków i okolice)", name: "tagline", widget: "string", default: "Kraków i okolice", required: false }
+              - { label: "Podtytuł (lead na górze strony)", name: "subtitle", widget: "text" }
+              - { label: "Opis (akapity)", name: "description", widget: "list",
+                  field: { label: "Akapit", name: "paragraph", widget: "text" } }
+              - { label: "Czas trwania", name: "duration", widget: "string" }
+              - { label: "Zawsze w cenie (punkty rozdzielone •)", name: "included", widget: "text" }
+              - { label: "Opinia klienta (cytat + autor)", name: "quote", widget: "text", required: false }
+              - { label: "Tytuł kafelka na stronie głównej", name: "card_title", widget: "string" }
+              - { label: "Krótki tekst kafelka", name: "card_short", widget: "text" }
+              - { label: "Czas na kafelku", name: "card_time", widget: "string" }
+              - { label: "Zdjęcie kafelka", name: "card_image", widget: "image", required: false }
+              - { label: "Widoczna w ofercie", name: "enabled", widget: "boolean", default: true }
+
+  - name: "settings"
+    label: "Ustawienia"
+    editor:
+      preview: false
+    files:
+      - name: "site-data"
+        label: "Dane kontaktowe i social media"
+        file: "src/data/site.json"
+        fields:
+          - { label: "Imię i nazwisko", name: "name", widget: "string" }
+          - { label: "Telefon (wyświetlany)", name: "phoneDisplay", widget: "string" }
+          - { label: "Telefon (międzynarodowy, +48…)", name: "phoneIntl", widget: "string" }
+          - { label: "Telefon link (tel:+48…)", name: "phoneHref", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - label: "Instagram"
+            name: "instagram"
+            widget: "object"
+            fields:
+              - { label: "Nazwa profilu", name: "handle", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Facebook"
+            name: "facebook"
+            widget: "object"
+            fields:
+              - { label: "Nazwa profilu", name: "handle", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Obszar działania", name: "area", widget: "string" }
+          - { label: "Studio", name: "studio", widget: "string" }

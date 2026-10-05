@@ -4,9 +4,13 @@
 > **Strona główna** (sesje rodzinne, dziecięce, kobiece, ciążowe, romantyczne, wizerunkowe)
 > i **Kadrowania** (fotografia wydarzeń, architektury i podróży).
 
-**Ważne: strona nie ma panelu administracyjnego.** Zmiany robi się przez edycję
-plików w repozytorium GitHub — poniżej masz dokładną instrukcję krok po kroku.
-Nie trzeba nic instalować, wszystko da się zrobić **z przeglądarki** na github.com.
+**Są dwa sposoby zmian:**
+
+1. **Panel zarządzania** (zalecany) — strona `…/admin/`, logowanie kontem GitHub.
+   Dodajesz galerie, zdjęcia i opinie przez formularze — bez dotykania plików.
+   Instrukcja: [docs/design-ux-pl/panel-instrukcja.md](design-ux-pl/panel-instrukcja.md).
+2. **Ręcznie przez GitHub** — edycja plików JSON + wgrywanie zdjęć (poniżej).
+   Przydaje się, gdy panel jest niedostępny albo trzeba zmienić coś, czego panel nie obsługuje.
 
 ---
 

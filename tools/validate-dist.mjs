@@ -17,8 +17,9 @@ function walk(dir, acc = []) {
   }
   return acc;
 }
-const pages = walk(DIST);
+const pages = walk(DIST).filter(p => !relative(DIST, p).split('\\').join('/').startsWith('admin/'));
 if (pages.length === 0) fail('dist/ has no HTML pages');
+if (!existsSync(join(DIST, 'admin/index.html'))) fail('dist/admin/index.html missing (Decap CMS panel)');
 
 // ---- collect all files that exist under dist (for link/src resolution) ----
 function walkFiles(dir, acc = []) {
