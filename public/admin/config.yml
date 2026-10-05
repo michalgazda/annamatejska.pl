@@ -11,10 +11,10 @@ site_url: https://michalgazda.github.io/annamatejska.pl/
 display_url: https://michalgazda.github.io/annamatejska.pl/
 
 # Files land in the repo under public/images/uploads; the value saved in JSON
-# stays relative ("images/uploads/x.jpg") so the Astro base prefix is added by
-# the templates — works on GH Pages and the Docker/nginx deploy unchanged.
+# is "images/uploads/<file>" (repo-relative, no leading slash) so the Astro
+# templates' `${base}${path}` pattern works on GH Pages and Docker unchanged.
 media_folder: "public/images/uploads"
-public_folder: "../../images/uploads"
+public_folder: "images/uploads"
 
 publish_mode: editorial_workflow
 
@@ -55,7 +55,14 @@ collections:
                 widget: "image"
                 required: false
               - { label: "Krótki opis", name: "excerpt", widget: "text" }
-              - { label: "Liczba zdjęć w galerii", name: "photos", widget: "number", min: 1, max: 30, default: 6 }
+              - { label: "Liczba zdjęć w galerii", name: "photos", widget: "number", min: 1, max: 30, default: 6,
+                  required: false, hint: "Używane tylko, gdy poniżej nie ma listy zdjęć." }
+              - label: "Zdjęcia w galerii (wgrywane przez Media)"
+                name: "photos_list"
+                widget: "list"
+                required: false
+                hint: "Wgraj zdjęcia do biblioteki Media, potem dodaj je tu po kolei. Jeśli puste, strona użyje zdjęć z folderu images/galleries/<slug>/."
+                field: { label: "Zdjęcie", name: "image", widget: "image" }
 
   - name: "testimonials"
     label: "Opinie"

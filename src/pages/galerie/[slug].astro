@@ -13,10 +13,16 @@ export async function getStaticPaths() {
 }
 
 const { gallery } = Astro.props;
-const photos = Array.from({ length: gallery.photos || 4 }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
+// Photos: explicit list (panel uploads → images/uploads/) when present,
+// otherwise the folder convention images/galleries/<slug>/01..NN.jpg.
+const explicit = Array.isArray(gallery.photos_list) ? gallery.photos_list.filter(Boolean) : [];
+const fallbackCount = gallery.photos || 4;
+const photos = explicit.length
+  ? explicit.map(p => `${base}${p.replace(/^\/+/, '')}`)
+  : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
 ---
 
-<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={`${base}images/galleries/${gallery.slug}/01.jpg`}>
+<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={photos[0]}>
   <section class="page-hero" style="padding-bottom:0">
     <div class="container gal-meta">
       <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>
