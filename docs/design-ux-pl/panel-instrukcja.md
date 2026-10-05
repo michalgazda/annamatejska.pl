@@ -29,6 +29,10 @@ GitHub, Michal je założy i doda dostęp — zajmie 5 minut.
 - Zmień zdjęcie kafelka na stronie głównej lub krótkie teksty kafelka.
 - Ukryj sesję z oferty (przełącznik „Widoczna w ofercie”).
 
+### 🖼 Kadrowania
+- Dodawaj kadry portfolio podstrony Kadrowania: podpis, kategoria, zdjęcie.
+- Zarządzaj kategoriami (nowa kategoria = nowy przycisk filtra na stronie).
+
 ### ⚙️ Ustawienia
 - Telefon, e-mail, Instagram, Facebook, obszar działania — jedno miejsce,
   zmiana aktualizuje stopkę, stronę kontakt i dane dla Google.

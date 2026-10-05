@@ -119,20 +119,19 @@ Jeśli jej nie widać, patrz [Rozwiązywanie problemów](#7-rozwiązywanie-probl
 
 ## 4. Jak dodać zdjęcia do Kadrowania
 
-Kadrowania ma trzy kategorie: `wydarzenia`, `architektura`, `podroze`.
+**Przez panel (zalecane):** zakładka **Kadrowania** w panelu `/admin/`.
 
-**Wymiana zdjęć 1:1 (najprostsze):** wgraj nowe pliki do
-`public/kadrowania/images/portfolio/<kategoria>/` pod **tymi samymi nazwami**
-(`01.jpg`–`04.jpg`) — strona pokaże nowe kadry bez żadnych dalszych zmian.
-Podobnie hero: `public/kadrowania/images/hero.jpg` (poziome) i `manifesto.jpg` (pion 3:4).
+- **Kadry** — dodaj kafelek: podpis, kategoria (wydarzenia/architektura/podroze),
+  opcjonalnie szerszy kafelek, i zdjęcie wgrane przez bibliotekę Media.
+- **Kategorie** — lista nazw; kolejność = kolejność na stronie. Nowa kategoria
+  automatycznie dostaje własny przycisk filtra.
+- Zdjęcie wgrane przez panel ma pierwszeństwo; jeśli go nie ma, strona użyje
+  domyślnego pliku z folderu kategorii (kolejny numer `NN.jpg`).
 
-**Dodanie nowego kafelka:** oprócz zdjęcia trzeba dopisać wpis na liście
-`portfolioItems` w pliku `src/pages/kadrowania/index.astro` (sekcja portfolio),
-np. `{ cat: 'wydarzenia', title: 'Tytuł kadru' }`. Zdjęcie przypisuje się
-automatycznie: kolejny numer w danej kategorii (5. kafelek wydarzeń → `05.jpg`
-w folderze `wydarzenia`). Pole `wide: true` powoduje, że kafelek jest szerszy.
-
-**Zmiana podpisów:** to też lista `portfolioItems` — zmień `title`.
+**Ręcznie (fallback):** wymień pliki 1:1 w
+`public/kadrowania/images/portfolio/<kategoria>/` (`01.jpg`–`04.jpg`) lub edytuj
+`src/data/kadrowania.json` (kategorie + kadry). Hero podstrony:
+`public/kadrowania/images/hero.jpg` (poziome), `manifesto.jpg` (pion 3:4).
 
 ---
 
