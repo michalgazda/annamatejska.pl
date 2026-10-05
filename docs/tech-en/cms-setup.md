@@ -17,27 +17,46 @@ Saving (publish) creates a commit on `main` → GitHub Actions builds `dist/`
 and deploys to GH Pages. Nothing else to run — the Astro build reads the same
 JSON files the panel edits.
 
-## Auth (the unfinished part)
+## Auth — Cloudflare Worker OAuth bridge (chosen plan, free)
 
-Decap with `backend.name: github` needs an OAuth bridge — GitHub does not
-allow pure-browser token exchange. Options:
+GitHub doesn't allow pure-browser token exchange, so Decap needs a tiny OAuth
+bridge. **Cloudflare Workers free tier** (100k req/day) hosts it for free —
+code in `oauth-bridge/` in this repo (single `src/worker.js`, no dependencies).
 
-1. **Siberian GH OAuth bridge** (decap's community standard, e.g.
-   `https://github.com/i40west/decap-github-oauth` — there are also free
-   hosted instances) running on the Hetzner VPS (CX22, on order).
-   Create a GitHub OAuth App:
+Deploy steps (one-time, Michal):
+
+1. **GitHub OAuth App**: github.com → Settings → Developer settings →
+   OAuth Apps → New:
+   - Application name: `annamatejska-decap`
    - Homepage URL: `https://michalgazda.github.io/annamatejska.pl/`
-   - Callback: `https://<bridge-domain>/callback`
-   Then in `public/admin/config.yml` add under `backend:`:
-   `base_url: https://<bridge-domain>`
-2. **Netlify Identity + git-gateway** — zero code, but ties hosting to Netlify
-   (site is currently GH Pages + Docker; probably not worth it).
-3. **Static CMS `github` backend with a PKCE-less flow** — not supported; skip.
+   - Authorization callback URL: `https://annamatejska-decap-oauth.<account>.workers.dev/callback`
+   - Note the Client ID, generate a Client Secret.
+2. **Deploy the worker**:
+   ```bash
+   cd oauth-bridge
+   npx wrangler login            # browser auth to your Cloudflare account
+   npx wrangler secret put GITHUB_CLIENT_ID
+   npx wrangler secret put GITHUB_CLIENT_SECRET
+   npx wrangler deploy
+   ```
+   Worker URL: `https://annamatejska-decap-oauth.<account>.workers.dev`
+3. **Point Decap at it**: in `public/admin/config.yml` under `backend:` add
+   ```yaml
+   base_url: https://annamatejska-decap-oauth.<account>.workers.dev
+   auth_endpoint: /auth
+   ```
+   (`ALLOWED_ORIGINS` in `oauth-bridge/wrangler.toml` lists the panel origins
+   allowed to receive the token — update if the site domain changes.)
+4. **Anna's access**: create a GitHub account for Anna and add her as a
+   collaborator on the repo (Settings → Collaborators). The OAuth token scope
+   is `repo`, so repo privacy stays enforced by GitHub.
 
-Anna needs a GitHub account added as a collaborator on the repo
-(Settings → Collaborators) OR the OAuth app can be limited to read/write
-contents of this repo only (fine-grained PAT is not usable by Decap; the
-OAuth scope is `repo`).
+Why not the alternatives: Netlify Identity ties auth+hosting to Netlify;
+self-hosted bridge needs the Hetzner VPS (still on order) + TLS certs.
+Cloudflare is free, zero-maintenance, and on your own account.
+
+Local testing note: `http://127.0.0.1:8890` is in ALLOWED_ORIGINS, so the
+panel on Docker can log in against the production worker too.
 
 ## Local testing (without auth)
 

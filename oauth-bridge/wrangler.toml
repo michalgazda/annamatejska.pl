@@ -1,0 +1,11 @@
+name = "annamatejska-decap-oauth"
+main = "src/worker.js"
+compatibility_date = "2026-01-01"
+
+# Secrets — set once, never commit values:
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
+[vars]
+# Comma-separated list of origins allowed to receive the token via postMessage
+# (the CMS panel origins). Keep tight.
+ALLOWED_ORIGINS = "https://michalgazda.github.io,http://127.0.0.1:8890"
