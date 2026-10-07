@@ -2,10 +2,8 @@ backend:
   name: github
   repo: michalgazda/annamatejska.pl
   branch: main
-  # AUTH TODO (see docs/tech-en/cms-setup.md):
-  #   1. Create a GitHub OAuth App (Homepage: https://michalgazda.github.io/annamatejska.pl/,
-  #      Callback: <bridge-url>/callback) and set base_url below to the bridge.
-  #   2. Until then, local testing works with `npx decap-server` (proxy backend).
+  base_url: https://annamatejska-decap-oauth.annamatejska.workers.dev
+  auth_endpoint: /auth
 
 site_url: https://michalgazda.github.io/annamatejska.pl/
 display_url: https://michalgazda.github.io/annamatejska.pl/

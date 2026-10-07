@@ -6,9 +6,8 @@ The admin panel lives at `/admin/` (`public/admin/index.html` + `config.yml`
 ## What Anna can do in the panel
 
 - **Galerie** — add/edit galleries. The panel edits `src/data/galleries.json`;
-  photos are uploaded through the Media library to `public/images/uploads/`.
-  The gallery detail page (`src/pages/galerie/[slug].astro`) currently derives
-  photo URLs as `images/galleries/<slug>/01..NN.jpg` — see "Known gap" below.
+  photos are uploaded through the Media library to `public/images/uploads/`
+  and saved in `photos_list` for the gallery page.
 - **Opinie** — testimonials in `src/data/testimonials.json`.
 - **Oferta (sesje)** — full service copy in `src/data/services.json`.
 - **Ustawienia** — contact data in `src/data/site.json`.
@@ -17,46 +16,24 @@ Saving (publish) creates a commit on `main` → GitHub Actions builds `dist/`
 and deploys to GH Pages. Nothing else to run — the Astro build reads the same
 JSON files the panel edits.
 
-## Auth — Cloudflare Worker OAuth bridge (chosen plan, free)
+## Auth — Cloudflare Worker OAuth bridge (provisioned)
 
-GitHub doesn't allow pure-browser token exchange, so Decap needs a tiny OAuth
-bridge. **Cloudflare Workers free tier** (100k req/day) hosts it for free —
-code in `oauth-bridge/` in this repo (single `src/worker.js`, no dependencies).
+The Worker URL is live at `https://annamatejska-decap-oauth.annamatejska.workers.dev`,
+and its GitHub OAuth client ID/secret are configured. The deployed Worker version
+currently redirects `/auth` to GitHub. The repo source `oauth-bridge/src/worker.js`
+has the corrected Decap popup handshake plus state-cookie validation; deploy this
+latest source before enabling the CMS config:
 
-Deploy steps (one-time, Michal):
+```bash
+cd oauth-bridge
+npx wrangler deploy
+```
 
-1. **GitHub OAuth App**: github.com → Settings → Developer settings →
-   OAuth Apps → New:
-   - Application name: `annamatejska-decap`
-   - Homepage URL: `https://michalgazda.github.io/annamatejska.pl/`
-   - Authorization callback URL: `https://annamatejska-decap-oauth.<account>.workers.dev/callback`
-   - Note the Client ID, generate a Client Secret.
-2. **Deploy the worker**:
-   ```bash
-   cd oauth-bridge
-   npx wrangler login            # browser auth to your Cloudflare account
-   npx wrangler secret put GITHUB_CLIENT_ID
-   npx wrangler secret put GITHUB_CLIENT_SECRET
-   npx wrangler deploy
-   ```
-   Worker URL: `https://annamatejska-decap-oauth.<account>.workers.dev`
-3. **Point Decap at it**: in `public/admin/config.yml` under `backend:` add
-   ```yaml
-   base_url: https://annamatejska-decap-oauth.<account>.workers.dev
-   auth_endpoint: /auth
-   ```
-   (`ALLOWED_ORIGINS` in `oauth-bridge/wrangler.toml` lists the panel origins
-   allowed to receive the token — update if the site domain changes.)
-4. **Anna's access**: create a GitHub account for Anna and add her as a
-   collaborator on the repo (Settings → Collaborators). The OAuth token scope
-   is `repo`, so repo privacy stays enforced by GitHub.
-
-Why not the alternatives: Netlify Identity ties auth+hosting to Netlify;
-self-hosted bridge needs the Hetzner VPS (still on order) + TLS certs.
-Cloudflare is free, zero-maintenance, and on your own account.
-
-Local testing note: `http://127.0.0.1:8890` is in ALLOWED_ORIGINS, so the
-panel on Docker can log in against the production worker too.
+Then set `base_url: https://annamatejska-decap-oauth.annamatejska.workers.dev`
+and `auth_endpoint: /auth` under `backend:` in `public/admin/config.yml`, push,
+and test an interactive login from `/admin/`. A local mocked callback verifies
+the handshake and state validation; the live GitHub approval/login still needs
+a browser session.
 
 ## Local testing (without auth)
 
@@ -69,22 +46,15 @@ npm run build && docker compose up -d --build
 Note: the local nginx CSP for `/admin/` already allows `unsafe-eval`
 (Decap requirement) and `connect-src api.github.com`.
 
-## Known gap: gallery photos path
+## Gallery photos path (implemented)
 
-The panel uploads photos to `public/images/uploads/`, but gallery detail
-pages expect `images/galleries/<slug>/NN.jpg`. Two options:
+The Decap collection includes `photos_list`, an ordered list of Media uploads
+stored under `public/images/uploads/`. Gallery detail pages use that list and
+its first image for `og:image`; older galleries without a list retain the
+`images/galleries/<slug>/NN.jpg` convention.
 
-- **A (panel-friendly):** change `[slug].astro` to read an optional
-  `photos_list: []` array of uploaded image paths; fall back to the
-  `NN.jpg` convention when absent. Small Astro change, recommended.
-- **B (process):** Michal periodically moves uploads into per-gallery folders
-  and sets `photos` count. Zero code, manual work.
+## Remaining before Anna can publish
 
-## TODO before Anna uses it
-
-- [ ] Provision Hetzner CX22 (on order) → run the OAuth bridge (+ TLS via
-      certbot or Cloudflare in front).
-- [ ] Create GitHub OAuth App; set `base_url` in `public/admin/config.yml`.
-- [ ] Create Anna's GitHub account / add as collaborator.
-- [ ] Decide gallery-photos path fix (option A above) and implement.
-- [ ] Re-test full publish flow end-to-end (edit → workflow → publish → deploy).
+- [ ] Complete an interactive login test from the deployed panel. The Worker `/auth` endpoint and GitHub callback redirect are live; callback state validation is implemented. A browser-based GitHub approval is required to verify the final handshake.
+- [ ] Add Anna's GitHub account as a collaborator with write access and have her accept the invitation.
+- [ ] After any Worker code changes, deploy with `cd oauth-bridge && npx wrangler deploy` (the latest repo source should be deployed before production login).
