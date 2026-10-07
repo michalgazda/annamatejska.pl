@@ -19,21 +19,18 @@ JSON files the panel edits.
 ## Auth — Cloudflare Worker OAuth bridge (provisioned)
 
 The Worker URL is live at `https://annamatejska-decap-oauth.annamatejska.workers.dev`,
-and its GitHub OAuth client ID/secret are configured. The deployed Worker version
-currently redirects `/auth` to GitHub. The repo source `oauth-bridge/src/worker.js`
-has the corrected Decap popup handshake plus state-cookie validation; deploy this
-latest source before enabling the CMS config:
+and the GitHub OAuth client ID/secret are configured. Deployed Worker version
+`6c5042b6-bec2-4bba-9b15-4ba5564a8d89` returns a GitHub authorization redirect,
+validates a short-lived HttpOnly/Secure/SameSite=Lax OAuth state cookie, exchanges
+the code server-side, and performs Decap's `authorizing:github` /
+`authorization:github:success` popup handshake restricted to `ALLOWED_ORIGINS`.
+`public/admin/config.yml` is wired to this URL. The latest Pages workflow passed.
 
-```bash
-cd oauth-bridge
-npx wrangler deploy
-```
-
-Then set `base_url: https://annamatejska-decap-oauth.annamatejska.workers.dev`
-and `auth_endpoint: /auth` under `backend:` in `public/admin/config.yml`, push,
-and test an interactive login from `/admin/`. A local mocked callback verifies
-the handshake and state validation; the live GitHub approval/login still needs
-a browser session.
+**Interactive login remains to be completed by Michal/Anna:** open
+`https://michalgazda.github.io/annamatejska.pl/admin/`, click "Login with GitHub",
+and complete GitHub's authorization in the popup. The account must have write
+access to `michalgazda/annamatejska.pl`. The OAuth app requests `repo` scope;
+GitHub collaborator permissions control repository access.
 
 ## Local testing (without auth)
 
