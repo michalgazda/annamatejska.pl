@@ -1,6 +1,6 @@
 ---
 import KadrowaniaLayout from '../../layouts/KadrowaniaLayout.astro';
-import { kadrowania } from '../../data/queries';
+import { kadrowania, assetPath } from '../../data/queries';
 const base = import.meta.env.BASE_URL;
 const ki = (p) => `${base}kadrowania/images/${p}`;
 const pi = (cat, n) => `${base}kadrowania/images/portfolio/${cat}/${String(n).padStart(2,'0')}.jpg`;
@@ -17,7 +17,7 @@ portfolioItems.forEach((item) => {
   catCounts[item.cat]++;
   item._img = catCounts[item.cat];
   item._src = item.image
-    ? `${base}${item.image.replace(/^\/+/, '')}`
+    ? assetPath(item.image, base)
     : pi(item.cat, Math.min(item._img, 4));
 });
 ---

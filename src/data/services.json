@@ -16,7 +16,7 @@
       "card_title": "Rodzinne",
       "card_short": "Nie muszą być idealne. Wystarczy, że będą Wasze.",
       "card_time": "ok. 1,5 h",
-      "card_image": "images/svc-rodzinne.jpg",
+      "card_image": "/annamatejska.pl/images/svc-rodzinne.jpg",
       "enabled": true
     },
     {
@@ -36,7 +36,7 @@
       "card_title": "Dziecięce",
       "card_short": "Głównie się bawimy — najlepsze kadry wychodzą same.",
       "card_time": "1–1,5 h",
-      "card_image": "images/svc-dzieciece.jpg",
+      "card_image": "/annamatejska.pl/images/svc-dzieciece.jpg",
       "enabled": true
     },
     {
@@ -56,7 +56,7 @@
       "card_title": "Kobiece",
       "card_short": "Lekkie kadry w plenerze lub nastrojowe w studio.",
       "card_time": "1,5–2 h",
-      "card_image": "images/svc-kobiece.jpg",
+      "card_image": "/annamatejska.pl/images/svc-kobiece.jpg",
       "enabled": true
     },
     {
@@ -76,7 +76,7 @@
       "card_title": "Ciążowe",
       "card_short": "Najlepiej między 28. a 34. tygodniem — ale kiedy chcesz.",
       "card_time": "1–1,5 h",
-      "card_image": "images/svc-ciazowe.jpg",
+      "card_image": "/annamatejska.pl/images/svc-ciazowe.jpg",
       "enabled": true
     },
     {
@@ -96,7 +96,7 @@
       "card_title": "Romantyczne",
       "card_short": "Sesja jak randka — spacer, rozmowy, przytulanie.",
       "card_time": "ok. 1 h",
-      "card_image": "images/svc-romantyczne.jpg",
+      "card_image": "/annamatejska.pl/images/svc-romantyczne.jpg",
       "enabled": true
     },
     {
@@ -115,7 +115,7 @@
       "card_title": "Wizerunkowe",
       "card_short": "Marka osobista i biznes — spójne z Tobą kadry.",
       "card_time": "1–2 h",
-      "card_image": "images/svc-wizerunkowe.jpg",
+      "card_image": "/annamatejska.pl/images/svc-wizerunkowe.jpg",
       "enabled": true
     }
   ]

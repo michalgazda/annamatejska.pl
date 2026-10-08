@@ -14,9 +14,7 @@ GitHub, Michal je założy i doda dostęp — zajmie 5 minut.
 ## Co możesz robić w panelu?
 
 ### 📷 Galerie
-- Dodaj nową galerię: tytuł, kategoria, data, krótki opis, liczba zdjęć.
-- Zdjęcia wgraj przez bibliotekę „Media” (panel sam je umieści w
-  `images/uploads/`), a potem w polu galerii wybierz okładkę.
+- **Galerie** — dodaj/edytuj galerie, okładkę i listę zdjęć. W polu „Zdjęcia w galerii” użyj **Media** — pokazuje istniejące zdjęcia i pozwala dodać nowe.
 - Zmiana kolejności: przeciągnij galerię na liście (nowe wpisy dodają się na górze).
 
 ### 📝 Opinie
@@ -50,7 +48,8 @@ publikacją, a historię można cofnąć na GitHubie.
 
 ## Zdjęcia
 
-- Wgraj pliki prosto z telefonu/komputera — panel umieści je w `images/uploads/`.
+- Wgraj pliki prosto z telefonu/komputera — panel umieści je w `public/images/`.
+  Biblioteka Media pokazuje też istniejące zdjęcia strony.
 - Format **JPEG**, jakość ~80, dłuższy bok **max 1920 px**, rozmiar do ~400 KB.
   Panel nie przeskaluje zdjęć automatycznie — duże pliki zmniejsz przed wgraniem
   (np. darmowym [Squoosh](https://squoosh.app)).

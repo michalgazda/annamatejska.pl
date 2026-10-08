@@ -52,7 +52,9 @@ Po maksymunalnie 2–3 minutach strona sama się przebuduje i opublikuje
 
 ## 2. Jak dodać nową galerię (sesję)
 
-### Krok 1 — przygotuj zdjęcia
+**Panel `/admin/` — galeria:** Media library pokazuje istniejące zdjęcia z `public/images/`; jeśli dodasz nowe, wgraj je tam i wybierz z listy. Okładka jest w polu „Okładka”, a wszystkie zdjęcia w polu „Zdjęcia w galerii”. Po zatwierdzeniu `photos_list` zawiera kolejno wskazane pliki.
+
+**Ręczne dodanie galerii** (tylko gdy panel jest niedostępny):
 
 1. Wybierz **5–10 najlepszych zdjęć** z sesji.
 2. Przekonwertuj je do **JPEG, maksymalnie 1920 px dłuższego boku**

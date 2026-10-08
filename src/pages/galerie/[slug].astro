@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { galleries, formatDate } from '../../data/queries';
+import { galleries, formatDate, assetPath } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
 
@@ -13,16 +13,15 @@ export async function getStaticPaths() {
 }
 
 const { gallery } = Astro.props;
-// Photos: explicit list (panel uploads → images/uploads/) when present,
-// otherwise the folder convention images/galleries/<slug>/01..NN.jpg.
+// Prefer explicit Media-library paths for newly managed galleries.
 const explicit = Array.isArray(gallery.photos_list) ? gallery.photos_list.filter(Boolean) : [];
 const fallbackCount = gallery.photos || 4;
 const photos = explicit.length
-  ? explicit.map(p => `${base}${p.replace(/^\/+/, '')}`)
+  ? explicit.map(p => assetPath(p, base))
   : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
 ---
 
-<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={photos[0]}>
+<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={photos[0] || assetPath(gallery.cover, base)}>
   <section class="page-hero" style="padding-bottom:0">
     <div class="container gal-meta">
       <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>

@@ -8,11 +8,12 @@ backend:
 site_url: https://michalgazda.github.io/annamatejska.pl/
 display_url: https://michalgazda.github.io/annamatejska.pl/
 
-# Files land in the repo under public/images/uploads; the value saved in JSON
-# is "images/uploads/<file>" (repo-relative, no leading slash) so the Astro
-# templates' `${base}${path}` pattern works on GH Pages and Docker unchanged.
-media_folder: "public/images/uploads"
-public_folder: "images/uploads"
+# Repo upload location vs. URL used by the image widget preview. This project is
+# hosted under the GH Pages project prefix, so public_folder must include it.
+# Existing and new image-field values will be /annamatejska.pl/images/…; Astro's
+# assetPath() normalizes both those and older "images/…" values.
+media_folder: "public/images"
+public_folder: "/annamatejska.pl/images"
 
 publish_mode: editorial_workflow
 

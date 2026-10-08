@@ -6,8 +6,9 @@ The admin panel lives at `/admin/` (`public/admin/index.html` + `config.yml`
 ## What Anna can do in the panel
 
 - **Galerie** — add/edit galleries. The panel edits `src/data/galleries.json`;
-  photos are uploaded through the Media library to `public/images/uploads/`
-  and saved in `photos_list` for the gallery page.
+  photos are uploaded through the Media library into `public/images/`
+  (Media library also lists all existing main-site photos). Image paths are
+  stored with the GH Pages prefix and normalized by `assetPath()` on build.
 - **Opinie** — testimonials in `src/data/testimonials.json`.
 - **Oferta (sesje)** — full service copy in `src/data/services.json`.
 - **Ustawienia** — contact data in `src/data/site.json`.
@@ -46,9 +47,12 @@ Note: the local nginx CSP for `/admin/` already allows `unsafe-eval`
 ## Gallery photos path (implemented)
 
 The Decap collection includes `photos_list`, an ordered list of Media uploads
-stored under `public/images/uploads/`. Gallery detail pages use that list and
-its first image for `og:image`; older galleries without a list retain the
-`images/galleries/<slug>/NN.jpg` convention.
+stored under `public/images/`. The Media library points at that existing image
+tree (50 images currently), so existing work is selectable and new uploads are
+available too. `public_folder` is `/annamatejska.pl/images` to preview correctly
+on project Pages; Astro `assetPath()` normalizes paths on output for GH Pages
+and Docker. Gallery pages use the list and its first image for `og:image`; older
+galleries without a list retain the `images/galleries/<slug>/NN.jpg` convention.
 
 ## Remaining before Anna can publish
 
