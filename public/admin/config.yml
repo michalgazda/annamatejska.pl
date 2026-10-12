@@ -2,7 +2,7 @@ backend:
   name: github
   repo: michalgazda/annamatejska.pl
   branch: main
-  base_url: https://annamatejska-decap-oauth.annamatejska.workers.dev
+  base_url: https://annamatejska-decap-oauth.michalgazda.workers.dev
   auth_endpoint: /auth
 
 site_url: https://michalgazda.github.io/annamatejska.pl/

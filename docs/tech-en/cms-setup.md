@@ -19,7 +19,7 @@ JSON files the panel edits.
 
 ## Auth — Cloudflare Worker OAuth bridge (provisioned)
 
-The Worker URL is live at `https://annamatejska-decap-oauth.annamatejska.workers.dev`,
+The Worker URL is live at `https://annamatejska-decap-oauth.michalgazda.workers.dev`,
 and the GitHub OAuth client ID/secret are configured. Deployed Worker version
 `6c5042b6-bec2-4bba-9b15-4ba5564a8d89` returns a GitHub authorization redirect,
 validates a short-lived HttpOnly/Secure/SameSite=Lax OAuth state cookie, exchanges
