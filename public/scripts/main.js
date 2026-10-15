@@ -2,6 +2,12 @@
 (function () {
   document.documentElement.classList.add('js');
 
+  // Reveal the skip link for keyboard users only — programmatic focus (headless
+  // browsers, in-page scripts) must not paint it over the wordmark.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab' || e.key === 'Shift') document.documentElement.classList.add('kb');
+  }, { once: true });
+
   // Mobile menu
   var toggle = document.querySelector('.menu-toggle');
   var navLinks = document.querySelector('.nav-links');
