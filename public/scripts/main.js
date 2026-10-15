@@ -26,6 +26,21 @@
     });
   }
 
+  // Scroll reveal — elements fade/slide in once when they enter the viewport
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reveals.length) {
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('is-in'); });
+    }
+  }
+
   // Lightbox (for photo-grid gallery pages only)
   var imgs = Array.prototype.slice.call(document.querySelectorAll('.photo-grid figure img'));
   var lbEl = null, lbImg = null, countEl = null;

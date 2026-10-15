@@ -25,7 +25,7 @@ const albums = [
   <section style="padding-top:0">
     <div class="container split">
       <div class="prose">
-        <p class="lead">Projektuję dla Was albumy:</p>
+        <h2 class="group-title" style="margin-bottom:18px">Projektuję dla Was albumy</h2>
         <ul class="link-list" style="grid-template-columns:1fr">
           <li>w ramach naszej sesji (pakiet premium)</li>
           <li>jako dodatkowy produkt do naszej sesji (pakiet mini, pakiet standard)</li>
@@ -33,7 +33,7 @@ const albums = [
         </ul>
       </div>
       <div class="prose">
-        <p class="lead">W ofercie:</p>
+        <h2 class="group-title" style="margin-bottom:18px">W ofercie</h2>
         <ul class="link-list" style="grid-template-columns:1fr">
           {albums.map(a => <li>{a}</li>)}
         </ul>
@@ -51,7 +51,7 @@ const albums = [
 
   <section class="quote">
     <div class="container">
-      <h2 class="sub-title" style="margin-bottom:16px">Jaki album wybrać?</h2>
+      <h2 class="script" style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--taupe);margin-bottom:16px">Jaki album wybrać?</h2>
       <blockquote style="font-size:1.15rem">Jeśli zastanawiasz się, jaki album zamówić dla siebie lub na prezent dla bliskich – odezwij się i wspólnie dobierzemy najlepszy produkt.</blockquote>
       <cite style="margin-top:22px"><a href={`${base}kontakt`} class="btn btn-line">Zapraszam do kontaktu</a></cite>
     </div>

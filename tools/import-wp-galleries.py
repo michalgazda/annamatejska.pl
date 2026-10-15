@@ -11,6 +11,9 @@ the REST API; every post body holds the session photos. This tool:
   4. rewrites src/data/galleries.json (title/date/category/excerpt/cover/photos_list).
 
 Usage:  python3 tools/import-wp-galleries.py [--max-per-gallery 12] [--force]
+        --full-max 2400   long edge of the stored photo (originals are 3000-6000px)
+        --quality 3       ffmpeg -q:v for the full photo
+        --no-thumbs       skip the 900px grid thumbnails
 Cache:  $TMPDIR/wp-gallery-import/ (media index + downloaded originals)
 """
 import argparse
@@ -29,7 +32,10 @@ UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.environ.get("TMPDIR", "/tmp").rstrip("/") + "/wp-gallery-import"
 FFMPEG = "/home/michal/.hermes/tools/ffmpeg-9.0.1-linux-x64/bin/ffmpeg"
+MAX_FULL = 2400
+MAX_QUALITY = 3
 OUT_DIR = os.path.join(REPO, "public/images/galleries")
+THUMB_SUFFIX = "-thumb"
 JSON_PATH = os.path.join(REPO, "src/data/galleries.json")
 
 try:
@@ -69,14 +75,8 @@ def load_media_index(force=False):
             src = it.get("source_url") or ""
             details = it.get("media_details") or {}
             sizes = details.get("sizes") or {}
-            best = None
-            for key in ("1536x1536", "large", "medium_large", "full"):
-                if key in sizes and sizes[key].get("source_url"):
-                    # prefer the biggest variant that is not absurdly large
-                    if key == "1536x1536" or best is None:
-                        best = sizes[key]["source_url"]
-                    break
-            best = best or src
+            # originals (source_url / the „full” size) — Anna asked for the uncompressed files
+            best = (sizes.get("full") or {}).get("source_url") or src
             names = {os.path.basename(src)}
             names.add(os.path.basename(src).replace("-scaled", ""))
             for n in list(names):
@@ -146,6 +146,9 @@ def photos_of(post, media):
 
 def download(args):
     name, url, dest = args
+    is_thumb = "-thumb" in os.path.basename(dest)
+    long_edge = 900 if is_thumb else MAX_FULL
+    quality = 5 if is_thumb else MAX_QUALITY
     raw = os.path.join(CACHE, "src-" + name)
     if not os.path.exists(raw):
         try:
@@ -156,7 +159,7 @@ def download(args):
     try:
         subprocess.run(
             [FFMPEG, "-y", "-loglevel", "error", "-i", raw,
-             "-vf", "scale='min(1400,iw)':-2", "-q:v", "5", dest],
+             "-vf", f"scale='min({long_edge},iw)':-2", "-q:v", str(quality), dest],
             check=True,
         )
     except subprocess.CalledProcessError as exc:
@@ -167,8 +170,15 @@ def download(args):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-per-gallery", type=int, default=12)
+    ap.add_argument("--full-max", type=int, default=2400, help="long edge of the stored photo")
+    ap.add_argument("--quality", type=int, default=3, help="ffmpeg -q:v for the full photo")
+    ap.add_argument("--no-thumbs", action="store_true")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
+    global MAX_FULL, MAX_QUALITY, THUMB_SUFFIX
+    MAX_FULL, MAX_QUALITY = args.full_max, args.quality
+    if args.no_thumbs:
+        THUMB_SUFFIX = ""
 
     os.makedirs(CACHE, exist_ok=True)
     print("→ media index")
@@ -195,9 +205,9 @@ def main():
             "date": post["date"][:10],
             "excerpt": EXCERPT_BY_CATEGORY.get(cat, "Galeria zdjęć."),
             "photos": len(keep),
-            "photos_list": [f"/annamatejska.pl/images/galleries/{slug}/{i:02d}.jpg"
+            "photos_list": [f"/annamatejska.pl/images/galleries/{slug}/{i:02d}{THUMB_SUFFIX}.jpg"
                             for i in range(1, len(keep) + 1)],
-            "cover": f"/annamatejska.pl/images/galleries/{slug}/01.jpg",
+            "cover": f"/annamatejska.pl/images/galleries/{slug}/01{THUMB_SUFFIX}.jpg",
             "_src": keep,
         })
         for name, _url in keep:
@@ -230,6 +240,8 @@ def main():
         os.makedirs(d, exist_ok=True)
         for i, (name, url) in enumerate(g["_src"], 1):
             jobs.append((name, url, os.path.join(d, f"{i:02d}.jpg")))
+            if not args.no_thumbs:
+                jobs.append((name, url, os.path.join(d, f"{i:02d}-thumb.jpg")))
 
     done, failed = 0, []
     with cf.ThreadPoolExecutor(max_workers=6) as pool:
@@ -243,14 +255,16 @@ def main():
 
     # a gallery whose cover failed is useless — drop it and its photos_list tail
     drop = set()
+    cover_name = f"01{THUMB_SUFFIX}.jpg"
     for g in galleries:
         d = os.path.join(OUT_DIR, g["slug"])
         present = sorted(f for f in os.listdir(d) if f.endswith(".jpg"))
-        if not present or present[0] != "01.jpg":
+        if cover_name not in present:
             print(f"  dropping {g['slug']} (cover missing)")
             drop.add(g["slug"])
             continue
-        n = min(len(present), len(g["photos_list"]))
+        sized = [f for f in present if not f.endswith("-thumb.jpg")] if THUMB_SUFFIX else present
+        n = min(len(sized), len(g["photos_list"]))
         if n < len(g["photos_list"]):
             g["photos_list"] = g["photos_list"][:n]
             g["photos"] = n

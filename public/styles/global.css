@@ -34,7 +34,7 @@ section{padding:96px 0}
 /* header */
 header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,250,248,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{max-width:1320px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:var(--display);font-weight:400;font-size:.92rem;letter-spacing:.26em;text-transform:uppercase;line-height:1;color:var(--ink)}
+.brand{font-family:var(--script);font-weight:400;font-size:1.8rem;line-height:1;letter-spacing:.01em;color:var(--ink)}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
 .nav-links a:not(.btn):hover{color:var(--taupe)}
 .btn{display:inline-block;background:var(--ink);color:#fff;padding:13px 32px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;border-radius:2px;transition:.25s;font-weight:400;border:none;cursor:pointer;font-family:var(--sans)}
@@ -187,7 +187,7 @@ footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe
 @media(max-width:560px){
   .svc-grid,.gal-list,.season-list,.process-grid,.photo-grid{grid-template-columns:1fr}
   .photo-grid figure.wide{grid-column:span 1;aspect-ratio:4/3}
-  .brand{font-size:.74rem;letter-spacing:.2em}
+  .brand{font-size:1.35rem}
 }
 
 /* ===== 2026-10 revamp: submenu, narrower header, offer pages ===== */
@@ -228,14 +228,12 @@ footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe
 .price-name{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--taupe)}
 .price-amount{font-family:var(--quote);font-size:2.6rem;line-height:1.1;margin:14px 0 22px;color:var(--ink)}
 .price-features{list-style:none;text-align:left;font-size:.86rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.price-features li{padding-left:20px;position:relative;line-height:1.6}
-.price-features li::before{content:"·";position:absolute;left:6px;color:var(--taupe);font-weight:700}
+.price-features li{line-height:1.6}
 .price-card .btn{margin-top:auto;align-self:center}
 .price-note{margin-top:26px;font-size:.84rem;color:var(--ink-soft);text-align:center;font-style:normal}
-.price-note::before{content:"* ";color:var(--taupe)}
+.price-note::before{content:"\002a\0020";color:var(--taupe)}
 .included-list{columns:2;column-gap:44px;list-style:none;margin-top:26px;font-size:.9rem;color:var(--ink-soft)}
-.included-list li{padding-left:20px;position:relative;margin-bottom:12px;break-inside:avoid}
-.included-list li::before{content:"✓";position:absolute;left:0;color:var(--taupe);font-size:.8rem}
+.included-list li{margin-bottom:12px;break-inside:avoid}
 
 /* numbered steps (sesja krok po kroku) */
 .steps{list-style:none;counter-reset:s;max-width:820px;margin:48px auto 0}
@@ -249,7 +247,7 @@ footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe
 /* simple link list (reportaże) */
 .link-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:2px 34px;margin-top:30px}
 .link-list li{border-bottom:1px solid var(--line);padding:14px 4px;font-size:.92rem;color:var(--ink-soft)}
-.link-list li::before{content:"—";color:var(--taupe);margin-right:10px}
+.link-list li::before{content:"\2014";color:var(--taupe);margin-right:10px}
 
 /* legal / long text page */
 .legal{max-width:840px;margin:0 auto}
@@ -258,7 +256,7 @@ footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe
 .legal p,.legal li{color:var(--ink-soft);font-size:.94rem;margin-bottom:.7rem}
 .legal ul{list-style:none;padding-left:0}
 .legal ul li{padding-left:18px;position:relative}
-.legal ul li::before{content:"–";position:absolute;left:0;color:var(--taupe)}
+.legal ul li::before{content:"\2013";position:absolute;left:0;color:var(--taupe)}
 
 @media(max-width:960px){
   .grid-3,.grid-4,.price-grid,.grid-2{grid-template-columns:1fr}
@@ -276,3 +274,36 @@ footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe
 .page-title--long{letter-spacing:.14em;font-size:clamp(1.05rem,2.3vw,1.5rem)}
 .sub-title{font-family:var(--display);font-weight:400;font-size:clamp(1.08rem,2.1vw,1.42rem);letter-spacing:.02em;color:var(--ink);line-height:1.35}
 .group-title{font-family:var(--display);font-weight:400;font-size:.84rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+
+/* ===== scroll-reveal animations (only when JS is on; disabled for reduced motion) ===== */
+html.js .reveal{opacity:0;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
+html.js .reveal-left{transform:translate3d(-60px,0,0)}
+html.js .reveal-right{transform:translate3d(60px,0,0)}
+html.js .reveal-up{transform:translate3d(0,60px,0)}
+html.js .reveal.is-in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.18s}
+.reveal-d3{transition-delay:.28s}
+@media (prefers-reduced-motion:reduce){
+  html.js .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* offer: centred cream invite + reportage block with a square photo */
+.offer-invite{background:var(--sand);text-align:center;padding:96px 0}
+.offer-invite .q-list{list-style:none;max-width:640px;margin:24px auto;color:var(--ink-soft)}
+.offer-invite .q-list li{margin-bottom:8px}
+.offer-reportaze .split-reportaze{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.offer-reportaze figure{margin:0;overflow:hidden;aspect-ratio:1}
+.offer-reportaze figure img{width:100%;height:100%;object-fit:cover}
+@media(max-width:960px){
+  .offer-reportaze .split-reportaze{grid-template-columns:1fr;gap:34px}
+  .offer-invite{padding:64px 0}
+}
+
+/* session type strip under the offer title + header social icons */
+.types{text-align:center;margin-top:18px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:400}
+.nav-social{display:inline-flex;align-items:center;gap:14px;margin-left:18px}
+.nav-social a{display:inline-flex;align-items:center;color:var(--ink-soft);transition:color .2s}
+.nav-social a:hover{color:var(--taupe)}
+.nav-social svg{width:17px;height:17px;display:block}
+@media(max-width:960px){.nav-social{margin-left:0}}

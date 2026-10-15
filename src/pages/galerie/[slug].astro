@@ -21,7 +21,7 @@ const photos = explicit.length
   : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
 ---
 
-<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={photos[0] || assetPath(gallery.cover, base)}>
+<BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={(photos[0] || assetPath(gallery.cover, base)).replace(/-thumb(\.[^.]+)$/, '$1')}>
   <section class="page-hero" style="padding-bottom:0">
     <div class="container gal-meta">
       <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>

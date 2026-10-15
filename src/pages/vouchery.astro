@@ -45,13 +45,12 @@ const sessionPackages = o.groups[0].packages.concat(o.groups[1].packages.slice(0
     </div>
   </section>
 
-  <section class="cta-band">
-    <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
-    <div class="container inner">
-      <h2>Masz pytania?</h2>
-      <p>Napisz, jaki pakiet wybierasz i na czyje imię ma być wypisany voucher — resztą zajmę się ja.</p>
-      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
-      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+  <section class="quote" style="text-align:center">
+    <div class="container" style="max-width:760px">
+      <h2 class="script" style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--taupe);margin-bottom:14px">Masz pytania?</h2>
+      <p style="color:var(--ink-soft);margin-bottom:26px">Napisz, jaki pakiet wybierasz i na czyje imię ma być wypisany voucher — resztą zajmę się ja.</p>
+      <a href={`${base}kontakt`} class="btn btn-line">Napisz do mnie</a>
+      <p style="margin-top:22px;font-size:.9rem;color:var(--ink-soft)">{s.email} · {s.phoneDisplay}</p>
     </div>
   </section>
 </BaseLayout>
