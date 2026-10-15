@@ -23,29 +23,29 @@ const albums = [
   </section>
 
   <section style="padding-top:0">
-    <div class="container split">
-      <div class="prose">
-        <h2 class="group-title" style="margin-bottom:18px">Projektuję dla Was albumy</h2>
-        <ul class="link-list" style="grid-template-columns:1fr">
-          <li>w ramach naszej sesji (pakiet premium)</li>
-          <li>jako dodatkowy produkt do naszej sesji (pakiet mini, pakiet standard)</li>
-          <li>bez sesji, z Waszych wcześniejszych zdjęć</li>
-        </ul>
-      </div>
-      <div class="prose">
-        <h2 class="group-title" style="margin-bottom:18px">W ofercie</h2>
-        <ul class="link-list" style="grid-template-columns:1fr">
-          {albums.map(a => <li>{a}</li>)}
-        </ul>
-      </div>
+    <div class="container">
+      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">Projektuję dla Was albumy</h2>
+      <ul class="link-list albums-scope reveal reveal-up">
+        <li>w ramach naszej sesji (pakiet premium)</li>
+        <li>jako dodatkowy produkt do naszej sesji (pakiet mini, pakiet standard)</li>
+        <li>bez sesji, z Waszych wcześniejszych zdjęć</li>
+      </ul>
     </div>
+
     <div class="container">
       <div class="grid-4">
-        <figure><img src={`${base}images/albumy/01.jpg`} alt="Album fotograficzny — opakowanie" loading="lazy" /></figure>
-        <figure><img src={`${base}images/albumy/02.jpg`} alt="Album drukowany na papierze jedwabnym" loading="lazy" /></figure>
-        <figure><img src={`${base}images/albumy/03.jpg`} alt="Pudełko i teczka na odbitki" loading="lazy" /></figure>
-        <figure><img src={`${base}images/albumy/04.jpg`} alt="Album harmonijka" loading="lazy" /></figure>
+        <figure class="reveal reveal-up reveal-d1"><img src={`${base}images/albumy/01.jpg`} alt="Album fotograficzny — opakowanie" loading="lazy" /></figure>
+        <figure class="reveal reveal-up reveal-d2"><img src={`${base}images/albumy/02.jpg`} alt="Album drukowany na papierze jedwabnym" loading="lazy" /></figure>
+        <figure class="reveal reveal-up reveal-d3"><img src={`${base}images/albumy/03.jpg`} alt="Pudełko i teczka na odbitki" loading="lazy" /></figure>
+        <figure class="reveal reveal-up reveal-d1"><img src={`${base}images/albumy/04.jpg`} alt="Album harmonijka" loading="lazy" /></figure>
       </div>
+    </div>
+
+    <div class="container" style="margin-top:72px">
+      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">W ofercie</h2>
+      <ul class="link-list reveal reveal-up">
+        {albums.map(a => <li>{a}</li>)}
+      </ul>
     </div>
   </section>
 
