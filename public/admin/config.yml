@@ -42,6 +42,7 @@ collections:
                 name: "category"
                 widget: "select"
                 options:
+                  - "Reportaże"
                   - "Sesje rodzinne"
                   - "Sesje dziecięce"
                   - "Sesje kobiece"
@@ -297,7 +298,10 @@ collections:
               - label: "Realizacje"
                 name: "items"
                 widget: "list"
-                field: { label: "Nazwa realizacji", name: "item", widget: "string" }
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Nazwa realizacji", name: "title", widget: "string" }
+                  - { label: "Slug galerii (adres /galerie/<slug>; puste = brak linku)", name: "slug", widget: "string", required: false }
           - label: "Opinie"
             name: "testimonials"
             widget: "list"

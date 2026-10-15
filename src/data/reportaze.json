@@ -20,29 +20,29 @@
     {
       "title": "Reportaże – uroczystości rodzinne",
       "items": [
-        "Chrzest Święty Olafka",
-        "Pierwsza Komunia Zosi",
-        "Pierwsza Komunia – Szkoła Nasze Montessori",
-        "Ślub Marysi i Łukasza",
-        "Chrzest Święty Pawełka",
-        "Chrzest Święty Józia"
+        { "title": "Chrzest Święty Olafka", "slug": "chrzest-olafka" },
+        { "title": "Pierwsza Komunia Zosi", "slug": "pierwsza-komunia-zosi" },
+        { "title": "Pierwsza Komunia – Szkoła Nasze Montessori", "slug": "pierwsza-komunia-kosciol-sw-mikolaja" },
+        { "title": "Ślub Marysi i Łukasza", "slug": "slub-marysi-i-lukasza" },
+        { "title": "Chrzest Święty Pawełka", "slug": "chrzest-pawelka" },
+        { "title": "Chrzest Święty Józia", "slug": "chrzest-swiety-jozia" }
       ]
     },
     {
       "title": "Reportaże – wydarzenia społeczne i kulturalne (warsztaty, konferencje, spotkania)",
       "items": [
-        "Karnawał w Santa Cruz na Teneryfie",
-        "Wiosenny Weekend Kobiet „Ot!wartość”",
-        "Rekolekcje dla kobiet „Spełniona Żona”",
-        "Jarmark Bożonarodzeniowy w Katowicach",
-        "Projekt fotograficzny „Małżeństwo w kadrze”",
-        "Wizyta na Farmie Dyniowej",
-        "Krakowska Noc Tańca",
-        "Warsztaty dla kobiet w ciąży „Wiara czyni poród”",
-        "Projekt „Tydzień Małżeństwa w Krakowie”",
-        "Ekstremalna Droga Krzyżowa",
-        "Wizyta w Ogrodzie Botanicznym",
-        "Zajęcia muzyczne „Melodyjkowo”"
+        { "title": "Karnawał w Santa Cruz na Teneryfie", "slug": "karnawal-w-santa-cruz-na-teneryfie" },
+        { "title": "Wiosenny Weekend Kobiet „Ot!wartość”", "slug": "wiosenny-weekend-kobiet-anesti" },
+        { "title": "Rekolekcje dla kobiet „Spełniona Żona”", "slug": "rekolekcje-dla-kobiet-spelniona-zona" },
+        { "title": "Jarmark Bożonarodzeniowy w Katowicach", "slug": "jarmark-bozonarodzeniowy-w-katowicach" },
+        { "title": "Projekt fotograficzny „Małżeństwo w kadrze”", "slug": "projekt-malzenstwo-w-kadrze" },
+        { "title": "Wizyta na Farmie Dyniowej", "slug": "dzien-na-farmie-dyniowej" },
+        { "title": "Krakowska Noc Tańca", "slug": "krakowska-noc-tanca" },
+        { "title": "Warsztaty dla kobiet w ciąży „Wiara czyni poród”", "slug": "warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod" },
+        { "title": "Projekt „Tydzień Małżeństwa w Krakowie”" },
+        { "title": "Ekstremalna Droga Krzyżowa", "slug": "ekstremalna-droga-krzyzowa" },
+        { "title": "Wizyta w Ogrodzie Botanicznym", "slug": "wizyta-w-ogrodzie-botanicznym" },
+        { "title": "Zajęcia muzyczne „Melodyjkowo”", "slug": "zajecia-muzyczne-melodyjkowo" }
       ]
     }
   ],

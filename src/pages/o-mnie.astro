@@ -11,7 +11,8 @@ const s = site();
   <section class="page-hero">
     <div class="container">
       <span class="kicker">{a.kicker}</span>
-      <h1 class="script" style="font-size:clamp(1.8rem,3.8vw,2.9rem);color:var(--taupe);max-width:900px;margin:0 auto 1rem">{a.script_heading}</h1>
+      <h1 class="page-title">O mnie</h1>
+      <p class="lead" style="max-width:820px;margin:18px auto 0">{a.script_heading}</p>
     </div>
   </section>
 
@@ -24,7 +25,7 @@ const s = site();
         <p class="lead">{a.intro}</p>
         {a.sections.map(sec => (
           <div style="margin-top:34px">
-            <h2 class="script" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--taupe);margin-bottom:12px">{sec.title}</h2>
+            <h2 class="sub-title" style="margin-bottom:12px">{sec.title}</h2>
             {sec.paragraphs.map(p => <p>{p}</p>)}
           </div>
         ))}

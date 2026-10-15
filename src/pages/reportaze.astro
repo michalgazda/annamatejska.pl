@@ -11,7 +11,7 @@ const s = site();
   <section class="page-hero">
     <div class="container">
       <span class="kicker">{r.kicker}</span>
-      <h1 class="script" style="font-size:clamp(2.2rem,4.6vw,3.2rem);color:var(--taupe)">{r.title}</h1>
+      <h1 class="page-title">{r.title}</h1>
       <p class="lead" style="max-width:720px;margin:0 auto">{r.intro}</p>
     </div>
   </section>
@@ -51,9 +51,18 @@ const s = site();
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wybrane realizacje</h2>
       {r.groups.map(g => (
         <div style="margin-top:44px">
-          <h3 class="script" style="font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--taupe)">{g.title}</h3>
+          <h3 class="group-title">{g.title}</h3>
           <ul class="link-list">
-            {g.items.map(i => <li>{i}</li>)}
+            {g.items.map(i => (
+              <li>
+                {i.slug ? (
+                  <a href={`${base}galerie/${i.slug}`} style="display:flex;justify-content:space-between;gap:14px;align-items:baseline">
+                    <span>{i.title}</span>
+                    <span style="color:var(--taupe);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">galeria →</span>
+                  </a>
+                ) : <span>{i.title}</span>}
+              </li>
+            ))}
           </ul>
         </div>
       ))}
@@ -64,7 +73,7 @@ const s = site();
   <section class="cta-band">
     <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
     <div class="container inner">
-      <h2>Zaplanujmy Wasz reportaż</h2>
+      <h2>Masz pytania?</h2>
       <p>W zależności od lokalizacji, czasu trwania wydarzenia oraz Waszych potrzeb przygotowuję indywidualną ofertę. Każda oferta ma 3 propozycje pakietów do wyboru.</p>
       <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
       <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>

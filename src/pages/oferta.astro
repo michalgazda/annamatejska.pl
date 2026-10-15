@@ -10,7 +10,7 @@ const o = oferta();
   <section class="page-hero">
     <div class="container">
       <span class="kicker">{o.kicker}</span>
-      <h1 class="script" style="font-size:clamp(2.2rem,4.6vw,3.2rem);color:var(--taupe)">{o.title}</h1>
+      <h1 class="page-title">{o.title}</h1>
       <p class="lead" style="max-width:720px;margin:0 auto">{o.intro}</p>
     </div>
   </section>
@@ -20,7 +20,7 @@ const o = oferta();
       <div class="container">
         <div class="price-group" style="margin-top:0">
           <div class="price-group__head">
-            <h2 class="script" style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--taupe)">{g.name}</h2>
+            <h2 class="sub-title">{g.name}</h2>
             <p>{g.subtitle}</p>
           </div>
           <div class="price-grid">
@@ -54,7 +54,7 @@ const o = oferta();
   <section>
     <div class="container grid-2" style="align-items:start">
       <div>
-        <h2 class="script" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--taupe)">{o.custom.title}</h2>
+        <h2 class="sub-title">{o.custom.title}</h2>
         <ul style="list-style:none;margin:20px 0;color:var(--ink-soft)">
           {o.custom.questions.map(q => <li style="margin-bottom:8px">— {q}</li>)}
         </ul>
