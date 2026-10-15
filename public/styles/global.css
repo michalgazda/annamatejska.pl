@@ -309,4 +309,4 @@ html.js .reveal.is-in{opacity:1;transform:none}
 @media(max-width:960px){.nav-social{margin-left:0}}
 
 /* /albumy: „Projektuję dla Was albumy” na całą szerokość (bez kolumn), „W ofercie” pod zdjęciami w 2 kolumnach */
-.albums-scope{grid-template-columns:1fr;max-width:900px}
+.albums-scope{grid-template-columns:1fr}
