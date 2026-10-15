@@ -35,6 +35,26 @@ export function kadrowania() {
   return JSON.parse(readFileSync('src/data/kadrowania.json', 'utf8'));
 }
 
+// Homepage „O mnie” block (editable in Decap → „Strona główna”)
+export function home() {
+  return JSON.parse(readFileSync('src/data/home.json', 'utf8'));
+}
+
+// Cennik / pakiety (editable in Decap → „Oferta i cennik”)
+export function oferta() {
+  return JSON.parse(readFileSync('src/data/oferta.json', 'utf8'));
+}
+
+// Podstrona /o-mnie (editable in Decap → „Strona O mnie”)
+export function aboutPage() {
+  return JSON.parse(readFileSync('src/data/o-mnie.json', 'utf8'));
+}
+
+// Podstrona /reportaze (editable in Decap → „Reportaże”)
+export function reportaze() {
+  return JSON.parse(readFileSync('src/data/reportaze.json', 'utf8'));
+}
+
 // Shared Polish long-date formatter (used by galerie listing + detail)
 const months = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
 export function formatDate(d) {

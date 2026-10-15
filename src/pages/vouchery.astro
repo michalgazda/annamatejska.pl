@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { oferta, site } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const o = oferta();
+const s = site();
+const sessionPackages = o.groups[0].packages.concat(o.groups[1].packages.slice(0, 1));
+---
+
+<BaseLayout title="Vouchery prezentowe — sesja fotograficzna w prezencie | Anna Matejska-Gazda" description="Voucher prezentowy na sesję fotograficzną w Krakowie: dowolny pakiet w tej samej cenie, ważność 365 dni, możliwa wysyłka InPostem.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">Oferta</span>
+      <h1 class="script" style="font-size:clamp(2.2rem,4.6vw,3.2rem);color:var(--taupe)">Vouchery</h1>
+      <p class="lead" style="max-width:760px;margin:0 auto">Sesja fotograficzna to piękny prezent — na urodziny, rocznicę, święta albo po prostu bez okazji. Każdy pakiet zdjęciowy można wykupić w formie voucheru.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container grid-2" style="align-items:start">
+      <div class="prose">
+        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">Jak to działa</h2>
+        <ul class="link-list" style="grid-template-columns:1fr">
+          <li>voucher obejmuje dowolny pakiet zdjęciowy — w tej samej cenie, bez dopłat</li>
+          <li>ważność vouchera to 365 dni</li>
+          <li>po tym terminie voucher przepada</li>
+          <li>możliwa jest wysyłka vouchera InPostem (kurier lub paczkomat) — wtedy do jego ceny doliczamy 20 zł za wysyłkę</li>
+          <li>voucher przekazuję także osobiście, w eleganckiej kopercie</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">Pakiety dostępne w formie voucheru</h2>
+        <div class="price-grid" style="grid-template-columns:repeat(2,1fr);margin-top:0">
+          {sessionPackages.map(p => (
+            <article class="price-card" style="padding:30px 24px">
+              <span class="price-name">{p.name}</span>
+              <span class="price-amount" style="font-size:2rem">{p.price}</span>
+              <p style="font-size:.8rem;color:var(--ink-soft)">{p.features[0]}</p>
+            </article>
+          ))}
+        </div>
+        <p class="price-note" style="text-align:left">Pełny opis pakietów znajdziesz w zakładce <a href={`${base}oferta`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">Oferta</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
+    <div class="container inner">
+      <h2>Zamów voucher</h2>
+      <p>Napisz, jaki pakiet wybierasz i na czyje imię ma być wypisany voucher — resztą zajmę się ja.</p>
+      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
+      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+    </div>
+  </section>
+</BaseLayout>

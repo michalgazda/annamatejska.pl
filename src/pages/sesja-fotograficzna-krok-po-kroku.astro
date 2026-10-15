@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const s = site();
+const steps = [
+  { t: 'Przejrzyj stronę', p: 'Zastanów się, jaki rodzaj sesji najbardziej Cię interesuje. Zapraszam Cię na sesje: romantyczne, kobiece, ciążowe, rodzinne, dziecięce oraz wizerunkowe.' },
+  { t: 'Odezwij się do mnie', p: `Mailowo (${s.email}) lub telefonicznie (${s.phoneDisplay}). Chętnie odpowiem na wszystkie dodatkowe pytania oraz rozwieję wątpliwości.` },
+  { t: 'Ustalamy termin i miejsce', p: 'Jeśli jesteś chętna / jesteście chętni na sesję – ustalamy wspólnie najdogodniejszy termin oraz pasujące nam miejsce (plener / studio / Wasze mieszkanie / inne).' },
+  { t: 'Przesyłam wskazówki', p: 'Przed sesją przesyłam Ci wskazówki oraz dodatkowe informacje na temat tego, jak przygotować się do sesji, na co zwrócić uwagę wybierając strój oraz o czym warto wiedzieć. Jeśli masz dodatkowe pytania, swoje uwagi lub są jakieś ważne dla Ciebie kwestie – mamy czas, żeby o nich porozmawiać.' },
+  { t: 'Spotykamy się', p: 'Spotykamy się, poznajemy i dopiero wtedy na spokojnie robimy zdjęcia. Nigdy nie planuję więcej niż jednej sesji na dzień – żeby mieć zapas czasu i energii dla Ciebie.' },
+  { t: 'Galeria do wyboru', p: 'Po sesji (maksymalnie do 7 dni roboczych) przesyłam Ci poprzez specjalną platformę galerię zdjęć, z której samodzielnie wybierasz te, które chcesz (ilość i cena zgodnie z wybranym pakietem).' },
+  { t: 'Zdjęcia i odbitki', p: 'Po opłaceniu przez Ciebie ustalonej kwoty – udostępniam Ci wybrane zdjęcia w pełnej rozdzielczości oraz przekazuję osobiście lub przesyłam wywołane odbitki zapakowane w elegancką kopertę / pudełko.' },
+  { t: 'Aranżacja wnętrza', p: 'Dodatkowo – jeśli planujesz powiesić zdjęcia z sesji u siebie na ścianach – chętnie pomogę Ci zaaranżować przestrzeń oraz dobrać fotografie do wnętrza. Mogę wykonać i przesłać gotową wizualizację ułożenia zdjęć w ramkach.' },
+];
+---
+
+<BaseLayout title="Sesja fotograficzna krok po kroku — jak umówić sesję | Anna Matejska-Gazda Kraków" description="Jak wygląda sesja fotograficzna krok po kroku: od wyboru rodzaju sesji, przez ustalenie terminu i przygotowania, po galerię z wyborem zdjęć i odbitki.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">Oferta</span>
+      <h1 class="script" style="font-size:clamp(2rem,4.2vw,3rem);color:var(--taupe)">Sesja fotograficzna krok po kroku</h1>
+      <p class="lead" style="max-width:760px;margin:0 auto">Myślisz o swojej pierwszej sesji fotograficznej i zastanawiasz się, jak to w praktyce wygląda? Poniżej znajdziesz „krok po kroku” informacje o tym, jak przebiega umawianie u mnie takiej sesji.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <ol class="steps">
+        {steps.map(s2 => (
+          <li>
+            <h2>{s2.t}</h2>
+            <p>{s2.p}</p>
+          </li>
+        ))}
+      </ol>
+      <p style="text-align:center;margin-top:20px"><a href={`${base}kontakt`} class="btn btn-taupe">Umów sesję</a></p>
+    </div>
+  </section>
+</BaseLayout>

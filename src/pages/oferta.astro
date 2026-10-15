@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { oferta } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const o = oferta();
+---
+
+<BaseLayout title="Oferta i cennik — pakiety sesji fotograficznych Kraków | Anna Matejska-Gazda" description="Pakiety sesji fotograficznych w Krakowie: MINI 500 zł, STANDARD 700 zł, PREMIUM 1100 zł. Sesje rodzinne, kobiece, ciążowe, dziecięce, romantyczne i wizerunkowe. Reportaże wyceniane indywidualnie.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">{o.kicker}</span>
+      <h1 class="script" style="font-size:clamp(2.2rem,4.6vw,3.2rem);color:var(--taupe)">{o.title}</h1>
+      <p class="lead" style="max-width:720px;margin:0 auto">{o.intro}</p>
+    </div>
+  </section>
+
+  {o.groups.map(g => (
+    <section style="padding-top:0">
+      <div class="container">
+        <div class="price-group" style="margin-top:0">
+          <div class="price-group__head">
+            <h2 class="script" style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--taupe)">{g.name}</h2>
+            <p>{g.subtitle}</p>
+          </div>
+          <div class="price-grid">
+            {g.packages.map((p, i) => (
+              <article class={`price-card${i === 2 ? ' price-card--featured' : ''}`}>
+                <span class="price-name">{p.name}</span>
+                <span class="price-amount">{p.price}</span>
+                <ul class="price-features">
+                  {p.features.map(f => <li>{f}</li>)}
+                </ul>
+                <a href={`${base}kontakt`} class={i === 2 ? 'btn btn-taupe' : 'btn btn-line'}>Zapytaj o termin</a>
+              </article>
+            ))}
+          </div>
+          {g.note && <p class="price-note">{g.note}</p>}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section style="background:var(--white)">
+    <div class="container">
+      <span class="kicker">W cenie</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">{o.included_title}</h2>
+      <ul class="included-list">
+        {o.included.map(i => <li>{i}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid-2" style="align-items:start">
+      <div>
+        <h2 class="script" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--taupe)">{o.custom.title}</h2>
+        <ul style="list-style:none;margin:20px 0;color:var(--ink-soft)">
+          {o.custom.questions.map(q => <li style="margin-bottom:8px">— {q}</li>)}
+        </ul>
+        <p style="color:var(--ink-soft)">{o.custom.text}</p>
+        <p style="margin-top:26px"><a href={`${base}kontakt`} class="btn btn-taupe">Napisz do mnie</a></p>
+      </div>
+      <div>
+        <span class="kicker">Reportaże</span>
+        <h2 style="font-size:clamp(1.5rem,2.8vw,2.1rem)">{o.reportaze.title}</h2>
+        <p style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin:12px 0 18px">{o.reportaze.subtitle}</p>
+        {o.reportaze.paragraphs.map(p => <p style="color:var(--ink-soft);margin-bottom:.8rem">{p}</p>)}
+        <ul class="price-features" style="margin:22px 0 26px">
+          {o.reportaze.packages.map(p => (
+            <li><strong style="font-weight:400">{p.name}</strong> — <span style="color:var(--taupe)">{p.price}</span></li>
+          ))}
+        </ul>
+        <a href={`${base}reportaze`} class="btn btn-line">Zobacz reportaże →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sand);text-align:center">
+    <div class="container prose prose-narrow">
+      <span class="kicker" style="color:var(--taupe-dark)">Dalsza część oferty</span>
+      <p style="margin-bottom:26px">{o.products_note}</p>
+      <p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href={`${base}albumy`} class="btn btn-line">Albumy</a>
+        <a href={`${base}vouchery`} class="btn btn-line">Vouchery</a>
+        <a href={`${base}studio`} class="btn btn-line">Studio</a>
+        <a href={`${base}sesja-fotograficzna-krok-po-kroku`} class="btn btn-line">Krok po kroku</a>
+        <a href={`${base}oferta-ngo`} class="btn btn-line">Oferta NGO</a>
+        <a href={`${base}regulamin`} class="btn btn-line">Regulamin</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

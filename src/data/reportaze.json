@@ -1,0 +1,59 @@
+{
+  "kicker": "Reportaże",
+  "title": "Reportaże",
+  "intro": "Wykonuję reportaże fotograficzne z wydarzeń i uroczystości rodzinnych oraz z wydarzeń społecznych i komercyjnych. W zależności od Waszych potrzeb przygotowuję indywidualną ofertę.",
+  "family": [
+    "Ślub",
+    "Chrzest Święty",
+    "Pierwsza Komunia",
+    "Wieczór Panieński",
+    "„Baby Shower”",
+    "rocznice ślubu"
+  ],
+  "events": [
+    "konferencje, warsztaty, spotkania",
+    "koncerty, wernisaże, wystawy, pokazy taneczne",
+    "rekolekcje, dni skupienia",
+    "pikniki, festyny, parady i inne wydarzenia plenerowe"
+  ],
+  "groups": [
+    {
+      "title": "Reportaże – uroczystości rodzinne",
+      "items": [
+        "Chrzest Święty Olafka",
+        "Pierwsza Komunia Zosi",
+        "Pierwsza Komunia – Szkoła Nasze Montessori",
+        "Ślub Marysi i Łukasza",
+        "Chrzest Święty Pawełka",
+        "Chrzest Święty Józia"
+      ]
+    },
+    {
+      "title": "Reportaże – wydarzenia społeczne i kulturalne (warsztaty, konferencje, spotkania)",
+      "items": [
+        "Karnawał w Santa Cruz na Teneryfie",
+        "Wiosenny Weekend Kobiet „Ot!wartość”",
+        "Rekolekcje dla kobiet „Spełniona Żona”",
+        "Jarmark Bożonarodzeniowy w Katowicach",
+        "Projekt fotograficzny „Małżeństwo w kadrze”",
+        "Wizyta na Farmie Dyniowej",
+        "Krakowska Noc Tańca",
+        "Warsztaty dla kobiet w ciąży „Wiara czyni poród”",
+        "Projekt „Tydzień Małżeństwa w Krakowie”",
+        "Ekstremalna Droga Krzyżowa",
+        "Wizyta w Ogrodzie Botanicznym",
+        "Zajęcia muzyczne „Melodyjkowo”"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Ania towarzyszyła nam podczas uroczystości rocznicowej moich rodziców. Jej uważność i nienarzucająca się obecność pozwoliła uchwycić prawdziwe emocje – radość, zachwyt, szczęście, czułość, ale i wzruszenie. Perfekcyjnie oddała atmosferę świętowania.",
+      "author": "Agnieszka Czubak"
+    },
+    {
+      "quote": "Bardzo mi się podobają zdjęcia z Pierwszej Komunii Świętej naszej córki. Dużo cennych momentów uchwyconych z taką czułością i delikatnością. Za złapanie relacji między dziećmi, spojrzeń i uśmiechów! Bardzo polecam Panią Anię jako dyskretną fotografkę do uroczystości.",
+      "author": "Aleksandra Baliga"
+    }
+  ]
+}

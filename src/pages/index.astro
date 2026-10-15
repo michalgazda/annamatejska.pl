@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services, testimonials, galleries, formatDate, assetPath } from '../data/queries';
+import { services, testimonials, galleries, formatDate, assetPath, home } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const svcs = services();
 const testis = testimonials();
 const allGals = galleries();
+const h = home().about;
 const latest = allGals.slice(0, 6);
 const seasonList = [
   { period: 'Mar–Kwi', name: 'Kwitnący sad' },
@@ -16,78 +17,78 @@ const seasonList = [
 ];
 ---
 
-<BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobiece, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością.">
-  <!-- Hero -->
+<BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobieca, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością.">
+  <!-- Hero — script signature + FOTOGRAFIA, jak na starej stronie -->
   <section class="hero">
-    <img class="bg" src={`${base}images/hero.jpg`} alt="Anna Matejska-Gazda — fotograf Kraków, sesja plenerowa w złotej godzinie" fetchpriority="high" />
+    <img class="bg" src={`${base}images/hero.jpg`} alt="Sesja rodzinna w plenerze pod Krakowem — dwie dziewczynki idące ścieżką wśród kwitnących drzew" fetchpriority="high" />
     <div class="hero-inner">
-      <span class="kicker">Fotografia · Kraków i okolice</span>
-      <h1>Zatrzymuję chwile,<br>które zostają na zawsze</h1>
+      <h1>
+        <span class="script-name">Anna Matejska-Gazda</span>
+        <span class="hero-word">Fotografia</span>
+        <span class="sr-only">— fotograf rodzinny, kobiecy, ciążowy i wizerunkowy w Krakowie i okolicach</span>
+      </h1>
+      <span class="hero-rule"></span>
       <p>Naturalnie · z czułością · bez pozowania</p>
-      <a href={`${base}kontakt`} class="btn btn-taupe">Umów sesję</a>
+      <a href={`${base}kontakt`} class="btn btn-white">Umów sesję</a>
     </div>
     <span class="scroll-hint">przewiń ↓</span>
   </section>
 
-  <!-- About -->
-  <section id="o-mnie">
-    <div class="container about-grid">
-      <img src={`${base}images/about.jpg`} alt="Anna Matejska-Gazda — fotografka z Krakowa" style="aspect-ratio:3/4;object-fit:cover;width:100%" />
-      <div>
-        <span class="kicker">O mnie</span>
-        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:1.2rem">Cześć! Mam na imię Anna.</h2>
-        <p style="color:var(--ink-soft)">Jestem historykiem sztuki i pedagogiem — dzięki temu dbam o estetykę i kompozycję każdego kadru, a podczas sesji rodzinnych wiem, jak sprawić, by dla dzieci była to zabawa, nie przymus.</p>
-        <p style="color:var(--ink-soft)">Prywatnie jestem szczęśliwą żoną i mamą dwóch córeczek, których pojawienie się sprawiło, że po 10 latach fotografii krajobrazowej zakochałam się w fotografii portretowej.</p>
-        <p style="color:var(--ink-soft)">Dla mnie najważniejsza jest <strong>czułość</strong> — uchwycam Wasze emocje i to, co w Was wyjątkowe. Każdą sesję zaczynam od kawy i rozmowy, żeby poznać Wasze oczekiwania.</p>
-        <p style="font-family:var(--serif);font-style:italic;font-size:1.4rem;margin-top:1rem">— Anna</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="sesje" style="background:var(--white)">
+  <!-- Sesje / oferta -->
+  <section class="services" id="sesje">
     <div class="container">
       <div class="gal-head">
         <div>
           <span class="kicker">Oferta</span>
-          <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Wybierz swoją sesję</h2>
+          <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wybierz swoją sesję</h2>
         </div>
-        <a href={`${base}kontakt`} class="btn btn-line">Zapytaj o termin</a>
+        <a href={`${base}kontakt`} class="btn btn-taupe-line">Zapytaj o termin</a>
       </div>
       <div class="svc-grid">
         {svcs.map(s => (
           <a class="svc" href={`${base}sesje/${s.slug}`}>
-            <img src={assetPath(s.card_image, base)} alt={`Sesje ${s.card_title} Kraków`} />
-            <div class="overlay">
-              <h3>{s.card_title}</h3>
-              <p>{s.card_short}</p>
-              <small>{s.card_time}</small>
-            </div>
+            <span class="thumb"><img src={assetPath(s.card_image, base)} alt={`Sesje ${s.card_title} Kraków`} loading="lazy" /></span>
+            <h3>{s.card_title}</h3>
+            <p>{s.card_short}</p>
+            <small>{s.card_time}</small>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Process -->
-  <section id="jak-to-dziala">
+  <!-- Cytat -->
+  <section class="quote">
     <div class="container">
-      <span class="kicker">Proces</span>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Jak to działa?</h2>
-      <div class="process-grid">
-        <div class="step"><div class="step-num">01</div><h3>Kawa i rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Przygotowanie</h3><p>Pomogę w doborze strojów, miejsca i pory dnia — idealnej na Wasze zdjęcia.</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Sesja</h3><p>Bez presji pozowania. Spacer, zabawa, swoboda — ja łapię momenty pomiędzy.</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Zdjęcia</h3><p>Starannie wyselekcjonowana i obrobiona galeria — zwykle w ciągu kilku dni.</p></div>
+      <blockquote>„W doskonałej fotografii chodzi o głębię uczucia,<br>nie o głębię ostrości.”</blockquote>
+      <cite>Peter Adams</cite>
+    </div>
+  </section>
+
+  <!-- O mnie -->
+  <section id="o-mnie">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <img src={assetPath(h.photo, base)} alt="Anna Matejska-Gazda — fotografka z Krakowa" loading="lazy" />
+      </div>
+      <div>
+        <span class="kicker">{h.kicker}</span>
+        <h2 class="script" style="font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--taupe)">{h.script_heading}</h2>
+        {h.paragraphs.map(p => <p style="color:var(--ink-soft)">{p}</p>)}
+        <span class="about-sign">{h.signature}</span>
+        <p style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href={`${base}o-mnie`} class="btn btn-line">Więcej o mnie</a>
+          <a href={assetPath(h.button_url, base)} class="btn btn-line">{h.button_label}</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Seasons -->
+  <!-- Pory roku -->
   <section class="seasons">
     <div class="container">
       <span class="kicker">Kalendarz pór roku</span>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Sezonowe plenery</h2>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Sezonowe plenery</h2>
       <p style="margin-top:14px;color:var(--ink-soft)">Przyroda jako najlepsze tło — każda pora roku ma swój magiczny moment.</p>
       <div class="season-list">
         {seasonList.map(s => (
@@ -97,21 +98,27 @@ const seasonList = [
     </div>
   </section>
 
-  <!-- Quote -->
-  <section class="quote">
+  <!-- Proces -->
+  <section id="jak-to-dziala">
     <div class="container">
-      <blockquote>„W doskonałej fotografii chodzi o głębię uczucia,<br>nie o głębię ostrości."</blockquote>
-      <cite>Peter Adams</cite>
+      <span class="kicker">Proces</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Jak to działa?</h2>
+      <div class="process-grid">
+        <div class="step"><div class="step-num">01</div><h3>Kawa i rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Przygotowanie</h3><p>Pomogę w doborze strojów, miejsca i pory dnia — idealnej na Wasze zdjęcia.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Sesja</h3><p>Bez presji pozowania. Spacer, zabawa, swoboda — ja łapię momenty pomiędzy.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Zdjęcia</h3><p>Starannie wyselekcjonowana i obrobiona galeria — zwykle w ciągu kilku dni.</p></div>
+      </div>
     </div>
   </section>
 
-  <!-- Galleries -->
-  <section id="najnowsze-galerie">
+  <!-- Galerie -->
+  <section id="najnowsze-galerie" style="background:var(--white)">
     <div class="container">
       <div class="gal-head">
         <div>
           <span class="kicker">Portfolio</span>
-          <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Najnowsze galerie</h2>
+          <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Najnowsze galerie</h2>
         </div>
         <a href={`${base}galerie`} class="btn btn-line">Wszystkie galerie →</a>
       </div>
@@ -126,14 +133,24 @@ const seasonList = [
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="opinie" style="background:var(--white)">
+  <!-- Masz pytania? -->
+  <section class="cta-band">
+    <img class="bg" src={`${base}images/cta.jpg`} alt="" loading="lazy" aria-hidden="true" />
+    <div class="container inner">
+      <h2>Masz pytania?</h2>
+      <p>Jeśli masz jakieś pytania odnośnie sesji fotograficznej lub reportażu, odezwij się — na wszystkie odpowiem.</p>
+      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
+    </div>
+  </section>
+
+  <!-- Opinie -->
+  <section id="opinie">
     <div class="container">
       <span class="kicker">Opinie</span>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Co mówią moi klienci</h2>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Co mówią moi klienci</h2>
       <div class="testi-grid">
-        {testis.map(t => (
-          <article class="testi"><div class="stars" role="img" aria-label="Ocena 5 na 5">★★★★★</div><p>„{t.quote}"</p><footer>{t.author}</footer></article>
+        {testis.slice(0, 3).map(t => (
+          <article class="testi"><div class="stars" role="img" aria-label="Ocena 5 na 5">★★★★★</div><p>„{t.quote}”</p><footer>{t.author}</footer></article>
         ))}
       </div>
     </div>

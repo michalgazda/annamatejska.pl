@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { reportaze, site } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const r = reportaze();
+const s = site();
+---
+
+<BaseLayout title="Reportaże — chrzest, komunia, ślub, wydarzenia | Anna Matejska-Gazda Kraków" description="Reportaże fotograficzne z uroczystości rodzinnych (chrzest, komunia, ślub, rocznice) oraz z wydarzeń społecznych i kulturalnych — Kraków i okolice.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">{r.kicker}</span>
+      <h1 class="script" style="font-size:clamp(2.2rem,4.6vw,3.2rem);color:var(--taupe)">{r.title}</h1>
+      <p class="lead" style="max-width:720px;margin:0 auto">{r.intro}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container grid-2">
+      <div>
+        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase">Reportaże — uroczystości rodzinne</h2>
+        <ul class="link-list" style="grid-template-columns:1fr">
+          {r.family.map(f => <li>{f}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase">Wydarzenia społeczne i komercyjne</h2>
+        <ul class="link-list" style="grid-template-columns:1fr">
+          {r.events.map(e => <li>{e}</li>)}
+        </ul>
+        <p style="margin-top:26px;color:var(--ink-soft);font-size:.94rem">Pracujesz w organizacji pozarządowej albo grupie nieformalnej? Zobacz <a href={`${base}oferta-ngo`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">ofertę NGO</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="container">
+      {r.testimonials.map(t => (
+        <figure style="margin-bottom:38px">
+          <blockquote>„{t.quote}”</blockquote>
+          <cite>{t.author}</cite>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section style="background:var(--white)">
+    <div class="container">
+      <span class="kicker">Portfolio</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wybrane realizacje</h2>
+      {r.groups.map(g => (
+        <div style="margin-top:44px">
+          <h3 class="script" style="font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--taupe)">{g.title}</h3>
+          <ul class="link-list">
+            {g.items.map(i => <li>{i}</li>)}
+          </ul>
+        </div>
+      ))}
+      <p style="margin-top:34px;color:var(--ink-soft);font-size:.92rem">Zdjęcia z reportaży pokazuję w zakładce <a href={`${base}galerie`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">Galerie</a> oraz na Instagramie.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
+    <div class="container inner">
+      <h2>Zaplanujmy Wasz reportaż</h2>
+      <p>W zależności od lokalizacji, czasu trwania wydarzenia oraz Waszych potrzeb przygotowuję indywidualną ofertę. Każda oferta ma 3 propozycje pakietów do wyboru.</p>
+      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
+      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+    </div>
+  </section>
+</BaseLayout>

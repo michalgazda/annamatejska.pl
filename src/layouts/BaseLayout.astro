@@ -1,7 +1,8 @@
 ---
 // Base Layout — shared shell for all main-site pages
-import { site } from '../data/queries';
+import { site, services } from '../data/queries';
 const s = site();
+const navServices = services();
 const base = import.meta.env.BASE_URL; // '/annamatejska.pl/' on GH Pages, '/' local
 
 export interface Props {
@@ -60,14 +61,30 @@ const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header>
     <nav class="nav">
-      <a class="brand" href={base}>Anna Matejska<em>-Gazda</em></a>
+      <a class="brand" href={base} aria-label="Anna Matejska-Gazda Fotografia — strona główna">Anna Matejska-Gazda</a>
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
       <div class="nav-links" id="site-nav">
-        <a href={`${base}#o-mnie`}>O mnie</a>
-        <a href={`${base}#sesje`}>Sesje</a>
-        <a href={`${base}galerie`}>Galerie</a>
-        <a href={`${base}kadrowania/`}>Kadrowania</a>
-        <a href={`${base}#opinie`}>Opinie</a>
+        <a href={`${base}o-mnie`}>O mnie</a>
+        <a href={`${base}galerie`}>Portfolio</a>
+        <span class="has-sub">
+          <a href={`${base}#sesje`}>Sesje<span class="caret">▾</span></a>
+          <span class="sub">
+            {navServices.map(x => <a href={`${base}sesje/${x.slug}`}>{x.category || x.title}</a>)}
+          </span>
+        </span>
+        <a href={`${base}reportaze`}>Reportaże</a>
+        <span class="has-sub">
+          <a href={`${base}oferta`}>Oferta<span class="caret">▾</span></a>
+          <span class="sub">
+            <a href={`${base}oferta`}>Cennik i pakiety</a>
+            <a href={`${base}albumy`}>Albumy</a>
+            <a href={`${base}vouchery`}>Vouchery</a>
+            <a href={`${base}studio`}>Studio</a>
+            <a href={`${base}sesja-fotograficzna-krok-po-kroku`}>Krok po kroku</a>
+            <a href={`${base}oferta-ngo`}>Oferta NGO</a>
+            <a href={`${base}regulamin`}>Regulamin</a>
+          </span>
+        </span>
         <a href={`${base}kontakt`} class="btn">Umów sesję</a>
       </div>
     </nav>
@@ -80,6 +97,7 @@ const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
   <footer class="site">
     <div class="container">
       <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
+      <span class="handle">annamatejska.fotografia</span>
       <span>
         <a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a>
         · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a>

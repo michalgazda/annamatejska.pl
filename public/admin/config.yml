@@ -144,6 +144,168 @@ collections:
                 required: false
                 hint: "Jeśli puste, strona użyje domyślnego zdjęcia z folderu kadrowania wg kolejności w kategorii."
 
+  - name: "home"
+    label: "Strona główna"
+    label_singular: "Blok strony głównej"
+    description: "Krótki opis „O mnie” na stronie głównej oraz jego zdjęcie i podpisy."
+    editor:
+      preview: false
+    files:
+      - name: "home-about"
+        label: "Strona główna — blok „O mnie”"
+        file: "src/data/home.json"
+        fields:
+          - label: "O mnie (strona główna)"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string", default: "O mnie" }
+              - { label: "Nagłówek (czcionka pisana)", name: "script_heading", widget: "string" }
+              - label: "Akapity"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Akapit", name: "paragraph", widget: "text" }
+              - { label: "Podpis (czcionka pisana)", name: "signature", widget: "string", default: "Anna" }
+              - { label: "Zdjęcie", name: "photo", widget: "image" }
+              - { label: "Tekst przycisku", name: "button_label", widget: "string", default: "Zobacz moje galerie" }
+              - { label: "Adres przycisku", name: "button_url", widget: "string", default: "/annamatejska.pl/galerie" }
+
+  - name: "about_page"
+    label: "Strona „O mnie”"
+    label_singular: "Sekcja"
+    description: "Treść podstrony /o-mnie/ — dłuższa historia i sekcje tematyczne."
+    editor:
+      preview: false
+    files:
+      - name: "about-page"
+        label: "Podstrona O mnie"
+        file: "src/data/o-mnie.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string", default: "O mnie" }
+          - { label: "Tytuł strony", name: "title", widget: "string" }
+          - { label: "Nagłówek (czcionka pisana)", name: "script_heading", widget: "text" }
+          - { label: "Zdjęcie", name: "photo", widget: "image" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - label: "Sekcje"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nagłówek sekcji", name: "title", widget: "string" }
+              - label: "Akapity"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Akapit", name: "paragraph", widget: "text" }
+          - { label: "Nagłówek zaproszenia do kontaktu", name: "cta_title", widget: "string" }
+          - { label: "Tekst zaproszenia do kontaktu", name: "cta_text", widget: "text" }
+
+  - name: "oferta"
+    label: "Oferta i cennik"
+    label_singular: "Pakiet"
+    description: "Pakiety i ceny pokazywane w zakładce Oferta."
+    editor:
+      preview: false
+    files:
+      - name: "oferta-prices"
+        label: "Pakiety sesji i ceny"
+        file: "src/data/oferta.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string", default: "Oferta" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - label: "Grupy pakietów"
+            name: "groups"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Nazwa grupy", name: "name", widget: "string" }
+              - { label: "Dopisek pod nazwą", name: "subtitle", widget: "string", required: false }
+              - label: "Pakiety"
+                name: "packages"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Nazwa pakietu (np. MINI)", name: "name", widget: "string" }
+                  - { label: "Cena (np. 500 zł)", name: "price", widget: "string" }
+                  - label: "Co zawiera"
+                    name: "features"
+                    widget: "list"
+                    field: { label: "Punkt", name: "feature", widget: "text" }
+              - { label: "Przypis pod tabelą", name: "note", widget: "string", required: false }
+          - { label: "Nagłówek listy „w cenie”", name: "included_title", widget: "string" }
+          - label: "Cena sesji zawiera również"
+            name: "included"
+            widget: "list"
+            field: { label: "Punkt", name: "point", widget: "string" }
+          - label: "Oferta indywidualna"
+            name: "custom"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "title", widget: "string" }
+              - label: "Pytania"
+                name: "questions"
+                widget: "list"
+                field: { label: "Pytanie", name: "question", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+          - label: "Reportaże"
+            name: "reportaze"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "title", widget: "string" }
+              - { label: "Dopisek", name: "subtitle", widget: "string" }
+              - label: "Akapity"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Akapit", name: "paragraph", widget: "text" }
+              - label: "Pakiety reportażowe"
+                name: "packages"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Nazwa", name: "name", widget: "string" }
+                  - { label: "Cena", name: "price", widget: "string" }
+          - { label: "Tekst o pozostałej ofercie", name: "products_note", widget: "text", required: false }
+
+  - name: "reportaze"
+    label: "Reportaże"
+    label_singular: "Reportaż"
+    description: "Treść podstrony /reportaze/ — rodzaje wydarzeń i lista realizacji."
+    editor:
+      preview: false
+    files:
+      - name: "reportaze-page"
+        label: "Podstrona Reportaże"
+        file: "src/data/reportaze.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string", default: "Reportaże" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - label: "Reportaże — uroczystości rodzinne"
+            name: "family"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Wydarzenia społeczne i komercyjne"
+            name: "events"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Grupy realizacji"
+            name: "groups"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nagłówek grupy", name: "title", widget: "string" }
+              - label: "Realizacje"
+                name: "items"
+                widget: "list"
+                field: { label: "Nazwa realizacji", name: "item", widget: "string" }
+          - label: "Opinie"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.author}}"
+            fields:
+              - { label: "Treść opinii", name: "quote", widget: "text" }
+              - { label: "Autor", name: "author", widget: "string" }
+
   - name: "settings"
     label: "Ustawienia"
     editor:

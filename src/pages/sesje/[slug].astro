@@ -31,7 +31,7 @@ const { service } = Astro.props;
         <div><span class="kicker" style="margin-bottom:.3rem">Czas trwania</span><strong style="font-family:var(--serif);font-size:1.5rem;font-weight:500">{service.duration}</strong></div>
         <div style="flex:1;min-width:240px"><span class="kicker" style="margin-bottom:.3rem">Zawsze w cenie</span><span style="color:var(--ink-soft);font-size:.92rem">{service.included}</span></div>
       </div>
-      <blockquote style="font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.6;color:var(--ink-soft);border-left:2px solid var(--taupe);padding-left:24px;margin:52px 0">{service.quote}</blockquote>
+      <blockquote style="font-family:var(--quote);font-size:1.4rem;line-height:1.55;color:var(--taupe);border-left:2px solid var(--taupe);padding-left:24px;margin:52px 0">{service.quote}</blockquote>
       <p style="text-align:center;margin-top:44px"><a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a></p>
     </div>
   </section>

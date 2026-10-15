@@ -1,0 +1,36 @@
+{
+  "kicker": "O mnie",
+  "title": "O mnie",
+  "script_heading": "Mam na imię Anna i z radością zatrzymam w kadrach ważne dla Was chwile. Zarówno z wyjątkowych wydarzeń, jak i te codzienne.",
+  "photo": "/annamatejska.pl/images/o-mnie.jpg",
+  "intro": "Czas mija szybko, zmieniamy się, dzieci rosną… dobrze mieć pamiątkę, która przez kolejne lata będzie przypominać nam ten konkretny okres w życiu. Narzeczeństwo, małżeństwo, ciąża, narodziny dziecka – każdy z tych etapów jest szczególny i warty zapamiętania.",
+  "sections": [
+    {
+      "title": "A co dla mnie jest najważniejsze w fotografii?",
+      "paragraphs": [
+        "Czułość. Koncentruję się na uchwyceniu Waszych emocji i uczuć oraz wydobywam i podkreślam to, co jest w Was najbardziej wyjątkowe."
+      ]
+    },
+    {
+      "title": "Co jeszcze jest dla mnie ważne?",
+      "paragraphs": [
+        "Spotkanie. Każda sesja fotograficzna to dla mnie nie tylko zrobienie i oddanie pakietu zdjęć, ale tworzenie przyjaznej i relaksującej atmosfery. Tak, żeby sama sesja była dla Was miłą formą spędzenia czasu – czy to we dwoje, czy z rodziną, czy może w końcu spokojną chwilą dla samej siebie podczas sesji kobiecej lub ciążowej."
+      ]
+    },
+    {
+      "title": "Co mnie wyróżnia?",
+      "paragraphs": [
+        "Jestem historykiem sztuki – więc dbam o estetykę, kompozycję i każdy detal kadru.",
+        "Jestem pedagogiem oraz mamą – więc bardzo zależy mi na tym, żeby podczas sesji rodzinnych dla Waszych dzieci była to zabawa i przyjemność."
+      ]
+    },
+    {
+      "title": "Co lubię?",
+      "paragraphs": [
+        "Dobrą kawę! Więc jeśli tylko to możliwe, sesję rozpoczynam od kawy lub herbaty z Wami, żeby porozmawiać i usłyszeć, jakie macie oczekiwania oraz co jest dla Was ważne."
+      ]
+    }
+  ],
+  "cta_title": "Masz do mnie pytania?",
+  "cta_text": "Napisz. Bardzo chętnie na wszystkie odpowiem."
+}

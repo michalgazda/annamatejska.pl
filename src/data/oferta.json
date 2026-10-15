@@ -1,0 +1,125 @@
+{
+  "kicker": "Oferta",
+  "title": "Pakiety sesji",
+  "intro": "Każdy pakiet zawiera wybrane ujęcia w wersji elektronicznej oraz odbitki na papierze jedwabnym. Poniżej znajdziesz dokładny zakres każdego pakietu.",
+  "groups": [
+    {
+      "name": "Sesje",
+      "subtitle": "romantyczne | kobiece | dziecięce | rodzinne | ciążowe",
+      "packages": [
+        {
+          "name": "MINI",
+          "price": "500 zł",
+          "features": [
+            "10 wybranych ujęć w wersji elektronicznej",
+            "10 odbitek tych samych ujęć na papierze jedwabnym w formacie 15×23 cm",
+            "dodatkowe ujęcie w cenie 30 zł / sztuka",
+            "zdjęcia zapakowane w elegancką kopertę",
+            "czas trwania sesji – do 1h"
+          ]
+        },
+        {
+          "name": "STANDARD",
+          "price": "700 zł",
+          "features": [
+            "18 wybranych ujęć w wersji elektronicznej",
+            "18 odbitek tych samych ujęć na papierze jedwabnym w formacie 15×23 cm",
+            "dodatkowe ujęcie w cenie 25 zł / sztuka",
+            "zdjęcia zapakowane w elegancką płócienną teczkę",
+            "czas trwania sesji – około 1 – 2 h"
+          ]
+        },
+        {
+          "name": "PREMIUM",
+          "price": "1100 zł",
+          "features": [
+            "25 wybranych ujęć w wersji elektronicznej",
+            "25 odbitek tych samych ujęć na papierze jedwabnym w formacie 15×23 cm",
+            "dodatkowe ujęcie w cenie 20 zł / sztuka",
+            "zdjęcia zapakowane w elegancką płócienną teczkę",
+            "album w formacie 20×20 cm (o wartości 300 zł)",
+            "czas trwania sesji – około 2 h"
+          ]
+        }
+      ],
+      "note": "istnieje możliwość zakupienia wszystkich ujęć z sesji (około 80–90 zdjęć) w cenie 1300 zł (bez albumu) lub 1600 zł (z albumem)"
+    },
+    {
+      "name": "Sesje wizerunkowe",
+      "subtitle": "portret biznesowy, marka osobista, zdjęcia do mediów",
+      "packages": [
+        {
+          "name": "MINI",
+          "price": "500 zł",
+          "features": [
+            "5 wybranych ujęć w wersji elektronicznej",
+            "wszystkie fotografie poddane naturalnej autorskiej obróbce",
+            "możliwy dodatkowy retusz na życzenie",
+            "dodatkowe ujęcie w cenie 40 zł / sztuka",
+            "zdjęcia przygotowane w kilku rozmiarach (pełnym / na www / do mediów społecznościowych)",
+            "czas trwania sesji – około 1h"
+          ]
+        },
+        {
+          "name": "STANDARD",
+          "price": "700 zł",
+          "features": [
+            "10 wybranych ujęć w wersji elektronicznej",
+            "wszystkie fotografie poddane naturalnej autorskiej obróbce",
+            "możliwy dodatkowy retusz na życzenie",
+            "dodatkowe ujęcie w cenie 35 zł / sztuka",
+            "zdjęcia przygotowane w kilku rozmiarach (pełnym / na www / do mediów społecznościowych)",
+            "dodatkowe konsultacje przed sesją (telefoniczne lub online)",
+            "czas trwania sesji – około 1,5 h"
+          ]
+        },
+        {
+          "name": "PREMIUM",
+          "price": "1000 zł",
+          "features": [
+            "20 wybranych ujęć w wersji elektronicznej",
+            "wszystkie fotografie poddane naturalnej autorskiej obróbce",
+            "możliwy dodatkowy retusz na życzenie",
+            "dodatkowe ujęcie w cenie 30 zł / sztuka",
+            "zdjęcia przygotowane w kilku rozmiarach (pełnym / na www / do mediów społecznościowych)",
+            "dodatkowe konsultacje przed sesją (telefoniczne, online lub na żywo)",
+            "czas trwania sesji – około 2 h"
+          ]
+        }
+      ],
+      "note": "istnieje możliwość zakupienia wszystkich ujęć z sesji (około 50 zdjęć) w cenie 1300 zł"
+    }
+  ],
+  "included_title": "Cena sesji zawiera również:",
+  "included": [
+    "wskazówki oraz mini poradnik na temat jak przygotować się do sesji",
+    "konsultacje przed sesją (telefonicznie, online lub na żywo)",
+    "umiejętności i wiedzę fotografa",
+    "dojazd na sesję (na terenie Krakowa i okolic)",
+    "czas na selekcję oraz autorską obróbkę fotografii",
+    "koszty programu graficznego oraz portalu z galerią zdjęć zamawiającego",
+    "pakowanie odbitek",
+    "przygotowanie albumu (pakiet premium)"
+  ],
+  "custom": {
+    "title": "Nie znaleźliście interesującej Was oferty?",
+    "questions": [
+      "Potrzebujecie większą liczbę zdjęć?",
+      "Wolelibyście zamienić drukowane odbitki na inny produkt fotograficzny?"
+    ],
+    "text": "Nie ma problemu. Opowiedzcie mi o tym, a ja przygotuję spersonalizowaną ofertę specjalnie dla Was."
+  },
+  "reportaze": {
+    "title": "Reportaże",
+    "subtitle": "kameralny ślub / chrzest / komunia / rocznica / „baby shower” / wieczór panieński / inne",
+    "paragraphs": [
+      "W zależności od lokalizacji, czasu trwania wydarzenia oraz Waszych potrzeb przygotowuję indywidualną ofertę.",
+      "Każda oferta ma 3 propozycje pakietów do wyboru."
+    ],
+    "packages": [
+      { "name": "mały reportaż (np. Chrzest Święty, około 1h)", "price": "od 700 zł" },
+      { "name": "duży reportaż (np. Ślub + część przyjęcia, około 5h)", "price": "od 1900 zł" }
+    ]
+  },
+  "products_note": "Albumy, vouchery, sesje w studio oraz sesje krok po kroku znajdziesz w pozostałych zakładkach oferty."
+}

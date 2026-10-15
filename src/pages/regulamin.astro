@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const s = site();
+const rules = [
+  'Rezerwacja sesji zdjęciowej jest równoznaczna z akceptacją regulaminu.',
+  'Rezerwując sesję, Klient akceptuje styl fotografowania Wykonawcy, kolorystyki i obróbki zdjęć.',
+  'Klient musi powierzyć Wykonawcy swoje imię, nazwisko, numer telefonu i adres mailowy w celu wymiany informacji oraz realizacji usług.',
+  'Klient oświadcza, iż jest świadomy, że na końcowy efekt zdjęć mają wpływ również czynniki niezależne od Wykonawcy, takie jak warunki pogodowe czy oświetleniowe we wnętrzu oraz zaangażowanie modeli.',
+  'Wykonawca nie oddaje nieobrobionych zdjęć i nie ma możliwości ich otrzymania za dodatkową opłatą.',
+  'Retusz obejmuje drobne zmiany, np. wypryski czy drobne siniaki. Wykonawca nie podejmuje się retuszu dużych zmian, modyfikacji sylwetki, wygładzania twarzy, usuwania logotypów z ubrań itd.',
+  'W przypadku choroby – istnieje możliwość przeniesienia terminu zdjęć na inny, wspólnie ustalony.',
+  'W przypadku sesji plenerowej – istnieje możliwość przeniesienia terminu zdjęć ze względu na warunki atmosferyczne, np. burzę lub silny wiatr (o odwołaniu sesji decydujemy na 1–2 h przed jej rozpoczęciem).',
+  'Na sesję zdjęciową należy przyjść punktualnie. W przypadku opóźnień należy poinformować Wykonawcę o zaistniałej sytuacji tak szybko, jak to możliwe. Znaczne spóźnienia mogą skutkować odliczeniem czasu poświęconego na sesję lub jej odwołanie.',
+  'Pliki od dnia sesji przechowywane są przez Wykonawcę maksymalnie 6 miesięcy. Należy zapisać otrzymane zdjęcia na swoich dyskach od razu po ich otrzymaniu.',
+  'Wykonawca nie ponosi odpowiedzialności za jakość wydruków zdjęć wykonanych w laboratoriach fotograficznych, z którymi nie współpracuje.',
+  'Wykonawca nie zgadza się na modyfikacje wykonanych fotografii, takich jak nakładanie filtrów na Instagramie, dodawanie własnych logotypów czy kadrowanie – prawa autorskie do fotografii zostają zawsze po stronie Wykonawcy.',
+  'Zdjęcia udostępnione w galerii do wyboru kadrów stanowią materiał poglądowy i nie mogą być wykorzystywane przed ich wykupieniem. Zabrania się usuwania lub modyfikowania znaków wodnych na fotografiach. Takie działania stanowią naruszenie autorskich praw majątkowych i mogą skutkować dochodzeniem roszczeń o zapłatę odszkodowania oraz innych roszczeń przewidzianych obowiązującymi przepisami prawa.',
+  'Wszystkie pakiety na sesje zdjęciowe oraz ich ceny są dokładnie przedstawione w aktualnej ofercie. Reportaże oraz zdjęcia z wydarzeń wyceniane są indywidualnie.',
+  'Każdy pakiet zdjęciowy można wykupić w formie voucheru prezentowanego, w tej samej cenie. Ważność vouchera to 365 dni. Po tym terminie voucher przepada. Możliwa jest wysyłka vouchera InPostem (kurier lub paczkomat) na wskazany adres. W tej sytuacji do jego ceny należy doliczyć 20 zł za wysyłkę.',
+];
+const reklamacje = [
+  'Reklamacje Usług Klient może składać przy pomocy poczty elektronicznej na adres ' + s.email + '.',
+  'Usługobiorca może złożyć reklamację w terminie 14 dni od dnia wystąpienia zdarzenia będącego przyczyną reklamacji.',
+  'Reklamacja musi zawierać dane Usługobiorcy umożliwiające nawiązanie z nim kontaktu, w tym dane umożliwiające identyfikację:',
+  'a) osoby składającej reklamację,',
+  'b) usługi, której reklamacja dotyczy;',
+  'c) zarzuty Klienta co do wskazanej usługi;',
+  'd) okoliczności uzasadniające reklamację;',
+  'e) ewentualne żądanie Klienta związane ze złożoną reklamacją.',
+  'Reklamacje będą rozpatrywane przez Usługodawcę w terminie 14 dni od dnia otrzymania wiadomości przesłanej pocztą elektroniczną.',
+  'O decyzji Usługodawcy Klient zostanie powiadomiony pisemnie przy pomocy poczty elektronicznej na wskazany adres e-mail.',
+];
+---
+
+<BaseLayout title="Regulamin i polityka prywatności — Anna Matejska-Gazda Fotografia" description="Regulamin usług fotograficznych: rezerwacja sesji, retusz, przenoszenie terminów, prawa autorskie, reklamacje oraz informacje RODO.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">Informacje</span>
+      <h1 class="script" style="font-size:clamp(2rem,4.2vw,3rem);color:var(--taupe)">Regulamin</h1>
+      <p class="lead" style="max-width:760px;margin:0 auto">Rezerwacja sesji zdjęciowej jest równoznaczna z akceptacją regulaminu.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container legal">
+      <h2>Rezerwacja i realizacja usług</h2>
+      <ul>
+        {rules.map(r => <li>{r}</li>)}
+      </ul>
+
+      <h2>Reklamacje</h2>
+      <ul>
+        {reklamacje.map(r => <li>{r}</li>)}
+      </ul>
+
+      <h2>Polityka prywatności / RODO</h2>
+      <p>Zgodnie z art. 13 ust. 1 i 2 Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO), informuję, że:</p>
+
+      <h3>1. Administrator danych osobowych</h3>
+      <p>Administratorem danych osobowych jest Anna Matejska-Gazda, prowadząca działalność fotograficzną pod adresem strony internetowej: www.annamatejska.pl.</p>
+      <p>Kontakt: e-mail: <a href={`mailto:${s.email}`} style="color:var(--taupe)">{s.email}</a>, telefon: {s.phoneDisplay}.</p>
+
+      <h3>2. Cele przetwarzania danych</h3>
+      <p>Dane osobowe Klienta mogą być przetwarzane w następujących celach:</p>
+      <ul>
+        <li>realizacji usług fotograficznych (np. umawianie sesji, kontakt, realizacja i wysyłka zamówień),</li>
+        <li>przygotowania i przesłania oferty,</li>
+        <li>wystawiania rachunków,</li>
+        <li>publikowania zdjęć w portfolio (za zgodą Klienta),</li>
+        <li>komunikacji za pośrednictwem formularza kontaktowego.</li>
+      </ul>
+
+      <h3>3. Podstawy prawne przetwarzania</h3>
+      <p>Dane są przetwarzane na podstawie:</p>
+      <ul>
+        <li>art. 6 ust. 1 lit. b RODO – niezbędność do wykonania umowy lub działań przed jej zawarciem,</li>
+        <li>art. 6 ust. 1 lit. c RODO – obowiązki prawne ciążące na administratorze (np. podatkowe),</li>
+        <li>art. 6 ust. 1 lit. a RODO – zgoda osoby, której dane dotyczą (np. publikacja wizerunku na stronie/portfolio).</li>
+      </ul>
+
+      <h3>4. Odbiorcy danych</h3>
+      <p>Dane Klienta mogą być przekazywane:</p>
+      <ul>
+        <li>firmom wspierającym administrację strony i komunikację (np. hosting, e-mail),</li>
+        <li>podmiotom świadczącym usługi księgowe,</li>
+        <li>innym podmiotom wyłącznie w zakresie niezbędnym do realizacji usług.</li>
+      </ul>
+      <p>Dane nie są przekazywane poza Europejski Obszar Gospodarczy (EOG), ani nie są profilowane.</p>
+
+      <h3>5. Okres przechowywania danych</h3>
+      <p>Dane będą przechowywane przez okres:</p>
+      <ul>
+        <li>niezbędny do wykonania usługi i obowiązków księgowych (np. 5 lat),</li>
+        <li>do momentu wycofania zgody – w przypadku danych przetwarzanych na jej podstawie.</li>
+      </ul>
+
+      <h3>6. Prawa Klienta</h3>
+      <p>Klient ma prawo do:</p>
+      <ul>
+        <li>dostępu do swoich danych oraz ich poprawienia,</li>
+        <li>żądania usunięcia danych lub ograniczenia przetwarzania,</li>
+        <li>sprzeciwu wobec przetwarzania,</li>
+        <li>przenoszenia danych,</li>
+        <li>cofnięcia zgody w dowolnym momencie,</li>
+        <li>wniesienia skargi do Prezesa UODO, jeśli uważa, że dane są przetwarzane niezgodnie z przepisami.</li>
+      </ul>
+
+      <h3>7. Dobrowolność podania danych</h3>
+      <p>Podanie danych osobowych jest dobrowolne, ale konieczne do kontaktu i realizacji usług fotograficznych.</p>
+
+      <p style="margin-top:36px"><a href={`${base}polityka-prywatnosci`} class="btn btn-line">Polityka prywatności i cookies</a></p>
+    </div>
+  </section>
+</BaseLayout>

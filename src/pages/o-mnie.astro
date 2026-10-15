@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { aboutPage, site, assetPath } from '../data/queries';
+
+const base = import.meta.env.BASE_URL;
+const a = aboutPage();
+const s = site();
+---
+
+<BaseLayout title="O mnie — Anna Matejska-Gazda, fotograf Kraków" description="Mam na imię Anna. Historyk sztuki i pedagog, żona i mama dwóch córeczek. Fotografia rodzinna, kobieca i portretowa w Krakowie — czułość, estetyka i dobra kawa.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="kicker">{a.kicker}</span>
+      <h1 class="script" style="font-size:clamp(1.8rem,3.8vw,2.9rem);color:var(--taupe);max-width:900px;margin:0 auto 1rem">{a.script_heading}</h1>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container split">
+      <figure class="fig-portrait" style="margin:0">
+        <img src={assetPath(a.photo, base)} alt="Anna Matejska-Gazda — fotografka z Krakowa" />
+      </figure>
+      <div class="prose">
+        <p class="lead">{a.intro}</p>
+        {a.sections.map(sec => (
+          <div style="margin-top:34px">
+            <h2 class="script" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--taupe);margin-bottom:12px">{sec.title}</h2>
+            {sec.paragraphs.map(p => <p>{p}</p>)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="padding:96px 0">
+    <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
+    <div class="container inner">
+      <h2>{a.cta_title}</h2>
+      <p>{a.cta_text}</p>
+      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
+      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+    </div>
+  </section>
+</BaseLayout>
