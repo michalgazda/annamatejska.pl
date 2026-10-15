@@ -4,7 +4,9 @@ services:
     container_name: annamatejska-web
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8890:80"
+      # bound to all interfaces so the preview is reachable from the LAN
+      # (http://192.168.0.151:8890/) and not only from localhost
+      - "8890:80"
     read_only: true
     tmpfs:
       - /var/cache/nginx
