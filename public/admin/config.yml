@@ -310,6 +310,186 @@ collections:
               - { label: "Treść opinii", name: "quote", widget: "text" }
               - { label: "Autor", name: "author", widget: "string" }
 
+  - name: "portfolio"
+    label: "Portfolio"
+    label_singular: "Zdjęcie"
+    description: "Wybrane zdjęcia pokazywane na górze zakładki Portfolio (/galerie). Kolejność = kolejność na stronie."
+    editor:
+      preview: false
+    files:
+      - name: "portfolio-selected"
+        label: "Portfolio — wybrane zdjęcia"
+        file: "src/data/portfolio.json"
+        fields:
+          - label: "Zdjęcia"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.photo}}"
+            add_to_top: true
+            fields:
+              - { label: "Zdjęcie (pełny rozmiar — otwiera się w powiększeniu)", name: "photo", widget: "image" }
+              - { label: "Miniatura do siatki (opcjonalnie, mniejszy plik = szybsza strona)", name: "thumb", widget: "image", required: false }
+              - { label: "Opis dla wyszukiwarek / osób niewidzących", name: "alt", widget: "string", required: false }
+
+  - name: "oferta_pages"
+    label: "Oferta — podstrony"
+    label_singular: "Podstrona"
+    description: "Treści podstron z menu Oferta: albumy, vouchery, studio, sesja krok po kroku, oferta NGO i regulamin."
+    editor:
+      preview: false
+    files:
+      - name: "albumy-page"
+        label: "Albumy"
+        file: "src/data/albumy.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Nagłówek „projektuję dla Was”", name: "scope_title", widget: "string" }
+          - label: "Projektuję dla Was albumy — punkty"
+            name: "scope"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - { label: "Nagłówek „W ofercie”", name: "products_title", widget: "string" }
+          - label: "W ofercie — punkty"
+            name: "products"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Zdjęcia albumów"
+            name: "photos"
+            widget: "list"
+            required: false
+            field: { label: "Zdjęcie", name: "photo", widget: "image" }
+          - { label: "Nagłówek zaproszenia", name: "cta_title", widget: "string" }
+          - { label: "Tekst zaproszenia", name: "cta_text", widget: "text" }
+          - { label: "Przycisk zaproszenia", name: "cta_button", widget: "string" }
+
+      - name: "studio-page"
+        label: "Studio"
+        file: "src/data/studio.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - label: "Sekcje (wynajęte / domowe studio)"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nagłówek", name: "title", widget: "string" }
+              - label: "Punkty"
+                name: "items"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+          - { label: "Etykieta sekcji domowego studia", name: "home_title", widget: "string" }
+          - { label: "Nagłówek sekcji domowego studia", name: "home_heading", widget: "string" }
+          - label: "Co wykonuję w domowym studiu"
+            name: "home_items"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Bloki (wystrój, informacje praktyczne)"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nagłówek", name: "title", widget: "string" }
+              - label: "Akapity"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Akapit", name: "paragraph", widget: "text" }
+          - label: "Zdjęcia studia"
+            name: "photos"
+            widget: "list"
+            required: false
+            field: { label: "Zdjęcie", name: "photo", widget: "image" }
+          - { label: "Tekst przycisku", name: "cta_button", widget: "string" }
+
+      - name: "vouchery-page"
+        label: "Vouchery"
+        file: "src/data/vouchery.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - { label: "Nagłówek sekcji „jak to działa”", name: "how_title", widget: "string" }
+          - label: "Jak to działa — punkty"
+            name: "how"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - { label: "Nagłówek listy pakietów", name: "packages_title", widget: "string" }
+          - { label: "Nagłówek zaproszenia (czcionka pisana)", name: "cta_title", widget: "string" }
+          - { label: "Tekst zaproszenia", name: "cta_text", widget: "text" }
+          - { label: "Przycisk zaproszenia", name: "cta_button", widget: "string" }
+
+      - name: "krok-po-kroku-page"
+        label: "Sesja fotograficzna krok po kroku"
+        file: "src/data/krok-po-kroku.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - label: "Kroki"
+            name: "steps"
+            widget: "list"
+            summary: "{{fields.title}}"
+            add_to_top: true
+            fields:
+              - { label: "Nagłówek kroku", name: "title", widget: "string" }
+              - { label: "Treść kroku", name: "text", widget: "text" }
+          - { label: "Tekst przycisku", name: "cta_button", widget: "string" }
+
+      - name: "oferta-ngo-page"
+        label: "Oferta NGO"
+        file: "src/data/oferta-ngo.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - { label: "Nagłówek listy wydarzeń", name: "events_title", widget: "string" }
+          - label: "Rodzaje wydarzeń"
+            name: "events"
+            widget: "list"
+            field: { label: "Punkt", name: "item", widget: "string" }
+          - { label: "Nagłówek „jak zaczynamy”", name: "start_title", widget: "string" }
+          - label: "Akapity „jak zaczynamy”"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Akapit", name: "paragraph", widget: "text" }
+          - { label: "Notka o kontakcie telefonicznym", name: "note", widget: "text" }
+          - { label: "Zdanie o realizacjach", name: "examples", widget: "string" }
+          - { label: "Etykieta linku do reportaży", name: "examples_link_label", widget: "string" }
+          - { label: "Tekst przycisku", name: "cta_button", widget: "string" }
+
+      - name: "regulamin-page"
+        label: "Regulamin"
+        file: "src/data/regulamin.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek strony", name: "title", widget: "string" }
+          - { label: "Wstęp", name: "intro", widget: "text" }
+          - { label: "Nagłówek sekcji rezerwacji", name: "rules_title", widget: "string" }
+          - label: "Punkty regulaminu"
+            name: "rules"
+            widget: "list"
+            field: { label: "Punkt", name: "paragraph", widget: "text" }
+          - { label: "Nagłówek sekcji reklamacji", name: "complaints_title", widget: "string" }
+          - label: "Punkty reklamacji"
+            name: "complaints"
+            widget: "list"
+            field: { label: "Punkt", name: "paragraph", widget: "text" }
+          - { label: "Nagłówek RODO", name: "rodo_title", widget: "string" }
+          - { label: "Wstęp RODO", name: "rodo_intro", widget: "text" }
+          - label: "Bloki RODO"
+            name: "rodo_blocks"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nagłówek bloku", name: "title", widget: "string" }
+              - label: "Punkty"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Punkt", name: "paragraph", widget: "text" }
+          - { label: "Etykieta przycisku polityki prywatności", name: "privacy_button", widget: "string" }
+
   - name: "settings"
     label: "Ustawienia"
     editor:

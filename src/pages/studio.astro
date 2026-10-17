@@ -1,71 +1,58 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { studio, assetPath } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
+const st = studio();
 ---
 
 <BaseLayout title="Studio fotograficzne — domowe studio w Krakowie (Czyżyny) | Anna Matejska-Gazda" description="Większość sesji wykonuję w plenerze, ale jest też możliwość sesji w studio: wynajętym w Krakowie lub w moim domowym studiu w dzielnicy Czyżyny.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">Oferta</span>
-      <h1 class="page-title">Studio</h1>
-      <p class="lead" style="max-width:760px;margin:0 auto">Większość Waszych sesji wykonuję w plenerze, ale jest również możliwość umówienia się na sesję fotograficzną w studio.</p>
+      <span class="kicker">{st.kicker}</span>
+      <h1 class="page-title">{st.title}</h1>
+      <p class="lead" style="max-width:760px;margin:18px auto 0">{st.intro}</p>
     </div>
   </section>
 
   <section style="padding-top:0">
     <div class="container grid-2">
-      <div class="prose">
-        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">1. Wynajęte studio (Kraków)</h2>
-        <ul class="link-list" style="grid-template-columns:1fr">
-          <li>dostępne różne lokalizacje i aranżacje</li>
-          <li>koszt sesji (zgodnie z ofertą) + 100 zł / godzina (za wynajem studia)</li>
-          <li>możliwe sesje w tygodniu i w weekendy (zależne od dostępności studia)</li>
-          <li>termin sesji najlepiej umówić około 2–3 tygodnie wcześniej</li>
-        </ul>
-      </div>
-      <div class="prose">
-        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">2. Domowe studio</h2>
-        <ul class="link-list" style="grid-template-columns:1fr">
-          <li>lokalizacja – dzielnica Czyżyny w Krakowie</li>
-          <li>bez dodatkowych dopłat do sesji</li>
-          <li>możliwe sesje w tygodniu w godzinach 9–13 oraz w weekendy</li>
-          <li>termin sesji wystarczy umówić z kilkudniowym wyprzedzeniem</li>
-        </ul>
-      </div>
+      {st.sections.map(sec => (
+        <div class="prose reveal reveal-up">
+          <h2 class="group-title" style="margin-bottom:18px">{sec.title}</h2>
+          <ul class="link-list" style="grid-template-columns:1fr">
+            {sec.items.map(i => <li>{i}</li>)}
+          </ul>
+        </div>
+      ))}
     </div>
   </section>
 
   <section style="background:var(--white)">
     <div class="container">
-      <span class="kicker">Domowe studio fotograficzne</span>
-      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Co wykonuję w domowym studiu?</h2>
+      <span class="kicker">{st.home_title}</span>
+      <h2 class="sub-title">{st.home_heading}</h2>
       <ul class="included-list">
-        <li>sesje kobiece</li>
-        <li>sesje wizerunkowe</li>
-        <li>mniejsze sesje rodzinne (maksymalnie 3–4 osoby)</li>
+        {st.home_items.map(i => <li>{i}</li>)}
       </ul>
       <div class="grid-2" style="margin-top:52px;align-items:start">
-        <div class="prose">
-          <h3 class="sub-title" style="margin-bottom:12px">Wystrój</h3>
-          <p>Dominujące kolory to biel i beż, trochę szarości oraz kolor naturalnego drewna.</p>
-          <p>Dekoracje i wystrój są minimalistyczne, a kwiatowe dodatki delikatne – tak, żeby nie odciągały uwagi od Was.</p>
-          <p>W listopadzie i grudniu do aranżacji dołączają choinki, wieńce czy lampiony, bo to tutaj zapraszam Was na sesje świąteczne.</p>
-        </div>
-        <div class="prose">
-          <h3 class="sub-title" style="margin-bottom:12px">Informacje praktyczne</h3>
-          <p>Do sesji dziecięcych posiadam w studiu ubranka dziewczęce (w rozmiarach 56–134), a także zabawki i atrybuty, które można wykorzystać do fotografii.</p>
-          <p>Do Waszej dyspozycji jest łazienka, przebieralnia, a także woda, herbata i kawa.</p>
-          <p>Bezpłatny parking dostępny jest tuż pod blokiem. Możliwy jest dojazd komunikacją miejską (najbliższe przystanki: „Czyżyny”, „Dąbrowskiej”).</p>
-        </div>
+        {st.blocks.map(b => (
+          <div class="prose reveal reveal-up">
+            <h3 class="sub-title" style="margin-bottom:12px">{b.title}</h3>
+            {b.paragraphs.map(p => <p>{p}</p>)}
+          </div>
+        ))}
       </div>
-      <div class="grid-4">
-        <figure><img src={`${base}images/studio/01.jpg`} alt="Sesja w domowym studiu — kadr 1" loading="lazy" /></figure>
-        <figure><img src={`${base}images/studio/02.jpg`} alt="Sesja w domowym studiu — kadr 2" loading="lazy" /></figure>
-        <figure><img src={`${base}images/studio/03.jpg`} alt="Sesja w domowym studiu — kadr 3" loading="lazy" /></figure>
-        <figure><img src={`${base}images/studio/04.jpg`} alt="Sesja w domowym studiu — kadr 4" loading="lazy" /></figure>
-      </div>
-      <p style="margin-top:40px"><a href={`${base}kontakt`} class="btn btn-taupe">Zapytaj o sesję w studio</a></p>
+      {st.photos.length > 0 && (
+        <div class="grid-4">
+          {st.photos.map((p, i) => (
+            <figure class={`reveal reveal-up reveal-d${(i % 3) + 1}`}>
+              <img src={assetPath(p, base)} alt={`Sesja w domowym studiu — zdjęcie ${i + 1}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      )}
+      <p style="margin-top:40px"><a href={`${base}kontakt`} class="btn btn-taupe">{st.cta_button}</a></p>
     </div>
   </section>
 </BaseLayout>

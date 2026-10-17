@@ -1,0 +1,40 @@
+{
+  "kicker": "Oferta",
+  "title": "Sesja fotograficzna krok po kroku",
+  "intro": "Myślisz o swojej pierwszej sesji fotograficznej i zastanawiasz się, jak to w praktyce wygląda? Poniżej znajdziesz „krok po kroku” informacje o tym, jak przebiega umawianie u mnie takiej sesji.",
+  "steps": [
+    {
+      "title": "Przejrzyj stronę",
+      "text": "Zastanów się, jaki rodzaj sesji najbardziej Cię interesuje. Zapraszam Cię na sesje: romantyczne, kobiece, ciążowe, rodzinne, dziecięce oraz wizerunkowe."
+    },
+    {
+      "title": "Odezwij się do mnie",
+      "text": "Mailowo lub telefonicznie. Chętnie odpowiem na wszystkie dodatkowe pytania oraz rozwieję wątpliwości."
+    },
+    {
+      "title": "Ustalamy termin i miejsce",
+      "text": "Jeśli jesteś chętna / jesteście chętni na sesję – ustalamy wspólnie najdogodniejszy termin oraz pasujące nam miejsce (plener / studio / Wasze mieszkanie / inne)."
+    },
+    {
+      "title": "Przesyłam wskazówki",
+      "text": "Przed sesją przesyłam Ci wskazówki oraz dodatkowe informacje na temat tego, jak przygotować się do sesji, na co zwrócić uwagę wybierając strój oraz o czym warto wiedzieć. Jeśli masz dodatkowe pytania, swoje uwagi lub są jakieś ważne dla Ciebie kwestie – mamy czas, żeby o nich porozmawiać."
+    },
+    {
+      "title": "Spotykamy się",
+      "text": "Spotykamy się, poznajemy i dopiero wtedy na spokojnie robimy zdjęcia. Nigdy nie planuję więcej niż jednej sesji na dzień – żeby mieć zapas czasu i energii dla Ciebie."
+    },
+    {
+      "title": "Galeria do wyboru",
+      "text": "Po sesji (maksymalnie do 7 dni roboczych) przesyłam Ci poprzez specjalną platformę galerię zdjęć, z której samodzielnie wybierasz te, które chcesz (ilość i cena zgodnie z wybranym pakietem)."
+    },
+    {
+      "title": "Zdjęcia i odbitki",
+      "text": "Po opłaceniu przez Ciebie ustalonej kwoty – udostępniam Ci wybrane zdjęcia w pełnej rozdzielczości oraz przekazuję osobiście lub przesyłam wywołane odbitki zapakowane w elegancką kopertę / pudełko."
+    },
+    {
+      "title": "Aranżacja wnętrza",
+      "text": "Dodatkowo – jeśli planujesz powiesić zdjęcia z sesji u siebie na ścianach – chętnie pomogę Ci zaaranżować przestrzeń oraz dobrać fotografie do wnętrza. Mogę wykonać i przesłać gotową wizualizację ułożenia zdjęć w ramkach."
+    }
+  ],
+  "cta_button": "Umów sesję"
+}

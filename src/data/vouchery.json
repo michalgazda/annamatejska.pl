@@ -1,0 +1,17 @@
+{
+  "kicker": "Oferta",
+  "title": "Vouchery",
+  "intro": "Sesja fotograficzna to piękny prezent — na urodziny, rocznicę, święta albo po prostu bez okazji. Każdy pakiet zdjęciowy można wykupić w formie voucheru.",
+  "how_title": "Jak to działa",
+  "how": [
+    "voucher obejmuje dowolny pakiet zdjęciowy — w tej samej cenie, bez dopłat",
+    "ważność vouchera to 365 dni",
+    "po tym terminie voucher przepada",
+    "możliwa jest wysyłka vouchera InPostem (kurier lub paczkomat) — wtedy do jego ceny doliczamy 20 zł za wysyłkę",
+    "voucher przekazuję także osobiście, w eleganckiej kopercie"
+  ],
+  "packages_title": "Pakiety dostępne w formie voucheru",
+  "cta_title": "Masz pytania?",
+  "cta_text": "Napisz, jaki pakiet wybierasz i na czyje imię ma być wypisany voucher — resztą zajmę się ja.",
+  "cta_button": "Napisz do mnie"
+}

@@ -1,0 +1,21 @@
+{
+  "kicker": "Oferta",
+  "title": "Oferta NGO",
+  "intro": "Pracujesz, reprezentujesz lub jesteś wolontariuszem organizacji pozarządowej bądź grupy nieformalnej i szukasz fotografa na swoje wydarzenie?",
+  "events_title": "Wykonuję reportaże z wydarzeń takich jak:",
+  "events": [
+    "konferencje, warsztaty, spotkania",
+    "koncerty, wernisaże, wystawy, pokazy taneczne",
+    "rekolekcje, dni skupienia, wydarzenia religijne",
+    "pikniki, festyny, parady i inne wydarzenia plenerowe"
+  ],
+  "start_title": "Jak zaczynamy?",
+  "paragraphs": [
+    "Napisz do mnie krótką wiadomość na temat projektu — nazwę organizacji, termin, miejsce i charakter wydarzenia — a ja skontaktuję się z Tobą i wspólnie znajdziemy najlepszą możliwą formę współpracy.",
+    "W wiadomości warto podać: nazwę projektu lub wydarzenia, miejsce realizacji, termin, sposób finansowania projektu (finansowany / współfinansowany / z własnych funduszy) oraz to, czy wydarzenie jest dla uczestników płatne czy bezpłatne."
+  ],
+  "note": "W przypadku braku odpowiedzi w ciągu 48h od wysłania wiadomości – zachęcam do kontaktu telefonicznego.",
+  "examples": "Przykłady moich realizacji dla organizacji i grup nieformalnych znajdziesz na stronie",
+  "examples_link_label": "Reportaże",
+  "cta_button": "Napisz do mnie"
+}

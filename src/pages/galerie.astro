@@ -1,23 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { galleries, formatDate, assetPath } from '../data/queries';
+import { galleries, formatDate, assetPath, portfolio } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const allGalleries = galleries();
+const selected = portfolio();
 ---
 
-<BaseLayout title="Galerie — Anna Matejska-Gazda Fotograf Kraków" description="Portfolio — galerie sesji rodzinnych, kobiecych, ciążowych i wizerunkowych.">
+<BaseLayout title="Portfolio — wybrane zdjęcia | Anna Matejska-Gazda Fotograf Kraków" description="Wybrane zdjęcia z sesji rodzinnych, kobiecych, ciążowych, wizerunkowych i reportaży. Portfolio Anny Matejskiej-Gazdy, fotograf z Krakowa.">
   <section class="page-hero">
     <div class="container">
       <span class="kicker">Portfolio</span>
-      <h1 class="page-title">Galerie</h1>
-      <p>Wybrane sesje — każda inna historia. Kliknij, żeby zobaczyć całą galerię.</p>
+      <h1 class="page-title">Portfolio</h1>
+      <p>Wybrane kadry — najlepsze zdjęcia z sesji i reportaży. Kliknij zdjęcie, żeby powiększyć.</p>
     </div>
   </section>
 
-  <section style="padding-top:20px">
+  {selected.length > 0 && (
+    <section style="padding-top:12px">
+      <div class="container">
+        <div class="portfolio-grid">
+          {selected.map((p, i) => (
+            <figure>
+              <img
+                src={assetPath(p.thumb || p.photo, base)}
+                data-full={assetPath(p.photo, base)}
+                alt={p.alt || `Wybrane zdjęcie ${i + 1} — Anna Matejska-Gazda Fotografia`}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section style="background:var(--white)">
     <div class="container">
-      <h2 class="sr-only">Lista galerii</h2>
+      <span class="kicker">Galerie</span>
+      <h2 class="sub-title" style="margin-bottom:8px">Galerie z sesji i reportaży</h2>
+      <p style="color:var(--ink-soft)">Każda inna historia — kliknij, żeby zobaczyć całą galerię.</p>
       <div class="gal-list">
         {allGalleries.map(g => (
           <a class="gal-card" href={`${base}galerie/${g.slug}`}>

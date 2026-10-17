@@ -1,0 +1,57 @@
+{
+  "kicker": "Oferta",
+  "title": "Studio",
+  "intro": "Większość Waszych sesji wykonuję w plenerze, ale jest również możliwość umówienia się na sesję fotograficzną w studio.",
+  "sections": [
+    {
+      "title": "1. Wynajęte studio (Kraków)",
+      "items": [
+        "dostępne różne lokalizacje i aranżacje",
+        "koszt sesji (zgodnie z ofertą) + 100 zł / godzina (za wynajem studia)",
+        "możliwe sesje w tygodniu i w weekendy (zależne od dostępności studia)",
+        "termin sesji najlepiej umówić około 2–3 tygodnie wcześniej"
+      ]
+    },
+    {
+      "title": "2. Domowe studio",
+      "items": [
+        "lokalizacja – dzielnica Czyżyny w Krakowie",
+        "bez dodatkowych dopłat do sesji",
+        "możliwe sesje w tygodniu w godzinach 9–13 oraz w weekendy",
+        "termin sesji wystarczy umówić z kilkudniowym wyprzedzeniem"
+      ]
+    }
+  ],
+  "home_title": "Domowe studio fotograficzne",
+  "home_heading": "Co wykonuję w domowym studiu?",
+  "home_items": [
+    "sesje kobiece",
+    "sesje wizerunkowe",
+    "mniejsze sesje rodzinne (maksymalnie 3–4 osoby)"
+  ],
+  "blocks": [
+    {
+      "title": "Wystrój",
+      "paragraphs": [
+        "Dominujące kolory to biel i beż, trochę szarości oraz kolor naturalnego drewna.",
+        "Dekoracje i wystrój są minimalistyczne, a kwiatowe dodatki delikatne – tak, żeby nie odciągały uwagi od Was.",
+        "W listopadzie i grudniu do aranżacji dołączają choinki, wieńce czy lampiony, bo to tutaj zapraszam Was na sesje świąteczne."
+      ]
+    },
+    {
+      "title": "Informacje praktyczne",
+      "paragraphs": [
+        "Do sesji dziecięcych posiadam w studiu ubranka dziewczęce (w rozmiarach 56–134), a także zabawki i atrybuty, które można wykorzystać do fotografii.",
+        "Do Waszej dyspozycji jest łazienka, przebieralnia, a także woda, herbata i kawa.",
+        "Bezpłatny parking dostępny jest tuż pod blokiem. Możliwy jest dojazd komunikacją miejską (najbliższe przystanki: „Czyżyny”, „Dąbrowskiej”)."
+      ]
+    }
+  ],
+  "photos": [
+    "/annamatejska.pl/images/studio/01.jpg",
+    "/annamatejska.pl/images/studio/02.jpg",
+    "/annamatejska.pl/images/studio/03.jpg",
+    "/annamatejska.pl/images/studio/04.jpg"
+  ],
+  "cta_button": "Zapytaj o sesję w studio"
+}

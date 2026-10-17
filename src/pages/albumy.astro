@@ -1,59 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { albumy, assetPath } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
-const albums = [
-  'albumy klasyczne (z wklejanymi zdjęciami)',
-  'albumy drukowane z grubymi kartami na papierze jedwabnym',
-  'albumiki drukowane w małych rozmiarach (idealne dla małych dziecięcych rączek)',
-  'albumiki eko – bez sztywnej oprawy, ale wciąż z grubymi kartami na papierze jedwabnym (dzięki temu lżejsze oraz w przystępniejszej cenie)',
-  'albumy soft – w delikatnej oprawie oraz o miękkich stronach na papierze kredowym (na większą ilość zdjęć)',
-  'albumy harmonijki – w małym rozmiarze (idealne dla dzieci lub jako drobny upominek dla dziadków czy chrzestnych)',
-  'pudełka na odbitki',
-  'teczki płócienne/skórzane na odbitki',
-];
+const a = albumy();
 ---
 
 <BaseLayout title="Albumy i opakowania zdjęć — Anna Matejska-Gazda Fotografia Kraków" description="Projektuję albumy fotograficzne: klasyczne, drukowane na papierze jedwabnym, albumiki eko i harmonijki, a także pudełka i teczki na odbitki. Kraków.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">Oferta</span>
-      <h1 class="page-title">Albumy</h1>
+      <span class="kicker">{a.kicker}</span>
+      <h1 class="page-title">{a.title}</h1>
     </div>
   </section>
 
   <section style="padding-top:0">
     <div class="container">
-      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">Projektuję dla Was albumy</h2>
+      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">{a.scope_title}</h2>
       <ul class="link-list albums-scope reveal reveal-up">
-        <li>w ramach naszej sesji (pakiet premium)</li>
-        <li>jako dodatkowy produkt do naszej sesji (pakiet mini, pakiet standard)</li>
-        <li>bez sesji, z Waszych wcześniejszych zdjęć</li>
+        {a.scope.map(x => <li>{x}</li>)}
       </ul>
     </div>
 
-    <div class="container">
-      <div class="grid-4">
-        <figure class="reveal reveal-up reveal-d1"><img src={`${base}images/albumy/01.jpg`} alt="Album fotograficzny — opakowanie" loading="lazy" /></figure>
-        <figure class="reveal reveal-up reveal-d2"><img src={`${base}images/albumy/02.jpg`} alt="Album drukowany na papierze jedwabnym" loading="lazy" /></figure>
-        <figure class="reveal reveal-up reveal-d3"><img src={`${base}images/albumy/03.jpg`} alt="Pudełko i teczka na odbitki" loading="lazy" /></figure>
-        <figure class="reveal reveal-up reveal-d1"><img src={`${base}images/albumy/04.jpg`} alt="Album harmonijka" loading="lazy" /></figure>
+    {a.photos.length > 0 && (
+      <div class="container">
+        <div class="grid-4">
+          {a.photos.map((p, i) => (
+            <figure class={`reveal reveal-up reveal-d${(i % 3) + 1}`}>
+              <img src={assetPath(p, base)} alt={`Album fotograficzny — zdjęcie ${i + 1}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
       </div>
-    </div>
+    )}
 
     <div class="container" style="margin-top:72px">
-      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">W ofercie</h2>
+      <h2 class="group-title reveal reveal-up" style="margin-bottom:20px">{a.products_title}</h2>
       <ul class="link-list albums-scope reveal reveal-up">
-        {albums.map(a => <li>{a}</li>)}
+        {a.products.map(x => <li>{x}</li>)}
       </ul>
     </div>
   </section>
 
   <section class="quote">
     <div class="container">
-      <h2 class="script" style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--taupe);margin-bottom:16px">Jaki album wybrać?</h2>
-      <blockquote style="font-size:1.15rem">Jeśli zastanawiasz się, jaki album zamówić dla siebie lub na prezent dla bliskich – odezwij się i wspólnie dobierzemy najlepszy produkt.</blockquote>
-      <cite style="margin-top:22px"><a href={`${base}kontakt`} class="btn btn-line">Zapraszam do kontaktu</a></cite>
+      <h2 class="script" style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--taupe);margin-bottom:16px">{a.cta_title}</h2>
+      <blockquote style="font-size:1.15rem">{a.cta_text}</blockquote>
+      <cite style="margin-top:22px"><a href={`${base}kontakt`} class="btn btn-line">{a.cta_button}</a></cite>
     </div>
   </section>
 </BaseLayout>

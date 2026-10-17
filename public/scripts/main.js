@@ -42,14 +42,14 @@
   }
 
   // Lightbox (for photo-grid gallery pages only)
-  var imgs = Array.prototype.slice.call(document.querySelectorAll('.photo-grid figure img'));
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('.photo-grid figure img, .portfolio-grid figure img'));
   var lbEl = null, lbImg = null, countEl = null;
   var cur = 0, lastFocus = null;
 
   function show(i) {
     if (!lbEl) return;
     cur = (i + imgs.length) % imgs.length;
-    lbImg.src = imgs[cur].src.replace(/-thumb(\.[^.]+)$/i, '$1');
+    lbImg.src = imgs[cur].getAttribute('data-full') || imgs[cur].src.replace(/-thumb(\.[^.]+)$/i, '$1');
     lbImg.alt = imgs[cur].alt || 'Zdjęcie ' + (cur + 1);
     countEl.textContent = (cur + 1) + ' / ' + imgs.length;
     lbEl.classList.add('open');

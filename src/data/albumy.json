@@ -1,0 +1,30 @@
+{
+  "kicker": "Oferta",
+  "title": "Albumy",
+  "scope_title": "Projektuję dla Was albumy",
+  "scope": [
+    "w ramach naszej sesji (pakiet premium)",
+    "jako dodatkowy produkt do naszej sesji (pakiet mini, pakiet standard)",
+    "bez sesji, z Waszych wcześniejszych zdjęć"
+  ],
+  "products_title": "W ofercie",
+  "products": [
+    "albumy klasyczne (z wklejanymi zdjęciami)",
+    "albumy drukowane z grubymi kartami na papierze jedwabnym",
+    "albumiki drukowane w małych rozmiarach (idealne dla małych dziecięcych rączek)",
+    "albumiki eko – bez sztywnej oprawy, ale wciąż z grubymi kartami na papierze jedwabnym (dzięki temu lżejsze oraz w przystępniejszej cenie)",
+    "albumy soft – w delikatnej oprawie oraz o miękkich stronach na papierze kredowym (na większą ilość zdjęć)",
+    "albumy harmonijki – w małym rozmiarze (idealne dla dzieci lub jako drobny upominek dla dziadków czy chrzestnych)",
+    "pudełka na odbitki",
+    "teczki płócienne/skórzane na odbitki"
+  ],
+  "photos": [
+    "/annamatejska.pl/images/albumy/01.jpg",
+    "/annamatejska.pl/images/albumy/02.jpg",
+    "/annamatejska.pl/images/albumy/03.jpg",
+    "/annamatejska.pl/images/albumy/04.jpg"
+  ],
+  "cta_title": "Jaki album wybrać?",
+  "cta_text": "Jeśli zastanawiasz się, jaki album zamówić dla siebie lub na prezent dla bliskich – odezwij się i wspólnie dobierzemy najlepszy produkt.",
+  "cta_button": "Zapraszam do kontaktu"
+}

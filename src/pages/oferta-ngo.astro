@@ -1,47 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../data/queries';
+import { ofertaNgo, site } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
+const n = ofertaNgo();
 const s = site();
-const events = [
-  'konferencje, warsztaty, spotkania',
-  'koncerty, wernisaże, wystawy, pokazy taneczne',
-  'rekolekcje, dni skupienia, wydarzenia religijne',
-  'pikniki, festyny, parady i inne wydarzenia plenerowe',
-];
 ---
 
 <BaseLayout title="Oferta NGO — fotograf na wydarzenia organizacji | Anna Matejska-Gazda Kraków" description="Reportaże fotograficzne dla organizacji pozarządowych i grup nieformalnych: konferencje, warsztaty, koncerty, rekolekcje, festyny. Indywidualna oferta współpracy.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">Oferta</span>
-      <h1 class="page-title">Oferta NGO</h1>
-      <p class="lead" style="max-width:760px;margin:0 auto">Pracujesz, reprezentujesz lub jesteś wolontariuszem organizacji pozarządowej bądź grupy nieformalnej i szukasz fotografa na swoje wydarzenie?</p>
+      <span class="kicker">{n.kicker}</span>
+      <h1 class="page-title">{n.title}</h1>
+      <p class="lead" style="max-width:760px;margin:18px auto 0">{n.intro}</p>
     </div>
   </section>
 
   <section style="padding-top:0">
     <div class="container split">
       <div class="prose">
-        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">Wykonuję reportaże z wydarzeń takich jak:</h2>
+        <h2 class="group-title" style="margin-bottom:18px">{n.events_title}</h2>
         <ul class="link-list" style="grid-template-columns:1fr">
-          {events.map(e => <li>{e}</li>)}
+          {n.events.map(e => <li>{e}</li>)}
         </ul>
       </div>
       <div class="prose">
-        <h2 style="font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px">Jak zaczynamy?</h2>
-        <p>Napisz do mnie krótką wiadomość na temat projektu — nazwę organizacji, termin, miejsce i charakter wydarzenia — a ja skontaktuję się z Tobą i wspólnie znajdziemy najlepszą możliwą formę współpracy.</p>
-        <p>W wiadomości warto podać: nazwę projektu lub wydarzenia, miejsce realizacji, termin, sposób finansowania projektu (finansowany / współfinansowany / z własnych funduszy) oraz to, czy wydarzenie jest dla uczestników płatne czy bezpłatne.</p>
-        <p style="font-size:.9rem;color:var(--taupe)">W przypadku braku odpowiedzi w ciągu 48h od wysłania wiadomości – zachęcam do kontaktu telefonicznego: {s.phoneDisplay}.</p>
-        <p style="margin-top:26px"><a href={`${base}kontakt`} class="btn btn-taupe">Napisz do mnie</a></p>
+        <h2 class="group-title" style="margin-bottom:18px">{n.start_title}</h2>
+        {n.paragraphs.map(p => <p>{p}</p>)}
+        <p style="font-size:.9rem;color:var(--taupe)">{n.note} {s.phoneDisplay}.</p>
+        <p style="margin-top:26px"><a href={`${base}kontakt`} class="btn btn-taupe">{n.cta_button}</a></p>
       </div>
     </div>
   </section>
 
   <section class="quote">
     <div class="container prose prose-narrow">
-      <p style="margin-bottom:18px">Przykłady moich realizacji dla organizacji i grup nieformalnych znajdziesz na stronie <a href={`${base}reportaze`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">Reportaże</a>.</p>
+      <p style="margin-bottom:18px">{n.examples} <a href={`${base}reportaze`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">{n.examples_link_label}</a>.</p>
       <p style="font-size:.9rem;color:var(--ink-soft)">E-mail: <a href={`mailto:${s.email}`} style="color:var(--taupe)">{s.email}</a></p>
     </div>
   </section>
