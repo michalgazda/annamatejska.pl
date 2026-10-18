@@ -71,9 +71,10 @@ const seasonList = [
       </div>
       <div>
         <span class="kicker">{h.kicker}</span>
-        <h2 class="script" style="font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--taupe)">{h.script_heading}</h2>
+        <h2 class="script" style="font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--taupe)">
+          {h.script_heading.split(/(?<=!)\s+/).map((line, i) => <>{i > 0 && <br />}{line}</>)}
+        </h2>
         {h.paragraphs.map(p => <p style="color:var(--ink-soft)">{p}</p>)}
-        <span class="about-sign">{h.signature}</span>
         <p style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
           <a href={`${base}o-mnie`} class="btn btn-line">Więcej o mnie</a>
           <a href={assetPath(h.button_url, base)} class="btn btn-line">{h.button_label}</a>

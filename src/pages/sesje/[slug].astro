@@ -21,6 +21,17 @@ export async function getStaticPaths() {
 }
 
 const { service, session, sampleGalleries } = Astro.props;
+
+// odmiana przez przypadki (polskie końcówki) — inaczej wychodzi „Zdjęcia z sesji romantyczne”
+const FORMS = {
+  romantyczne: ['romantycznych', 'romantyczną'],
+  rodzinne: ['rodzinnych', 'rodzinną'],
+  dzieciece: ['dziecięcych', 'dziecięcą'],
+  kobiece: ['kobiecych', 'kobiecą'],
+  ciazowe: ['ciążowych', 'ciążową'],
+  wizerunkowe: ['wizerunkowych', 'wizerunkową'],
+};
+const [genitivePlural, accusativeSingular] = FORMS[service.slug] || [service.card_title.toLowerCase(), service.card_title.toLowerCase()];
 ---
 
 <BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} image={session.hero || undefined}>
@@ -28,7 +39,7 @@ const { service, session, sampleGalleries } = Astro.props;
     <div class="container session-intro">
       {session.hero && (
         <figure class="session-photo reveal reveal-left">
-          <img src={assetPath(session.hero, base)} alt={`Sesje ${service.card_title} — Anna Matejska-Gazda, Kraków`} fetchpriority="high" />
+          <img src={assetPath(session.hero, base)} alt={`${service.title} — Anna Matejska-Gazda, Kraków`} fetchpriority="high" />
         </figure>
       )}
       <div class="session-text reveal reveal-right">
@@ -36,18 +47,15 @@ const { service, session, sampleGalleries } = Astro.props;
         <h1 class="page-title">{service.title}</h1>
         <p class="lead">{service.subtitle}</p>
         {service.description.map(p => <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>)}
-        <div class="session-meta">
-          <div>
-            <span class="kicker" style="margin-bottom:0">Czas trwania</span>
-            <strong>{service.duration}</strong>
-          </div>
-          <div class="inc">
-            <span class="kicker" style="margin-bottom:0">Zawsze w cenie</span>
-            {service.included}
-          </div>
-        </div>
+        <p class="session-duration">Czas trwania: <strong>{service.duration}</strong></p>
         <a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a>
       </div>
+    </div>
+  </section>
+
+  <section class="quote" style="padding:72px 0">
+    <div class="container">
+      <blockquote>{service.quote}</blockquote>
     </div>
   </section>
 
@@ -55,13 +63,13 @@ const { service, session, sampleGalleries } = Astro.props;
     <section style="padding-top:0">
       <div class="container">
         <span class="kicker">Galeria</span>
-        <h2 class="sub-title" style="margin-bottom:6px">Zdjęcia z sesji {service.card_title.toLowerCase()}</h2>
+        <h2 class="sub-title" style="margin-bottom:6px">Zdjęcia z sesji {genitivePlural}</h2>
         <p style="color:var(--ink-soft);margin-bottom:8px">Kliknij zdjęcie, żeby powiększyć.</p>
         <div class="photo-grid">
           {session.photos.map((p, i) => (
             <figure>
               <img src={assetPath(p.thumb || p.photo, base)} data-full={assetPath(p.photo, base)}
-                   alt={`Sesja ${service.card_title} — zdjęcie ${i + 1}`} loading="lazy" />
+                   alt={`${service.title} — zdjęcie ${i + 1}`} loading="lazy" />
             </figure>
           ))}
         </div>
@@ -89,15 +97,9 @@ const { service, session, sampleGalleries } = Astro.props;
     </section>
   )}
 
-  <section class="quote" style="padding:72px 0">
-    <div class="container">
-      <blockquote>{service.quote}</blockquote>
-    </div>
-  </section>
-
   <section style="padding-top:0" >
     <div class="container" style="text-align:center">
-      <a class="btn btn-taupe" href={`${base}kontakt`}>Umów sesję {service.card_title.toLowerCase()}</a>
+      <a class="btn btn-taupe" href={`${base}kontakt`}>Umów sesję {accusativeSingular}</a>
     </div>
   </section>
 </BaseLayout>
