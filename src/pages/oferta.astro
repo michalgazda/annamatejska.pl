@@ -13,8 +13,11 @@ const CARD_ANIM = ['reveal reveal-left reveal-d1', 'reveal reveal-up reveal-d2',
   <section class="page-hero">
     <div class="container">
       <span class="kicker">{o.kicker}</span>
-      <h1 class="page-title">{o.groups[0].name}</h1>
-      <p class="types">{o.groups[0].subtitle}</p>
+      <!-- pierwsza sekcja tak samo jak kolejne: ta sama czcionka i kolor co nagłówek „Sesje wizerunkowe” -->
+      <div class="price-group__head" style="margin-bottom:0">
+        <h1 class="sub-title">{o.groups[0].name}</h1>
+        <p>{o.groups[0].subtitle}</p>
+      </div>
     </div>
   </section>
 
