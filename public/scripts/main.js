@@ -121,6 +121,49 @@
     }
   });
 
+  // Opinions slider — manual: arrows, wheel/trackpad and drag-to-scroll (touch is native)
+  var opinieTrack = document.getElementById('opinie-track');
+  if (opinieTrack) {
+    var step = function () {
+      var card = opinieTrack.querySelector('.opinie-card');
+      if (!card) return opinieTrack.clientWidth * 0.9;
+      var gap = parseFloat(getComputedStyle(opinieTrack).columnGap || '22') || 22;
+      return card.getBoundingClientRect().width + gap;
+    };
+    var prevBtn = document.querySelector('.opinie-prev');
+    var nextBtn = document.querySelector('.opinie-next');
+    if (prevBtn) prevBtn.addEventListener('click', function () { opinieTrack.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { opinieTrack.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+    var down = false, startX = 0, startScroll = 0, moved = 0;
+    opinieTrack.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch') return; // let the browser scroll natively with the finger
+      down = true; moved = 0; startX = e.clientX; startScroll = opinieTrack.scrollLeft;
+      opinieTrack.classList.add('is-dragging');
+    });
+    opinieTrack.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      moved = Math.abs(dx);
+      opinieTrack.scrollLeft = startScroll - dx;
+      if (moved > 4) e.preventDefault();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+      opinieTrack.addEventListener(ev, function () {
+        if (!down) return;
+        down = false;
+        opinieTrack.classList.remove('is-dragging');
+        var target = Math.round(opinieTrack.scrollLeft / step()) * step();
+        opinieTrack.scrollTo({ left: target, behavior: 'smooth' });
+      });
+    });
+    // keyboard support on the focused strip
+    opinieTrack.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); opinieTrack.scrollBy({ left: -step(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); opinieTrack.scrollBy({ left: step(), behavior: 'smooth' }); }
+    });
+  }
+
   // Contact form (Web3Forms)
   var form = document.getElementById('contact-form');
   if (form) {

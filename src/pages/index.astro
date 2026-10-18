@@ -126,10 +126,11 @@ const seasonList = [
       <span class="kicker">Opinie</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Co mówią moi klienci</h2>
     </div>
-    <div class="opinie-carousel" role="region" aria-label="Opinie klientów — przewijane automatycznie">
-      <div class="opinie-track">
-        {[...testis, ...testis].map((t, i) => (
-          <article class="opinie-card" aria-hidden={i >= testis.length ? 'true' : undefined}>
+    <div class="container">
+    <div class="opinie-slider" role="region" aria-label="Opinie klientów">
+      <div class="opinie-track" id="opinie-track" tabindex="0" aria-label="Przewiń opinie w lewo lub w prawo">
+        {testis.map(t => (
+          <article class="opinie-card">
             <div class="who">
               {t.photo && <img src={assetPath(t.photo, base)} alt="" width="56" height="56" decoding="async" />}
               <div>
@@ -141,7 +142,12 @@ const seasonList = [
           </article>
         ))}
       </div>
+      <div class="opinie-nav">
+        <button type="button" class="opinie-prev" aria-label="Poprzednie opinie" aria-controls="opinie-track">‹</button>
+        <button type="button" class="opinie-next" aria-label="Następne opinie" aria-controls="opinie-track">›</button>
+      </div>
     </div>
-    <p class="opinie-hint">Przewijają się automatycznie · najedź, aby zatrzymać</p>
+    </div>
+    <p class="opinie-hint">Przesuwaj palcem w lewo i w prawo</p>
   </section>
 </BaseLayout>
