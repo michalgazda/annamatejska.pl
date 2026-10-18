@@ -336,3 +336,15 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .opinie-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
 @media(max-width:960px){.opinie-card{flex-basis:calc((100% - 22px)/2);max-width:calc((100% - 22px)/2)}}
 @media(max-width:560px){.opinie-card{flex-basis:88%;max-width:88%;padding:26px 22px}.opinie-track{gap:16px}}
+
+/* ===== podstrony sesji: zdjęcie z lewej, tekst z prawej (jak na starej stronie) ===== */
+.session-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.session-photo{margin:0;overflow:hidden}
+.session-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.session-text .page-title{margin-bottom:16px}
+.session-text .lead{color:var(--ink-soft);margin-bottom:1.1rem}
+.session-meta{display:flex;gap:34px;flex-wrap:wrap;margin:28px 0 30px;padding:24px 28px;border:1px solid var(--line);border-radius:3px;background:var(--white)}
+.session-meta strong{display:block;font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3}
+.session-meta .kicker{margin-bottom:.35rem}
+.session-meta .inc{flex:1;min-width:230px;color:var(--ink-soft);font-size:.92rem}
+@media(max-width:960px){.session-intro{grid-template-columns:1fr;gap:32px}}

@@ -1,51 +1,87 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { services, galleries, formatDate, assetPath } from '../../data/queries';
+import { services, galleries, sesje, formatDate, assetPath } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
 
 export async function getStaticPaths() {
-  const allServices = services();
-  return allServices.map(s => ({
+  const all = services();
+  const allGalleries = galleries();
+  const sessionData = Object.fromEntries(sesje().map(x => [x.slug, x]));
+  return all.map(s => ({
     params: { slug: s.slug },
-    props: { service: s, categoryGalleries: galleries().filter(g => g.category === s.category) },
+    props: {
+      service: s,
+      session: sessionData[s.slug] || { hero: '', photos: [], samples_title: '', samples: [] },
+      sampleGalleries: (sessionData[s.slug]?.samples || [])
+        .map(item => ({ item, gallery: allGalleries.find(g => g.slug === item.slug) }))
+        .filter(x => x.gallery),
+    },
   }));
 }
 
-const { service, categoryGalleries } = Astro.props;
+const { service, session, sampleGalleries } = Astro.props;
 ---
 
-<BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle}>
-  <section class="page-hero">
-    <div class="container gal-meta">
-      <span class="kicker">{service.category} · {service.tagline}</span>
-      <h1>{service.title}</h1>
-      <p>{service.subtitle}</p>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="container" style="max-width:820px">
-      {service.description.map(p => <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>)}
-      <div style="display:flex;gap:40px;flex-wrap:wrap;margin-top:36px;padding:26px 32px;border:1px solid var(--line);border-radius:3px;background:var(--white)">
-        <div><span class="kicker" style="margin-bottom:.3rem">Czas trwania</span><strong style="font-family:var(--serif);font-size:1.5rem;font-weight:500">{service.duration}</strong></div>
-        <div style="flex:1;min-width:240px"><span class="kicker" style="margin-bottom:.3rem">Zawsze w cenie</span><span style="color:var(--ink-soft);font-size:.92rem">{service.included}</span></div>
+<BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} image={session.hero || undefined}>
+  <section class="page-hero" style="padding-bottom:40px">
+    <div class="container session-intro">
+      {session.hero && (
+        <figure class="session-photo reveal reveal-left">
+          <img src={assetPath(session.hero, base)} alt={`Sesje ${service.card_title} — Anna Matejska-Gazda, Kraków`} fetchpriority="high" />
+        </figure>
+      )}
+      <div class="session-text reveal reveal-right">
+        <span class="kicker">{service.category} · {service.tagline}</span>
+        <h1 class="page-title">{service.title}</h1>
+        <p class="lead">{service.subtitle}</p>
+        {service.description.map(p => <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>)}
+        <div class="session-meta">
+          <div>
+            <span class="kicker" style="margin-bottom:0">Czas trwania</span>
+            <strong>{service.duration}</strong>
+          </div>
+          <div class="inc">
+            <span class="kicker" style="margin-bottom:0">Zawsze w cenie</span>
+            {service.included}
+          </div>
+        </div>
+        <a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a>
       </div>
-      <blockquote style="font-family:var(--quote);font-size:1.4rem;line-height:1.55;color:var(--taupe);border-left:2px solid var(--taupe);padding-left:24px;margin:52px 0">{service.quote}</blockquote>
     </div>
   </section>
 
-  {categoryGalleries.length > 0 && (
+  {session.photos.length > 0 && (
+    <section style="padding-top:0">
+      <div class="container">
+        <span class="kicker">Galeria</span>
+        <h2 class="sub-title" style="margin-bottom:6px">Zdjęcia z sesji {service.card_title.toLowerCase()}</h2>
+        <p style="color:var(--ink-soft);margin-bottom:8px">Kliknij zdjęcie, żeby powiększyć.</p>
+        <div class="photo-grid">
+          {session.photos.map((p, i) => (
+            <figure>
+              <img src={assetPath(p.thumb || p.photo, base)} data-full={assetPath(p.photo, base)}
+                   alt={`Sesja ${service.card_title} — zdjęcie ${i + 1}`} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {sampleGalleries.length > 0 && (
     <section style="background:var(--white)">
       <div class="container">
-        <span class="kicker">Galerie</span>
-        <h2 class="sub-title" style="margin-bottom:8px">Sesje {service.card_title.toLowerCase()} — galerie</h2>
-        <p style="color:var(--ink-soft)">Kliknij, żeby zobaczyć całą galerię.</p>
-        <div class="gal-list">
-          {categoryGalleries.map(g => (
-            <a class="gal-card" href={`${base}galerie/${g.slug}`}>
-              <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
-              <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
+        <h2 class="sub-title" style="margin-bottom:26px">{session.samples_title}</h2>
+        <div class="gal-list" style="margin-top:0">
+          {sampleGalleries.map(({ item, gallery }) => (
+            <a class="gal-card" href={`${base}galerie/${gallery.slug}`}>
+              <img src={assetPath(gallery.cover, base)} alt={item.title || gallery.title} loading="lazy" />
+              <div class="overlay">
+                <h3>{item.title || gallery.title}</h3>
+                <p>{gallery.excerpt}</p>
+                <time>{formatDate(gallery.date)}</time>
+              </div>
             </a>
           ))}
         </div>
@@ -53,9 +89,15 @@ const { service, categoryGalleries } = Astro.props;
     </section>
   )}
 
-  <section style="padding-top:0">
+  <section class="quote" style="padding:72px 0">
+    <div class="container">
+      <blockquote>{service.quote}</blockquote>
+    </div>
+  </section>
+
+  <section style="padding-top:0" >
     <div class="container" style="text-align:center">
-      <a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a>
+      <a class="btn btn-taupe" href={`${base}kontakt`}>Umów sesję {service.card_title.toLowerCase()}</a>
     </div>
   </section>
 </BaseLayout>

@@ -341,9 +341,9 @@
     {
       "slug": "marysia-swiateczna-sesja-w-studio",
       "title": "Marysia – sesja świąteczna",
-      "category": "Sesje wizerunkowe",
+      "category": "Sesje kobiece",
       "date": "2025-06-04",
-      "excerpt": "Sesja wizerunkowa — naturalnie i profesjonalnie.",
+      "excerpt": "Sesja kobieca — światło, spokój i uważność.",
       "photos": 12,
       "photos_list": [
         "/annamatejska.pl/images/galleries/marysia-swiateczna-sesja-w-studio/01-thumb.jpg",
@@ -383,6 +383,29 @@
         "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/12-thumb.jpg"
       ],
       "cover": "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/01-thumb.jpg"
+    },
+    {
+      "slug": "emilia-kobieca-sesja-wizerunkowa",
+      "title": "Emilia — sesja portretowa",
+      "category": "Sesje kobiece",
+      "date": "2025-06-04",
+      "excerpt": "Sesja kobieca — światło, spokój i uważność.",
+      "photos": 12,
+      "photos_list": [
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/01-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/02-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/03-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/04-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/05-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/06-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/07-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/08-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/09-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/10-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/11-thumb.jpg",
+        "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/12-thumb.jpg"
+      ],
+      "cover": "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/01-thumb.jpg"
     },
     {
       "slug": "wizyta-w-ogrodzie-botanicznym",

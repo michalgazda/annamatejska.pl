@@ -1,6 +1,26 @@
 {
   "services": [
     {
+      "slug": "romantyczne",
+      "category": "Sesje romantyczne",
+      "title": "Sesje romantyczne",
+      "tagline": "Kraków i okolice",
+      "subtitle": "Czy sesja zdjęciowa może być randką? Moim zdaniem tak.",
+      "description": [
+        "Jeśli chcecie mieć piękne kadry, ale nie lubicie pozować — ta sesja jest zdecydowanie dla Was.",
+        "Umawiamy się w plenerze, w wybranym wspólnie miejscu. Jest czas na spacer, rozmowy czy przytulanie. Ja jestem obok z aparatem — łapię Wasze uśmiechy, spojrzenia, splecione dłonie.",
+        "Autorka projektu społecznego „Małżeństwo w kadrze” (2023)."
+      ],
+      "duration": "ok. 1 h",
+      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
+      "quote": "„Po sesji dostaliśmy do wyboru wiele ciekawych zdjęć. Gorąco polecamy Anię za profesjonalizm oraz ciepłe usposobienie, które sprawia, że sesje są naturalne i pełne unikalnego uroku.” — Anna i Paweł Basisty",
+      "card_title": "Romantyczne",
+      "card_short": "Sesja jak randka — spacer, rozmowy, przytulanie.",
+      "card_time": "ok. 1 h",
+      "card_image": "/annamatejska.pl/images/svc-romantyczne.jpg",
+      "enabled": true
+    },
+    {
       "slug": "rodzinne",
       "category": "Sesje rodzinne",
       "title": "Sesje rodzinne",
@@ -77,26 +97,6 @@
       "card_short": "Najlepiej między 28. a 34. tygodniem — ale kiedy chcesz.",
       "card_time": "1–1,5 h",
       "card_image": "/annamatejska.pl/images/svc-ciazowe.jpg",
-      "enabled": true
-    },
-    {
-      "slug": "romantyczne",
-      "category": "Sesje romantyczne",
-      "title": "Sesje romantyczne",
-      "tagline": "Kraków i okolice",
-      "subtitle": "Czy sesja zdjęciowa może być randką? Moim zdaniem tak.",
-      "description": [
-        "Jeśli chcecie mieć piękne kadry, ale nie lubicie pozować — ta sesja jest zdecydowanie dla Was.",
-        "Umawiamy się w plenerze, w wybranym wspólnie miejscu. Jest czas na spacer, rozmowy czy przytulanie. Ja jestem obok z aparatem — łapię Wasze uśmiechy, spojrzenia, splecione dłonie.",
-        "Autorka projektu społecznego „Małżeństwo w kadrze” (2023)."
-      ],
-      "duration": "ok. 1 h",
-      "included": "kawa i rozmowa przed sesją • pomoc w doborze strojów i miejsca • selekcja oraz retusz zdjęć • galeria online",
-      "quote": "„Po sesji dostaliśmy do wyboru wiele ciekawych zdjęć. Gorąco polecamy Anię za profesjonalizm oraz ciepłe usposobienie, które sprawia, że sesje są naturalne i pełne unikalnego uroku.” — Anna i Paweł Basisty",
-      "card_title": "Romantyczne",
-      "card_short": "Sesja jak randka — spacer, rozmowy, przytulanie.",
-      "card_time": "ok. 1 h",
-      "card_image": "/annamatejska.pl/images/svc-romantyczne.jpg",
       "enabled": true
     },
     {

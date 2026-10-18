@@ -50,6 +50,11 @@ export function aboutPage() {
   return JSON.parse(readFileSync('src/data/o-mnie.json', 'utf8'));
 }
 
+// Podstrony sesji (hero + galeria + przykładowe galerie) — Decap → „Sesje — podstrony”
+export function sesje() {
+  return JSON.parse(readFileSync('src/data/sesje.json', 'utf8')).sessions;
+}
+
 // Wybrane zdjęcia (curated portfolio) — editable in Decap → „Portfolio”
 export function portfolio() {
   return JSON.parse(readFileSync('src/data/portfolio.json', 'utf8')).items;

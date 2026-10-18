@@ -491,6 +491,41 @@ collections:
                 field: { label: "Punkt", name: "paragraph", widget: "text" }
           - { label: "Etykieta przycisku polityki prywatności", name: "privacy_button", widget: "string" }
 
+  - name: "sesje_pages"
+    label: "Sesje — podstrony"
+    label_singular: "Sesja"
+    description: "Zdjęcie główne, galeria i przykładowe sesje na podstronach /sesje/*."
+    editor:
+      preview: false
+    files:
+      - name: "sesje-sessions"
+        label: "Sesje — zdjęcia i galerie"
+        file: "src/data/sesje.json"
+        fields:
+          - label: "Sesje"
+            name: "sessions"
+            widget: "list"
+            summary: "{{fields.slug}}"
+            fields:
+              - { label: "Slug (rodzinne / dzieciece / kobiece / ciazowe / romantyczne / wizerunkowe)", name: "slug", widget: "string" }
+              - { label: "Zdjęcie główne (u góry, obok tekstu)", name: "hero", widget: "image", required: false }
+              - label: "Galeria na stronie (zdjęcia)"
+                name: "photos"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Zdjęcie (pełny rozmiar)", name: "photo", widget: "image" }
+                  - { label: "Miniatura (opcjonalnie)", name: "thumb", widget: "image", required: false }
+              - { label: "Nagłówek listy przykładowych sesji", name: "samples_title", widget: "string", required: false }
+              - label: "Przykładowe galerie"
+                name: "samples"
+                widget: "list"
+                required: false
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Tytuł", name: "title", widget: "string" }
+                  - { label: "Slug galerii", name: "slug", widget: "string" }
+
   - name: "settings"
     label: "Ustawienia"
     editor:
