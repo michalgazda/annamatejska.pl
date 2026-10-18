@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { services } from '../../data/queries';
+import { services, galleries, formatDate, assetPath } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
 
@@ -8,11 +8,11 @@ export async function getStaticPaths() {
   const allServices = services();
   return allServices.map(s => ({
     params: { slug: s.slug },
-    props: { service: s },
+    props: { service: s, categoryGalleries: galleries().filter(g => g.category === s.category) },
   }));
 }
 
-const { service } = Astro.props;
+const { service, categoryGalleries } = Astro.props;
 ---
 
 <BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle}>
@@ -32,7 +32,30 @@ const { service } = Astro.props;
         <div style="flex:1;min-width:240px"><span class="kicker" style="margin-bottom:.3rem">Zawsze w cenie</span><span style="color:var(--ink-soft);font-size:.92rem">{service.included}</span></div>
       </div>
       <blockquote style="font-family:var(--quote);font-size:1.4rem;line-height:1.55;color:var(--taupe);border-left:2px solid var(--taupe);padding-left:24px;margin:52px 0">{service.quote}</blockquote>
-      <p style="text-align:center;margin-top:44px"><a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a></p>
+    </div>
+  </section>
+
+  {categoryGalleries.length > 0 && (
+    <section style="background:var(--white)">
+      <div class="container">
+        <span class="kicker">Galerie</span>
+        <h2 class="sub-title" style="margin-bottom:8px">Sesje {service.card_title.toLowerCase()} — galerie</h2>
+        <p style="color:var(--ink-soft)">Kliknij, żeby zobaczyć całą galerię.</p>
+        <div class="gal-list">
+          {categoryGalleries.map(g => (
+            <a class="gal-card" href={`${base}galerie/${g.slug}`}>
+              <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
+              <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section style="padding-top:0">
+    <div class="container" style="text-align:center">
+      <a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a>
     </div>
   </section>
 </BaseLayout>

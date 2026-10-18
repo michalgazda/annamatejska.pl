@@ -1,51 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { galleries, formatDate, assetPath, portfolio } from '../data/queries';
+import { assetPath, portfolio } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
-const allGalleries = galleries();
 const selected = portfolio();
 ---
 
 <BaseLayout title="Portfolio — wybrane zdjęcia | Anna Matejska-Gazda Fotograf Kraków" description="Wybrane zdjęcia z sesji rodzinnych, kobiecych, ciążowych, wizerunkowych i reportaży. Portfolio Anny Matejskiej-Gazdy, fotograf z Krakowa.">
-  <section class="page-hero">
+  <section class="page-hero" style="padding:150px 0 34px">
     <div class="container">
-      <span class="kicker">Portfolio</span>
-      <h1 class="page-title">Portfolio</h1>
-      <p>Wybrane kadry — najlepsze zdjęcia z sesji i reportaży. Kliknij zdjęcie, żeby powiększyć.</p>
+      <span class="kicker" style="margin-bottom:0">Portfolio</span>
+      <h1 class="sr-only">Portfolio — wybrane zdjęcia Anny Matejskiej-Gazdy, fotograf Kraków</h1>
     </div>
   </section>
 
-  {selected.length > 0 && (
-    <section style="padding-top:12px">
-      <div class="container">
-        <div class="portfolio-grid">
-          {selected.map((p, i) => (
-            <figure>
-              <img
-                src={assetPath(p.thumb || p.photo, base)}
-                data-full={assetPath(p.photo, base)}
-                alt={p.alt || `Wybrane zdjęcie ${i + 1} — Anna Matejska-Gazda Fotografia`}
-                loading="lazy"
-              />
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <section style="background:var(--white)">
+  <section style="padding-top:0">
     <div class="container">
-      <span class="kicker">Galerie</span>
-      <h2 class="sub-title" style="margin-bottom:8px">Galerie z sesji i reportaży</h2>
-      <p style="color:var(--ink-soft)">Każda inna historia — kliknij, żeby zobaczyć całą galerię.</p>
-      <div class="gal-list">
-        {allGalleries.map(g => (
-          <a class="gal-card" href={`${base}galerie/${g.slug}`}>
-            <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
-            <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
-          </a>
+      <div class="portfolio-grid">
+        {selected.map((p, i) => (
+          <figure>
+            <img
+              src={assetPath(p.thumb || p.photo, base)}
+              data-full={assetPath(p.photo, base)}
+              alt={p.alt || `Wybrane zdjęcie ${i + 1} — Anna Matejska-Gazda Fotografia`}
+              loading="lazy"
+            />
+          </figure>
         ))}
       </div>
     </div>

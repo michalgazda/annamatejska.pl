@@ -312,9 +312,28 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .albums-scope{grid-template-columns:1fr}
 
 /* curated portfolio wall (mixed ratios, lightbox via main.js) */
-.portfolio-grid{columns:3;column-gap:16px;margin-top:8px}
-.portfolio-grid figure{margin:0 0 16px;break-inside:avoid;overflow:hidden;cursor:zoom-in;position:relative}
+.portfolio-grid{columns:3;column-gap:7px;margin-top:8px}
+.portfolio-grid figure{margin:0 0 7px;break-inside:avoid;overflow:hidden;cursor:zoom-in;position:relative}
 .portfolio-grid img{width:100%;height:auto;display:block;transition:transform .5s ease,opacity .5s ease}
 .portfolio-grid figure:hover img{transform:scale(1.03)}
-@media(max-width:960px){.portfolio-grid{columns:2}}
+@media(max-width:960px){.portfolio-grid{columns:2;column-gap:6px}}
+@media(max-width:560px){.portfolio-grid figure{margin-bottom:6px}}
 @media(max-width:560px){.portfolio-grid{columns:1}}
+
+/* ===== opinie: karuzela z autoprzewijaniem w lewo (jak na starej stronie) ===== */
+.opinie-carousel{position:relative;overflow:hidden;margin-top:52px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.opinie-track{display:flex;gap:22px;width:max-content;animation:opinie-scroll 90s linear infinite}
+.opinie-carousel:hover .opinie-track,.opinie-carousel:focus-within .opinie-track{animation-play-state:paused}
+@keyframes opinie-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.opinie-card{width:390px;flex:0 0 auto;background:var(--white);border-top:2px solid var(--taupe);box-shadow:0 2px 18px rgba(13,13,13,.04);padding:34px 30px;display:flex;flex-direction:column}
+.opinie-card .who{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.opinie-card .who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.opinie-card .who strong{display:block;font-weight:400;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+.opinie-card .stars{color:var(--taupe);letter-spacing:3px;font-size:.85rem;margin-bottom:10px}
+.opinie-card p{font-size:.92rem;color:var(--ink-soft);margin:0}
+.opinie-hint{text-align:center;margin-top:22px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe)}
+@media (prefers-reduced-motion:reduce){
+  .opinie-carousel{overflow-x:auto}
+  .opinie-track{animation:none}
+}
+@media(max-width:560px){.opinie-card{width:300px;padding:26px 22px}}

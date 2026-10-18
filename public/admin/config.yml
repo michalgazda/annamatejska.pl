@@ -80,6 +80,7 @@ collections:
             fields:
               - { label: "Treść opinii", name: "quote", widget: "text" }
               - { label: "Autor", name: "author", widget: "string" }
+              - { label: "Zdjęcie osoby (kwadratowe)", name: "photo", widget: "image", required: false }
 
   - name: "services"
     label: "Oferta (sesje)"

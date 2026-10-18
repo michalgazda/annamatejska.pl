@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { reportaze, site } from '../data/queries';
+import { reportaze, site, galleries, formatDate, assetPath } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const r = reportaze();
 const s = site();
+const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
 ---
 
 <BaseLayout title="Reportaże — chrzest, komunia, ślub, wydarzenia | Anna Matejska-Gazda Kraków" description="Reportaże fotograficzne z uroczystości rodzinnych (chrzest, komunia, ślub, rocznice) oraz z wydarzeń społecznych i kulturalnych — Kraków i okolice.">
@@ -66,7 +67,16 @@ const s = site();
           </ul>
         </div>
       ))}
-      <p style="margin-top:34px;color:var(--ink-soft);font-size:.92rem">Zdjęcia z reportaży pokazuję w zakładce <a href={`${base}galerie`} style="color:var(--taupe);border-bottom:1px solid var(--taupe)">Galerie</a> oraz na Instagramie.</p>
+      {reportageGalleries.length > 0 && (
+        <div class="gal-list" style="margin-top:44px">
+          {reportageGalleries.map(g => (
+            <a class="gal-card" href={`${base}galerie/${g.slug}`}>
+              <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
+              <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 
