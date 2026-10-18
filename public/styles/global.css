@@ -128,6 +128,8 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .page-hero{padding:170px 0 70px;text-align:center}
 .page-hero h1{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:.6rem;font-weight:400}
 .page-hero p{color:var(--ink-soft);max-width:640px;margin:0 auto}
+/* /oferta: nagłówek pierwszej grupy cenowej wygląda jak pozostałe sekcje (bez wersalików 48px) */
+.page-hero--group h1{font-size:clamp(1.08rem,2.1vw,1.42rem);letter-spacing:.02em;margin-bottom:.35rem}
 .gal-meta{max-width:720px;margin:0 auto;text-align:center}
 .gal-meta h1{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:.8rem;font-weight:400}
 .gal-meta p{color:var(--ink-soft)}
