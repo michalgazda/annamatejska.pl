@@ -10,10 +10,13 @@ the REST API; every post body holds the session photos. This tool:
   3. downloads + downscales the photos into public/images/galleries/<slug>/NN.jpg,
   4. rewrites src/data/galleries.json (title/date/category/excerpt/cover/photos_list).
 
-Usage:  python3 tools/import-wp-galleries.py [--max-per-gallery 12] [--force]
+Usage:  python3 tools/import-wp-galleries.py [--max-per-gallery 0] [--force]
+        --max-per-gallery 0  keep every photo of the post (default 12 — Anna wants all)
+        --allow-reuse     let one photo appear in several galleries (the old site did that)
         --full-max 2400   long edge of the stored photo (originals are 3000-6000px)
         --quality 3       ffmpeg -q:v for the full photo
-        --no-thumbs       skip the 900px grid thumbnails
+        --thumb-max 900   long edge of the grid thumbnail
+        --no-thumbs       skip the grid thumbnails
 Cache:  $TMPDIR/wp-gallery-import/ (media index + downloaded originals)
 """
 import argparse
@@ -34,6 +37,7 @@ CACHE = os.environ.get("TMPDIR", "/tmp").rstrip("/") + "/wp-gallery-import"
 FFMPEG = "/home/michal/.hermes/tools/ffmpeg-9.0.1-linux-x64/bin/ffmpeg"
 MAX_FULL = 2400
 MAX_QUALITY = 3
+THUMB_MAX = 900
 OUT_DIR = os.path.join(REPO, "public/images/galleries")
 THUMB_SUFFIX = "-thumb"
 JSON_PATH = os.path.join(REPO, "src/data/galleries.json")
@@ -147,7 +151,7 @@ def photos_of(post, media):
 def download(args):
     name, url, dest = args
     is_thumb = "-thumb" in os.path.basename(dest)
-    long_edge = 900 if is_thumb else MAX_FULL
+    long_edge = THUMB_MAX if is_thumb else MAX_FULL
     quality = 5 if is_thumb else MAX_QUALITY
     raw = os.path.join(CACHE, "src-" + name)
     if not os.path.exists(raw):
@@ -172,11 +176,14 @@ def main():
     ap.add_argument("--max-per-gallery", type=int, default=12)
     ap.add_argument("--full-max", type=int, default=2400, help="long edge of the stored photo")
     ap.add_argument("--quality", type=int, default=3, help="ffmpeg -q:v for the full photo")
+    ap.add_argument("--allow-reuse", action="store_true",
+                    help="allow the same photo in several galleries (default: first gallery wins)")
+    ap.add_argument("--thumb-max", type=int, default=900)
     ap.add_argument("--no-thumbs", action="store_true")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
-    global MAX_FULL, MAX_QUALITY, THUMB_SUFFIX
-    MAX_FULL, MAX_QUALITY = args.full_max, args.quality
+    global MAX_FULL, MAX_QUALITY, THUMB_MAX, THUMB_SUFFIX
+    MAX_FULL, MAX_QUALITY, THUMB_MAX = args.full_max, args.quality, args.thumb_max
     if args.no_thumbs:
         THUMB_SUFFIX = ""
 
@@ -192,12 +199,13 @@ def main():
         slug = post["slug"]
         if slug in SKIP_SLUGS:
             continue
-        pics = [p for p in photos_of(post, media) if p[0] not in used_photos]
+        pics = [p for p in photos_of(post, media)
+                if args.allow_reuse or p[0] not in used_photos]
         if len(pics) < 3:
             print(f"  skip {slug}: only {len(pics)} photos")
             continue
         cat = category_for(slug)
-        keep = pics[: args.max_per_gallery]
+        keep = pics if args.max_per_gallery <= 0 else pics[: args.max_per_gallery]
         galleries.append({
             "slug": slug,
             "title": html.unescape(re.sub("<[^>]+>", "", post["title"]["rendered"])).strip(),
@@ -214,10 +222,14 @@ def main():
             used_photos.add(name)
 
     # drop galleries that duplicate an earlier one (near-identical photo sets)
-    deduped = []
+    # — unless photos may be reused, in which case the old site really showed them twice
+    deduped = [] if args.allow_reuse else []
     for g in galleries:
         setg = {n for n, _ in g["_src"]}
-        dup = False
+        dup = args.allow_reuse
+        if dup:
+            deduped.append(g)
+            continue
         for kept in deduped:
             other = {n for n, _ in kept["_src"]}
             if not other:

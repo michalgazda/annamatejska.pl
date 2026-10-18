@@ -58,12 +58,19 @@ PLAN = {
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-37-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-9.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-8-scaled.jpg",
-            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-21.jpg"
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-21.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-16.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_4038-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_3831-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-10.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-42.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_2444-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-44-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-15.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-18.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-5-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjeromantyczne-27.jpg"
         ]
-    },
-    "rodzinne": {
-        "hero_url": "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_8406-2.jpg",
-        "photos": []
     },
     "dzieciece": {
         "hero_url": "https://www.annamatejska.pl/wp-content/uploads/2026/02/DSC_4861.jpg",
@@ -84,7 +91,21 @@ PLAN = {
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-48-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-13-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-1-scaled.jpg",
-            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-22-scaled.jpg"
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-22-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-43-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-54-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-56-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-30-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-59-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-16-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-19-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_1898-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-40.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_5939-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_5735-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-32-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-42.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjedzieciece-27-scaled.jpg"
         ]
     },
     "kobiece": {
@@ -105,7 +126,18 @@ PLAN = {
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-2-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-30-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_0837-scaled.jpg",
-            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-3-scaled.jpg"
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-3-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-18-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-23-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-7-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_1486-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_0645-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_1482-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_0707-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-29-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-9-scaled.jpg",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-sesjekobiece-33-scaled.jpg"
         ]
     },
     "ciazowe": {
@@ -116,8 +148,20 @@ PLAN = {
             "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_3156-scaled.jpg",
             "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-24.png",
             "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-12.png",
-            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-8.png"
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-8.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-5.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-20.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-26.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-1.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-6.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-21.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-22.png",
+            "https://www.annamatejska.pl/wp-content/uploads/2025/11/annamatejskagazda-nw-28.png"
         ]
+    },
+    "rodzinne": {
+        "hero_url": "https://www.annamatejska.pl/wp-content/uploads/2026/03/DSC_8406-2.jpg",
+        "photos": []
     },
     "wizerunkowe": {
         "hero_url": "https://www.annamatejska.pl/wp-content/uploads/2025/06/annamatejskagazda-marysia-6-1.jpg",
@@ -327,7 +371,8 @@ def main():
         open(galleries_path, "a").write("\n")
         print(f"✓ added gallery {EXTRA_GALLERY['slug']} ({count} photos)")
 
-    json.dump(out, open(os.path.join(REPO, "src/data/sesje.json"), "w", encoding="utf-8"),
+    json.dump({"sessions": [dict(slug=slug, **data) for slug, data in out.items()]},
+              open(os.path.join(REPO, "src/data/sesje.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
     open(os.path.join(REPO, "src/data/sesje.json"), "a").write("\n")
     print("✓ wrote src/data/sesje.json")

@@ -111,42 +111,54 @@
         {
           "photo": "/annamatejska.pl/images/sesje/romantyczne/27.jpg",
           "thumb": "/annamatejska.pl/images/sesje/romantyczne/27-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/28.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/28-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/29.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/29-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/30.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/30-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/31.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/31-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/32.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/32-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/33.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/33-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/34.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/34-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/35.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/35-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/36.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/36-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/37.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/37-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/romantyczne/38.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/romantyczne/38-thumb.jpg"
         }
       ],
       "samples_title": "",
       "samples": []
-    },
-    {
-      "slug": "rodzinne",
-      "hero": "/annamatejska.pl/images/sesje/rodzinne.jpg",
-      "photos": [],
-      "samples_title": "Przykładowe rodzinne sesje zdjęciowe:",
-      "samples": [
-        {
-          "title": "Sesja rodzinna w Parku Lotników",
-          "slug": "sesja-rodzinna-w-parku-lotnikow"
-        },
-        {
-          "title": "Sesja rodzinna w Parku Reduta",
-          "slug": "sesja-rodzinna-w-parku-reduta"
-        },
-        {
-          "title": "Sesja rodzinna w Parku Lotników (2)",
-          "slug": "sesja-rodzinna-w-parku-lotnikow-2"
-        },
-        {
-          "title": "Sesja rodzinna w Parku Tysiąclecia",
-          "slug": "sesja-rodzinna-w-parku-tysiaclecia"
-        },
-        {
-          "title": "Sesja rodzinna w Parku Białoprądnickim",
-          "slug": "sesja-rodzinna-w-parku-bialopradnickim"
-        },
-        {
-          "title": "Sesja Gosi i Olka w parku",
-          "slug": "sesja-gosi-i-olka-w-parku"
-        }
-      ]
     },
     {
       "slug": "dzieciece",
@@ -219,6 +231,62 @@
         {
           "photo": "/annamatejska.pl/images/sesje/dzieciece/17.jpg",
           "thumb": "/annamatejska.pl/images/sesje/dzieciece/17-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/18.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/18-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/19.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/19-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/20.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/20-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/21.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/21-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/22.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/22-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/23.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/23-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/24.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/24-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/25.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/25-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/26.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/26-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/27.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/27-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/28.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/28-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/29.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/29-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/30.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/30-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/dzieciece/31.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/dzieciece/31-thumb.jpg"
         }
       ],
       "samples_title": "",
@@ -291,6 +359,50 @@
         {
           "photo": "/annamatejska.pl/images/sesje/kobiece/16.jpg",
           "thumb": "/annamatejska.pl/images/sesje/kobiece/16-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/17.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/17-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/18.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/18-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/19.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/19-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/20.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/20-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/21.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/21-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/22.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/22-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/23.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/23-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/24.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/24-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/25.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/25-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/26.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/26-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/kobiece/27.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/kobiece/27-thumb.jpg"
         }
       ],
       "samples_title": "Przykładowe kobiece sesje zdjęciowe:",
@@ -336,10 +448,74 @@
         {
           "photo": "/annamatejska.pl/images/sesje/ciazowe/06.jpg",
           "thumb": "/annamatejska.pl/images/sesje/ciazowe/06-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/07.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/07-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/08.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/08-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/09.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/09-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/10.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/10-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/11.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/11-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/12.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/12-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/13.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/13-thumb.jpg"
+        },
+        {
+          "photo": "/annamatejska.pl/images/sesje/ciazowe/14.jpg",
+          "thumb": "/annamatejska.pl/images/sesje/ciazowe/14-thumb.jpg"
         }
       ],
       "samples_title": "",
       "samples": []
+    },
+    {
+      "slug": "rodzinne",
+      "hero": "/annamatejska.pl/images/sesje/rodzinne.jpg",
+      "photos": [],
+      "samples_title": "Przykładowe rodzinne sesje zdjęciowe:",
+      "samples": [
+        {
+          "title": "Sesja rodzinna w Parku Lotników",
+          "slug": "sesja-rodzinna-w-parku-lotnikow"
+        },
+        {
+          "title": "Sesja rodzinna w Parku Reduta",
+          "slug": "sesja-rodzinna-w-parku-reduta"
+        },
+        {
+          "title": "Sesja rodzinna w Parku Lotników (2)",
+          "slug": "sesja-rodzinna-w-parku-lotnikow-2"
+        },
+        {
+          "title": "Sesja rodzinna w Parku Tysiąclecia",
+          "slug": "sesja-rodzinna-w-parku-tysiaclecia"
+        },
+        {
+          "title": "Sesja rodzinna w Parku Białoprądnickim",
+          "slug": "sesja-rodzinna-w-parku-bialopradnickim"
+        },
+        {
+          "title": "Sesja Gosi i Olka w parku",
+          "slug": "sesja-gosi-i-olka-w-parku"
+        }
+      ]
     },
     {
       "slug": "wizerunkowe",

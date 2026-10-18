@@ -18,7 +18,9 @@ const explicit = Array.isArray(gallery.photos_list) ? gallery.photos_list.filter
 const fallbackCount = gallery.photos || 4;
 const photos = explicit.length
   ? explicit.map(p => assetPath(p, base))
-  : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}.jpg`);
+  : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}-thumb.jpg`);
+// miniatura w siatce, pełny rozmiar w powiększeniu
+const fullOf = (src) => src.replace(/-thumb(\.[^.]+)$/, '$1');
 ---
 
 <BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={(photos[0] || assetPath(gallery.cover, base)).replace(/-thumb(\.[^.]+)$/, '$1')}>
@@ -34,7 +36,7 @@ const photos = explicit.length
     <div class="container">
       <div class="photo-grid">
         {photos.map((src, i) => (
-          <figure><img src={src} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>
+          <figure><img src={fullOf(src)} data-full={fullOf(src)} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>
         ))}
       </div>
       <p style="text-align:center;margin-top:56px"><a class="btn btn-line" href={`${base}galerie`}>← Wszystkie galerie</a></p>
