@@ -163,11 +163,17 @@ form input:focus,form textarea:focus,form select:focus{outline:2px solid var(--t
 .form-status.is-success{color:#3a7a44}
 .form-status.is-error{color:#a33a2e}
 
-/* footer — light bar (paper) with Anna's emblem in the middle */
-footer.site{background:var(--paper);color:var(--ink-soft);padding:34px 0;font-size:.78rem;letter-spacing:.06em;border-top:1px solid var(--line)}
-footer.site .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+/* footer — light bar (paper) with Anna's emblem centred under the opinie arrows */
+footer.site{background:var(--paper);color:var(--ink-soft);padding:20px 0;font-size:.78rem;letter-spacing:.06em;border-top:1px solid var(--line)}
+footer.site .container{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+footer.site .container > span:last-child{justify-self:end;text-align:right}
 footer.site a:hover{color:var(--taupe)}
-footer.site .foot-logo img{display:block;height:104px;width:auto}
+footer.site .foot-logo img{display:block;height:72px;width:auto}
+@media(max-width:760px){
+  footer.site .container{grid-template-columns:1fr;justify-items:center;text-align:center}
+  footer.site .container > span:last-child{justify-self:center;text-align:center}
+  footer.site .foot-logo{order:-1}
+}
 :focus-visible{outline:2px solid var(--taupe);outline-offset:2px}
 
 /* responsive */
