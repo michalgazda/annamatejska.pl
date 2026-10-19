@@ -113,7 +113,9 @@ const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
   <footer class="site">
     <div class="container">
       <span>© 2026 Anna Matejska-Gazda Fotografia · Kraków</span>
-      <span class="handle">annamatejska.fotografia</span>
+      <a class="foot-logo" href={`${base}`} aria-label="Anna Matejska-Gazda Fotografia — strona główna">
+        <img src={`${base}images/logo-anna-matejska-gazda.png`} alt="Anna Matejska-Gazda Fotografia" width="240" height="240" loading="lazy" decoding="async" />
+      </a>
       <span>
         <a href="https://www.instagram.com/annamatejska.fotografia/">Instagram</a>
         · <a href="https://www.facebook.com/annamatejska.fotografia">Facebook</a>

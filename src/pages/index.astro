@@ -9,8 +9,9 @@ const h = home().about;
 const seasonList = [
   { period: 'Mar–Kwi', name: 'Kwitnący sad' },
   { period: 'Maj', name: 'Pole maków' },
-  { period: 'Lip', name: 'Lawenda' },
+  { period: 'Lip', name: 'Pole lawendy' },
   { period: 'Sie', name: 'Farma kwiatowa' },
+  { period: 'Wrz', name: 'Sianokosy' },
   { period: 'Wrz–Paź', name: 'Farma dyniowa' },
 ];
 ---
@@ -27,7 +28,6 @@ const seasonList = [
       </h1>
       <span class="hero-rule"></span>
       <p>Naturalnie · z czułością · bez pozowania</p>
-      <a href={`${base}kontakt`} class="btn btn-white">Umów sesję</a>
     </div>
   </section>
 
@@ -101,7 +101,7 @@ const seasonList = [
       <span class="kicker">Proces</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Jak to działa?</h2>
       <div class="process-grid">
-        <div class="step"><div class="step-num">01</div><h3>Kawa i rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
+        <div class="step"><div class="step-num">01</div><h3>Rozmowa</h3><p>Poznajmy się! Rozmawiamy o Waszych oczekiwaniach, miejscu i stylu sesji.</p></div>
         <div class="step"><div class="step-num">02</div><h3>Przygotowanie</h3><p>Pomogę w doborze strojów, miejsca i pory dnia — idealnej na Wasze zdjęcia.</p></div>
         <div class="step"><div class="step-num">03</div><h3>Sesja</h3><p>Bez presji pozowania. Spacer, zabawa, swoboda — ja łapię momenty pomiędzy.</p></div>
         <div class="step"><div class="step-num">04</div><h3>Zdjęcia</h3><p>Starannie wyselekcjonowana i obrobiona galeria — zwykle w ciągu kilku dni.</p></div>
@@ -114,7 +114,7 @@ const seasonList = [
     <img class="bg" src={`${base}images/cta.jpg`} alt="" loading="lazy" aria-hidden="true" />
     <div class="container inner">
       <h2>Masz pytania?</h2>
-      <p>Jeśli masz jakieś pytania odnośnie sesji fotograficznej lub reportażu, odezwij się — na wszystkie odpowiem.</p>
+      <p>Jeśli masz jakieś pytania odnośnie sesji fotograficznej lub reportażu,<br>odezwij się — na wszystkie odpowiem.</p>
       <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
     </div>
   </section>
@@ -147,6 +147,5 @@ const seasonList = [
       </div>
     </div>
     </div>
-    <p class="opinie-hint">Przesuwaj palcem w lewo i w prawo</p>
   </section>
 </BaseLayout>

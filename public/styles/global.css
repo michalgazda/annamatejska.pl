@@ -60,7 +60,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .hero .script-name{display:block;font-family:var(--script);font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;letter-spacing:.01em;color:#fff;text-shadow:0 2px 24px rgba(13,13,13,.35)}
 .hero .hero-word{display:block;font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(1.5rem,5.4vw,4rem);color:rgba(255,255,255,.94);margin-top:.35em}
 .hero .hero-rule{display:block;width:56px;height:1px;background:rgba(255,255,255,.6);margin:34px auto 26px}
-.hero-inner p{font-size:clamp(.86rem,1.6vw,1.06rem);letter-spacing:.18em;text-transform:uppercase;margin-bottom:38px;font-weight:300;opacity:.94}
+.hero-inner p{font-size:clamp(.86rem,1.6vw,1.06rem);letter-spacing:.18em;text-transform:uppercase;margin-bottom:0;font-weight:300;opacity:.94}
 
 /* about grid */
 .about-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:64px;align-items:center}
@@ -70,7 +70,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .about-sign{font-family:var(--script);font-size:2rem;color:var(--taupe);margin-top:1rem;display:block}
 
 /* services — light WP-style tiles: photo + centred uppercase caption below */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 16px;margin-top:56px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin-top:56px}
 .svc{display:block;text-align:center}
 .svc .thumb{display:block;position:relative;overflow:hidden;aspect-ratio:3/2}
 .svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
@@ -88,10 +88,11 @@ html.kb .skip-link:focus{transform:translateY(0)}
 
 /* seasons */
 .seasons{background:var(--white)}
-.season-list{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:52px}
-.season{padding:30px 16px;text-align:center;border:1px solid var(--line);border-radius:3px;background:var(--paper)}
+.season-list{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:52px}
+.season{padding:28px 12px;text-align:center;border:1px solid var(--line);border-radius:3px;background:var(--paper)}
 .season .mo{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe)}
-.season h3{font-size:.94rem;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;font-weight:400}
+.season h3{font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;margin-top:12px;font-weight:400}
+@media(min-width:961px) and (max-width:1250px){.season-list{grid-template-columns:repeat(3,1fr)}}
 
 /* quote — beige band, Forum serif in taupe (as on the old WP site) */
 .quote{background:var(--sand);color:var(--ink);text-align:center}
@@ -162,11 +163,11 @@ form input:focus,form textarea:focus,form select:focus{outline:2px solid var(--t
 .form-status.is-success{color:#3a7a44}
 .form-status.is-error{color:#a33a2e}
 
-/* footer */
-footer.site{background:var(--ink);color:#A9A29A;padding:44px 0;font-size:.78rem;letter-spacing:.06em}
-footer.site .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
-footer.site a:hover{color:#fff}
-footer.site .handle{font-family:var(--script);font-size:1.4rem;color:var(--taupe);letter-spacing:.01em;line-height:1}
+/* footer — light bar (paper) with Anna's emblem in the middle */
+footer.site{background:var(--paper);color:var(--ink-soft);padding:34px 0;font-size:.78rem;letter-spacing:.06em;border-top:1px solid var(--line)}
+footer.site .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+footer.site a:hover{color:var(--taupe)}
+footer.site .foot-logo img{display:block;height:104px;width:auto}
 :focus-visible{outline:2px solid var(--taupe);outline-offset:2px}
 
 /* responsive */
