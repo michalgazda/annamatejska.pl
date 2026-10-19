@@ -302,7 +302,16 @@ collections:
                 summary: "{{fields.title}}"
                 fields:
                   - { label: "Nazwa realizacji", name: "title", widget: "string" }
-                  - { label: "Slug galerii (adres /galerie/<slug>; puste = brak linku)", name: "slug", widget: "string", required: false }
+                  - label: "Galeria (podlinkowana pod realizację)"
+                    name: "slug"
+                    widget: "relation"
+                    required: false
+                    hint: "Wybierz galerię z listy. Puste = realizacja bez linku. Wcześniej trzeba było wpisać slug ręcznie."
+                    collection: "galleries"
+                    file: "galleries-registry"
+                    search_fields: ["galleries.*.title", "galleries.*.slug"]
+                    display_fields: ["galleries.*.title"]
+                    value_field: "galleries.*.slug"
           - label: "Opinie"
             name: "testimonials"
             widget: "list"
@@ -524,7 +533,14 @@ collections:
                 summary: "{{fields.title}}"
                 fields:
                   - { label: "Tytuł", name: "title", widget: "string" }
-                  - { label: "Slug galerii", name: "slug", widget: "string" }
+                  - label: "Galeria"
+                    name: "slug"
+                    widget: "relation"
+                    collection: "galleries"
+                    file: "galleries-registry"
+                    search_fields: ["galleries.*.title", "galleries.*.slug"]
+                    display_fields: ["galleries.*.title"]
+                    value_field: "galleries.*.slug"
 
   - name: "settings"
     label: "Ustawienia"
