@@ -34,12 +34,12 @@ const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
     </div>
   </section>
 
-  <section class="quote">
+  <section class="quote opinion">
     <div class="container">
       {r.testimonials.map(t => (
-        <figure style="margin-bottom:38px">
+        <figure class="opinion-item">
           <blockquote>„{t.quote}”</blockquote>
-          <cite>{t.author}</cite>
+          <p class="opinion-author">{t.author}</p>
         </figure>
       ))}
     </div>

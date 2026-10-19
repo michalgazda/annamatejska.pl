@@ -32,6 +32,14 @@ const FORMS = {
   wizerunkowe: ['wizerunkowych', 'wizerunkową'],
 };
 const [genitivePlural, accusativeSingular] = FORMS[service.slug] || [service.card_title.toLowerCase(), service.card_title.toLowerCase()];
+
+// Opinia zaciągnięta ze starej strony ma autora doklejonego po myślniku —
+// rozdzielamy go, żeby imię i nazwisko stało w osobnej linijce (jak na WP).
+const splitQuote = (q) => {
+  const m = String(q || '').match(/^(.*[”"'])\s*—\s*(.+)$/s);
+  return m ? { text: m[1], author: m[2].trim() } : { text: q || '', author: '' };
+};
+const opinion = splitQuote(service.quote);
 ---
 
 <BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} image={session.hero || undefined}>
@@ -52,9 +60,10 @@ const [genitivePlural, accusativeSingular] = FORMS[service.slug] || [service.car
     </div>
   </section>
 
-  <section class="quote quote--session" style="padding:72px 0">
+  <section class="quote opinion" style="padding:72px 0">
     <div class="container">
-      <blockquote>{service.quote}</blockquote>
+      <blockquote>{opinion.text}</blockquote>
+      {opinion.author && <p class="opinion-author">{opinion.author}</p>}
     </div>
   </section>
 
