@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { services, galleries, sesje, formatDate, assetPath, pageHeading } from '../../data/queries';
+import { services, galleries, sesje, assetPath, pageHeading } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
 
@@ -68,7 +68,7 @@ const opinion = splitQuote(service.quote);
   </section>
 
   {session.photos.length > 0 && (
-    <section style="padding-top:0">
+    <section style="padding-top:56px">
       <div class="container">
         <span class="kicker">Galeria</span>
         <h2 class="sub-title" style="margin-bottom:26px">Zdjęcia z sesji {genitivePlural}</h2>
@@ -94,8 +94,6 @@ const opinion = splitQuote(service.quote);
               <img src={assetPath(gallery.cover, base)} alt={item.title || gallery.title} loading="lazy" />
               <div class="overlay">
                 <h3>{item.title || gallery.title}</h3>
-                <p>{gallery.excerpt}</p>
-                <time>{formatDate(gallery.date)}</time>
               </div>
             </a>
           ))}

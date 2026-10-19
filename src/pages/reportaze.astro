@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { reportaze, site, galleries, formatDate, assetPath, pageHeading } from '../data/queries';
+import { reportaze, site, galleries, assetPath, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const r = reportaze();
@@ -71,7 +71,7 @@ const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
           {reportageGalleries.map(g => (
             <a class="gal-card" href={`${base}galerie/${g.slug}`}>
               <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
-              <div class="overlay"><h3>{g.title}</h3><p>{g.excerpt}</p><time>{formatDate(g.date)}</time></div>
+              <div class="overlay"><h3>{g.title}</h3></div>
             </a>
           ))}
         </div>
