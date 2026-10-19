@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { krokPoKroku } from '../data/queries';
+import { krokPoKroku, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const k = krokPoKroku();
@@ -9,8 +9,7 @@ const k = krokPoKroku();
 <BaseLayout title="Sesja fotograficzna krok po kroku — jak umówić sesję | Anna Matejska-Gazda Kraków" description="Jak wygląda sesja fotograficzna krok po kroku: od wyboru rodzaju sesji, przez ustalenie terminu i przygotowania, po galerię z wyborem zdjęć i odbitki.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{k.kicker}</span>
-      <h1 class="page-title page-title--long">{k.title}</h1>
+      <h1 class="kicker">{pageHeading(k.kicker, k.title)}</h1>
       <p class="lead" style="max-width:760px;margin:18px auto 0">{k.intro}</p>
     </div>
   </section>

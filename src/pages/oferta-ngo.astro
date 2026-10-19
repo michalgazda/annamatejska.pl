@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ofertaNgo, site } from '../data/queries';
+import { ofertaNgo, site, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const n = ofertaNgo();
@@ -10,8 +10,7 @@ const s = site();
 <BaseLayout title="Oferta NGO — fotograf na wydarzenia organizacji | Anna Matejska-Gazda Kraków" description="Reportaże fotograficzne dla organizacji pozarządowych i grup nieformalnych: konferencje, warsztaty, koncerty, rekolekcje, festyny. Indywidualna oferta współpracy.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{n.kicker}</span>
-      <h1 class="page-title">{n.title}</h1>
+      <h1 class="kicker">{pageHeading(n.kicker, n.title)}</h1>
       <p class="lead" style="max-width:760px;margin:18px auto 0">{n.intro}</p>
     </div>
   </section>

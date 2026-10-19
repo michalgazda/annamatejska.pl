@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { regulamin, site } from '../data/queries';
+import { regulamin, site, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const r = regulamin();
@@ -10,8 +10,7 @@ const s = site();
 <BaseLayout title="Regulamin i polityka prywatności — Anna Matejska-Gazda Fotografia" description="Regulamin usług fotograficznych: rezerwacja sesji, retusz, przenoszenie terminów, prawa autorskie, reklamacje oraz informacje RODO.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{r.kicker}</span>
-      <h1 class="page-title">{r.title}</h1>
+      <h1 class="kicker">{pageHeading(r.kicker, r.title)}</h1>
       <p class="lead" style="max-width:760px;margin:18px auto 0">{r.intro}</p>
     </div>
   </section>

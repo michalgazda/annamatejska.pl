@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { albumy, assetPath } from '../data/queries';
+import { albumy, assetPath, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const a = albumy();
@@ -9,8 +9,7 @@ const a = albumy();
 <BaseLayout title="Albumy i opakowania zdjęć — Anna Matejska-Gazda Fotografia Kraków" description="Projektuję albumy fotograficzne: klasyczne, drukowane na papierze jedwabnym, albumiki eko i harmonijki, a także pudełka i teczki na odbitki. Kraków.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{a.kicker}</span>
-      <h1 class="page-title">{a.title}</h1>
+      <h1 class="kicker">{pageHeading(a.kicker, a.title)}</h1>
     </div>
   </section>
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { studio, assetPath } from '../data/queries';
+import { studio, assetPath, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const st = studio();
@@ -9,8 +9,7 @@ const st = studio();
 <BaseLayout title="Studio fotograficzne — domowe studio w Krakowie (Czyżyny) | Anna Matejska-Gazda" description="Większość sesji wykonuję w plenerze, ale jest też możliwość sesji w studio: wynajętym w Krakowie lub w moim domowym studiu w dzielnicy Czyżyny.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{st.kicker}</span>
-      <h1 class="page-title">{st.title}</h1>
+      <h1 class="kicker">{pageHeading(st.kicker, st.title)}</h1>
       <p class="lead" style="max-width:760px;margin:18px auto 0">{st.intro}</p>
     </div>
   </section>

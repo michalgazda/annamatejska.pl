@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { galleries, formatDate, assetPath } from '../../data/queries';
+import { galleries, formatDate, assetPath, pageHeading } from '../../data/queries';
 
 const base = import.meta.env.BASE_URL;
 
@@ -26,8 +26,7 @@ const fullOf = (src) => src.replace(/-thumb(\.[^.]+)$/, '$1');
 <BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={(photos[0] || assetPath(gallery.cover, base)).replace(/-thumb(\.[^.]+)$/, '$1')}>
   <section class="page-hero" style="padding-bottom:0">
     <div class="container gal-meta">
-      <span class="kicker">{gallery.category} · {formatDate(gallery.date)}</span>
-      <h1>{gallery.title}</h1>
+      <h1 class="kicker">{pageHeading(`${gallery.category} · ${formatDate(gallery.date)}`, gallery.title)}</h1>
       <p>{gallery.excerpt}</p>
     </div>
   </section>

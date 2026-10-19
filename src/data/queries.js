@@ -96,3 +96,17 @@ export function formatDate(d) {
   const p = d.split('-');
   return `${parseInt(p[2])} ${months[parseInt(p[1])-1]} ${p[0]}`;
 }
+
+// Ania 2026-10: na podstronach ma zostać TYLKO jedna mała brązowa etykieta —
+// bez dużego czarnego tytułu. Sklejamy kicker + nazwę strony, bez duplikatów
+// („Oferta” + „Albumy” → „Oferta · Albumy”; „O mnie” + „O mnie” → „O mnie”).
+export function pageHeading(kicker, title) {
+  const k = String(kicker || '').trim();
+  const t = String(title || '').trim();
+  if (!k) return t;
+  if (!t) return k;
+  const kl = k.toLowerCase(), tl = t.toLowerCase();
+  if (kl.includes(tl)) return k;
+  if (tl.includes(kl)) return t;
+  return `${k} · ${t}`;
+}

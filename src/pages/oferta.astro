@@ -63,7 +63,7 @@ const CARD_ANIM = ['reveal reveal-left reveal-d1', 'reveal reveal-up reveal-d2',
 
   <!-- oferta indywidualna — kremowe pasmo, wyśrodkowane jak „Masz pytania?” -->
   <section class="offer-invite">
-    <div class="container" style="max-width:820px">
+    <div class="container" style="max-width:900px">
       <h2 class="sub-title reveal reveal-up">{o.custom.title}</h2>
       <ul class="q-list">
         {o.custom.questions.map(q => <li class="reveal reveal-up">{q}</li>)}
@@ -79,9 +79,9 @@ const CARD_ANIM = ['reveal reveal-left reveal-d1', 'reveal reveal-up reveal-d2',
       <div class="reveal reveal-left">
         <span class="kicker">Reportaże</span>
         <h2 class="sub-title">{o.reportaze.title}</h2>
-        <p style="font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:14px 0 18px">{o.reportaze.subtitle}</p>
+        <p style="font-weight:400;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin:14px 0 18px">{o.reportaze.subtitle}</p>
         {o.reportaze.paragraphs.map(p => <p style="color:var(--ink-soft);margin-bottom:.8rem">{p}</p>)}
-        <ul class="price-features" style="margin:22px 0 26px">
+        <ul class="price-features bullets" style="margin:22px 0 26px">
           {o.reportaze.packages.map(p => (
             <li><strong style="font-weight:400">{p.name}</strong> — <span style="color:var(--taupe)">{p.price}</span></li>
           ))}

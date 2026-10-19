@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageHeading } from '../data/queries';
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Polityka prywatności — Anna Matejska-Gazda Fotograf Kraków" description="Polityka prywatności i ochrona danych osobowych." noindex={true}>
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">RODO</span>
-      <h1 class="page-title page-title--long">Polityka prywatności</h1>
+      <h1 class="kicker">{pageHeading('RODO', 'Polityka prywatności')}</h1>
       <p>Jak chronimy Twoje dane osobowe.</p>
     </div>
   </section>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { aboutPage, site, assetPath } from '../data/queries';
+import { aboutPage, site, assetPath, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const a = aboutPage();
@@ -10,8 +10,7 @@ const s = site();
 <BaseLayout title="O mnie — Anna Matejska-Gazda, fotograf Kraków" description="Mam na imię Anna. Historyk sztuki i pedagog, żona i mama dwóch córeczek. Fotografia rodzinna, kobieca i portretowa w Krakowie — czułość, estetyka i dobra kawa.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{a.kicker}</span>
-      <h1 class="page-title">O mnie</h1>
+      <h1 class="kicker">{pageHeading(a.kicker, 'O mnie')}</h1>
       <p class="lead" style="max-width:820px;margin:18px auto 0">{a.script_heading}</p>
     </div>
   </section>

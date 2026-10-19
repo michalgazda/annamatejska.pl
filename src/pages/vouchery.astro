@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { oferta, vouchery, site } from '../data/queries';
+import { oferta, vouchery, site, pageHeading } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const v = vouchery();
@@ -12,8 +12,7 @@ const sessionPackages = o.groups[0].packages.concat(o.groups[1].packages.slice(0
 <BaseLayout title="Vouchery prezentowe — sesja fotograficzna w prezencie | Anna Matejska-Gazda" description="Voucher prezentowy na sesję fotograficzną w Krakowie: dowolny pakiet w tej samej cenie, ważność 365 dni, możliwa wysyłka InPostem.">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">{v.kicker}</span>
-      <h1 class="page-title">{v.title}</h1>
+      <h1 class="kicker">{pageHeading(v.kicker, v.title)}</h1>
       <p class="lead" style="max-width:760px;margin:18px auto 0">{v.intro}</p>
     </div>
   </section>
