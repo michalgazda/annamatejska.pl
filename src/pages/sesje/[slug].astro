@@ -33,13 +33,8 @@ const FORMS = {
 };
 const [genitivePlural, accusativeSingular] = FORMS[service.slug] || [service.card_title.toLowerCase(), service.card_title.toLowerCase()];
 
-// Opinia zaciągnięta ze starej strony ma autora doklejonego po myślniku —
-// rozdzielamy go, żeby imię i nazwisko stało w osobnej linijce (jak na WP).
-const splitQuote = (q) => {
-  const m = String(q || '').match(/^(.*[”"'])\s*—\s*(.+)$/s);
-  return m ? { text: m[1], author: m[2].trim() } : { text: q || '', author: '' };
-};
-const opinion = splitQuote(service.quote);
+// Opinie tej sesji — może ich być kilka (np. kobiece mają dwie, jak na starej stronie)
+const opinions = service.opinions || [];
 ---
 
 <BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} image={session.hero || undefined}>
@@ -54,7 +49,7 @@ const opinion = splitQuote(service.quote);
         <h1 class="kicker">{pageHeading(`${service.category} · ${service.tagline}`, service.title)}</h1>
         <p class="lead">{service.subtitle}</p>
         {service.description.map(p => <p style="color:var(--ink-soft);margin-bottom:1rem">{p}</p>)}
-        <p class="session-duration">Czas trwania: <strong>{service.duration}</strong></p>
+        <p class="session-duration">Czas trwania: {service.duration}</p>
         <a class="btn btn-taupe" href={`${base}kontakt`}>Umów tę sesję</a>
       </div>
     </div>
@@ -62,8 +57,12 @@ const opinion = splitQuote(service.quote);
 
   <section class="quote opinion" style="padding:72px 0">
     <div class="container">
-      <blockquote>{opinion.text}</blockquote>
-      {opinion.author && <p class="opinion-author">{opinion.author}</p>}
+      {opinions.map(o => (
+        <figure class="opinion-item">
+          <blockquote>„{o.text}”</blockquote>
+          <p class="opinion-author">{o.author}</p>
+        </figure>
+      ))}
     </div>
   </section>
 
@@ -87,8 +86,8 @@ const opinion = splitQuote(service.quote);
   {sampleGalleries.length > 0 && (
     <section style="background:var(--white)">
       <div class="container">
-        <h2 class="sub-title" style="margin-bottom:26px">{session.samples_title}</h2>
-        <div class="gal-list" style="margin-top:0">
+        <h2 class="sub-title" style="color:var(--taupe);margin-bottom:26px">{session.samples_title}</h2>
+        <div class={`gal-list${session.samples_landscape ? ' gal-list--wide' : ''}`} style="margin-top:0">
           {sampleGalleries.map(({ item, gallery }) => (
             <a class="gal-card" href={`${base}galerie/${gallery.slug}`}>
               <img src={assetPath(gallery.cover, base)} alt={item.title || gallery.title} loading="lazy" />

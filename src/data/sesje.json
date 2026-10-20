@@ -490,6 +490,7 @@
       "hero": "/annamatejska.pl/images/sesje/rodzinne.jpg",
       "photos": [],
       "samples_title": "Przykładowe rodzinne sesje zdjęciowe:",
+      "samples_landscape": true,
       "samples": [
         {
           "title": "Sesja rodzinna w Parku Lotników",
@@ -522,6 +523,7 @@
       "hero": "/annamatejska.pl/images/sesje/wizerunkowe.jpg",
       "photos": [],
       "samples_title": "Przykładowe realizacje sesji wizerunkowych:",
+      "samples_landscape": true,
       "samples": [
         {
           "title": "Ania i Piotrek – networkerzy",

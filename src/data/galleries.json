@@ -6,6 +6,10 @@
       "category": "Reportaże",
       "date": "2026-03-02",
       "excerpt": "Reportaż z wydarzenia — emocje zamiast pozowania.",
+      "testimonial": {
+        "text": "Polecam w 100%, profesjonalne podejście, rewelacyjna jakość wykonania zdjęć i bardzo dobry kontakt z nami, jak również z gośćmi z przyjęcia podczas robienia reportażu.",
+        "author": "Urszula Karcz"
+      },
       "photos": 27,
       "photos_list": [
         "/annamatejska.pl/images/galleries/chrzest-olafka/01-thumb.jpg",
@@ -149,7 +153,7 @@
         "/annamatejska.pl/images/galleries/agnieszka-animatorka-kultury-artystka/16-thumb.jpg",
         "/annamatejska.pl/images/galleries/agnieszka-animatorka-kultury-artystka/17-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/agnieszka-animatorka-kultury-artystka/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/agnieszka-animatorka-kultury-artystka/cover.jpg"
     },
     {
       "slug": "marysia-graficzka-geolozka",
@@ -177,7 +181,7 @@
         "/annamatejska.pl/images/galleries/marysia-graficzka-geolozka/16-thumb.jpg",
         "/annamatejska.pl/images/galleries/marysia-graficzka-geolozka/17-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/marysia-graficzka-geolozka/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/marysia-graficzka-geolozka/cover.jpg"
     },
     {
       "slug": "emilia-psycholozka",
@@ -200,7 +204,7 @@
         "/annamatejska.pl/images/galleries/emilia-psycholozka/11-thumb.jpg",
         "/annamatejska.pl/images/galleries/emilia-psycholozka/12-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/emilia-psycholozka/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/emilia-psycholozka/cover.jpg"
     },
     {
       "slug": "ania-i-piotrek-networkerzy",
@@ -235,7 +239,7 @@
         "/annamatejska.pl/images/galleries/ania-i-piotrek-networkerzy/23-thumb.jpg",
         "/annamatejska.pl/images/galleries/ania-i-piotrek-networkerzy/24-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/ania-i-piotrek-networkerzy/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/ania-i-piotrek-networkerzy/cover.jpg"
     },
     {
       "slug": "weronika-trenerka-mentalna-sportu",
@@ -260,7 +264,7 @@
         "/annamatejska.pl/images/galleries/weronika-trenerka-mentalna-sportu/13-thumb.jpg",
         "/annamatejska.pl/images/galleries/weronika-trenerka-mentalna-sportu/14-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/weronika-trenerka-mentalna-sportu/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/weronika-trenerka-mentalna-sportu/cover.jpg"
     },
     {
       "slug": "paulina-edukatorka-muzyczna",
@@ -302,7 +306,7 @@
         "/annamatejska.pl/images/galleries/paulina-edukatorka-muzyczna/30-thumb.jpg",
         "/annamatejska.pl/images/galleries/paulina-edukatorka-muzyczna/31-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/paulina-edukatorka-muzyczna/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/paulina-edukatorka-muzyczna/cover.jpg"
     },
     {
       "slug": "marysia-sesja-wizerunkowa",
@@ -354,7 +358,7 @@
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow-2/12-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow-2/13-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow-2/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow-2/cover.jpg"
     },
     {
       "slug": "sesja-rodzinna-w-parku-reduta",
@@ -379,7 +383,7 @@
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-reduta/13-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-reduta/14-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-reduta/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-reduta/cover.jpg"
     },
     {
       "slug": "sesja-rodzinna-w-parku-lotnikow",
@@ -419,7 +423,7 @@
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow/28-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow/29-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-lotnikow/cover.jpg"
     },
     {
       "slug": "sesja-rodzinna-w-parku-tysiaclecia",
@@ -454,7 +458,7 @@
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-tysiaclecia/23-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-tysiaclecia/24-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-tysiaclecia/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-tysiaclecia/cover.jpg"
     },
     {
       "slug": "sesja-rodzinna-w-parku-bialopradnickim",
@@ -513,7 +517,7 @@
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-bialopradnickim/47-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-bialopradnickim/48-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-bialopradnickim/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-rodzinna-w-parku-bialopradnickim/cover.jpg"
     },
     {
       "slug": "sesja-gosi-i-olka-w-parku",
@@ -541,7 +545,7 @@
         "/annamatejska.pl/images/galleries/sesja-gosi-i-olka-w-parku/16-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-gosi-i-olka-w-parku/17-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-gosi-i-olka-w-parku/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-gosi-i-olka-w-parku/cover.jpg"
     },
     {
       "slug": "emilia-kobieca-sesja-wizerunkowa",
@@ -564,7 +568,7 @@
         "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/11-thumb.jpg",
         "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/12-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/emilia-kobieca-sesja-wizerunkowa/cover.jpg"
     },
     {
       "slug": "marysia-swiateczna-sesja-w-studio",
@@ -588,7 +592,7 @@
         "/annamatejska.pl/images/galleries/marysia-swiateczna-sesja-w-studio/12-thumb.jpg",
         "/annamatejska.pl/images/galleries/marysia-swiateczna-sesja-w-studio/13-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/marysia-swiateczna-sesja-w-studio/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/marysia-swiateczna-sesja-w-studio/cover.jpg"
     },
     {
       "slug": "sesja-kobieca-agnieszki",
@@ -637,7 +641,7 @@
         "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/37-thumb.jpg",
         "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/38-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/sesja-kobieca-agnieszki/cover.jpg"
     },
     {
       "slug": "wizyta-w-ogrodzie-botanicznym",
@@ -1166,6 +1170,10 @@
       "category": "Reportaże",
       "date": "2025-06-02",
       "excerpt": "Reportaż z wydarzenia — emocje zamiast pozowania.",
+      "testimonial": {
+        "text": "Bardzo mi się podobają zdjęcia Pani Ani z Pierwszej Komunii Świętej naszej córki. Dużo cennych momentów uchwyconych z taką czułością i delikatnością. Jestem z dużą wdzięcznością za jej oko i wyczucie:) Za złapanie relacji między dziećmi, spojrzeń, uśmiechów! I tych rodzinnych przywitań — super! Bardzo polecam Panią Anię jako dyskretną fotografkę do uroczystości.",
+        "author": "Aleksandra Baliga"
+      },
       "photos": 94,
       "photos_list": [
         "/annamatejska.pl/images/galleries/pierwsza-komunia-kosciol-sw-mikolaja/01-thumb.jpg",
@@ -1323,6 +1331,10 @@
       "category": "Reportaże",
       "date": "2025-06-02",
       "excerpt": "Reportaż z wydarzenia — emocje zamiast pozowania.",
+      "testimonial": {
+        "text": "Ania jest świetnym fotografem! Bardzo dokładnie zbiera wywiad dotyczący oczekiwań wobec jej usługi. Towarzyszyła nam podczas Chrztu synka. Dzięki Ani mamy piękną pamiątkę z tego wydarzenia:) Współpracowałyśmy też przy okazji warsztatów dla kobiet w ciąży. I tutaj też profesjonalizm Ani był na najwyższym poziomie. Bardzo polecam! Jeśli szukacie porządnego, profesjonalnego fotografa, który jednoczenie tworzy pozytywny klimat i miłą atmosferę, to usługi Ani są super wyborem!",
+        "author": "Monika Dorobisz"
+      },
       "photos": 28,
       "photos_list": [
         "/annamatejska.pl/images/galleries/chrzest-pawelka/01-thumb.jpg",

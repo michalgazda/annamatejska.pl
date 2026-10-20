@@ -55,6 +55,13 @@ collections:
                 widget: "image"
                 required: false
               - { label: "Krótki opis", name: "excerpt", widget: "text" }
+              - label: "Opinia pod galerią (opcjonalnie)"
+                name: "testimonial"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Cytat", name: "text", widget: "text" }
+                  - { label: "Autor", name: "author", widget: "string" }
               - { label: "Liczba zdjęć w galerii", name: "photos", widget: "number", min: 1, max: 30, default: 6,
                   required: false, hint: "Używane tylko, gdy poniżej nie ma listy zdjęć." }
               - label: "Zdjęcia w galerii (wgrywane przez Media)"
@@ -107,7 +114,14 @@ collections:
                   field: { label: "Akapit", name: "paragraph", widget: "text" } }
               - { label: "Czas trwania", name: "duration", widget: "string" }
               - { label: "Zawsze w cenie (punkty rozdzielone •)", name: "included", widget: "text" }
-              - { label: "Opinia klienta (cytat + autor)", name: "quote", widget: "text", required: false }
+              - label: "Opinie klientów (cytat + autor — może być kilka)"
+                name: "opinions"
+                widget: "list"
+                required: false
+                summary: "{{fields.author}}"
+                fields:
+                  - { label: "Cytat", name: "text", widget: "text" }
+                  - { label: "Autor", name: "author", widget: "string" }
               - { label: "Tytuł kafelka na stronie głównej", name: "card_title", widget: "string" }
               - { label: "Krótki tekst kafelka", name: "card_short", widget: "text" }
               - { label: "Czas na kafelku", name: "card_time", widget: "string" }
@@ -526,6 +540,7 @@ collections:
                   - { label: "Zdjęcie (pełny rozmiar)", name: "photo", widget: "image" }
                   - { label: "Miniatura (opcjonalnie)", name: "thumb", widget: "image", required: false }
               - { label: "Nagłówek listy przykładowych sesji", name: "samples_title", widget: "string", required: false }
+              - { label: "Karty przykładowych galerii w poziomie (zdjęcia poziome)", name: "samples_landscape", widget: "boolean", required: false, default: false }
               - label: "Przykładowe galerie"
                 name: "samples"
                 widget: "list"

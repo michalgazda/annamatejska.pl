@@ -40,4 +40,15 @@ const fullOf = (src) => src.replace(/-thumb(\.[^.]+)$/, '$1');
       <p style="text-align:center;margin-top:56px"><a class="btn btn-line" href={`${base}galerie`}>← Wszystkie galerie</a></p>
     </div>
   </section>
+
+  {gallery.testimonial && gallery.testimonial.text && (
+    <section class="quote opinion">
+      <div class="container">
+        <figure class="opinion-item">
+          <blockquote>„{gallery.testimonial.text}”</blockquote>
+          <p class="opinion-author">{gallery.testimonial.author}</p>
+        </figure>
+      </div>
+    </section>
+  )}
 </BaseLayout>
