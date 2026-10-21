@@ -7,26 +7,29 @@ const contactInfo = site();
 ---
 
 <BaseLayout title="Kontakt — Anna Matejska-Gazda Fotograf Kraków" description="Umów sesję fotograficzną w Krakowie — tel. 602 782 474, annamatejskagazda@gmail.com.">
-  <section class="page-hero" style="padding-bottom:20px">
-    <div class="container">
-      <span class="kicker">Kontakt</span>
-      <h1 class="script" style="font-size:clamp(2rem,4.2vw,3rem);color:var(--taupe)">Masz pytania? Napisz!</h1>
-      <p>Odpowiadam na wszystkie wiadomości — zwykle tego samego dnia.</p>
+  <section class="page-hero" style="padding-bottom:40px">
+    <div class="container intro-split">
+      <div>
+        <span class="kicker">Kontakt</span>
+        <h1 class="script" style="font-size:clamp(2rem,4.2vw,3rem);color:var(--taupe)">Masz pytania? Napisz!</h1>
+        <p>Odpowiadam na wszystkie wiadomości — zwykle tego samego dnia.</p>
+        <div class="contact-info" style="margin-top:36px">
+          <div><strong>Telefon</strong><a href={contactInfo.phoneHref}>+48 {contactInfo.phoneDisplay}</a></div>
+          <div><strong>E-mail</strong><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></div>
+          <div><strong>Obszar działania</strong>{contactInfo.area}</div>
+          <div><strong>Studio</strong>{contactInfo.studio}</div>
+          <div><strong>Instagram</strong><a href={contactInfo.instagram.url} target="_blank" rel="noopener">@{contactInfo.instagram.handle}</a></div>
+          <div><strong>Facebook</strong><a href={contactInfo.facebook.url} target="_blank" rel="noopener">@{contactInfo.facebook.handle}</a></div>
+        </div>
+      </div>
+      <figure class="intro-photo">
+        <img src={`${base}images/kontakt-portret.jpg`} alt="Anna Matejska-Gazda — fotografka, Kraków" fetchpriority="high" />
+      </figure>
     </div>
   </section>
 
-  <section style="padding-top:40px;background:var(--white)">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <div><strong>Telefon</strong><a href={contactInfo.phoneHref}>+48 {contactInfo.phoneDisplay}</a></div>
-        <div><strong>E-mail</strong><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></div>
-
-        <div><strong>Obszar działania</strong>{contactInfo.area}</div>
-        <div><strong>Studio</strong>{contactInfo.studio}</div>
-        <div><strong>Instagram</strong><a href={contactInfo.instagram.url} target="_blank" rel="noopener">@{contactInfo.instagram.handle}</a></div>
-        <div><strong>Facebook</strong><a href={contactInfo.facebook.url} target="_blank" rel="noopener">@{contactInfo.facebook.handle}</a></div>
-      </div>
-
+  <section style="padding-top:0">
+    <div class="container" style="max-width:760px">
       <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
         <input type="hidden" name="subject" value="Nowe zapytanie z annamatejska.pl" />
