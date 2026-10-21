@@ -33,8 +33,11 @@ const FORMS = {
 };
 const [genitivePlural, accusativeSingular] = FORMS[service.slug] || [service.card_title.toLowerCase(), service.card_title.toLowerCase()];
 
-// Opinie tej sesji — może ich być kilka (np. kobiece mają dwie, jak na starej stronie)
+// Opinie tej sesji — może ich być kilka (np. kobiece mają dwie, jak na starej stronie).
+// Opinia z „bottom: true” ląduje pod przykładowymi galeriami, reszta — nad galerią zdjęć.
 const opinions = service.opinions || [];
+const opinionsTop = opinions.filter(o => !o.bottom);
+const opinionsBottom = opinions.filter(o => o.bottom);
 ---
 
 <BaseLayout title={`Sesje ${service.card_title} Kraków – naturalne zdjęcia | Anna Matejska-Gazda`} description={service.subtitle} image={session.hero || undefined}>
@@ -57,7 +60,7 @@ const opinions = service.opinions || [];
 
   <section class="quote opinion" style="padding:72px 0">
     <div class="container">
-      {opinions.map(o => (
+      {opinionsTop.map(o => (
         <figure class="opinion-item">
           <blockquote>„{o.text}”</blockquote>
           <p class="opinion-author">{o.author}</p>
@@ -101,7 +104,20 @@ const opinions = service.opinions || [];
     </section>
   )}
 
-  <section style="padding-top:0" >
+  {opinionsBottom.length > 0 && (
+    <section class="quote opinion" style="padding:72px 0">
+      <div class="container">
+        {opinionsBottom.map(o => (
+          <figure class="opinion-item">
+            <blockquote>„{o.text}”</blockquote>
+            <p class="opinion-author">{o.author}</p>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section style="padding-top:56px" >
     <div class="container" style="text-align:center">
       <a class="btn btn-taupe" href={`${base}kontakt`}>Umów sesję {accusativeSingular}</a>
     </div>
