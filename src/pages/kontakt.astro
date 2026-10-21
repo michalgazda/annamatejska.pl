@@ -8,7 +8,7 @@ const contactInfo = site();
 
 <BaseLayout title="Kontakt — Anna Matejska-Gazda Fotograf Kraków" description="Umów sesję fotograficzną w Krakowie — tel. 602 782 474, annamatejskagazda@gmail.com.">
   <section class="page-hero" style="padding-bottom:40px">
-    <div class="container intro-split">
+    <div class="container intro-split" style="align-items:start">
       <div>
         <span class="kicker">Kontakt</span>
         <h1 class="script" style="font-size:clamp(2rem,4.2vw,3rem);color:var(--taupe)">Masz pytania? Napisz!</h1>
@@ -21,16 +21,7 @@ const contactInfo = site();
           <div><strong>Instagram</strong><a href={contactInfo.instagram.url} target="_blank" rel="noopener">@{contactInfo.instagram.handle}</a></div>
           <div><strong>Facebook</strong><a href={contactInfo.facebook.url} target="_blank" rel="noopener">@{contactInfo.facebook.handle}</a></div>
         </div>
-      </div>
-      <figure class="intro-photo">
-        <img src={`${base}images/kontakt-portret.jpg`} alt="Anna Matejska-Gazda — fotografka, Kraków" fetchpriority="high" />
-      </figure>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="container" style="max-width:760px">
-      <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <form id="contact-form" class="contact-form" style="margin-top:44px" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="6b55969b-bf3d-4f40-944d-c030a292f69a" />
         <input type="hidden" name="subject" value="Nowe zapytanie z annamatejska.pl" />
         <input type="hidden" name="from_name" value="Formularz annamatejska.pl" />
@@ -56,6 +47,11 @@ const contactInfo = site();
         <p class="form-status" aria-live="polite"></p>
         <p class="form-note">Twoje dane wykorzystam wyłącznie do odpowiedzi na zapytanie. Wysyłając formularz, akceptujesz <a href={`${base}polityka-prywatnosci`}>politykę prywatności</a>.</p>
       </form>
+      </div>
+
+      <figure class="intro-photo">
+        <img src={`${base}images/kontakt-portret.jpg`} alt="Anna Matejska-Gazda — fotografka, Kraków" fetchpriority="high" />
+      </figure>
     </div>
   </section>
 </BaseLayout>
