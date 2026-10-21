@@ -21,6 +21,11 @@ const photos = explicit.length
   : Array.from({ length: fallbackCount }, (_, i) => `${base}images/galleries/${gallery.slug}/${String(i+1).padStart(2,'0')}-thumb.jpg`);
 // miniatura w siatce, pełny rozmiar w powiększeniu
 const fullOf = (src) => src.replace(/-thumb(\.[^.]+)$/, '$1');
+// Akapity opisu galerii (opcjonalne, np. Projekt „Tydzień Małżeństwa w Krakowie”) —
+// adresy w tekście zamieniamy na klikalne linki, resztę escapujemy.
+const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const autolink = (t) => esc(t).replace(/((?:https?:\/\/|www\.)[^\s<]+)/g,
+  (u) => `<a href="${u.startsWith('http') ? u : `https://${u}`}" target="_blank" rel="noopener">${u}</a>`);
 ---
 
 <BaseLayout title={`${gallery.title} — Galeria | Anna Matejska-Gazda Fotograf Kraków`} description={gallery.excerpt} image={(photos[0] || assetPath(gallery.cover, base)).replace(/-thumb(\.[^.]+)$/, '$1')}>
@@ -32,6 +37,11 @@ const fullOf = (src) => src.replace(/-thumb(\.[^.]+)$/, '$1');
 
   <section style="padding-top:0">
     <div class="container">
+      {Array.isArray(gallery.body) && gallery.body.length > 0 && (
+        <div class="gal-body">
+          {gallery.body.map(p => <p set:html={autolink(p)} />)}
+        </div>
+      )}
       <div class="photo-grid">
         {photos.map((src, i) => (
           <figure><img src={fullOf(src)} data-full={fullOf(src)} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>

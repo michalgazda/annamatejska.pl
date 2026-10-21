@@ -142,6 +142,10 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .gal-meta{max-width:720px;margin:0 auto;text-align:center}
 .gal-meta h1:not(.kicker){font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:.8rem;font-weight:400}
 .gal-meta p{color:var(--ink-soft)}
+/* opis pod tytułem galerii (opcjonalny, np. Projekt „Tydzień Małżeństwa w Krakowie”) */
+.gal-body{max-width:760px;margin:0 auto 44px;text-align:center;color:var(--ink-soft)}
+.gal-body p{margin-bottom:1rem}
+.gal-body a{color:var(--taupe);border-bottom:1px solid var(--taupe)}
 /* galerie zdjęć — kolumny (masonry) zachowujące ORYGINALNE proporcje zdjęć, bez kwadratów */
 .photo-grid{margin-top:48px;columns:3;column-gap:7px}
 .photo-grid figure{overflow:hidden;cursor:zoom-in;margin:0 0 7px;break-inside:avoid}
@@ -314,7 +318,7 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .offer-invite{background:var(--sand);text-align:center;padding:96px 0}
 .offer-invite .q-list{list-style:none;max-width:640px;margin:24px auto;color:var(--ink-soft)}
 .offer-invite .q-list li{margin-bottom:8px}
-.offer-reportaze .split-reportaze{display:grid;grid-template-columns:1.2fr .9fr;gap:56px;align-items:center}
+.offer-reportaze .split-reportaze{display:grid;grid-template-columns:1fr .97fr;gap:56px;align-items:center}
 .offer-reportaze figure{margin:0;overflow:hidden}
 .offer-reportaze figure img{display:block;width:100%;height:auto}
 @media(max-width:960px){

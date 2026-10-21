@@ -55,6 +55,11 @@ collections:
                 widget: "image"
                 required: false
               - { label: "Krótki opis", name: "excerpt", widget: "text" }
+              - label: "Opis pod tytułem (akapity — np. dla projektu bez galerii zdjęć)"
+                name: "body"
+                widget: "list"
+                required: false
+                field: { label: "Akapit (adresy www wpisuj jako tekst — same zrobią się linkiem)", name: "p", widget: "text" }
               - label: "Opinia pod galerią (opcjonalnie)"
                 name: "testimonial"
                 widget: "object"
