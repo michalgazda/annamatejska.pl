@@ -1,0 +1,24 @@
+---
+// Jedna grupa reportaży z galeriami (karty z okładkami jak na starej stronie).
+// Pozycje bez galerii lecą jako lista tekstowa pod kartami.
+import { assetPath } from '../data/queries';
+
+const { group, base } = Astro.props;
+---
+
+<div style="margin-top:44px">
+  <h3 class="group-title">{group.title}</h3>
+  <div class="gal-list gal-list--wide" style="margin-top:26px">
+    {group.cards.map(c => (
+      <a class="gal-card" href={`${base}galerie/${c.slug}`}>
+        <img src={assetPath(c.cover, base)} alt={c.title} loading="lazy" />
+        <div class="overlay"><h3>{c.title}</h3></div>
+      </a>
+    ))}
+  </div>
+  {group.plain.length > 0 && (
+    <ul class="link-list" style="margin-top:22px">
+      {group.plain.map(t => <li><span>{t}</span></li>)}
+    </ul>
+  )}
+</div>
