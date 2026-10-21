@@ -40,7 +40,7 @@
         "/annamatejska.pl/images/galleries/chrzest-olafka/26-thumb.jpg",
         "/annamatejska.pl/images/galleries/chrzest-olafka/27-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/chrzest-olafka/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/chrzest-olafka/cover.jpg"
     },
     {
       "slug": "karnawal-w-santa-cruz-na-teneryfie",
@@ -125,7 +125,7 @@
         "/annamatejska.pl/images/galleries/karnawal-w-santa-cruz-na-teneryfie/73-thumb.jpg",
         "/annamatejska.pl/images/galleries/karnawal-w-santa-cruz-na-teneryfie/74-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/karnawal-w-santa-cruz-na-teneryfie/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/karnawal-w-santa-cruz-na-teneryfie/cover.jpg"
     },
     {
       "slug": "agnieszka-animatorka-kultury-artystka",
@@ -679,7 +679,7 @@
         "/annamatejska.pl/images/galleries/wizyta-w-ogrodzie-botanicznym/26-thumb.jpg",
         "/annamatejska.pl/images/galleries/wizyta-w-ogrodzie-botanicznym/27-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/wizyta-w-ogrodzie-botanicznym/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/wizyta-w-ogrodzie-botanicznym/cover.jpg"
     },
     {
       "slug": "jarmark-bozonarodzeniowy-w-katowicach",
@@ -708,7 +708,7 @@
         "/annamatejska.pl/images/galleries/jarmark-bozonarodzeniowy-w-katowicach/17-thumb.jpg",
         "/annamatejska.pl/images/galleries/jarmark-bozonarodzeniowy-w-katowicach/18-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/jarmark-bozonarodzeniowy-w-katowicach/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/jarmark-bozonarodzeniowy-w-katowicach/cover.jpg"
     },
     {
       "slug": "dzien-na-farmie-dyniowej",
@@ -749,7 +749,7 @@
         "/annamatejska.pl/images/galleries/dzien-na-farmie-dyniowej/29-thumb.jpg",
         "/annamatejska.pl/images/galleries/dzien-na-farmie-dyniowej/30-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/dzien-na-farmie-dyniowej/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/dzien-na-farmie-dyniowej/cover.jpg"
     },
     {
       "slug": "wiosenny-weekend-kobiet-anesti",
@@ -841,7 +841,7 @@
         "/annamatejska.pl/images/galleries/wiosenny-weekend-kobiet-anesti/80-thumb.jpg",
         "/annamatejska.pl/images/galleries/wiosenny-weekend-kobiet-anesti/81-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/wiosenny-weekend-kobiet-anesti/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/wiosenny-weekend-kobiet-anesti/cover.jpg"
     },
     {
       "slug": "projekt-malzenstwo-w-kadrze",
@@ -878,7 +878,7 @@
         "/annamatejska.pl/images/galleries/projekt-malzenstwo-w-kadrze/25-thumb.jpg",
         "/annamatejska.pl/images/galleries/projekt-malzenstwo-w-kadrze/26-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/projekt-malzenstwo-w-kadrze/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/projekt-malzenstwo-w-kadrze/cover.jpg"
     },
     {
       "slug": "krakowska-noc-tanca",
@@ -912,7 +912,7 @@
         "/annamatejska.pl/images/galleries/krakowska-noc-tanca/22-thumb.jpg",
         "/annamatejska.pl/images/galleries/krakowska-noc-tanca/23-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/krakowska-noc-tanca/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/krakowska-noc-tanca/cover.jpg"
     },
     {
       "slug": "rekolekcje-dla-kobiet-spelniona-zona",
@@ -982,7 +982,7 @@
         "/annamatejska.pl/images/galleries/rekolekcje-dla-kobiet-spelniona-zona/58-thumb.jpg",
         "/annamatejska.pl/images/galleries/rekolekcje-dla-kobiet-spelniona-zona/59-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/rekolekcje-dla-kobiet-spelniona-zona/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/rekolekcje-dla-kobiet-spelniona-zona/cover.jpg"
     },
     {
       "slug": "ekstremalna-droga-krzyzowa",
@@ -1027,7 +1027,7 @@
         "/annamatejska.pl/images/galleries/ekstremalna-droga-krzyzowa/33-thumb.jpg",
         "/annamatejska.pl/images/galleries/ekstremalna-droga-krzyzowa/34-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/ekstremalna-droga-krzyzowa/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/ekstremalna-droga-krzyzowa/cover.jpg"
     },
     {
       "slug": "zajecia-muzyczne-melodyjkowo",
@@ -1069,7 +1069,7 @@
         "/annamatejska.pl/images/galleries/zajecia-muzyczne-melodyjkowo/30-thumb.jpg",
         "/annamatejska.pl/images/galleries/zajecia-muzyczne-melodyjkowo/31-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/zajecia-muzyczne-melodyjkowo/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/zajecia-muzyczne-melodyjkowo/cover.jpg"
     },
     {
       "slug": "warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod",
@@ -1108,7 +1108,7 @@
         "/annamatejska.pl/images/galleries/warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod/27-thumb.jpg",
         "/annamatejska.pl/images/galleries/warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod/28-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/warsztaty-dla-kobiet-w-ciazy-wiara-czyni-porod/cover.jpg"
     },
     {
       "slug": "pierwsza-komunia-zosi",
@@ -1162,7 +1162,7 @@
         "/annamatejska.pl/images/galleries/pierwsza-komunia-zosi/42-thumb.jpg",
         "/annamatejska.pl/images/galleries/pierwsza-komunia-zosi/43-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/pierwsza-komunia-zosi/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/pierwsza-komunia-zosi/cover.jpg"
     },
     {
       "slug": "pierwsza-komunia-kosciol-sw-mikolaja",
@@ -1271,7 +1271,7 @@
         "/annamatejska.pl/images/galleries/pierwsza-komunia-kosciol-sw-mikolaja/93-thumb.jpg",
         "/annamatejska.pl/images/galleries/pierwsza-komunia-kosciol-sw-mikolaja/94-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/pierwsza-komunia-kosciol-sw-mikolaja/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/pierwsza-komunia-kosciol-sw-mikolaja/cover.jpg"
     },
     {
       "slug": "slub-marysi-i-lukasza",
@@ -1323,7 +1323,7 @@
         "/annamatejska.pl/images/galleries/slub-marysi-i-lukasza/40-thumb.jpg",
         "/annamatejska.pl/images/galleries/slub-marysi-i-lukasza/41-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/slub-marysi-i-lukasza/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/slub-marysi-i-lukasza/cover.jpg"
     },
     {
       "slug": "chrzest-pawelka",
@@ -1366,7 +1366,7 @@
         "/annamatejska.pl/images/galleries/chrzest-pawelka/27-thumb.jpg",
         "/annamatejska.pl/images/galleries/chrzest-pawelka/28-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/chrzest-pawelka/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/chrzest-pawelka/cover.jpg"
     },
     {
       "slug": "chrzest-swiety-jozia",
@@ -1407,7 +1407,7 @@
         "/annamatejska.pl/images/galleries/chrzest-swiety-jozia/29-thumb.jpg",
         "/annamatejska.pl/images/galleries/chrzest-swiety-jozia/30-thumb.jpg"
       ],
-      "cover": "/annamatejska.pl/images/galleries/chrzest-swiety-jozia/01-thumb.jpg"
+      "cover": "/annamatejska.pl/images/galleries/chrzest-swiety-jozia/cover.jpg"
     }
   ]
 }

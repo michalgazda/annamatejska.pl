@@ -100,10 +100,12 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .quote cite{display:block;margin-top:26px;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;font-style:normal;color:var(--ink-soft);font-weight:400}
 /* opinie na podstronach — jak na starej stronie (WP/Elementor):
    cytat Montserrat 22,1 px w brązie, autor 17 px czarny w linijce poniżej */
-.quote.opinion blockquote{font-family:var(--sans);font-weight:300;font-size:clamp(1.15rem,1.53vw,1.38rem);line-height:1.32;color:var(--taupe);max-width:1120px;margin:0 auto 20px}
-.quote.opinion .opinion-author{font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.5;color:var(--ink);margin:0}
-.quote.opinion .opinion-item{margin:0 0 38px}
-.quote.opinion .opinion-item:last-child{margin-bottom:0}
+.quote.opinion blockquote,.opinion-inline blockquote{font-family:var(--sans);font-weight:300;font-size:clamp(1.15rem,1.53vw,1.38rem);line-height:1.32;color:var(--taupe);max-width:1120px;margin:0 auto 20px}
+.quote.opinion .opinion-author,.opinion-inline .opinion-author{font-family:var(--sans);font-weight:300;font-size:1.0625rem;line-height:1.5;color:var(--ink);margin:0}
+.quote.opinion .opinion-item,.opinion-inline .opinion-item{margin:0 0 38px}
+.quote.opinion .opinion-item:last-child,.opinion-inline .opinion-item:last-child{margin-bottom:0}
+/* opinia wewnątrz białej sekcji (/reportaze — między grupami galerii) */
+.opinion-inline{margin-top:64px;text-align:center}
 
 /* CTA band — „Masz pytania?” in script over a full-bleed photo */
 .cta-band{position:relative;overflow:hidden;text-align:center;color:#fff;padding:120px 0}
@@ -127,7 +129,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .gal-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
 .gal-card:hover img{transform:scale(1.05)}
 .gal-card .overlay{position:relative;z-index:2;width:100%;padding:80px 24px 22px;color:#fff;background:linear-gradient(to top,rgba(13,13,13,.9) 12%,rgba(13,13,13,.5) 58%,transparent)}
-.gal-card h3{font-size:1.05rem;letter-spacing:.06em}
+.gal-card h3{font-size:1.05rem;letter-spacing:.06em;text-shadow:0 1px 14px rgba(13,13,13,.5)}
 .gal-card p{font-size:.82rem;opacity:.85;font-weight:300}
 .gal-card time{display:block;margin-top:8px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;opacity:.75}
 /* karty przykładowych galerii z poziomymi zdjęciami tytułowymi (rodzinne, wizerunkowe) */
@@ -315,8 +317,8 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .offer-invite .q-list{list-style:none;max-width:640px;margin:24px auto;color:var(--ink-soft)}
 .offer-invite .q-list li{margin-bottom:8px}
 .offer-reportaze .split-reportaze{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
-.offer-reportaze figure{margin:0;overflow:hidden;aspect-ratio:1}
-.offer-reportaze figure img{width:100%;height:100%;object-fit:cover}
+.offer-reportaze figure{margin:0;overflow:hidden}
+.offer-reportaze figure img{display:block;width:100%;height:auto}
 @media(max-width:960px){
   .offer-reportaze .split-reportaze{grid-template-columns:1fr;gap:34px}
   .offer-invite{padding:64px 0}

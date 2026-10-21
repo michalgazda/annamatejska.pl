@@ -6,6 +6,16 @@ const base = import.meta.env.BASE_URL;
 const r = reportaze();
 const s = site();
 const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
+const galBySlug = Object.fromEntries(reportageGalleries.map(g => [g.slug, g]));
+// Grupy reportaży z kartami galerii (okładki jak na starej stronie) + pozycje bez galerii
+const groups = r.groups.map(g => ({
+  title: g.title,
+  cards: g.items.filter(i => i.slug && galBySlug[i.slug]).map(i => ({ title: i.title, slug: i.slug, cover: galBySlug[i.slug].cover })),
+  plain: g.items.filter(i => !(i.slug && galBySlug[i.slug])).map(i => i.title),
+}));
+// opinia przenoszona pod pierwszą grupę (Ania 2026-10): bez „bottom” → pasmo po opisie
+const opinionsTop = (r.testimonials || []).filter(t => !t.bottom);
+const opinionsInline = (r.testimonials || []).filter(t => t.bottom);
 ---
 
 <BaseLayout title="Reportaże — chrzest, komunia, ślub, wydarzenia | Anna Matejska-Gazda Kraków" description="Reportaże fotograficzne z uroczystości rodzinnych (chrzest, komunia, ślub, rocznice) oraz z wydarzeń społecznych i kulturalnych — Kraków i okolice.">
@@ -36,7 +46,7 @@ const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
 
   <section class="quote opinion">
     <div class="container">
-      {r.testimonials.map(t => (
+      {opinionsTop.map(t => (
         <figure class="opinion-item">
           <blockquote>„{t.quote}”</blockquote>
           <p class="opinion-author">{t.author}</p>
@@ -49,43 +59,45 @@ const reportageGalleries = galleries().filter(g => g.category === 'Reportaże');
     <div class="container">
       <span class="kicker">Portfolio</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wybrane realizacje</h2>
-      {r.groups.map(g => (
-        <div style="margin-top:44px">
-          <h3 class="group-title">{g.title}</h3>
-          <ul class="link-list">
-            {g.items.map(i => (
-              <li>
-                {i.slug ? (
-                  <a href={`${base}galerie/${i.slug}`} style="display:flex;justify-content:space-between;gap:14px;align-items:baseline">
-                    <span>{i.title}</span>
-                    <span style="color:var(--taupe);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">galeria →</span>
-                  </a>
-                ) : <span>{i.title}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {groups.map((g, gi) => (
+        <>
+          <div style="margin-top:44px">
+            <h3 class="group-title">{g.title}</h3>
+            <div class="gal-list gal-list--wide" style="margin-top:26px">
+              {g.cards.map(c => (
+                <a class="gal-card" href={`${base}galerie/${c.slug}`}>
+                  <img src={assetPath(c.cover, base)} alt={c.title} loading="lazy" />
+                  <div class="overlay"><h3>{c.title}</h3></div>
+                </a>
+              ))}
+            </div>
+            {g.plain.length > 0 && (
+              <ul class="link-list" style="margin-top:22px">
+                {g.plain.map(t => <li><span>{t}</span></li>)}
+              </ul>
+            )}
+          </div>
+          {gi === 0 && opinionsInline.length > 0 && (
+            <div class="opinion-inline">
+              {opinionsInline.map(t => (
+                <figure class="opinion-item">
+                  <blockquote>„{t.quote}”</blockquote>
+                  <p class="opinion-author">{t.author}</p>
+                </figure>
+              ))}
+            </div>
+          )}
+        </>
       ))}
-      {reportageGalleries.length > 0 && (
-        <div class="gal-list" style="margin-top:44px">
-          {reportageGalleries.map(g => (
-            <a class="gal-card" href={`${base}galerie/${g.slug}`}>
-              <img src={assetPath(g.cover, base)} alt={g.title} loading="lazy" />
-              <div class="overlay"><h3>{g.title}</h3></div>
-            </a>
-          ))}
-        </div>
-      )}
     </div>
   </section>
 
-  <section class="cta-band">
-    <img class="bg" src={`${base}images/cta.jpg`} alt="" aria-hidden="true" loading="lazy" />
-    <div class="container inner">
-      <h2>Masz pytania?</h2>
-      <p>W zależności od lokalizacji, czasu trwania wydarzenia oraz Waszych potrzeb przygotowuję indywidualną ofertę. Każda oferta ma 3 propozycje pakietów do wyboru.</p>
-      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
-      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+  <section class="quote" style="padding:96px 0">
+    <div class="container">
+      <h2 class="script" style="font-size:clamp(1.9rem,4vw,2.6rem);color:var(--taupe);margin-bottom:14px">Masz pytania?</h2>
+      <p style="max-width:760px;margin:0 auto 26px;color:var(--ink-soft)">W zależności od lokalizacji, czasu trwania wydarzenia oraz Waszych potrzeb przygotowuję indywidualną ofertę. Każda oferta ma 3 propozycje pakietów do wyboru.</p>
+      <p><a href={`${base}kontakt`} class="btn btn-taupe">Napisz do mnie</a></p>
+      <p style="margin-top:22px;font-size:.9rem;color:var(--ink-soft)">{s.email} · {s.phoneDisplay}</p>
     </div>
   </section>
 </BaseLayout>
