@@ -2,8 +2,10 @@ import { defineConfig } from 'astro/config';
 import { generateSitemap } from './tools/generate-sitemap.mjs';
 
 export default defineConfig({
-  site: 'https://michalgazda.github.io',
-  base: '/annamatejska.pl/',
+  // Served from the root of the custom domain (annamatejska.pl → GitHub Pages),
+  // so there is no base path any more. BASE_URL is '/' everywhere.
+  site: 'https://annamatejska.pl',
+  base: '/',
   output: 'static',
   outDir: './dist',
   integrations: [

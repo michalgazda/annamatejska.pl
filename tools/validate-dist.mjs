@@ -32,9 +32,11 @@ function walkFiles(dir, acc = []) {
 }
 const allFiles = walkFiles(DIST);
 const distFileSet = new Set(allFiles.map(f => relative(DIST, f).split('\\').join('/')));
-// GH Pages directory URLs: /x/y resolves to x/y/index.html.
-// Site-absolute URLs carry the base prefix; dist files sit at dist root, so strip it.
-const BASE = '/annamatejska.pl/';
+// The site is served from the root of its own domain — paths are never prefixed.
+const SITE = 'https://annamatejska.pl';
+const BASE = '/';
+// A base-path leftover: "/annamatejska.pl/…" that is not part of "https://annamatejska.pl/…"
+const LEGACY_BASE = /(?<![:/\w.])\/annamatejska\.pl\//;
 function stripBase(clean) {
   if (clean === BASE || clean === BASE.replace(/\/$/, '')) return '';
   if (clean.startsWith(BASE)) return decodeURIComponent(clean.slice(BASE.length - 1)).replace(/^\//, '');
@@ -75,8 +77,9 @@ for (const page of pages) {
   if (!can) fail(`${rel}: missing canonical`);
   else if (!isNoindex) canonicals.add(can[1]);
 
-  // no double base prefix
-  if (html.includes('annamatejska.pl/annamatejska.pl')) fail(`${rel}: double base prefix`);
+  // no leftovers of the old GH Pages subpath (/annamatejska.pl/…), but absolute
+  // URLs to the domain (https://annamatejska.pl/…) and prose mentions are fine
+  if (LEGACY_BASE.test(html)) fail(`${rel}: legacy /annamatejska.pl/ base prefix in output`);
 
   // no unevaluated template braces in href/src attributes
   const attrBrace = html.match(/(?:href|src)="[^"]*\{[^"]*}[^"]*"/);
@@ -95,16 +98,26 @@ for (const page of pages) {
     if (r === false) fail(`${rel}: broken internal URL "${url}"`);
   }
 
-  // og:image resolves to a real dist file (must carry the base prefix)
+  // og:image resolves to a real dist file and is absolute on the live domain
   const og = html.match(/<meta property="og:image" content="([^"]+)"/);
   if (og) {
     const u = new URL(og[1]);
-    if (!u.pathname.startsWith(BASE)) fail(`${rel}: og:image missing base prefix: ${og[1]}`);
+    if (u.origin !== SITE) fail(`${rel}: og:image not served from ${SITE}: ${og[1]}`);
     const relOg = stripBase(decodeURIComponent(u.pathname));
     const f = join(DIST, relOg);
     if (!existsSync(f)) fail(`${rel}: og:image 404s in dist: ${og[1]}`);
   } else {
     fail(`${rel}: missing og:image`);
+  }
+}
+
+// ---- no legacy base prefix in any shipped asset ----
+// (a hard-coded /annamatejska.pl/… in CSS @font-face/url() or JS 404s at the domain root)
+for (const f of allFiles) {
+  const rel = relative(DIST, f).split('\\').join('/');
+  if (rel.startsWith('admin/') || !/\.(css|js|json|txt|xml)$/.test(rel)) continue;
+  if (LEGACY_BASE.test(readFileSync(f, 'utf8'))) {
+    fail(`${rel}: legacy /annamatejska.pl/ base prefix in asset`);
   }
 }
 

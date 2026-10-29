@@ -17,7 +17,7 @@ export function galleries() {
 }
 
 // Normalize Decap CMS public_folder paths and legacy relative paths to the
-// current Astro base (GH Pages subpath or Docker root).
+// current Astro base (root '/' on the custom domain, GH Pages subpath, Docker root).
 export function assetPath(path, base = '/') {
   if (!path) return path;
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) return path;

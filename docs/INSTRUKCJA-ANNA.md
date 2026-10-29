@@ -104,7 +104,7 @@ Co oznaczają pola:
 ### Krok 4 — commit i sprawdzenie
 
 **Commit changes** → odczekaj 2–3 min → wejdź na
-`https://michalgazda.github.io/annamatejska.pl/galerie` → nowa galeria powinna być pierwsza.
+`https://annamatejska.pl/galerie` → nowa galeria powinna być pierwsza.
 Jeśli jej nie widać, patrz [Rozwiązywanie problemów](#7-rozwiązywanie-problemów).
 
 ---

@@ -4,10 +4,10 @@ Fotografka z Krakowa. Sesje rodzinne, dziecięce, kobiece, ciążowe, romantyczn
 
 ## Strony
 
-- Strona główna (sesje rodzinne): https://michalgazda.github.io/annamatejska.pl/
-- Kadrowania (wydarzenia / architektura / podróże): https://michalgazda.github.io/annamatejska.pl/kadrowania/
-- Galerie: https://michalgazda.github.io/annamatejska.pl/galerie/
-- Kontakt: https://michalgazda.github.io/annamatejska.pl/kontakt/
+- Strona główna (sesje rodzinne): https://annamatejska.pl/
+- Kadrowania (wydarzenia / architektura / podróże): https://annamatejska.pl/kadrowania/
+- Galerie: https://annamatejska.pl/galerie/
+- Kontakt: https://annamatejska.pl/kontakt/
 
 ## Usługi fotograficzne
 

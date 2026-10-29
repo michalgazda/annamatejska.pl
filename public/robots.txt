@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michalgazda.github.io/annamatejska.pl/sitemap.xml
+Sitemap: https://annamatejska.pl/sitemap.xml

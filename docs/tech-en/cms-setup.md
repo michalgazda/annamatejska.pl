@@ -28,7 +28,7 @@ the code server-side, and performs Decap's `authorizing:github` /
 `public/admin/config.yml` is wired to this URL. The latest Pages workflow passed.
 
 **Interactive login remains to be completed by Michal/Anna:** open
-`https://michalgazda.github.io/annamatejska.pl/admin/`, click "Login with GitHub",
+`https://annamatejska.pl/admin/`, click "Login with GitHub",
 and complete GitHub's authorization in the popup. The account must have write
 access to `michalgazda/annamatejska.pl`. The OAuth app requests `repo` scope;
 GitHub collaborator permissions control repository access.
@@ -49,9 +49,9 @@ Note: the local nginx CSP for `/admin/` already allows `unsafe-eval`
 The Decap collection includes `photos_list`, an ordered list of Media uploads
 stored under `public/images/`. The Media library points at that existing image
 tree (50 images currently), so existing work is selectable and new uploads are
-available too. `public_folder` is `/annamatejska.pl/images` to preview correctly
-on project Pages; Astro `assetPath()` normalizes paths on output for GH Pages
-and Docker. Gallery pages use the list and its first image for `og:image`; older
+available too. `public_folder` is `/images` (the site is served from the root of
+annamatejska.pl); Astro `assetPath()` normalizes paths on output for Docker and
+older values. Gallery pages use the list and its first image for `og:image`; older
 galleries without a list retain the `images/galleries/<slug>/NN.jpg` convention.
 
 ## Remaining before Anna can publish

@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
-const SITE = 'https://michalgazda.github.io/annamatejska.pl/';
+const SITE = 'https://annamatejska.pl/';
 
 function walk(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {

@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { site, services } from '../data/queries';
 const s = site();
 const navServices = services();
-const base = import.meta.env.BASE_URL; // '/annamatejska.pl/' on GH Pages, '/' local
+const base = import.meta.env.BASE_URL; // '/' — the site lives at the domain root
 
 // Cache-busting: content hash of the static assets, so a rebuilt site is picked up
 // immediately instead of serving a cached copy of the previous CSS/JS.
@@ -22,7 +22,7 @@ export interface Props {
 
 const { title, description, image, noindex } = Astro.props;
 const ogImage = image || `${base}images/hero.jpg`;
-const fullSite = 'https://michalgazda.github.io';
+const fullSite = import.meta.env.SITE.replace(/\/$/, '');
 // Astro.url.pathname already includes the base prefix — never prepend it again
 const canonicalUrl = `${fullSite}${Astro.url.pathname}`;
 ---

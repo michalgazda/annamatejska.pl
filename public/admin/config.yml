@@ -5,15 +5,15 @@ backend:
   base_url: https://annamatejska-decap-oauth.michalgazda.workers.dev
   auth_endpoint: /auth
 
-site_url: https://michalgazda.github.io/annamatejska.pl/
-display_url: https://michalgazda.github.io/annamatejska.pl/
+site_url: https://annamatejska.pl/
+display_url: https://annamatejska.pl/
 
-# Repo upload location vs. URL used by the image widget preview. This project is
-# hosted under the GH Pages project prefix, so public_folder must include it.
-# Existing and new image-field values will be /annamatejska.pl/images/…; Astro's
-# assetPath() normalizes both those and older "images/…" values.
+# Repo upload location vs. URL used by the image widget preview. The site is
+# served from the root of annamatejska.pl, so public_folder has no prefix.
+# New image-field values are /images/…; Astro's assetPath() also normalizes the
+# older "/annamatejska.pl/images/…" values that are still in the data files.
 media_folder: "public/images"
-public_folder: "/annamatejska.pl/images"
+public_folder: "/images"
 
 publish_mode: editorial_workflow
 
@@ -190,7 +190,7 @@ collections:
               - { label: "Podpis (czcionka pisana)", name: "signature", widget: "string", default: "Anna" }
               - { label: "Zdjęcie", name: "photo", widget: "image" }
               - { label: "Tekst przycisku", name: "button_label", widget: "string", default: "Zobacz moje galerie" }
-              - { label: "Adres przycisku", name: "button_url", widget: "string", default: "/annamatejska.pl/galerie" }
+              - { label: "Adres przycisku", name: "button_url", widget: "string", default: "/galerie" }
 
   - name: "about_page"
     label: "Strona „O mnie”"
