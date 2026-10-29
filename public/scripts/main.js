@@ -173,6 +173,14 @@
       var btn = form.querySelector('[type="submit"]');
       status.textContent = '';
       status.className = 'form-status';
+      // hCaptcha: submit only with a token, otherwise the API answers
+      // "Could not validate hCaptcha. Please try later".
+      var token = form.querySelector('textarea[name="h-captcha-response"], textarea[name="g-recaptcha-response"]');
+      if (form.querySelector('.h-captcha') && !(token && token.value)) {
+        status.textContent = 'Najpierw potwierdź, że nie jesteś robotem (pole hCaptcha powyżej).';
+        status.className = 'form-status is-error';
+        return;
+      }
       btn.disabled = true;
       btn.textContent = 'Wysyłanie…';
       var data = new FormData(form);
@@ -185,6 +193,8 @@
             status.className = 'form-status is-success';
             form.reset();
           } else {
+            // token hCaptcha jest jednorazowy — po błędzie trzeba go odświeżyć
+            if (window.hcaptcha && window.hcaptcha.reset) { try { window.hcaptcha.reset(); } catch (e) {} }
             status.textContent = 'Błąd: ' + (res.message || 'nieznany');
             status.className = 'form-status is-error';
           }
