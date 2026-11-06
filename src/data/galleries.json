@@ -1430,6 +1430,99 @@
         "/images/galleries/sesja-ciazowa-w-parku-tetmajera/06-thumb.jpg"
       ],
       "cover": "/images/galleries/sesja-ciazowa-w-parku-tetmajera/cover.jpg"
+    },
+    {
+      "slug": "marzena-i-artur",
+      "title": "Marzena i Artur",
+      "category": "Sesje romantyczne",
+      "date": "2025-06-04",
+      "excerpt": "Romantyczna sesja jesienią — beżowy płaszcz, złote liście i spacer alejką.",
+      "photos": 4,
+      "photos_list": [
+        "/images/sesje/romantyczne/09-thumb.jpg",
+        "/images/sesje/romantyczne/07-thumb.jpg",
+        "/images/sesje/romantyczne/29-thumb.jpg",
+        "/images/sesje/romantyczne/30-thumb.jpg"
+      ],
+      "cover": "/images/sesje/romantyczne/09-thumb.jpg"
+    },
+    {
+      "slug": "arleta-i-rafal",
+      "title": "Arleta i Rafał",
+      "category": "Sesje romantyczne",
+      "date": "2025-06-04",
+      "excerpt": "Letnia sesja w parku — czerwona sukienka i zieleń dookoła.",
+      "photos": 2,
+      "photos_list": [
+        "/images/sesje/romantyczne/02-thumb.jpg",
+        "/images/sesje/romantyczne/11-thumb.jpg"
+      ],
+      "cover": "/images/sesje/romantyczne/02-thumb.jpg"
+    },
+    {
+      "slug": "marysia-i-lukasz",
+      "title": "Marysia i Łukasz",
+      "category": "Sesje romantyczne",
+      "date": "2025-06-04",
+      "excerpt": "Sesja ślubna w ogrodzie — biała suknia, słoneczniki i muszka.",
+      "photos": 5,
+      "photos_list": [
+        "/images/sesje/romantyczne/26-thumb.jpg",
+        "/images/sesje/romantyczne/12-thumb.jpg",
+        "/images/sesje/romantyczne/20-thumb.jpg",
+        "/images/sesje/romantyczne/22-thumb.jpg",
+        "/images/sesje/romantyczne/37-thumb.jpg"
+      ],
+      "cover": "/images/sesje/romantyczne/26-thumb.jpg"
+    },
+    {
+      "slug": "kasia-i-michal",
+      "title": "Kasia i Michał",
+      "category": "Sesje romantyczne",
+      "date": "2025-06-04",
+      "excerpt": "Romantyczna sesja w parku — różowy top i granatowa koszula.",
+      "photos": 3,
+      "photos_list": [
+        "/images/sesje/romantyczne/23-thumb.jpg",
+        "/images/sesje/romantyczne/24-thumb.jpg",
+        "/images/sesje/romantyczne/32-thumb.jpg"
+      ],
+      "cover": "/images/sesje/romantyczne/23-thumb.jpg"
+    },
+    {
+      "slug": "inne-sesje-romantyczne",
+      "title": "Inne sesje romantyczne",
+      "category": "Sesje romantyczne",
+      "date": "2025-06-04",
+      "excerpt": "Pozostałe sesje romantyczne — różne pary, różne plenery i pory roku.",
+      "photos": 24,
+      "photos_list": [
+        "/images/sesje/romantyczne/17-thumb.jpg",
+        "/images/sesje/romantyczne/01-thumb.jpg",
+        "/images/sesje/romantyczne/03-thumb.jpg",
+        "/images/sesje/romantyczne/04-thumb.jpg",
+        "/images/sesje/romantyczne/05-thumb.jpg",
+        "/images/sesje/romantyczne/06-thumb.jpg",
+        "/images/sesje/romantyczne/08-thumb.jpg",
+        "/images/sesje/romantyczne/10-thumb.jpg",
+        "/images/sesje/romantyczne/13-thumb.jpg",
+        "/images/sesje/romantyczne/14-thumb.jpg",
+        "/images/sesje/romantyczne/15-thumb.jpg",
+        "/images/sesje/romantyczne/16-thumb.jpg",
+        "/images/sesje/romantyczne/18-thumb.jpg",
+        "/images/sesje/romantyczne/19-thumb.jpg",
+        "/images/sesje/romantyczne/21-thumb.jpg",
+        "/images/sesje/romantyczne/25-thumb.jpg",
+        "/images/sesje/romantyczne/27-thumb.jpg",
+        "/images/sesje/romantyczne/28-thumb.jpg",
+        "/images/sesje/romantyczne/31-thumb.jpg",
+        "/images/sesje/romantyczne/33-thumb.jpg",
+        "/images/sesje/romantyczne/34-thumb.jpg",
+        "/images/sesje/romantyczne/35-thumb.jpg",
+        "/images/sesje/romantyczne/36-thumb.jpg",
+        "/images/sesje/romantyczne/38-thumb.jpg"
+      ],
+      "cover": "/images/sesje/romantyczne/17-thumb.jpg"
     }
   ]
 }

@@ -3,162 +3,31 @@
     {
       "slug": "romantyczne",
       "hero": "/images/sesje/romantyczne.jpg",
-      "photos": [
+      "photos": [],
+      "samples_title": "Przykładowe romantyczne sesje zdjęciowe:",
+      "samples": [
         {
-          "photo": "/images/sesje/romantyczne/01.jpg",
-          "thumb": "/images/sesje/romantyczne/01-thumb.jpg"
+          "title": "Marzena i Artur",
+          "slug": "marzena-i-artur"
         },
         {
-          "photo": "/images/sesje/romantyczne/02.jpg",
-          "thumb": "/images/sesje/romantyczne/02-thumb.jpg"
+          "title": "Arleta i Rafał",
+          "slug": "arleta-i-rafal"
         },
         {
-          "photo": "/images/sesje/romantyczne/03.jpg",
-          "thumb": "/images/sesje/romantyczne/03-thumb.jpg"
+          "title": "Marysia i Łukasz",
+          "slug": "marysia-i-lukasz"
         },
         {
-          "photo": "/images/sesje/romantyczne/04.jpg",
-          "thumb": "/images/sesje/romantyczne/04-thumb.jpg"
+          "title": "Kasia i Michał",
+          "slug": "kasia-i-michal"
         },
         {
-          "photo": "/images/sesje/romantyczne/05.jpg",
-          "thumb": "/images/sesje/romantyczne/05-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/06.jpg",
-          "thumb": "/images/sesje/romantyczne/06-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/07.jpg",
-          "thumb": "/images/sesje/romantyczne/07-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/08.jpg",
-          "thumb": "/images/sesje/romantyczne/08-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/09.jpg",
-          "thumb": "/images/sesje/romantyczne/09-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/10.jpg",
-          "thumb": "/images/sesje/romantyczne/10-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/11.jpg",
-          "thumb": "/images/sesje/romantyczne/11-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/12.jpg",
-          "thumb": "/images/sesje/romantyczne/12-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/13.jpg",
-          "thumb": "/images/sesje/romantyczne/13-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/14.jpg",
-          "thumb": "/images/sesje/romantyczne/14-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/15.jpg",
-          "thumb": "/images/sesje/romantyczne/15-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/16.jpg",
-          "thumb": "/images/sesje/romantyczne/16-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/17.jpg",
-          "thumb": "/images/sesje/romantyczne/17-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/18.jpg",
-          "thumb": "/images/sesje/romantyczne/18-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/19.jpg",
-          "thumb": "/images/sesje/romantyczne/19-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/20.jpg",
-          "thumb": "/images/sesje/romantyczne/20-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/21.jpg",
-          "thumb": "/images/sesje/romantyczne/21-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/22.jpg",
-          "thumb": "/images/sesje/romantyczne/22-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/23.jpg",
-          "thumb": "/images/sesje/romantyczne/23-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/24.jpg",
-          "thumb": "/images/sesje/romantyczne/24-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/25.jpg",
-          "thumb": "/images/sesje/romantyczne/25-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/26.jpg",
-          "thumb": "/images/sesje/romantyczne/26-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/27.jpg",
-          "thumb": "/images/sesje/romantyczne/27-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/28.jpg",
-          "thumb": "/images/sesje/romantyczne/28-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/29.jpg",
-          "thumb": "/images/sesje/romantyczne/29-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/30.jpg",
-          "thumb": "/images/sesje/romantyczne/30-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/31.jpg",
-          "thumb": "/images/sesje/romantyczne/31-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/32.jpg",
-          "thumb": "/images/sesje/romantyczne/32-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/33.jpg",
-          "thumb": "/images/sesje/romantyczne/33-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/34.jpg",
-          "thumb": "/images/sesje/romantyczne/34-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/35.jpg",
-          "thumb": "/images/sesje/romantyczne/35-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/36.jpg",
-          "thumb": "/images/sesje/romantyczne/36-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/37.jpg",
-          "thumb": "/images/sesje/romantyczne/37-thumb.jpg"
-        },
-        {
-          "photo": "/images/sesje/romantyczne/38.jpg",
-          "thumb": "/images/sesje/romantyczne/38-thumb.jpg"
+          "title": "Inne sesje romantyczne",
+          "slug": "inne-sesje-romantyczne"
         }
       ],
-      "samples_title": "",
-      "samples": []
+      "samples_landscape": true
     },
     {
       "slug": "dzieciece",
