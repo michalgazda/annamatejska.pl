@@ -42,3 +42,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # duże dist (~300 MB zdjęć): syncing_files potrafi trwać dłużej niż domyślne
+          # 10 minut i deployment pada na "Timeout reached, aborting!"
+          timeout: 1800000
