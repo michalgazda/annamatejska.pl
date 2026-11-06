@@ -147,7 +147,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 
 /* galleries on index / galerie listing */
 .gal-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.gal-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.gal-list{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:56px}
 .gal-card{position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end}
 .gal-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
 .gal-card:hover img{transform:scale(1.05)}
