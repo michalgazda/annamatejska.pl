@@ -5,6 +5,12 @@ import { aboutPage, site, assetPath, pageHeading } from '../data/queries';
 const base = import.meta.env.BASE_URL;
 const a = aboutPage();
 const s = site();
+
+// **pogrubienie** w tekście z panelu — taki sam zapis jak na /oferta
+const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const bold = (text) => String(text).split('**')
+  .map((part, i) => (i % 2 ? `<strong>${esc(part)}</strong>` : esc(part)))
+  .join('');
 ---
 
 <BaseLayout title="O mnie — Anna Matejska-Gazda, fotograf Kraków" description="Mam na imię Anna. Historyk sztuki i pedagog, żona i mama dwóch córeczek. Fotografia rodzinna, kobieca i portretowa w Krakowie — czułość, estetyka i dobra kawa.">
@@ -24,11 +30,11 @@ const s = site();
         <img src={assetPath(a.photo, base)} alt="Anna Matejska-Gazda — fotografka z Krakowa" />
       </figure>
       <div class="prose reveal reveal-right">
-        <p>{a.intro}</p>
+        <p set:html={bold(a.intro)} />
         {a.sections.map(sec => (
           <div style="margin-top:34px">
             <h2 class="sub-title" style="margin-bottom:12px">{sec.title}</h2>
-            {sec.paragraphs.map(p => <p>{p}</p>)}
+            {sec.paragraphs.map(p => <p set:html={bold(p)} />)}
           </div>
         ))}
       </div>

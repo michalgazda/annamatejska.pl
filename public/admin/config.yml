@@ -215,7 +215,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: "Nagłówek sekcji", name: "title", widget: "string" }
-              - label: "Akapity"
+              - label: "Akapity (pogrubienie: **tekst**)"
                 name: "paragraphs"
                 widget: "list"
                 field: { label: "Akapit", name: "paragraph", widget: "text" }

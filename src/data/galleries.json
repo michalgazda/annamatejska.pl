@@ -1497,6 +1497,7 @@
       "excerpt": "Pozostałe sesje romantyczne — różne pary, różne plenery i pory roku.",
       "photos": 24,
       "photos_list": [
+        "/images/sesje/romantyczne/15-thumb.jpg",
         "/images/sesje/romantyczne/17-thumb.jpg",
         "/images/sesje/romantyczne/01-thumb.jpg",
         "/images/sesje/romantyczne/03-thumb.jpg",
@@ -1507,7 +1508,6 @@
         "/images/sesje/romantyczne/10-thumb.jpg",
         "/images/sesje/romantyczne/13-thumb.jpg",
         "/images/sesje/romantyczne/14-thumb.jpg",
-        "/images/sesje/romantyczne/15-thumb.jpg",
         "/images/sesje/romantyczne/16-thumb.jpg",
         "/images/sesje/romantyczne/18-thumb.jpg",
         "/images/sesje/romantyczne/19-thumb.jpg",
@@ -1522,7 +1522,7 @@
         "/images/sesje/romantyczne/36-thumb.jpg",
         "/images/sesje/romantyczne/38-thumb.jpg"
       ],
-      "cover": "/images/sesje/romantyczne/17-thumb.jpg"
+      "cover": "/images/sesje/romantyczne/15-thumb.jpg"
     }
   ]
 }

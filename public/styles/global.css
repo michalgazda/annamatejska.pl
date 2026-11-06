@@ -278,8 +278,8 @@ footer.site .foot-logo img{display:block;height:72px;width:auto}
 .grid-2 figure{aspect-ratio:4/3}
 .fig-portrait img{aspect-ratio:3/4;object-fit:cover;width:100%}
 .split{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
-/* /o-mnie: szersza kolumna z tekstem — mniej linii, lżejszy układ (Ania) */
-.split.split--about{grid-template-columns:minmax(300px,.82fr) 1.65fr;gap:52px}
+/* /o-mnie: szersze zdjęcie, kolumna tekstu ~10% szersza niż pierwotnie (Ania) */
+.split.split--about{grid-template-columns:0.62fr 1fr;gap:52px}
 
 /* price packages */
 .price-group{margin-top:64px}
