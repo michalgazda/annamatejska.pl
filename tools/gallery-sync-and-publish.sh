@@ -22,8 +22,8 @@ npm run build
 npm run validate
 
 git add -A -- "${WATCH[@]}"
-git -c user.name="Hermes (wrzutnia zdjęć)" -c user.email="hermichalg@gmail.com" \
-    commit -q -m "galeria: zdjęcia z wrzutni Anny ($(date +%Y-%m-%d))"
+# autor commita = lokalna tożsamość git repo (żadnych adresów Hermesa w publicznym repo)
+git commit -q -m "galeria: zdjęcia z wrzutni Anny ($(date +%Y-%m-%d))"
 if [ "${DRY_PUSH:-0}" = "1" ]; then
   echo "OPUBLIKOWANO (dry-push — commit lokalny, bez push) $(git log --oneline -1)"
 else

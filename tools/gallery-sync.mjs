@@ -35,7 +35,13 @@ const GALLERIES_JSON = join(REPO, 'src/data/galleries.json');
 const OUT_DIR = join(REPO, 'public/images/galleries');
 const TOKEN_FILE = process.env.GDRIVE_TOKEN_FILE || join(os.homedir(), '.hermes/google_token.json');
 
-const CFG = JSON.parse(readFileSync(CFG_PATH, 'utf8'));
+// Sekrety/identyfikatory spoza repo: tools/gallery-sync.local.json jest w .gitignore
+// (id folderu Drive, ewentualne nadpisania limitów), albo zmienna GDRIVE_FOLDER_ID.
+const LOCAL_CFG_PATH = join(REPO, 'tools/gallery-sync.local.json');
+const CFG = {
+  ...JSON.parse(readFileSync(CFG_PATH, 'utf8')),
+  ...(existsSync(LOCAL_CFG_PATH) ? JSON.parse(readFileSync(LOCAL_CFG_PATH, 'utf8')) : {}),
+};
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(n);
 const opt = (n, d = null) => { const i = args.indexOf(n); return i >= 0 && args[i + 1] ? args[i + 1] : d; };
@@ -441,8 +447,8 @@ async function main() {
       buckets.push({ title: CFG.rootGallerySlug ? (CFG.rootGallerySlug) : basename(root), slug, files: rootImages.sort((a, b) => naturalCompare(a.name, b.name)), loose: true });
     }
   } else {
-    const folderId = opt('--folder', CFG.driveFolderId);
-    if (!folderId) throw new Error('Brak driveFolderId w tools/gallery-sync.config.json (albo podaj --folder ID)');
+    const folderId = opt('--folder', process.env.GDRIVE_FOLDER_ID || CFG.driveFolderId);
+    if (!folderId) throw new Error('Brak id folderu Drive — wpisz je do tools/gallery-sync.local.json (gitignore), ustaw GDRIVE_FOLDER_ID albo podaj --folder ID');
     const token = await accessToken();
     const entries = await driveList(token, folderId);
     const subdirs = entries.filter((e) => e.mimeType === 'application/vnd.google-apps.folder');
@@ -509,7 +515,7 @@ async function main() {
   const report = writeReport(buckets, CFG);
   console.log('\n' + report);
   if (!LOCAL_DIR && CFG.uploadReportToDrive && globalThis.__token && !DRY) {
-    const folderId = opt('--folder', CFG.driveFolderId);
+    const folderId = opt('--folder', process.env.GDRIVE_FOLDER_ID || CFG.driveFolderId);
     try {
       await uploadReportToDrive(globalThis.__token, folderId, report);
       console.log('Raport wrzucony do folderu na Drive (_RAPORT-synchronizacji.txt).');

@@ -67,13 +67,14 @@ Jeśli JSON galerii rozjedzie się z plikami na dysku, sync odbuduje `photos_lis
 
 ## Wrzutnia — stan
 
-- Folder Drive: `annamatejska.pl — zdjęcia do galerii`
-  `https://drive.google.com/drive/folders/1XE4zHmcb6UAMwKb2B1ZJc1yb7OsLoo5q`
-  (właściciel `hermichalg@gmail.com`, Anna `annamatejskagazda@gmail.com` = edytor),
-  w środku `CZYTAJ-TO-PRZED-WRZUCENIEM-ZDJEC.txt` (instrukcja dla Anny)
-- Publicznie (skrypt, jedna komenda): `./tools/gallery-sync-and-publish.sh`
+- Folder Drive: `annamatejska.pl — zdjęcia do galerii` (właściciel: konto Google instancji,
+  Anna = edytor). **Identyfikator folderu nie jest trzymany w tym repo** (repo jest publiczne) —
+  leży w `tools/gallery-sync.local.json`, który jest w `.gitignore`; alternatywnie `--folder <ID>`
+  albo zmienna `GDRIVE_FOLDER_ID`. Instrukcja dla Anny jest w tym folderze jako `CZYTAJ-TO-…txt`
+  (kopia w repo: `docs/instrukcja-wrzutnia-zdjec.txt`).
+- Publikacja jedną komendą: `./tools/gallery-sync-and-publish.sh`
   = sync → `npm run build` → `npm run validate` → commit → push na `main`.
   `DRY_PUSH=1` robi wszystko poza wypchnięciem (commit lokalny).
-- Cron celowo NIE jest ustawiony (Michał: wrzutki będą sporadyczne) —
-  uruchamiamy na żądanie, wtedy gdy Anna wrzuci zdjęcia.
+- Cron celowo NIE jest ustawiony (wrzutki będą sporadyczne) — uruchamiamy na żądanie,
+  gdy Anna wrzuci zdjęcia.
 - Raport po każdej synchronizacji: `docs/gallery-sync-report.md` + `_RAPORT-synchronizacji.txt` na Drive.

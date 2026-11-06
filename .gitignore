@@ -7,3 +7,4 @@ dist/
 .DS_Store
 .npmrc
 .netrc
+tools/gallery-sync.local.json
