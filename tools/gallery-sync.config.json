@@ -1,0 +1,16 @@
+{
+  "driveFolderId": "",
+  "rootGallerySlug": "",
+  "defaultCategory": "Sesje",
+  "defaultExcerpt": "Sesja zdjęciowa — wybrane kadry.",
+  "minLongEdge": 1600,
+  "rejectOverMB": 25,
+  "fullMax": 2400,
+  "thumbMax": 900,
+  "quality": 82,
+  "thumbQuality": 78,
+  "coverMax": 1600,
+  "uploadReportToDrive": true,
+  "stateFile": "tools/gallery-sync.state.json",
+  "reportFile": "docs/gallery-sync-report.md"
+}

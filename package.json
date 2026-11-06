@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "validate": "node tools/validate-dist.mjs"
+    "validate": "node tools/validate-dist.mjs",
+    "gallery:sync": "node tools/gallery-sync.mjs",
+    "gallery:dry": "node tools/gallery-sync.mjs --dry-run"
   },
   "dependencies": {
     "astro": "^5.0.0"

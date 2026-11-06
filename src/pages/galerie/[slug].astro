@@ -44,7 +44,7 @@ const autolink = (t) => esc(t).replace(/((?:https?:\/\/|www\.)[^\s<]+)/g,
       )}
       <div class="photo-grid">
         {photos.map((src, i) => (
-          <figure><img src={fullOf(src)} data-full={fullOf(src)} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>
+          <figure><img src={src} data-full={fullOf(src)} alt={`${gallery.title} — zdjęcie ${i+1}`} loading="lazy" /></figure>
         ))}
       </div>
       <p style="text-align:center;margin-top:56px"><a class="btn btn-line" href={`${base}galerie`}>← Wszystkie galerie</a></p>

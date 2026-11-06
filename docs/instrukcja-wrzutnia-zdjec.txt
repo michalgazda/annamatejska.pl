@@ -1,0 +1,41 @@
+WRZUTNIA ZDJĘĆ NA STRONĘ annamatejska.pl
+=======================================
+
+Do tego folderu wrzucasz zdjęcia, które mają trafić do galerii na stronie.
+Zdjęcia są pobierane automatycznie, zmniejszane i publikowane — nie musisz
+przygotowywać żadnej "wersji na stronę".
+
+JAK WRZUCAĆ
+-----------
+1. Dla każdej sesji / reportażu utwórz OSOBNY PODFOLDER.
+   Nazwa podfolderu = tytuł galerii, np.
+   "Sesja rodzinna – Kowalscy, Ogród Botaniczny (24.05.2026)".
+2. Do podfolderu wrzuć zdjęcia w JPG. Nazwy dowolne — kolejność alfabetyczna
+   (01, 02, 03…) jest kolejnością na stronie.
+3. Zdjęcia wrzucone luzem (poza podfolderami) też przejdą, ale wylądują
+   w jednej wspólnej galerii. Lepiej zawsze robić podfolder.
+
+CO PRZEJDZIE, A CO NIE
+----------------------
+✔ JPG / JPEG — najlepiej eksport z Lightrooma w jakości 80–90
+✔ dłuższy bok od 1600 px (2400 px w zupełności wystarczy)
+✔ do 25 MB na zdjęcie
+✘ HEIC z iPhone'a — nie zostanie odczytany, wyeksportuj do JPG
+✘ RAW, TIFF powyżej 25 MB, PSD, PDF-y, filmy
+✘ screeny i zdjęcia przesłane przez WhatsAppa/Instagrama (~1000 px) —
+  na stronie byłyby rozmyte, minimum to 1600 px
+
+RAPORT
+------
+Po każdej synchronizacji w tym folderze pojawia się plik
+_RAPORT-synchronizacji.txt: co zostało dodane i co odpadło (z powodem).
+Jeśli jakieś zdjęcie nie pojawiło się na stronie — najpierw zajrzyj do raportu.
+
+DODATKOWO
+---------
+- Zdjęcia na stronie są publikowane bez metadanych EXIF (m.in. bez lokalizacji
+  GPS z aparatu) — to bezpieczniejsze dla klientów.
+- Nic nie jest kasowane: oryginały zostają w tym folderze, a na stronie ląduje
+  zmniejszona kopia.
+- Chcesz ustawić tytuł galerii, opis i podpięcie do sekcji na stronie
+  (Sesje / Reportaże) — napisz, dopisuję to za Ciebie.
