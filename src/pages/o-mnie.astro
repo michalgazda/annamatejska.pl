@@ -8,20 +8,23 @@ const s = site();
 ---
 
 <BaseLayout title="O mnie — Anna Matejska-Gazda, fotograf Kraków" description="Mam na imię Anna. Historyk sztuki i pedagog, żona i mama dwóch córeczek. Fotografia rodzinna, kobieca i portretowa w Krakowie — czułość, estetyka i dobra kawa.">
-  <section class="page-hero">
+  <section class="page-hero" style="padding-bottom:26px">
     <div class="container">
       <h1 class="kicker">{pageHeading(a.kicker, 'O mnie')}</h1>
-      <p class="lead" style="max-width:820px;margin:18px auto 0">{a.script_heading}</p>
+      <p class="about-script">
+        {a.script_heading.split(/(?<=!)\s+/).map((line, i) => <>{i > 0 && <br />}{line}</>)}
+      </p>
+      <p class="about-lead">{a.lead}</p>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section style="padding-top:34px">
     <div class="container split">
       <figure class="fig-portrait reveal reveal-left" style="margin:0">
         <img src={assetPath(a.photo, base)} alt="Anna Matejska-Gazda — fotografka z Krakowa" />
       </figure>
       <div class="prose reveal reveal-right">
-        <p class="lead">{a.intro}</p>
+        <p>{a.intro}</p>
         {a.sections.map(sec => (
           <div style="margin-top:34px">
             <h2 class="sub-title" style="margin-bottom:12px">{sec.title}</h2>
@@ -37,8 +40,7 @@ const s = site();
     <div class="container inner">
       <h2>{a.cta_title}</h2>
       <p>{a.cta_text}</p>
-      <a href={`${base}kontakt`} class="btn btn-white">Napisz do mnie</a>
-      <p style="margin-top:22px;font-size:.9rem;opacity:.9">{s.email} · {s.phoneDisplay}</p>
+      <a href={`mailto:${s.email}`} class="btn btn-white">{s.email}</a>
     </div>
   </section>
 </BaseLayout>

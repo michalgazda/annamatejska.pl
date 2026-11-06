@@ -206,6 +206,7 @@ collections:
           - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string", default: "O mnie" }
           - { label: "Tytuł strony", name: "title", widget: "string" }
           - { label: "Nagłówek (czcionka pisana)", name: "script_heading", widget: "text" }
+          - { label: "Wstęp pod nagłówkiem (większa czcionka)", name: "lead", widget: "text", required: false }
           - { label: "Zdjęcie", name: "photo", widget: "image" }
           - { label: "Wstęp", name: "intro", widget: "text" }
           - label: "Sekcje"

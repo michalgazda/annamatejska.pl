@@ -1,36 +1,39 @@
 {
   "kicker": "O mnie",
   "title": "O mnie",
-  "script_heading": "Mam na imię Anna i z radością zatrzymam w kadrach ważne dla Was chwile. Zarówno z wyjątkowych wydarzeń, jak i te codzienne.",
+  "script_heading": "Cześć! Mam na imię Anna.",
+  "lead": "Towarzyszę Wam z aparatem zarówno podczas ważnych rodzinnych wydarzeń, jak i w Waszej codzienności.",
   "photo": "/images/o-mnie.jpg",
-  "intro": "Czas mija szybko, zmieniamy się, dzieci rosną… dobrze mieć pamiątkę, która przez kolejne lata będzie przypominać nam ten konkretny okres w życiu. Narzeczeństwo, małżeństwo, ciąża, narodziny dziecka – każdy z tych etapów jest szczególny i warty zapamiętania.",
+  "intro": "W fotografii najważniejsze są dla mnie czułość i uważność. Lubię obserwować relacje między ludźmi, dostrzegać emocje, drobne gesty i spojrzenia. Szukam tego, co w Was wyjątkowe, i staram się pokazywać to w pięknych, przemyślanych kadrach.",
   "sections": [
     {
-      "title": "A co dla mnie jest najważniejsze w fotografii?",
+      "title": "Sesje rodzinne",
       "paragraphs": [
-        "Czułość. Koncentruję się na uchwyceniu Waszych emocji i uczuć oraz wydobywam i podkreślam to, co jest w Was najbardziej wyjątkowe."
+        "Podczas sesji w plenerze lub w Waszym domu dbam o swobodną atmosferę. Pomagam Wam odnaleźć się przed obiektywem, podpowiadam, inspiruję do wspólnych aktywności, ale zostawiam też dużo miejsca na spontaniczność. Chciałabym, żeby sesja była dla Was po prostu miłym czasem spędzonym razem.",
+        "Fotografuję nie tylko Wasze uśmiechy i przytulenia, ale też drobiazgi, które tworzą Waszą codzienność. Dziecięcy uśmiech z brakującą „jedynką”, sposób odgarniania opadających włosów, ulubiona bluza w koniki, pluszowy miś czy niemowlęcy kocyk. To właśnie takie szczegóły po latach mogą nabrać szczególnej wartości."
       ]
     },
     {
-      "title": "Co jeszcze jest dla mnie ważne?",
+      "title": "Reportaże",
       "paragraphs": [
-        "Spotkanie. Każda sesja fotograficzna to dla mnie nie tylko zrobienie i oddanie pakietu zdjęć, ale tworzenie przyjaznej i relaksującej atmosfery. Tak, żeby sama sesja była dla Was miłą formą spędzenia czasu – czy to we dwoje, czy z rodziną, czy może w końcu spokojną chwilą dla samej siebie podczas sesji kobiecej lub ciążowej."
+        "Podczas reportaży jestem blisko wydarzeń, ale nie ingeruję w ich przebieg. Dyskretnie obserwuję i szukam momentów, które łatwo przeoczyć – mamy ocierającej łzy wzruszenia, panny młodej poprawiającej przyszłemu mężowi krawat tuż przed ceremonią, dziecięcych zabaw czy spontanicznych spotkań z dawno niewidzianymi bliskimi.",
+        "Nie chcę jedynie dokumentować najważniejszych punktów uroczystości. Zależy mi na uchwyceniu jej atmosfery i małych historii, które składają się na ten dzień. Chciałabym, żebyście oglądając zdjęcia, mogli za każdym razem na nowo do niego wracać."
       ]
     },
     {
       "title": "Co mnie wyróżnia?",
       "paragraphs": [
-        "Jestem historykiem sztuki – więc dbam o estetykę, kompozycję i każdy detal kadru.",
-        "Jestem pedagogiem oraz mamą – więc bardzo zależy mi na tym, żeby podczas sesji rodzinnych dla Waszych dzieci była to zabawa i przyjemność."
+        "Jestem historykiem sztuki – dlatego zwracam szczególną uwagę na estetykę, kompozycję i każdy detal kadru.",
+        "Jestem też pedagogiem i mamą – dzięki temu łatwiej mi nawiązać kontakt z dziećmi i zadbać o to, by podczas sesji rodzinnych czy reportaży domowych czuły się swobodnie, a fotografowanie było dla nich przyjemnością."
       ]
     },
     {
       "title": "Co lubię?",
       "paragraphs": [
-        "Dobrą kawę! Więc jeśli tylko to możliwe, sesję rozpoczynam od kawy lub herbaty z Wami, żeby porozmawiać i usłyszeć, jakie macie oczekiwania oraz co jest dla Was ważne."
+        "Uwielbiam podróże, bo łączą one odkrywanie nowych miejsc, sztukę, poznawanie ludzi i fotografię. No i dobrą kawę oraz rozmowy przy niej!"
       ]
     }
   ],
   "cta_title": "Masz do mnie pytania?",
-  "cta_text": "Napisz. Bardzo chętnie na wszystkie odpowiem."
+  "cta_text": "Napisz do mnie. Chętnie odpowiem na wszystkie pytania."
 }
