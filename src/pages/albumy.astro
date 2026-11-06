@@ -23,12 +23,18 @@ const a = albumy();
 
     {a.photos.length > 0 && (
       <div class="container">
-        <div class="grid-4">
-          {a.photos.map((p, i) => (
-            <figure class={`reveal reveal-up reveal-d${(i % 3) + 1}`}>
-              <img src={assetPath(p, base)} alt={`Album fotograficzny — zdjęcie ${i + 1}`} loading="lazy" />
-            </figure>
-          ))}
+        <div class="album-scroller reveal reveal-up">
+          <div class="album-track" id="album-track" tabindex="0" aria-label="Galeria zdjęć albumów — przewiń w lewo lub w prawo">
+            {a.photos.map((p, i) => (
+              <figure class="album-slide">
+                <img src={assetPath(p, base)} alt={`Album fotograficzny — zdjęcie ${i + 1}`} loading="lazy" width="1200" height="800" />
+              </figure>
+            ))}
+          </div>
+          <div class="album-nav">
+            <button type="button" class="album-prev" aria-label="Poprzednie zdjęcie" aria-controls="album-track">‹</button>
+            <button type="button" class="album-next" aria-label="Następne zdjęcie" aria-controls="album-track">›</button>
+          </div>
         </div>
       </div>
     )}
