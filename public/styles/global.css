@@ -418,6 +418,8 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .session-photo{margin:0;overflow:hidden}
 .session-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
 .session-text .page-title{margin-bottom:16px}
+/* Ania układa tekst sesji linijka po linijce — Enter w panelu = twarde złamanie linii */
+.session-text p{white-space:pre-line}
 .session-text .lead{color:var(--ink-soft);margin-bottom:1.1rem}
 .session-duration{margin:22px 0 30px;color:var(--ink-soft)}
 .session-duration strong{font-weight:500;color:var(--ink)}
