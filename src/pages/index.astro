@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services, testimonials, assetPath, home } from '../data/queries';
+import SeasonMotif from '../components/SeasonMotif.astro';
+import { services, testimonials, assetPath, home, sezony } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const svcs = services();
 const testis = testimonials();
 const h = home().about;
-const seasonList = [
-  { period: 'Mar–Kwi', name: 'Kwitnący sad' },
-  { period: 'Maj', name: 'Pole maków' },
-  { period: 'Lip', name: 'Pole lawendy' },
-  { period: 'Sie', name: 'Farma kwiatowa' },
-  { period: 'Wrz', name: 'Sianokosy' },
-  { period: 'Wrz–Paź', name: 'Farma dyniowa' },
-];
+const se = sezony();
 ---
 
 <BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobieca, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością.">
@@ -84,13 +78,27 @@ const seasonList = [
   <!-- Pory roku -->
   <section class="seasons">
     <div class="container">
-      <span class="kicker">Kalendarz pór roku</span>
-      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Sezonowe plenery</h2>
-      <p style="margin-top:14px;color:var(--ink-soft)">Przyroda jako najlepsze tło — każda pora roku ma swój magiczny moment.</p>
-      <div class="season-list">
-        {seasonList.map(s => (
-          <div class="season"><span class="mo">{s.period}</span><h3>{s.name}</h3></div>
-        ))}
+      <span class="kicker">{se.kicker}</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">{se.title}</h2>
+      <p style="margin-top:14px;color:var(--ink-soft)">{se.lead}</p>
+      <div class="season-slider">
+        <div class="season-track" id="season-track" tabindex="0" aria-label="Sezonowe plenery — przewiń w lewo lub w prawo">
+          {se.seasons.map(s => (
+            <article class={`season-card${s.image ? '' : ' season-card--text'}`}>
+              {s.image
+                ? <img src={assetPath(s.image, base)} alt={s.alt || s.name} loading="lazy" width="900" height="600" />
+                : <div class="season-ph"><SeasonMotif name={s.motif} /></div>}
+              <div class="season-body">
+                <span class="mo">{s.period}</span>
+                <h3>{s.name}</h3>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="season-nav">
+          <button type="button" class="season-prev" aria-label="Poprzednie plenery" aria-controls="season-track">‹</button>
+          <button type="button" class="season-next" aria-label="Następne plenery" aria-controls="season-track">›</button>
+        </div>
       </div>
     </div>
   </section>

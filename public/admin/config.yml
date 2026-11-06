@@ -563,6 +563,41 @@ collections:
                     display_fields: ["galleries.*.title"]
                     value_field: "galleries.*.slug"
 
+  - name: "sezony"
+    label: "Sezonowe plenery"
+    label_singular: "Plener"
+    description: "Kalendarz pór roku na stronie głównej: miesiące, nazwy i zdjęcia kafelków (5 w rzędzie, reszta przewija się w bok)."
+    editor:
+      preview: false
+    files:
+      - name: "sezony-list"
+        label: "Sezonowe plenery — lista"
+        file: "src/data/sezony.json"
+        fields:
+          - { label: "Etykieta nad nagłówkiem", name: "kicker", widget: "string" }
+          - { label: "Nagłówek sekcji", name: "title", widget: "string" }
+          - { label: "Podpis pod nagłówkiem", name: "lead", widget: "text" }
+          - label: "Plenery (kolejność = kolejność kafelków)"
+            name: "seasons"
+            widget: "list"
+            summary: "{{fields.period}} — {{fields.name}}"
+            fields:
+              - { label: "Miesiąc (np. Sie–Wrz)", name: "period", widget: "string" }
+              - { label: "Nazwa pleneru", name: "name", widget: "string" }
+              - label: "Zdjęcie kafelka (poziome, 3:2)"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "Puste = kafel z kremowym tłem i nazwą miesiąca."
+              - { label: "Opis zdjęcia (alt, dla Google)", name: "alt", widget: "string", required: false }
+              - label: "Motyw, gdy nie ma zdjęcia"
+                name: "motif"
+                widget: "select"
+                required: false
+                options: ["sad", "mak", "winnica", "sianokosy", "gałązka"]
+                default: "gałązka"
+                hint: "Rysowana gałązka/kwiat na kafelku, dopóki nie ma zdjęcia pleneru."
+
   - name: "settings"
     label: "Ustawienia"
     editor:

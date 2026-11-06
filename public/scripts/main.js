@@ -121,8 +121,32 @@
     }
   });
 
-  // Manual horizontal sliders (opinions carousel + /albumy photo strip):
+  // Manual horizontal sliders (opinions carousel + /albumy photo strip + season tiles):
   // arrows, drag-to-scroll with a mouse (touch scrolls natively), arrow keys.
+  // Przewijanie animujemy sami (easeInOutCubic) — natywne `smooth` jest szarpnięciem,
+  // a Ania prosiła o „bardziej płynne i delikatne”.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function glide(track, target) {
+    var max = track.scrollWidth - track.clientWidth;
+    var left = Math.max(0, Math.min(max, target));
+    if (reduceMotion) { track.scrollLeft = left; return; }
+    var start = track.scrollLeft, dist = left - start;
+    if (Math.abs(dist) < 1) return;
+    var dur = Math.min(720, Math.max(340, Math.abs(dist) * 0.5));
+    var t0 = null;
+    track.classList.add('is-gliding');
+    track.style.scrollBehavior = 'auto';
+    function step(now) {
+      if (t0 === null) t0 = now;
+      var p = Math.min(1, (now - t0) / dur);
+      var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      track.scrollLeft = start + dist * e;
+      if (p < 1) requestAnimationFrame(step);
+      else { track.style.scrollBehavior = ''; track.classList.remove('is-gliding'); }
+    }
+    requestAnimationFrame(step);
+  }
+
   function initSlider(track, prevSel, nextSel, slideSel, gapFallback) {
     if (!track) return;
     var step = function () {
@@ -133,8 +157,8 @@
     };
     var prevBtn = document.querySelector(prevSel);
     var nextBtn = document.querySelector(nextSel);
-    if (prevBtn) prevBtn.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { glide(track, track.scrollLeft - step()); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { glide(track, track.scrollLeft + step()); });
 
     var down = false, startX = 0, startScroll = 0, moved = 0;
     track.addEventListener('pointerdown', function (e) {
@@ -154,19 +178,30 @@
         if (!down) return;
         down = false;
         track.classList.remove('is-dragging');
-        var target = Math.round(track.scrollLeft / step()) * step();
-        track.scrollTo({ left: target, behavior: 'smooth' });
+        glide(track, Math.round(track.scrollLeft / step()) * step());
       });
     });
     // keyboard support on the focused strip
     track.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); glide(track, track.scrollLeft - step()); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); glide(track, track.scrollLeft + step()); }
     });
+
+    // klasy dla CSS: czy jest co przewijać (no-scroll) i czy jesteśmy na początku / końcu
+    var upd = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      track.classList.toggle('no-scroll', max <= 4);
+      track.classList.toggle('at-start', track.scrollLeft <= 4);
+      track.classList.toggle('at-end', track.scrollLeft >= max - 8);
+    };
+    track.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
   }
 
   initSlider(document.getElementById('opinie-track'), '.opinie-prev', '.opinie-next', '.opinie-card', 22);
   initSlider(document.getElementById('album-track'), '.album-prev', '.album-next', '.album-slide', 16);
+  initSlider(document.getElementById('season-track'), '.season-prev', '.season-next', '.season-card', 16);
 
   // Contact form (Web3Forms)
   var form = document.getElementById('contact-form');

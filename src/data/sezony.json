@@ -1,0 +1,53 @@
+{
+  "kicker": "Kalendarz pór roku",
+  "title": "Sezonowe plenery",
+  "lead": "Przyroda jako najlepsze tło — każda pora roku ma swój magiczny moment.",
+  "seasons": [
+    {
+      "period": "Mar–Kwi",
+      "name": "Kwitnący sad",
+      "image": "",
+      "alt": "Kwitnący sad — wiosenny plener do sesji zdjęciowej",
+      "motif": "sad"
+    },
+    {
+      "period": "Maj",
+      "name": "Pole maków",
+      "image": "",
+      "alt": "Pole maków — plener do sesji zdjęciowej",
+      "motif": "mak"
+    },
+    {
+      "period": "Lip",
+      "name": "Pole lawendy",
+      "image": "/images/sezony/lawenda.jpg",
+      "alt": "Pole lawendy pod Krakowem — sesja zdjęciowa w plenerze"
+    },
+    {
+      "period": "Sie",
+      "name": "Farma kwiatowa",
+      "image": "/images/galleries/wizyta-w-ogrodzie-botanicznym/05-thumb.jpg",
+      "alt": "Farma kwiatowa — kwitnące kwiaty w plenerze"
+    },
+    {
+      "period": "Sie–Wrz",
+      "name": "Winnica",
+      "image": "",
+      "alt": "Winnica — plener do sesji zdjęciowej",
+      "motif": "winnica"
+    },
+    {
+      "period": "Wrz",
+      "name": "Sianokosy",
+      "image": "",
+      "alt": "Sianokosy — plener do sesji zdjęciowej",
+      "motif": "sianokosy"
+    },
+    {
+      "period": "Wrz–Paź",
+      "name": "Farma dyniowa",
+      "image": "/images/galleries/dzien-na-farmie-dyniowej/02-thumb.jpg",
+      "alt": "Farma dyniowa — jesienny plener do sesji zdjęciowej"
+    }
+  ]
+}

@@ -70,6 +70,11 @@ export function albumy() {
   return JSON.parse(readFileSync('src/data/albumy.json', 'utf8'));
 }
 
+// „Sezonowe plenery” na stronie głównej — Decap → „Sezonowe plenery”
+export function sezony() {
+  return JSON.parse(readFileSync('src/data/sezony.json', 'utf8'));
+}
+
 export function studio() {
   return JSON.parse(readFileSync('src/data/studio.json', 'utf8'));
 }
