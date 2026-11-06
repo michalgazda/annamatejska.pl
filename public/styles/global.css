@@ -86,12 +86,9 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .step h3{font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;margin:18px 0 10px;font-weight:400}
 .step p{font-size:.9rem;color:var(--ink-soft)}
 
-/* seasons — kalendarz pór roku: kafelki ze zdjęciem, 5 w rzędzie, resztę przewija się w bok */
+/* seasons — kalendarz pór roku: kafelki ze zdjęciem, 4 w rzędzie, resztę przewija się w bok */
 .seasons{background:var(--white)}
 .season-slider{margin-top:46px;position:relative}
-/* delikatna mgiełka przy prawej krawędzi — sygnał, że poza kadrem są kolejne plenery */
-.season-slider::after{content:"";position:absolute;top:0;right:-2px;width:64px;height:calc(100% - 60px);pointer-events:none;background:linear-gradient(to left,rgba(255,255,255,.96),rgba(255,255,255,0));transition:opacity .25s}
-.season-slider:has(.season-track.at-end)::after,.season-slider:has(.season-track.no-scroll)::after{opacity:0}
 .season-track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:2px 0 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
 .season-track::-webkit-scrollbar{display:none}
 .season-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
@@ -105,12 +102,22 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .season-body{padding:13px 15px 15px}
 .season-body .mo{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
 .season-body h3{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;margin-top:6px;font-weight:400}
-.season-nav{display:flex;gap:10px;justify-content:center;margin-top:16px}
-.season-nav button{width:44px;height:44px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:1.2rem;line-height:1;cursor:pointer;border-radius:2px;transition:.2s}
-.season-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
+/* strzałki pasków w poziomie — wspólne dla /albumy i „Sezonowych plenerów”:
+   okrągłe przyciski nałożone na boki, przygaszone na początku/końcu */
+.album-nav,.season-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;margin:0;pointer-events:none}
+.album-nav button,.season-nav button{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,221,213,.85);background:rgba(255,255,255,.9);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 6px 22px rgba(13,13,13,.12);transition:background .2s,color .2s,opacity .2s,border-color .2s}
+.album-nav .album-prev,.season-nav .season-prev{margin-left:-20px}
+.album-nav .album-next,.season-nav .season-next{margin-right:-20px}
+.album-nav button:hover,.season-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
+.album-scroller:has(.album-track.at-start) .album-prev,
+.album-scroller:has(.album-track.at-end) .album-next,
+.album-scroller:has(.album-track.no-scroll) .album-nav,
+.season-slider:has(.season-track.at-start) .season-prev,
+.season-slider:has(.season-track.at-end) .season-next,
+.season-slider:has(.season-track.no-scroll) .season-nav{opacity:.3}
 @media(min-width:961px) and (max-width:1250px){.season-card{flex-basis:calc((100% - 20px)/3)}}
 @media(max-width:960px){.season-card{flex-basis:calc((100% - 10px)/2)}}
-@media(max-width:560px){.season-card{flex-basis:86%}}
+@media(max-width:560px){.season-card{flex-basis:86%}.album-nav .album-prev,.season-nav .season-prev{margin-left:-8px}.album-nav .album-next,.season-nav .season-next{margin-right:-8px}}
 
 /* quote — beige band, Forum serif in taupe (as on the old WP site) */
 .quote{background:var(--sand);color:var(--ink);text-align:center}
@@ -370,16 +377,7 @@ html.js .reveal.is-in{opacity:1;transform:none}
 .album-track.is-gliding{scroll-snap-type:none}
 .album-slide{flex:0 0 auto;margin:0;scroll-snap-align:start}
 .album-slide img{display:block;height:clamp(210px,32vw,420px);width:auto;max-width:none}
-/* strzałki po bokach zdjęć (nakładka), nie pod paskiem */
-.album-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;margin:0;pointer-events:none}
-.album-nav button{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,221,213,.85);background:rgba(255,255,255,.9);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 6px 22px rgba(13,13,13,.12);transition:background .2s,color .2s,opacity .2s,border-color .2s}
-.album-nav .album-prev{margin-left:-20px}
-.album-nav .album-next{margin-right:-20px}
-.album-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
-.album-scroller:has(.album-track.at-start) .album-prev,
-.album-scroller:has(.album-track.at-end) .album-next,
-.album-scroller:has(.album-track.no-scroll) .album-nav{opacity:.3}
-@media(max-width:560px){.album-slide img{height:62vw}.album-nav .album-prev{margin-left:-8px}.album-nav .album-next{margin-right:-8px}}
+@media(max-width:560px){.album-slide img{height:62vw}}
 /* /albumy: CTA „Jaki album wybrać?” — tekst łamany na linie tak, jak ustawiła Ania (enter w panelu) */
 .albumy-cta{white-space:pre-line}
 
