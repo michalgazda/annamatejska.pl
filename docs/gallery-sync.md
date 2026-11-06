@@ -45,15 +45,25 @@ i w pliku `_RAPORT-synchronizacji.txt` w folderze na Drive (Anna widzi, co popra
 ```json
 {
   "title": "Sesja rodzinna w Ogrodzie Botanicznym – Kowalscy",
-  "category": "Sesje",
+  "category": "Sesje rodzinne",
   "date": "2026-05-24",
   "excerpt": "Rodzinna sesja plenerowa — kadry bez pozowania.",
-  "link": { "type": "sesje", "session": "rodzinne" }
+  "cover": "DSC_1630.jpg",
+  "link": { "type": "sesje", "session": "rodzinne", "position": "first" }
 }
 ```
 
 - `link.type`: `sesje` (+`session`: romantyczne, rodzinne, dzieciece, kobiece, ciazowe, wizerunkowe)
   albo `reportaze` (+`group`: tytuł grupy z `reportaze.json`, domyślnie pierwsza).
+- `link` może być **listą**, gdy galeria ma trafić do kilku sekcji naraz
+  (np. sesja ciążowa → `/sesje/rodzinne/` **i** `/sesje/ciazowe/`).
+- `position: "first"` wstawia galerię na POCZĄTEK listy przykładowych sesji
+  (nowa sesja = najnowsza); bez tego dopisuje się na końcu.
+- `samples_title` / `landscape` ustawiają nagłówek i kształt kart sekcji
+  przykładowych sesji — przydatne, gdy sesja nie miała jej jeszcze wcale
+  (np. `ciazowe`: `"Przykładowe sesje ciążowe:"`, `"landscape": true`).
+- `cover: "<nazwa pliku źródłowego>"` (albo numer zdjęcia, np. `3`) wybiera zdjęcie
+  na okładkę kafelka; bez tego okładką jest pierwsze zdjęcie galerii.
 - Bez `link` galeria istnieje jako strona `/galerie/<slug>/`, ale **nikt na nią nie trafi** —
   raport wypisuje wtedy ostrzeżenie.
 - `_meta.json` działa też bez nowych zdjęć: sam dopisany plik wystarczy, żeby poprawić tytuł

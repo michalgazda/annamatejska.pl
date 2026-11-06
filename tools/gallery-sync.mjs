@@ -307,18 +307,34 @@ function upsertGallery(slug, bucket, results, cfg) {
  * istnieje, ale bez wpisu w sekcji nikt na nią nie trafi).
  * meta.link = { type: 'sesje', session: 'rodzinne' }
  *           | { type: 'reportaze', group: 'Reportaże – uroczystości rodzinne' }
+ *           | [ ...więcej niż jedna sekcja naraz... ]
+ * Opcje per link: position: 'first' (nowa sesja na początku listy),
+ * samples_title / landscape (sesja bez sekcji przykładowych — np. ciażowe).
  */
 function linkSection(slug, bucket, cfg) {
-  const link = bucket.meta?.link;
-  if (!link || !link.type) return null;
+  const raw = bucket.meta?.link;
+  const links = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  if (!links.length) return null;
   const title = bucket.meta?.title || bucket.title;
+  const parts = links.map((link) => applyLink(slug, title, link));
+  return parts.some((p) => String(p).startsWith('BŁĄD')) ? `BŁĄD: ${parts.join(' + ')}` : parts.join(' + ');
+}
+
+function applyLink(slug, title, link) {
+  if (!link || !link.type) return 'BŁĄD: link bez typu';
   if (link.type === 'sesje') {
     const p = join(REPO, 'src/data/sesje.json');
     const db = JSON.parse(readFileSync(p, 'utf8'));
     const session = db.sessions.find((s) => s.slug === link.session);
     if (!session) return `BŁĄD: nie ma sesji "${link.session}" w sesje.json`;
     session.samples ||= [];
-    if (!session.samples.some((s) => s.slug === slug)) session.samples.push({ title, slug });
+    if (link.samples_title) session.samples_title = link.samples_title;
+    if (link.landscape !== undefined) session.samples_landscape = !!link.landscape;
+    if (!session.samples.some((s) => s.slug === slug)) {
+      const item = { title, slug };
+      if (link.position === 'first') session.samples.unshift(item);
+      else session.samples.push(item);
+    }
     if (!DRY) writeFileSync(p, JSON.stringify(db, null, 2) + '\n');
     return `/sesje/${link.session}/`;
   }
@@ -330,7 +346,11 @@ function linkSection(slug, bucket, cfg) {
       : db.groups[0];
     if (!group) return `BŁĄD: nie ma grupy "${link.group}" w reportaze.json`;
     group.items ||= [];
-    if (!group.items.some((i) => i.slug === slug)) group.items.push({ title, slug });
+    if (!group.items.some((i) => i.slug === slug)) {
+      const item = { title, slug };
+      if (link.position === 'first') group.items.unshift(item);
+      else group.items.push(item);
+    }
     if (!DRY) writeFileSync(p, JSON.stringify(db, null, 2) + '\n');
     return `/reportaze/ (grupa: ${group.title})`;
   }
@@ -497,10 +517,22 @@ async function main() {
     const already = JSON.parse(readFileSync(GALLERIES_JSON, 'utf8')).galleries.some((x) => x.slug === b.slug);
     const onDisk = diskPhotoList(b.slug).length > 0;
     if (b.results.some((r) => r.status === 'ok') || already || onDisk) {
-      // okładka: pierwsze zdjęcie galerii, jeśli jeszcze jej nie ma
+      // okładka: `cover` z _meta.json (nazwa pliku źródłowego albo numer zdjęcia),
+      // domyślnie pierwsze zdjęcie galerii — i tylko jeśli jeszcze jej nie ma
       if (!DRY) {
         const coverOut = join(OUT_DIR, b.slug, 'cover.jpg');
-        const first = b.results.find((r) => r.status === 'ok');
+        const added = b.results.filter((r) => r.status === 'ok');
+        const wanted = b.meta?.cover;
+        const wantedStem = typeof wanted === 'string' ? wanted.replace(/\.[^.]+$/, '').toLowerCase() : null;
+        const pick = wanted === undefined || wanted === null
+          ? added[0]
+          : (typeof wanted === 'number'
+            ? added.find((r) => Number(r.index) === wanted)
+            : added.find((r) => r.file === wanted || String(r.file).replace(/\.[^.]+$/, '').toLowerCase() === wantedStem));
+        if (wanted !== undefined && wanted !== null && !pick) {
+          console.log(`Uwaga: w _meta.json galerii "${b.slug}" jest cover = ${JSON.stringify(wanted)}, ale nie ma takiego zdjęcia w tej synchronizacji — zostawiam pierwsze zdjęcie galerii.`);
+        }
+        const first = pick || added[0];
         if (first && !existsSync(coverOut)) {
           await writeJpeg(sharp(join(OUT_DIR, b.slug, `${first.index}.jpg`)), coverOut, CFG.coverMax ?? 1600, CFG.quality);
         }
