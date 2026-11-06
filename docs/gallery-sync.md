@@ -67,5 +67,13 @@ Jeśli JSON galerii rozjedzie się z plikami na dysku, sync odbuduje `photos_lis
 
 ## Wrzutnia — stan
 
-- Folder Drive: `annamatejska.pl — zdjęcia do galerii` (właściciel: konto Google instancji, Anna: edytor)
-- Harmonogram: codziennie rano (cron Hermesa) — szczegóły w `hermes cron`/ustawieniach.
+- Folder Drive: `annamatejska.pl — zdjęcia do galerii`
+  `https://drive.google.com/drive/folders/1XE4zHmcb6UAMwKb2B1ZJc1yb7OsLoo5q`
+  (właściciel `hermichalg@gmail.com`, Anna `annamatejskagazda@gmail.com` = edytor),
+  w środku `CZYTAJ-TO-PRZED-WRZUCENIEM-ZDJEC.txt` (instrukcja dla Anny)
+- Publicznie (skrypt, jedna komenda): `./tools/gallery-sync-and-publish.sh`
+  = sync → `npm run build` → `npm run validate` → commit → push na `main`.
+  `DRY_PUSH=1` robi wszystko poza wypchnięciem (commit lokalny).
+- Cron celowo NIE jest ustawiony (Michał: wrzutki będą sporadyczne) —
+  uruchamiamy na żądanie, wtedy gdy Anna wrzuci zdjęcia.
+- Raport po każdej synchronizacji: `docs/gallery-sync-report.md` + `_RAPORT-synchronizacji.txt` na Drive.
