@@ -72,7 +72,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 /* services — light WP-style tiles: photo + centred uppercase caption below */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;margin-top:56px}
 .svc{display:block;text-align:center}
-.svc .thumb{display:block;position:relative;overflow:hidden;aspect-ratio:3/2}
+.svc .thumb{display:block;position:relative;overflow:hidden;aspect-ratio:4/3}
 .svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
 .svc:hover img{transform:scale(1.05)}
 .svc h3{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;margin-top:20px}
@@ -92,7 +92,7 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .season-track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:2px 0 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
 .season-track::-webkit-scrollbar{display:none}
 .season-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
-.season-card{flex:0 0 calc((100% - 30px)/4);margin:0;scroll-snap-align:start;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.season-card{flex:0 0 calc((100% - 30px)/3.5);margin:0;scroll-snap-align:start;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
 .season-card img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;transition:transform .7s ease}
 .season-card:hover img{transform:scale(1.04)}
 /* kafelek bez zdjęcia (pora roku bez pleneru w archiwum) — kremowy kafel z gałązką, nie „dziura” */
@@ -102,19 +102,21 @@ html.kb .skip-link:focus{transform:translateY(0)}
 .season-body{padding:13px 15px 15px}
 .season-body .mo{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
 .season-body h3{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;margin-top:6px;font-weight:400}
-/* strzałki pasków w poziomie — wspólne dla /albumy i „Sezonowych plenerów”:
+/* strzałki pasków w poziomie — wspólne dla /albumy, „Sezonowych plenerów” i opinii:
    okrągłe przyciski nałożone na boki, przygaszone na początku/końcu */
-.album-nav,.season-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;margin:0;pointer-events:none}
-.album-nav button,.season-nav button{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,221,213,.85);background:rgba(255,255,255,.9);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 6px 22px rgba(13,13,13,.12);transition:background .2s,color .2s,opacity .2s,border-color .2s}
-.album-nav .album-prev,.season-nav .season-prev{margin-left:-20px}
-.album-nav .album-next,.season-nav .season-next{margin-right:-20px}
-.album-nav button:hover,.season-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
+.album-nav,.season-nav,.testi-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;margin:0;pointer-events:none}
+.album-nav button,.season-nav button,.testi-nav button{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,221,213,.85);background:rgba(255,255,255,.9);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 6px 22px rgba(13,13,13,.12);transition:background .2s,color .2s,opacity .2s,border-color .2s}
+.album-nav .album-prev,.season-nav .season-prev,.testi-nav .testi-prev{margin-left:-20px}
+.album-nav .album-next,.season-nav .season-next,.testi-nav .testi-next{margin-right:-20px}
+.album-nav button:hover,.season-nav button:hover,.testi-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
 .album-scroller:has(.album-track.at-start) .album-prev,
 .album-scroller:has(.album-track.at-end) .album-next,
 .album-scroller:has(.album-track.no-scroll) .album-nav,
 .season-slider:has(.season-track.at-start) .season-prev,
 .season-slider:has(.season-track.at-end) .season-next,
-.season-slider:has(.season-track.no-scroll) .season-nav{opacity:.3}
+.season-slider:has(.season-track.no-scroll) .season-nav,
+.testi-slider:has(.testi-track.at-start) .testi-prev,
+.testi-slider:has(.testi-track.at-end) .testi-next{opacity:.3}
 @media(min-width:961px) and (max-width:1250px){.season-card{flex-basis:calc((100% - 20px)/3)}}
 @media(max-width:960px){.season-card{flex-basis:calc((100% - 10px)/2)}}
 @media(max-width:560px){.season-card{flex-basis:86%}.album-nav .album-prev,.season-nav .season-prev{margin-left:-8px}.album-nav .album-next,.season-nav .season-next{margin-right:-8px}}
@@ -398,22 +400,22 @@ html.js .reveal.is-in{opacity:1;transform:none}
 @media(max-width:560px){.portfolio-grid figure{margin-bottom:6px}}
 @media(max-width:560px){.portfolio-grid{columns:1}}
 
-/* ===== opinie: 3 karty widoczne, przewijane ręcznie (palcem / strzałkami) ===== */
-.opinie-slider{position:relative;margin-top:52px}
-.opinie-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 0 20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
-.opinie-track::-webkit-scrollbar{display:none}
-.opinie-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
-.opinie-card{flex:0 0 calc((100% - 44px)/3);max-width:calc((100% - 44px)/3);scroll-snap-align:start;background:var(--white);border-top:2px solid var(--taupe);box-shadow:0 2px 18px rgba(13,13,13,.04);padding:34px 30px;display:flex;flex-direction:column}
-.opinie-card .who{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.opinie-card .who img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
-.opinie-card .who strong{display:block;font-weight:400;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
-.opinie-card .stars{color:var(--taupe);letter-spacing:3px;font-size:.85rem;margin-top:4px}
-.opinie-card p{font-size:.92rem;color:var(--ink-soft);margin:0}
-.opinie-nav{display:flex;gap:10px;justify-content:center;margin-top:26px}
-.opinie-nav button{width:44px;height:44px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:1.2rem;line-height:1;cursor:pointer;border-radius:2px;transition:.2s}
-.opinie-nav button:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
-@media(max-width:960px){.opinie-card{flex-basis:calc((100% - 22px)/2);max-width:calc((100% - 22px)/2)}}
-@media(max-width:560px){.opinie-card{flex-basis:88%;max-width:88%;padding:26px 22px}.opinie-track{gap:16px}}
+/* ===== opinie: jedna opinia w kafelku — zdjęcie 1/4 po lewej, treść 3/4 (Ania, 2026-11) ===== */
+.testi-slider{position:relative;margin-top:46px}
+.testi-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch}
+.testi-track::-webkit-scrollbar{display:none}
+.testi-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.testi-slide{flex:0 0 100%;max-width:100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr 3fr;min-height:400px;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.testi-photo{margin:0;overflow:hidden;background:var(--sand);position:relative}
+.testi-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.testi-initial{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--script);font-size:4rem;color:var(--taupe)}
+.testi-body{padding:54px 64px 46px;display:flex;flex-direction:column;justify-content:center}
+.testi-body blockquote{font-size:clamp(1rem,1.5vw,1.22rem);line-height:1.75;color:var(--ink);font-weight:300;margin:0;quotes:none;max-width:62ch}
+.testi-author{margin-top:30px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);font-weight:400}
+.testi-count{text-align:center;margin-top:16px;font-size:.7rem;letter-spacing:.2em;color:var(--ink-soft)}
+@media(max-width:900px){.testi-body{padding:38px 34px 34px}}
+@media(max-width:760px){.testi-slide{grid-template-columns:1fr;min-height:0}.testi-photo img{aspect-ratio:4/3;height:auto}.testi-body{padding:26px 22px 28px}}
+@media(max-width:560px){.testi-body blockquote{font-size:.96rem}}
 
 /* ===== podstrony sesji: zdjęcie z lewej, tekst z prawej (jak na starej stronie) ===== */
 .session-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}

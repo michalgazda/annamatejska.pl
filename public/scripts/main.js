@@ -202,6 +202,23 @@
   initSlider(document.getElementById('opinie-track'), '.opinie-prev', '.opinie-next', '.opinie-card', 22);
   initSlider(document.getElementById('album-track'), '.album-prev', '.album-next', '.album-slide', 16);
   initSlider(document.getElementById('season-track'), '.season-prev', '.season-next', '.season-card', 16);
+  initSlider(document.getElementById('testi-track'), '.testi-prev', '.testi-next', '.testi-slide', 0);
+
+  // licznik opinii („3 / 12”) pod kafelkiem
+  (function () {
+    var track = document.getElementById('testi-track');
+    var cur = document.getElementById('testi-cur');
+    if (!track || !cur) return;
+    var upd = function () {
+      var slide = track.querySelector('.testi-slide');
+      var w = slide ? slide.getBoundingClientRect().width : track.clientWidth || 1;
+      var n = track.querySelectorAll('.testi-slide').length;
+      cur.textContent = Math.min(n, Math.max(1, Math.round(track.scrollLeft / w) + 1));
+    };
+    track.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  })();
 
   // Contact form (Web3Forms)
   var form = document.getElementById('contact-form');

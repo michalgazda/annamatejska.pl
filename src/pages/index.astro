@@ -131,29 +131,31 @@ const se = sezony();
   <section id="opinie" style="background:var(--white)">
     <div class="container">
       <span class="kicker">Opinie</span>
-      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Co mówią moi klienci</h2>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wasze słowa o naszych fotograficznych spotkaniach</h2>
     </div>
     <div class="container">
-    <div class="opinie-slider" role="region" aria-label="Opinie klientów">
-      <div class="opinie-track" id="opinie-track" tabindex="0" aria-label="Przewiń opinie w lewo lub w prawo">
-        {testis.map(t => (
-          <article class="opinie-card">
-            <div class="who">
-              {t.photo && <img src={assetPath(t.photo, base)} alt="" width="56" height="56" decoding="async" />}
-              <div>
-                <strong>{t.author}</strong>
-                <div class="stars" role="img" aria-label="Ocena 5 na 5">★★★★★</div>
+      <div class="testi-slider" role="region" aria-label="Opinie klientów">
+        <div class="testi-track" id="testi-track" tabindex="0" aria-label="Przewiń opinie w lewo lub w prawo">
+          {testis.map(t => (
+            <article class="testi-slide">
+              <figure class="testi-photo">
+                {t.photo
+                  ? <img src={assetPath(t.photo, base)} alt={`Opinia — ${t.author}`} loading="lazy" decoding="async" />
+                  : <span class="testi-initial" aria-hidden="true">{t.author.slice(0, 1)}</span>}
+              </figure>
+              <div class="testi-body">
+                <blockquote>„{t.quote}”</blockquote>
+                <p class="testi-author">{t.author}</p>
               </div>
-            </div>
-            <p>„{t.quote}”</p>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
+        <div class="testi-nav">
+          <button type="button" class="testi-prev" aria-label="Poprzednia opinia" aria-controls="testi-track">‹</button>
+          <button type="button" class="testi-next" aria-label="Następna opinia" aria-controls="testi-track">›</button>
+        </div>
       </div>
-      <div class="opinie-nav">
-        <button type="button" class="opinie-prev" aria-label="Poprzednie opinie" aria-controls="opinie-track">‹</button>
-        <button type="button" class="opinie-next" aria-label="Następne opinie" aria-controls="opinie-track">›</button>
-      </div>
-    </div>
+      <p class="testi-count" aria-live="polite"><span id="testi-cur">1</span> / {testis.length}</p>
     </div>
   </section>
 </BaseLayout>
