@@ -162,11 +162,9 @@ const ig = instagram();
 
   <!-- Instagram — na całą szerokość, dwa rzędy po 6 kwadratów (jak na starej stronie) -->
   <section id="instagram" class="ig-section">
-    <div class="container">
+    <div class="container ig-head">
       <span class="kicker">Instagram</span>
-      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">
-        <a href={ig.profile_url} target="_blank" rel="noopener">{ig.profile}</a>
-      </h2>
+      <h2 class="ig-handle"><a href={ig.profile_url} target="_blank" rel="noopener">{ig.profile}</a></h2>
     </div>
     <div class="ig-grid">
       {ig.items.map((it) => (
@@ -178,9 +176,12 @@ const ig = instagram();
         </a>
       ))}
     </div>
-    <div class="container ig-links">
-      <a class="ig-more" href={ig.profile_url} target="_blank" rel="noopener">{ig.load_more_label}</a>
-      <a class="ig-follow" href={ig.profile_url} target="_blank" rel="noopener">{ig.follow_label}</a>
+    <div class="container ig-actions">
+      <a class="ig-btn" href={ig.profile_url} target="_blank" rel="noopener">{ig.load_more_label}</a>
+      <a class="ig-btn" href={ig.profile_url} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.4"></circle><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"></circle></svg>
+        {ig.follow_label}
+      </a>
     </div>
   </section>
 </BaseLayout>

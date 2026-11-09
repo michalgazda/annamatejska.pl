@@ -32,7 +32,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.2;letter-sp
 section{padding:96px 0}
 
 /* header */
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,250,248,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{max-width:1320px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--script);font-weight:400;font-size:1.8rem;line-height:1;letter-spacing:.01em;color:var(--ink)}
 .nav-links{display:flex;gap:32px;align-items:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
@@ -416,22 +416,22 @@ html.js .reveal.is-in{opacity:1;transform:none}
 
 /* ===== Instagram — na całą szerokość, dwa rzędy po 6 kwadratów (jak na starej stronie) ===== */
 .ig-section{background:var(--paper);padding:clamp(56px,7vw,88px) 0 clamp(48px,6vw,72px)}
-.ig-section h2{margin:0}
-.ig-section h2 a{color:inherit;text-decoration:none}
-.ig-section h2 a:hover{color:var(--taupe)}
+.ig-head{text-align:center}
+.ig-handle{margin:14px 0 0;font-size:clamp(.78rem,1.05vw,.88rem);font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.ig-handle a{color:inherit;text-decoration:none;transition:color .25s ease}
+.ig-handle a:hover{color:var(--taupe)}
 .ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-top:clamp(26px,3.4vw,40px)}
 .ig-item{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:var(--sand)}
 .ig-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
 .ig-item:hover img{transform:scale(1.05)}
 .ig-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(13,13,13,.34);opacity:0;transition:opacity .35s ease}
 .ig-item:hover .ig-badge,.ig-item:focus-visible .ig-badge{opacity:1}
-.ig-links{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:clamp(24px,3vw,34px);text-align:center}
-.ig-more{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:5px}
-.ig-more:hover{border-color:var(--ink)}
-.ig-follow{font-family:var(--script);font-size:1.5rem;color:var(--taupe)}
-.ig-follow:hover{color:var(--ink)}
+.ig-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:clamp(26px,3.2vw,38px)}
+/* kafelki jak przycisk „Napisz do mnie” z sekcji „Masz pytania?”: białe, prostokątne, promień 2 px */
+.ig-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;font-family:var(--sans);transition:background .25s ease,color .25s ease,border-color .25s ease}
+.ig-btn:hover{background:var(--taupe);border-color:var(--taupe);color:#fff}
 @media(max-width:900px){.ig-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:560px){.ig-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.ig-grid{grid-template-columns:repeat(3,1fr)}.ig-btn{width:100%;justify-content:center;padding:14px 20px}}
 @media(max-width:560px){.testi-body blockquote{font-size:.8rem}}
 
 /* ===== podstrony sesji: zdjęcie z lewej, tekst z prawej (jak na starej stronie) ===== */

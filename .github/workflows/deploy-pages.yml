@@ -43,6 +43,15 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          # duże dist (~300 MB zdjęć): syncing_files potrafi trwać dłużej niż domyślne
-          # 10 minut i deployment pada na "Timeout reached, aborting!"
-          timeout: 1800000
+          # GitHub twardo ogranicza ten timeout do 10 minut (większa wartość jest
+          # przycinana z ostrzeżeniem), dlatego nie da się „wydłużyć” wdrożenia.
+          error_count: 20
+
+      # GitHub Pages potrafi zawiesić wdrożenie i dobić do limitu 10 minut, podczas gdy
+      # udane wdrożenie tego samego dist trwa ~12 s — to po stronie GitHuba, nie rozmiaru.
+      # Ponawiamy raz: druga próba praktycznie zawsze przechodzi.
+      - name: Deploy to GitHub Pages (ponowienie po zawieszeniu)
+        if: failure() && steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          error_count: 20
