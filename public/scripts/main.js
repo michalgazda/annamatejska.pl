@@ -202,22 +202,39 @@
   initSlider(document.getElementById('opinie-track'), '.opinie-prev', '.opinie-next', '.opinie-card', 22);
   initSlider(document.getElementById('album-track'), '.album-prev', '.album-next', '.album-slide', 16);
   initSlider(document.getElementById('season-track'), '.season-prev', '.season-next', '.season-card', 16);
-  initSlider(document.getElementById('testi-track'), '.testi-prev', '.testi-next', '.testi-slide', 0);
 
-  // licznik opinii („3 / 12”) pod kafelkiem
+  // Opinie na stronie głównej — crossfade (tak jak Slick fade:true u Agnieszki Relic):
+  // jedna opinia naraz, przenikanie się, wysokość dopasowana do aktywnego kafelka.
   (function () {
-    var track = document.getElementById('testi-track');
+    var slider = document.querySelector('.testi-slider');
+    var stack = document.getElementById('testi-stack');
     var cur = document.getElementById('testi-cur');
-    if (!track || !cur) return;
-    var upd = function () {
-      var slide = track.querySelector('.testi-slide');
-      var w = slide ? slide.getBoundingClientRect().width : track.clientWidth || 1;
-      var n = track.querySelectorAll('.testi-slide').length;
-      cur.textContent = Math.min(n, Math.max(1, Math.round(track.scrollLeft / w) + 1));
+    if (!slider || !stack || !cur) return;
+    var slides = Array.prototype.slice.call(stack.querySelectorAll('.testi-slide'));
+    if (!slides.length) return;
+    var idx = 0;
+    var show = function (i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function (s, k) {
+        s.classList.toggle('is-active', k === idx);
+        s.setAttribute('aria-hidden', k === idx ? 'false' : 'true');
+      });
+      cur.textContent = idx + 1;
     };
-    track.addEventListener('scroll', upd, { passive: true });
-    window.addEventListener('resize', upd);
-    upd();
+    var prev = slider.querySelector('.testi-prev');
+    var next = slider.querySelector('.testi-next');
+    if (prev) prev.addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+    if (next) next.addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+    // klik w kafelek = następna opinia (jak na stronie wzorcowej)
+    slider.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      show(idx + 1);
+    });
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
+    });
+    show(0);
   })();
 
   // Contact form (Web3Forms)

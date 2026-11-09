@@ -75,6 +75,11 @@ export function sezony() {
   return JSON.parse(readFileSync('src/data/sezony.json', 'utf8'));
 }
 
+// Feed Instagrama na dole strony głównej (migawka 12 zdjęć ze starej strony)
+export function instagram() {
+  return JSON.parse(readFileSync('src/data/instagram.json', 'utf8'));
+}
+
 export function studio() {
   return JSON.parse(readFileSync('src/data/studio.json', 'utf8'));
 }

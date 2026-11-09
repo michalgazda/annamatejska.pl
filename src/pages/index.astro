@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SeasonMotif from '../components/SeasonMotif.astro';
-import { services, testimonials, assetPath, home, sezony } from '../data/queries';
+import { services, testimonials, assetPath, home, sezony, instagram } from '../data/queries';
 
 const base = import.meta.env.BASE_URL;
 const svcs = services();
 const testis = testimonials();
 const h = home().about;
 const se = sezony();
+const ig = instagram();
 ---
 
 <BaseLayout title="Anna Matejska-Gazda — Fotograf Kraków | Sesje rodzinne, kobiece i portretowe" description="Naturalna fotografia rodzinna, kobieca, ciążowa i wizerunkowa w Krakowie. Bez pozowania, z czułością.">
@@ -127,20 +128,20 @@ const se = sezony();
     </div>
   </section>
 
-  <!-- Opinie — karuzela z autoprzewijaniem -->
+  <!-- Opinie — jedna opinia naraz, crossfade jak u Agnieszki Relic (Slick fade:true) -->
   <section id="opinie" style="background:var(--white)">
     <div class="container">
       <span class="kicker">Opinie</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">Wasze słowa o naszych fotograficznych spotkaniach</h2>
     </div>
     <div class="container">
-      <div class="testi-slider" role="region" aria-label="Opinie klientów">
-        <div class="testi-track" id="testi-track" tabindex="0" aria-label="Przewiń opinie w lewo lub w prawo">
-          {testis.map(t => (
-            <article class="testi-slide">
+      <div class="testi-slider" role="region" aria-label="Opinie klientów" tabindex="0">
+        <div class="testi-stack" id="testi-stack">
+          {testis.map((t, i) => (
+            <article class={`testi-slide${i === 0 ? ' is-active' : ''}`} aria-hidden={i === 0 ? 'false' : 'true'}>
               <figure class="testi-photo">
                 {t.photo
-                  ? <img src={assetPath(t.photo, base)} alt={`Opinia — ${t.author}`} loading="lazy" decoding="async" />
+                  ? <img src={assetPath(t.photo, base)} alt={`Opinia — ${t.author}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
                   : <span class="testi-initial" aria-hidden="true">{t.author.slice(0, 1)}</span>}
               </figure>
               <div class="testi-body">
@@ -151,11 +152,35 @@ const se = sezony();
           ))}
         </div>
         <div class="testi-nav">
-          <button type="button" class="testi-prev" aria-label="Poprzednia opinia" aria-controls="testi-track">‹</button>
-          <button type="button" class="testi-next" aria-label="Następna opinia" aria-controls="testi-track">›</button>
+          <button type="button" class="testi-prev" aria-label="Poprzednia opinia">‹</button>
+          <button type="button" class="testi-next" aria-label="Następna opinia">›</button>
         </div>
       </div>
       <p class="testi-count" aria-live="polite"><span id="testi-cur">1</span> / {testis.length}</p>
+    </div>
+  </section>
+
+  <!-- Instagram — na całą szerokość, dwa rzędy po 6 kwadratów (jak na starej stronie) -->
+  <section id="instagram" class="ig-section">
+    <div class="container">
+      <span class="kicker">Instagram</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem)">
+        <a href={ig.profile_url} target="_blank" rel="noopener">{ig.profile}</a>
+      </h2>
+    </div>
+    <div class="ig-grid">
+      {ig.items.map((it) => (
+        <a class="ig-item" href={it.url} target="_blank" rel="noopener nofollow" aria-label="Zobacz to zdjęcie na Instagramie">
+          <img src={assetPath(it.photo, base)} alt="" width="600" height="600" loading="lazy" decoding="async" />
+          <span class="ig-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.4"></circle><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"></circle></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+    <div class="container ig-links">
+      <a class="ig-more" href={ig.profile_url} target="_blank" rel="noopener">{ig.load_more_label}</a>
+      <a class="ig-follow" href={ig.profile_url} target="_blank" rel="noopener">{ig.follow_label}</a>
     </div>
   </section>
 </BaseLayout>
